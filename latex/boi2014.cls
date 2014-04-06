@@ -38,30 +38,32 @@
 %%
 
 \newcommand{\Olympiad}{Baltic Olympiad in Informatics}
+\newcommand{\OlympiadDay}{Day \taskday}
 \newcommand{\LocationDate}{April 26--30, Palanga}
 
-\newcommand{\PageOf}[2]{Page #1 of #2}
+\newcommand{\PageOf}[2]{Page #1 out of #2}
 \newcommand{\TitleTask}{Task}
-\newcommand{\TitleInput}{Input}
+\newcommand{\TitleImplementation}{Implementation}
 \newcommand{\TitleOutput}{Output}
+\newcommand{\TitleInput}{Input}
 \newcommand{\TitleExample}{Example}
 \newcommand{\TitleExamples}{Examples}
 \newcommand{\TitleSubtasks}{Subtasks}
-\newcommand{\TitleExplanation}{Explanation}
+\newcommand{\TitleDetails}{Details}
+\newcommand{\TitleExplanation}{Comments}
 \newcommand{\TitleConstraints}{Constraints}
-\newcommand{\TitleGrading}{Grading}
-\newcommand{\TitleLibrary}{Library}
-\newcommand{\TitleImplementation}{Implementation}
+\newcommand{\TitleGrading}{Partial Scoring}
 
 %%
 %% Page layout
 %%
 
+% The path is relative for problem description files.
+\newcommand{\Logo}{../../../latex/boi2014}
 \newlength{\LogoLength}
 \setlength{\LogoLength}{2.1cm}
 \newlength{\LogoMargin}
 \setlength{\LogoMargin}{3mm}
-\newcommand{\Logo}{boi2014}
 
 \lhead{}\rhead{}
 \chead{%
@@ -91,16 +93,17 @@
 %%
 
 \newcommand\Task{\section*{\TitleTask}}
+\newcommand\Implementation{\section*{\TitleImplementation}}
 \newcommand\Input{\section*{\TitleInput}}
 \newcommand\Output{\section*{\TitleOutput}}
-\newcommand\Example{\section*{\TitleExample}}
-\newcommand\Examples{\section*{\TitleExamples}}
+\newcommand\Example{\subsection*{\TitleExample}}
+\newcommand\Examples{\subsection*{\TitleExamples}}
+\newcommand\Subtasks{\subsection*{\TitleSubtasks}}
+\newcommand\Details{\subsection*{\TitleDetails}}
 \newcommand\Grading{\section*{\TitleGrading}}
-\newcommand\Library{\section*{\TitleLibrary}}
 \newcommand\Constraints{\section*{\TitleConstraints}}
 \newcommand\Extra{\section*{\TitleExtra}}
-\newcommand\Subtasks{\section*{\TitleSubtasks}}
-\newcommand\Implementation{\section*{\TitleImplementation}}
+
 %%
 %% Body
 %%

@@ -1,9 +1,11 @@
-\documentclass{boi2014}
+\documentclass{../../../latex/boi2014}
 
-\renewcommand{\Day}{\Firstday}
+\usepackage{todonotes}
 
-\renewcommand{\taskname}{portals}
-\renewcommand{\longtaskname}{Portals}
+\renewcommand{\OlympiadDay}{2}
+
+\renewcommand{\taskcode}{portals}
+\renewcommand{\taskname}{Portals}
 
 \newcommand{\param}[1]{{\tt #1}}
 \newcommand{\method}[1]{{\tt #1}}
@@ -18,15 +20,11 @@
     rows and \param{W} columns. Each grid cell contains one
     of the following characters:
 
+    \todo{Some indentation would be nice. Perhaps define a new environment?}
     \begin{description}
         \item[\constant{\#}] --- walled off square
         \item[\constant{.}] --- open square.
     \end{description}
-
-    \begin{todo}
-        Some indentation would be nice. Perhaps define a new
-        environment?
-    \end{todo}
 
     You may only walk on the open squares. Additionally, the rectangular
     area depicted on the map is surrounded by walls from the outside
@@ -46,9 +44,7 @@
     per side of wall). Notice that there may be multiple portals placed
     on different sides of same wall.
 
-    \begin{todo}
-        Did I get this note right?
-    \end{todo}
+    \todo{Did I get this note right?}
 
     When two portals are placed on the map, you can use them to
     teleport yourself. When standing next to one of the portals,
@@ -101,9 +97,7 @@
     [\param{X}][\param{Y}] = \param{M}[\param{U}][\param{V}] =
     \constant{.}$)
 
-    \begin{todo}
-        Can $(X, Y) = (U, V)$?
-    \end{todo}
+    \todo{Can $(X, Y) = (U, V)$?}
 
     Your function has to return the least time needed to reach the cake
     from the starting position.
@@ -135,10 +129,10 @@
         }
     \end{figure}
 
-\begin{todo}
+\todo{
     Perhaps add a diagram showing the wall--boundary surrounding the
     labyrinth as well as positions of the cake and the player.
-\end{todo}
+}
 
 Here you have to reach the top--right corner from the bottom--left one.
 One quickest sequence of moves is as follows:
@@ -155,6 +149,10 @@ This takes time $4$ and no quicker way is possible. Therefore
 your function should return \constant{4}.
 
 \Subtasks
+\todo{
+    Looks ugly but I'm confident this layout can be very
+    nice with sufficient tweeking.
+}
 \begin{figure}[H]
     \centering
     \begin{tabular}{cc}
@@ -191,22 +189,17 @@ your function should return \constant{4}.
         \end{minipage}
     \end{tabular}
 \end{figure}
-\begin{todo}
-    Looks ugly but I'm confident this layout can be very
-    nice with sufficient tweeking.
-\end{todo}
 
 \Details
-\begin{todo}
+\todo{
     Is this a good title?
-\end{todo}
+}
 
 Time limit: $1s$.
 
 Memory limit: $256 MB$.
 
-\begin{todo}
-    Also, boring stuff about graders that I don't have yet.
-\end{todo}
+\todo{Also, boring stuff about graders that I don't have yet.}
+
 \end{document}
 
