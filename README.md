@@ -18,11 +18,12 @@ To make changes:
 
     # Change something:
     cd tasks
-    vim ...
+    vim day1/task/task.tex
 
-    # Review your changes:
+    # Review and stage your changes:
     git status
     git diff
+    git add day1/task/task.{tex,pdf}
 
     # Commit and push:
     git commit -m "Updated limits of task Foo."
