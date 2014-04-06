@@ -31,7 +31,7 @@
 \newcommand{\taskday}{}  % renew in task description
 \newcommand{\taskcode}{}  % renew in task description
 \newcommand{\taskname}{}  % renew in task description
-\newcommand{\tasklang}{}  % renew in task description
+\newcommand{\tasklang}{EN}  % renew in per language class files
 
 %%
 %% Strings
@@ -41,18 +41,17 @@
 \newcommand{\OlympiadDay}{Day \taskday}
 \newcommand{\LocationDate}{April 26--30, Palanga}
 
-\newcommand{\PageOf}[2]{Page #1 out of #2}
+\newcommand{\PageOf}[2]{Page #1 of #2}
+
 \newcommand{\TitleTask}{Task}
 \newcommand{\TitleImplementation}{Implementation}
 \newcommand{\TitleOutput}{Output}
 \newcommand{\TitleInput}{Input}
 \newcommand{\TitleExample}{Example}
 \newcommand{\TitleExamples}{Examples}
-\newcommand{\TitleSubtasks}{Subtasks}
-\newcommand{\TitleDetails}{Details}
+\newcommand{\TitleScoring}{Scoring}
 \newcommand{\TitleExplanation}{Comments}
 \newcommand{\TitleConstraints}{Constraints}
-\newcommand{\TitleGrading}{Partial Scoring}
 
 %%
 %% Page layout
@@ -96,11 +95,9 @@
 \newcommand\Implementation{\section*{\TitleImplementation}}
 \newcommand\Input{\section*{\TitleInput}}
 \newcommand\Output{\section*{\TitleOutput}}
-\newcommand\Example{\subsection*{\TitleExample}}
-\newcommand\Examples{\subsection*{\TitleExamples}}
-\newcommand\Subtasks{\subsection*{\TitleSubtasks}}
-\newcommand\Details{\subsection*{\TitleDetails}}
-\newcommand\Grading{\section*{\TitleGrading}}
+\newcommand\Example{\section*{\TitleExample}}
+\newcommand\Examples{\section*{\TitleExamples}}
+\newcommand\Scoring{\section*{\TitleScoring}}
 \newcommand\Constraints{\section*{\TitleConstraints}}
 \newcommand\Extra{\section*{\TitleExtra}}
 
