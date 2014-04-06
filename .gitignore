@@ -1,0 +1,13 @@
+# LaTeX junk
+*.aux
+*.log
+*.out
+*.synctex.gz
+
+# Vim buffer files
+*.swo
+*.swp
+
+# Mac OS junk
+[Tt]humbs.db
+*.DS_Store
