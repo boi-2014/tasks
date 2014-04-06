@@ -28,17 +28,18 @@
 %% Variables
 %%
 
-\newcommand{\taskday}{}  % renew in task description
-\newcommand{\taskcode}{}  % renew in task description
-\newcommand{\taskname}{}  % renew in task description
-\newcommand{\tasklang}{EN}  % renew in per language class files
+\newcommand{\OlympiadDayNum}{}
+\newcommand{\TaskCode}{}  % renew in task description
+\newcommand{\TaskName}{}  % renew in task description
 
 %%
 %% Strings
 %%
 
+\newcommand{\Language}{EN}  % renew in per language class files
+
 \newcommand{\Olympiad}{Baltic Olympiad in Informatics}
-\newcommand{\OlympiadDay}{Day \taskday}
+\newcommand{\OlympiadDay}{Day \OlympiadDayNum}
 \newcommand{\LocationDate}{April 26--30, Palanga}
 
 \newcommand{\PageOf}[2]{Page #1 of #2}
@@ -77,7 +78,7 @@
             \vskip 2.5mm \hrule\vskip 2.5mm%
             {\sffamily\makebox[0pt][l]{%
                 \LocationDate}%
-            \hfill\ttfamily\bfseries\makebox[0pt][r]{\taskcode\enskip$\bullet$\enskip\tasklang}}
+            \hfill\ttfamily\bfseries\makebox[0pt][r]{\TaskCode\enskip$\bullet$\enskip\Language}}
         \end{minipage}%
     \end{tabular}%
 }
@@ -109,7 +110,7 @@
 \AtBeginDocument{
     \headheight=50pt%
     \headsep=14pt%
-    \taskheadline{\taskname}%
+    \taskheadline{\TaskName}%
     \parindent=0pt%
     \parskip=6pt
 }
