@@ -74,7 +74,7 @@
             \begin{minipage}[b]{\textwidth-\LogoLength-\LogoMargin}%
             {\sffamily\Large
                 \Olympiad%
-                \hfill\makebox[0pt][r]{\taskday}}
+                \hfill\makebox[0pt][r]{\OlympiadDay}}
             \vskip 2.5mm \hrule\vskip 2.5mm%
             {\sffamily\makebox[0pt][l]{%
                 \LocationDate}%
