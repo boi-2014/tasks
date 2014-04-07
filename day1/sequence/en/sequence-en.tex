@@ -1,0 +1,77 @@
+\documentclass{../../../latex/boi2014}
+
+\usepackage{todonotes}
+
+\renewcommand{\DayNum}{2}
+\renewcommand{\TaskCode}{portals}
+\renewcommand{\TaskName}{Portals}
+
+\newcommand{\param}[1]{{\tt #1}}
+\newcommand{\method}[1]{{\tt #1}}
+\newcommand{\constant}[1]{{\tt #1}}
+
+\begin{document}
+    Adam wrote down on a blackboard a sequence of \param{K} consequtive
+    positive integers starting with \param{N}. When he left, Billy came
+    in and erased all but one digit from each number, thus creating a
+    sequence of \param{K} integers between \constant{0} and \constant{9}.
+
+    \Task
+
+    Given the final sequence left on the blackboard, find the least
+    possible value of \param{N} with which it could have occured.
+
+    \Implementation
+
+    Write a function \method{recreate\_sequence(K, B)} that takes
+    the following parameters:
+    \begin{itemize}
+        \item \param{K} --- the length of either sequence
+        \item \param{B} --- a one--dimensional array that describes
+                            Billy's sequence, in the order in which
+                            it is written on the blackboard: $\param{A}[i]$
+                            ($0 \le i \le \param{K}-1$) is a digit
+                            of $\param{N}+i$
+    \end{itemize}
+
+    Function \method{recreate\_sequence} has to return the least possible
+    value of \param{N} with which this sequence could have occured.
+
+    \Example
+
+    Let us consider the example where
+    \begin{figure}[H]
+        \centering
+        \constant{%
+            \param{K} = 6
+            \;
+            \param{A} =%
+            \begin{tabular}{c}
+                7\\8\\9\\5\\1\\2
+            \end{tabular}
+        }
+    \end{figure}
+
+    Then setting $\param{N}=47$ would correspond to Adam's sequence
+    being \constant{47 48 49 50 51 52} from which Billy's sequence
+    can indeed be obtained. As no smaller value of \param{N}
+    would work, your function has to return \constant{47}.
+
+\Scoring
+
+\begin{description}
+    \item[Subtask 1 (? points).] $1 \le \param{K} \le 10$
+    \item[Subtask 2 (? points).] $1 \le \param{K} \le 1000$, correct
+        answer does not exceed $1000$
+    \item[Subtask 3 (? points).] $1 \le \param{K} \le 1000$
+    \item[Subtask 4 (? points).] $1 \le \param{K} \le 100\,000$
+\end{description}
+
+\Constraints
+
+Time limit: $?$ s.
+
+Memory limit: $?$ MB.
+
+\end{document}
+
