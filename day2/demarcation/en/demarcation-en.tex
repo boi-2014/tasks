@@ -1,0 +1,133 @@
+\documentclass{../../../latex/boi2014}
+
+\usepackage{enumitem}
+\usepackage{todonotes}
+\usepackage{wrapfig}
+
+\renewcommand{\DayNum}{2}
+\renewcommand{\TaskCode}{demarcation}
+\renewcommand{\TaskName}{Demarcation}
+
+\newcommand{\param}[1]{{\tt #1}}
+\newcommand{\method}[1]{{\tt #1}}
+\newcommand{\constant}[1]{{\tt #1}}
+
+\newcommand{\N}{\param{N}}
+\newcommand{\X}{\param{X}}
+\newcommand{\Y}{\param{Y}}
+\newcommand{\xa}{\param{x1}}
+\newcommand{\ya}{\param{y1}}
+\newcommand{\xb}{\param{x2}}
+\newcommand{\yb}{\param{y2}}
+
+
+\begin{document}
+
+    For a long time the island of Bytopia was ruled by the fair king
+    Byteasar. But after the sudden death
+    of the king, his two sons -- twins Biteon and Byteon -- could
+    not come to an agreement which one of them should ascend the throne.
+    Therefore they decided to divide the island into two provinces to
+    rule them independently.  
+ 
+    On a map Byteotia is shaped as a polygon of \N{} vertices. Every
+    side of the polygon is parallel to a side of the map, and every
+    two consecutive sides are perpendicular to each other.  Biteon
+    and Byteon want to divide the polygon into two congruent figures,
+    using one line segment contained in the polygon and parallel to a
+    side of the map.  (Two figures are congruent if one can be transformed
+    into the other using a combination of reflections, rotations and
+    translations.) Coordinates of the polygon vertices and the end points
+    of the dividing segment are integers.  
+ 
+    The king's sons asked you to verify whether such a division is
+    possible.
+
+    \Task
+
+    Given the shape of the island, determine if it can be partitioned
+    by a horizontal or vertical segment into two congruent pieces. If
+    it can, find one such segment.
+
+    \Implementation
+    You need to implement the procedure \method{divide\_island(N, X, Y)}
+    which takes the following parameters:
+    \begin{itemize}
+        \item \N{} --- the number of vertices in the polygonal outline of
+            the island
+        \item \X{} --- a one--dimensional array that contains the
+            $x$--coordinates of the vertices
+        \item \Y{} --- a one--dimensional array that contains the
+            $y$--coordinates of the vertices
+    \end{itemize}
+
+    More specifically, $(\X[i], \Y[i])$, $0 \le i \le \N-1$, are
+    coordinates of the $i$--th vertex of the polygon.
+    %\todo{In what order are vertices given?}
+
+    Procedure \method{divide\_island} has to communicate the answer
+    by calling one of the two provided procedures:
+    \begin{itemize}
+        \item \method{division\_line(\xa, \ya, \xb, \yb)} --- call
+            this procedure if it is possible to divide the island
+            into congruent parts with a horizontal or vertical segment.
+            Its parameters must describe such segment: 
+            (\xa, \ya) and (\xb, \yb) must be the coordinates of its
+            endpoints. Either $\xa = \xb$ or $\ya = \yb$ must hold
+        \item \method{impossible} --- call this procedure with no
+            parameters if a suitable division cannot be found
+    \end{itemize}
+
+    \Examples
+    For the example
+    \begin{figure}[H]
+        \centering
+        \tt
+        \N{} = 10
+        \;
+        \X{} =%
+        \begin{tabular}{c}
+            0\\1\\1\\3\\3\\2\\2\\1\\1\\0
+        \end{tabular}
+        \;
+        \Y{} =%
+        \begin{tabular}{c}
+            0\\0\\1\\1\\5\\5\\3\\3\\2\\2
+        \end{tabular}
+    \end{figure}
+    \method{division\_line(1, 2, 3, 2)} should be called (this is
+    not the only correct choices of parameters).
+
+    On the other hand, for the example
+    \begin{figure}[H]
+        \centering
+        \tt
+        \N{} = 6
+        \;
+        \X{} =%
+        \begin{tabular}{c}
+            0\\1\\1\\2\\2\\0
+        \end{tabular}
+        \Y{} =%
+        \begin{tabular}{c}
+            0\\0\\1\\1\\2\\2
+        \end{tabular}
+    \end{figure}
+    the only correct solution is to call \method{impossible}.
+    \todo{Need illustrations for examples}
+    \Scoring
+
+    \begin{description}
+        \item[Subtask 1 (40 points).] $4 \le \N{} \le 200$
+        \item[Subtask 2 (10 points).] $4 \le \N{} \le 5000$
+        \item[Subtask 3 (50 points).] $4 \le \N{} \le 100\,000$
+    \end{description}
+
+    \Constraints
+
+    \begin{description}
+        \item[Time limit:] ? s.
+        \item[Memory limit:] 128 MB.
+    \end{description}
+
+\end{document}
