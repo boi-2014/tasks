@@ -20,8 +20,7 @@
 \renewcommand{\Language}{LT}
 
 \renewcommand{\Olympiad}{Baltijos šalių informatikos olimpiada}
-\renewcommand{\OlympiadDayNum}{}
-\renewcommand{\OlympiadDay}{\OlympiadDayNum{} diena}
+\renewcommand{\OlympiadDay}{\DayNum{} diena}
 \renewcommand{\LocationDate}{Balandžio 26--30 d., Palanga}
 
 \renewcommand{\PageOf}[2]{#1 puslapis iš #2}

@@ -28,7 +28,7 @@
 %% Variables
 %%
 
-\newcommand{\OlympiadDayNum}{}
+\newcommand{\DayNum}{}    % renew in task description
 \newcommand{\TaskCode}{}  % renew in task description
 \newcommand{\TaskName}{}  % renew in task description
 
@@ -39,7 +39,7 @@
 \newcommand{\Language}{EN}  % renew in per language class files
 
 \newcommand{\Olympiad}{Baltic Olympiad in Informatics}
-\newcommand{\OlympiadDay}{Day \OlympiadDayNum}
+\newcommand{\OlympiadDay}{Day \DayNum}
 \newcommand{\LocationDate}{April 26--30, Palanga}
 
 \newcommand{\PageOf}[2]{Page #1 of #2}
