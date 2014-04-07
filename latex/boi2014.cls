@@ -58,8 +58,7 @@
 %% Page layout
 %%
 
-% The path is relative for problem description files.
-\newcommand{\Logo}{../../../latex/boi2014}
+\newcommand{\Logo}{boi2014}
 \newlength{\LogoLength}
 \setlength{\LogoLength}{2.1cm}
 \newlength{\LogoMargin}

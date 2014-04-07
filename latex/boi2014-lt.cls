@@ -5,8 +5,7 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{boi2014-lt}
 
-% The path is relative for problem description files.
-\LoadClass{../../../latex/boi2014}
+\LoadClass{boi2014}
 
 % Things below are specific to littex, i.e. font encoding
 \RequirePackage[lithuanian]{babel}
