@@ -47,8 +47,8 @@ One way to achieve that is to add symlinks in standard LaTeX searched directorie
 
 Or if you use Linux:
 
-    ln -s ~/Documents/tasks/latex /usr/local/share/texmf/boi2014-latex
-    ln -s ~/Documents/tasks/figures /usr/local/share/texmf/boi2014-figures
+    ln -s ~/Documents/tasks/latex /usr/local/share/texmf/tex/boi2014-latex
+    ln -s ~/Documents/tasks/figures /usr/local/share/texmf/tex/boi2014-figures
     
 Alternatively you can set TEXINPUTS enviroment variable, or use settings
 of your prefered GUI editor.
