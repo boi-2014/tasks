@@ -54,8 +54,8 @@ Or if you use Linux:
 Alternatively you can set TEXINPUTS enviroment variable, or use settings
 of your prefered GUI editor.
 
-Translating Task Descriptions
------------------------------
+Translating Task Statements
+---------------------------
 
 First translate the LaTeX class file for your language, which contains common
 strings used as section headers. Any additional packages required to support
@@ -63,6 +63,6 @@ your language should also be added to this file.
 
 Then make a copy of task you want to translate (be sure to respect the naming
 convention), set your language specific class file as documentclass and
-translate the text of the task description.
+translate the text of the task statement.
 
 When finished, check-in both the LaTeX source file and the compiled PDF file.
