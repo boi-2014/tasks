@@ -64,3 +64,5 @@ your language should also be added to this file.
 Then make a copy of task you want to translate (be sure to respect the naming
 convention), set your language specific class file as documentclass and
 translate the text of the task description.
+
+When finished, check-in both the LaTeX source file and the compiled PDF file.
