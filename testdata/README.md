@@ -38,3 +38,6 @@ subtask and test. For example:
         task.1-02.in  - all lines are vertical.
         task.1-02.sol
         ...
+
+If you use a program to generate tests, please upload it and make sure to add a
+comment explaining the usage.
