@@ -127,37 +127,14 @@
     \end{figure}
 }
 \newcommand\example[3]{% need a flexible way to change column widths
-    \begin{tabular}{|p{4cm}|p{3cm}|p{7.2cm}|}
-        \hline
-        {\bf\TitleInput} & {\bf\TitleOutput} & {\bf\TitleExplanation} \\
-        \hline
-        {\tt#1} & {\tt#2} & {#3} \\
-        \hline
-    \end{tabular}}
-\newcommand\exampleflex[4]{% need a flexible way to change column widths
-    \begin{tabular}{#1}
-        \hline
-        {\bf\TitleInput} & {\bf\TitleOutput} & {\bf\TitleExplanation} \\
-        \hline
-        {\tt#2} & {\tt#3} & {#4} \\
-        \hline
-    \end{tabular}}
-\newcommand\rawexample[3]{%
-    \begin{tabular}{|p{5cm}|p{4cm}|}
-        \hline
-        {\bf\TitleInput} & {\bf\TitleOutput} \\
-        \hline
-        {\tt#1} & {\tt#2} \\
-        \hline
-    \end{tabular}}
-\newcommand\rawexampleflex[3]{%
-    \begin{tabular}{#1}
-        \hline
-        {\bf\TitleInput} & {\bf\TitleOutput} \\
-        \hline
-        {\tt#2} & {\tt#3} \\
-        \hline
-    \end{tabular}}
-
-\newcommand\includefile[1]{
-    \vspace{-1.5em}\verbatiminput{#1}}
+    \renewcommand{\arraystretch}{1.5}
+    \begin{figure}[h!]
+        \begin{tabular}{|p{4cm}|p{3cm}|p{7.2cm}|}
+            \hline
+            {\bf\TitleInput} & {\bf\TitleOutput} & {\bf\TitleExplanation} \\
+            \hline
+            {\tt#1} & {\tt#2} & {#3} \\
+            \hline
+        \end{tabular}
+    \end{figure}
+}
