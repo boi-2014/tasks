@@ -1,0 +1,81 @@
+\documentclass{boi2014}
+
+\usepackage{enumitem}
+\usepackage{todonotes}
+\usepackage{wrapfig}
+
+\renewcommand{\DayNum}{1}
+\renewcommand{\TaskCode}{coprobber}
+\renewcommand{\TaskName}{A cop and a robber}
+
+\newcommand{\param}[1]{{\tt #1}}
+\newcommand{\method}[1]{{\tt #1}}
+\newcommand{\constant}[1]{{\tt #1}}
+
+\begin{document}
+    \todo{Wrap the problem in a story.}
+    A cop is trying to catch a robber moving along the edges of a graph. The
+    two players play alternatingly.
+
+    \begin{enumerate}
+        \item The game starts by the cop choosing his initial vertex.
+        \item The robber then chooses his starting vertex.
+        \item The cop's move consists of him moving to a neighbouring vertex
+        (i.e.  a vertex that is connected by an edge to the current vertex of
+        the cop) or waiting (i.e. not moving).
+        \item The robber's move consists of him moving to a neighbouring
+        vertex. Note that he is not allowed to wait.
+        \item The robber's move consists of him moving to a neighbouring vertex.
+        Note that he is not allowed to wait.
+        \begin{enumerate}
+            \item both players are on the same vertex after a move of either
+            player --- cop captures the robber so wins;
+            \item the position repeats (any position is dened by cop's vertex
+            $c$, robber's vertex $r$ and the side $T$ whose turn it is to move
+            next; a position repeats if there has been an earlier move after
+            which all three parameters $c$, $r$ and $T$ were the same) --- this
+            corresponds to the robber being able to avoid the cop indefinitely,
+            so robber wins.
+        \end{enumerate}
+    \end{enumerate}
+
+    \Task
+    Given the graph, determine which player wins if both play optimally.
+    Moreover, play the game for the winning player and win.
+
+    \Implementation
+    You need to implement the function \method{get\_cake(R, C, M)}
+    which takes the following parameters:
+    \begin{itemize}
+        \item \param{R} --- the number of rows in the map $R$,
+        \item \param{C} --- the number of columns in the map $C$,
+        \item \param{M} --- a two--dimensional array, where
+            \param{M}$[i][j]$ ($0 \le i < R$, $0 \le j < C$) is the cell in
+             the $i$--th row and $j$--th column of the map.
+    \end{itemize}
+
+
+    \Example
+    \todo{Provide an example.}
+
+    \Scoring
+    \todo{Explain scoring.}
+
+    \todo{Prepare subtasks.}
+    \begin{description}
+        \item[Subtask 1 (25 points):]
+        \item[Subtask 2 (25 points):]
+        \item[Subtask 3 (25 points):]
+        \item[Subtask 4 (25 points):]
+    \end{description}
+
+    \Constraints
+
+    \begin{description}
+        \item[Time limit:] 1 s.
+        \item[Memory limit:] 256 MB.
+    \end{description}
+
+    \todo{Need to add info about graders.}
+\end{document}
+
