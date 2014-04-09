@@ -58,11 +58,15 @@ Translating Task Statements
 ---------------------------
 
 First translate the LaTeX class file for your language, which contains common
-strings used as section headers. Any additional packages required to support
-your language should also be added to this file.
+strings used as section headers. For example, the German translations should be
+added to the file "latex/boi2014-de.cls". Any additional packages required to
+support your language should also be added to this file.
 
 Then make a copy of task you want to translate (be sure to respect the naming
 convention), set your language specific class file as documentclass and
-translate the text of the task statement.
+translate the text of the task statement. For example, for German language the
+document class should be set as follows:
+
+    \documentclass{boi2014-de}
 
 When finished, check-in both the LaTeX source file and the compiled PDF file.
