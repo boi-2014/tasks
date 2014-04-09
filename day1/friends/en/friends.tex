@@ -1,0 +1,59 @@
+\documentclass{boi2014}
+
+\usepackage{enumitem}
+\usepackage{todonotes}
+
+\renewcommand{\DayNum}{2}
+\renewcommand{\TaskCode}{friends}
+\renewcommand{\TaskName}{Friends}
+
+\newcommand{\param}[1]{{\tt #1}}
+\newcommand{\method}[1]{{\tt #1}}
+\newcommand{\constant}[1]{{\tt #1}}
+
+\begin{document}
+
+    Pepe, Repe and Sepe are three friends. First Pepe chooses a string. Then
+    Repe constructs a new string that consists of two copies of the original
+    string. Finally Sepe adds one letter somewhere to the string.
+    
+
+    \Task
+    You are given the final string and your task is to reconstruct the original
+    string
+
+    \Input
+    The only input line contains the final string. It consists of letters
+    uppercase latters A \ldots{} Z.
+
+    \Output
+    Your program should print the original string. However, if the original
+    string is not unique, you should print {\tt NOT UNIQUE}.
+    
+
+    \Examples
+
+    \simpleexample{ABXCABC}{ABC}{}
+    \simpleexample{ABABABA}{ABA}{}
+    \simpleexample{ABABABABA}{NOT UNIQUE}{}
+
+    \Scoring
+
+    \todo{Finalize subtasks.}
+    \begin{description}
+        \item[Subtask 1 (X points):] The length of the original string is at
+        most $1000$ letters.
+        \item[Subtask 2 (X points):] The length of the original string is at
+        most $100\ 000$ letters.
+    \end{description}
+
+    \Constraints
+
+    \todo{Finalize limits.}
+    \begin{description}
+        \item[Time limit:] 1 s.
+        \item[Memory limit:] 256 MB.
+    \end{description}
+
+\end{document}
+
