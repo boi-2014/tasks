@@ -6,54 +6,90 @@
 
 \renewcommand{\DayNum}{1}
 \renewcommand{\TaskCode}{coprobber}
-\renewcommand{\TaskName}{A cop and a robber}
+\renewcommand{\TaskName}{The cop and the robber}
 
 \newcommand{\param}[1]{{\tt #1}}
 \newcommand{\method}[1]{{\tt #1}}
 \newcommand{\constant}[1]{{\tt #1}}
 
 \begin{document}
-    \todo{Wrap the problem in a story.}
-    A cop is trying to catch a robber moving along the edges of a graph. The
-    two players play alternatingly.
+    In the city of Bytemore the crime level is hitting an all--time high.  Among
+    other crimes, roberies are happening every day.  If a police officer happens
+    to be nearby, he will try to chase the robber through the small alleys that
+    connect street corners (usually referred to as just \emph{corners}).
+    Unfortunately most of the time robbers escape as they know the district much
+    better than the police.
 
+    The Bytemore City Police Department (BCP) is organising a summit in order to
+    reduce the crime rate. One of the initiatives is to use computer aid in
+    pursuing the robbers. For this BCP has made precise maps of all dangerous
+    city districts. Now they need computer software to find best chasing
+    strategies.
+
+    The pursuing problem is modelled as follows:
     \begin{enumerate}
-        \item The game starts by the cop choosing his initial vertex.
-        \item The robber then chooses his starting vertex.
-        \item The cop's move consists of him moving to a neighbouring vertex
-        (i.e.  a vertex that is connected by an edge to the current vertex of
-        the cop) or waiting (i.e. not moving).
-        \item The robber's move consists of him moving to a neighbouring
-        vertex. Note that he is not allowed to wait.
-        \item The robber's move consists of him moving to a neighbouring vertex.
-        Note that he is not allowed to wait.
+        \item A police officer chooses a corner on which to patrol.
+        \item A robber then chooses a corner for the robbery (robbers always
+        know where police~is).
+        \item The police officer's move consists of him moving to a neighbouring
+        corner (i.e. one that is connected to the current one by an alley) or
+        waiting (i.e. not moving).
+        \item The robber's move consists of him moving to a neighbouring corner.
+        Note that, unlike the police, robbers cannot wait. It is in
+        their instinct to keep running.
+        \item The police officer and the robber keep making moves one after
+        another until one of the following happens:
         \begin{enumerate}
-            \item both players are on the same vertex after a move of either
-            player --- cop captures the robber so wins;
-            \item the position repeats (any position is dened by cop's vertex
-            $c$, robber's vertex $r$ and the side $T$ whose turn it is to move
-            next; a position repeats if there has been an earlier move after
-            which all three parameters $c$, $r$ and $T$ were the same) --- this
-            corresponds to the robber being able to avoid the cop indefinitely,
-            so robber wins.
+            \item a situation repeats itself (a situation is defined by police
+            officer's position $p$, robber's position $r$ and the side $T$ whose
+            turn it is to move next). This corresponds to the robber being able
+            to avoid the police officer indefinitely, so the robber escapes;
+            \item they both meet on the same corner after a move of either of
+            them. In this case the police officer catches the robber.
         \end{enumerate}
     \end{enumerate}
 
     \Task
-    Given the graph, determine which player wins if both play optimally.
-    Moreover, play the game for the winning player and win.
+    You have to write a program which, given the plan of a city district, would
+    find whether catching the robber is possible, and if that is the case, would
+    choose the starting position for the police officer and make required moves
+    in order to catch the robber.
+    
+    Your program must assume that both the police officer and the robber move
+    optimally.
 
     \Implementation
-    You need to implement the function \method{get\_cake(R, C, M)}
-    which takes the following parameters:
+    You need to implement following two functions:
+    \begin{enumerate}
+        \item \method{Initialize(N, M, U[], V[])} --- this function takes as
+        parameters number of corners $N$ and number of alleys connecting those
+        corners $M$. The arrays $U$ and $V$ are each of length $M$ and indicate
+        that there is a street connecting corners $U[i]$ and $V[i]$ for every $0
+        \le i \le M - 1$.
+
+        This function has to return \constant{true} if it is possible to catch
+        the robber and \constant{false} otherwise.
+
+        \item \method{GetMove(R)} --- this function takes as a parameter the
+        current corner of the robber $R$ and must return the corner of the
+        police officer after his move. When the function is called for the first
+        time, it has to return the starting corner of the police officer.
+    \end{enumerate}
+
+    The function \method{Initialize} will be called exactly once before any
+    calls to \method{GetMove}. If it returns \constant{true}, the function
+    \method{GetMove} will be called zero or more times.
+
+    The program will terminate as soon as one of the following happens:
     \begin{itemize}
-        \item \param{R} --- the number of rows in the map $R$,
-        \item \param{C} --- the number of columns in the map $C$,
-        \item \param{M} --- a two--dimensional array, where
-            \param{M}$[i][j]$ ($0 \le i < R$, $0 \le j < C$) is the cell in
-             the $i$--th row and $j$--th column of the map.
+        \item \method{GetMove} returns an invalid move.
+        \item A situation repeats itself.
+        \item The robber is caught.
     \end{itemize}
 
+    The corners are numbered from $1$ to $N$. You can assume that the robber
+    always makes valid moves, i.e. moves from one street corner to another if
+    there's an alley connecting the two, and never waits.
 
     \Example
     \todo{Provide an example.}
@@ -71,6 +107,7 @@
 
     \Constraints
 
+    \todo{Check constraints.}
     \begin{description}
         \item[Time limit:] 1 s.
         \item[Memory limit:] 256 MB.
