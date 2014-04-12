@@ -58,7 +58,7 @@
 %% Page layout
 %%
 
-\newcommand{\Logo}{boi2014}
+\newcommand{\Logo}{boi2014-bw}
 \newlength{\LogoLength}
 \setlength{\LogoLength}{2.1cm}
 \newlength{\LogoMargin}
