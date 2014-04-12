@@ -8,8 +8,6 @@
 \renewcommand{\TaskCode}{portals}
 \renewcommand{\TaskName}{Portals}
 
-\newcommand{\param}[1]{{\tt #1}}
-\newcommand{\method}[1]{{\tt #1}}
 \newcommand{\constant}[1]{{\tt #1}}
 
 \begin{document}
@@ -60,41 +58,41 @@
     and the location of the cake, calculate the minimum possible time needed
     for you to reach the cake.
 
-    \Implementation
-    You need to implement the function \method{get\_cake(R, C, M)}
-    which takes the following parameters:
-    \begin{itemize}
-        \item \param{R} --- the number of rows in the map $R$,
-        \item \param{C} --- the number of columns in the map $C$,
-        \item \param{M} --- a two--dimensional array, where
-            \param{M}$[i][j]$ ($0 \le i < R$, $0 \le j < C$) is the cell in
-             the $i$--th row and $j$--th column of the map.
-    \end{itemize}
+    \Input
+    The first line of the input contains two integer numbers: the number of rows
+    in the map $R$, and the number of columns $C$. The next $R$ lines describe
+    the map. Each of these lines contain $C$ characters: \constant{\#},
+    \constant{.}, \constant{S} or \constant{C} (whose meaning is described
+    above).
 
     It is guaranteed that characters \constant{S} and \constant{C} each appear
-    exactly once in the map, and that it is always possible to reach the cake
-    from your starting location.
+    exactly once in the map.
 
-    The function has to return the minimum time that is needed to reach the cake
-    from the starting position.
+    \Output
+    The output should contain a single integer numbers --- the minimum time that
+    is needed to reach the cake from the starting position.
+
+    You may assume that it is always possible to reach the cake from your
+    starting location.
 
     \Example
-    \begin{wrapfigure}[5]{r}{3cm}
-        \includegraphics[width=3cm]{portals-example}
-    \end{wrapfigure}
-    Let us consider the example illustrated on the right.
-    One quickest sequence of moves is as follows:
-
-    \begin{enumerate}
-        \item move right
-        \item move right, shoot one portal up, and one portal down
-        \item move through the bottom portal --- you will appear at 
-            the location $row = 0, column = 2$
-        \item move one square right and reach the cake.
-    \end{enumerate}
-
-    This takes time $4$ and no quicker way is possible. Therefore
-    function \method{get\_cake} should return~\constant{4}.
+    \example
+    {
+        4 4\newline
+        .\#.C\newline
+        .\#.\#\newline
+        ....\newline
+        S...
+    }
+    {
+        4
+    }
+    {
+        One quickest sequence of moves is as follows: 1) move right, 2) move
+        right, shoot one portal up, and one portal down, 3) move through the
+        bottom portal --- you will appear at the location ($row = 0,
+        column = 2$), 4) move one square right and reach the cake.
+    }
 
     \Scoring
 
