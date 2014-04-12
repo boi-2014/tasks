@@ -6,7 +6,7 @@
 
 \renewcommand{\DayNum}{1}
 \renewcommand{\TaskCode}{coprobber}
-\renewcommand{\TaskName}{The cop and the robber}
+\renewcommand{\TaskName}{The Cop and the Robber}
 
 \newcommand{\param}[1]{{\tt #1}}
 \newcommand{\method}[1]{{\tt #1}}
@@ -41,7 +41,7 @@
         another until one of the following happens:
         \begin{enumerate}
             \item a situation repeats itself (a situation is defined by police
-            officer's position $p$, robber's position $r$ and the side $T$ whose
+            officer's position $P$, robber's position $R$ and the side $T$ whose
             turn it is to move next). This corresponds to the robber being able
             to avoid the police officer indefinitely, so the robber escapes;
             \item they both meet on the same corner after a move of either of
@@ -61,28 +61,28 @@
     \Implementation
     You need to implement following two functions:
     \begin{enumerate}
-        \item \method{Initialize(N, M, U[], V[])} --- this function takes as
+        \item \method{Start(N, M, U[], V[])} --- this function takes as
         parameters number of corners $N$ and number of alleys connecting those
         corners $M$. The arrays $U$ and $V$ are each of length $M$ and indicate
         that there is an alley connecting corners $U[i]$ and $V[i]$ for every $0
         \le i \le M - 1$.
 
-        This function has to return \constant{true} if it is possible to catch
-        the robber and \constant{false} otherwise.
+        This function has to return a number $P$ ($1 \le P \le N$) --- the
+        starting corner of the police officer. If it is impossible to catch the
+        robber, the function has to return 0 (zero).
 
-        \item \method{GetMove(R)} --- this function takes as a parameter the
+        \item \method{NextMove(R)} --- this function takes as a parameter the
         current corner of the robber $R$ and must return the corner of the
-        police officer after his move. When the function is called for the first
-        time, it has to return the starting corner of the police officer.
+        police officer after his move.
     \end{enumerate}
 
-    The function \method{Initialize} will be called exactly once before any
-    calls to \method{GetMove}. If it returns \constant{true}, the function
-    \method{GetMove} will be called zero or more times.
+    The function \method{Start} will be called exactly once before any
+    calls to \method{NextMove}. If it returns a non--zero, the function
+    \method{NextMove} will be called zero or more times.
 
     The program will terminate as soon as one of the following happens:
     \begin{itemize}
-        \item \method{GetMove} returns an invalid move.
+        \item \method{NextMove} returns an invalid move.
         \item A situation repeats itself.
         \item The robber is caught.
     \end{itemize}
