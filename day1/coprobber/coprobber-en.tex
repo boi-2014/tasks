@@ -5,6 +5,7 @@
 \usepackage{wrapfig}
 \usepackage{mathtools}
 \usepackage{tikz}
+%\usepackage{pgfmath}
 
 \renewcommand{\DayNum}{1}
 \renewcommand{\TaskCode}{coprobber}
@@ -129,12 +130,16 @@
 
     \begin{description}
         \item[Subtask 1 (15 points):] $N \le 500$. There will be exactly one path between every pair of corners.
-        \item[Subtask 2 (15 points):] $N \le 500$. The network of corners and alleys will form a grid-shaped structure. An example of such network is shown below. \\
+        \item[Subtask 2 (15 points):] $N \le 500$. The network of corners and alleys will form a grid-shaped structure. The grid will have at least two rows and columns and the street corner labelling will follow the pattern shown in Figure \ref{fig:grid}.
+        \begin{figure}
+           \centering
            \begin{tikzpicture}
            	\draw (0,0) grid (3,2);
            	\foreach \x in {0,1,2,3} \foreach \y in {0,1,2}
-           		\draw (\x,\y) node[circle,draw,fill=white] {};
+           		\draw (\x,\y) node[circle,draw,fill=white,inner sep=0,minimum size=0.7cm] {\pgfmathparse{int(8-4*\y+\x)}\pgfmathresult};
            \end{tikzpicture}
+           \caption{Grid network with 3 rows and 4 columns (Subtask 2)} \label{fig:grid}
+	\end{figure}
         \item[Subtask 3 (30 points):] $N \le 100$.
         \item[Subtask 4 (40 points):] $N \le 500$.
     \end{description}
