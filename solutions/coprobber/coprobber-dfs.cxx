@@ -10,63 +10,61 @@ using namespace std;
 
 typedef tuple<bool, int, int> State;
 
-const int MAX_N = 1001;
-set<int> neighbors[MAX_N];
+vector<int> Neighbours[MAX_N];
+set<State> States;
+map<State, int> Cache;
 
-set<State> states;
-map<State, int> cache;
+bool robberMove(int, int);
 
-bool robber_move(int, int);
-
-// Can cop win in this situation?
-bool cop_move(int cop, int robber) {
+// Can the cop win in this situation?
+bool copMove(int cop, int robber) {
 	if (cop == robber)
 		return true;
 	
 	State s(true, cop, robber);
-	if (cache.count(s))
-		return cache[s];
-	if (states.count(s))
+	if (Cache.count(s))
+		return Cache[s];
+	if (States.count(s))
 		return false;
-	states.insert(s);
-	bool result = any_of(neighbors[cop].begin(), neighbors[cop].end(), [&](int i) {
-		return !robber_move(i, robber);
-	}) || !robber_move(cop, robber);
-	states.erase(s);
-	cache[s] = result;
+	States.insert(s);
+	bool result = any_of(Neighbours[cop].begin(), Neighbours[cop].end(), [&](int i) {
+		return !robberMove(i, robber);
+	}) || !robberMove(cop, robber);
+	States.erase(s);
+	Cache[s] = result;
 	return result;
 }
 
 // Can robber win in this situation?
-bool robber_move(int cop, int robber) {
+bool robberMove(int cop, int robber) {
 	if (cop == robber)
 		return false;
 	
 	State s(false, cop, robber);
-	if (cache.count(s))
-		return cache[s];
-	if (states.count(s))
+	if (Cache.count(s))
+		return Cache[s];
+	if (States.count(s))
 		return true;
-	states.insert(s);
-	bool result = any_of(neighbors[robber].begin(), neighbors[robber].end(), [&](int i) {
-		return !cop_move(cop, i);
+	States.insert(s);
+	bool result = any_of(Neighbours[robber].begin(), Neighbours[robber].end(), [&](int i) {
+		return !copMove(cop, i);
 	});
-	states.erase(s);
-	cache[s] = result;
+	States.erase(s);
+	Cache[s] = result;
 	return result;
 }
 
-int Start(int N, int M, int U[], int V[]) {
-	for (int i = 0; i < M; i++) {
-		neighbors[U[i]].insert(V[i]);
-		neighbors[V[i]].insert(U[i]);
-	}
+int start(int N, bool A[MAX_N][MAX_N]) {
+	for (int i = 0; i < N; i++)
+		for (int j = 0; j < N; j++)
+			if (A[i][j])
+				Neighbours[i].push_back(j);
 	bool can_catch = true;
-	for (int i = 2; i <= N; i++)
-		can_catch &= cop_move(1, i);
+	for (int i = 1; i < N; i++)
+		can_catch &= copMove(0, i);
 	return can_catch;
 }
 
-int NextMove(int robber) {
+int nextMove(int robber) {
 
 }
