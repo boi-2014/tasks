@@ -435,7 +435,7 @@ int main()
 	for(wielokat *i=poc->nas;i!=poc;i=i->nas) pole+=i->nas_pol();
 	if(pole%2==1)
 	{
-		printf("NIE\n");
+		printf("NO\n");
 		return 0;
 	}
 	pol=pole/2;
@@ -481,6 +481,6 @@ int main()
 		}
 	}
 
-	printf("NIE\n");
+	printf("NO\n");
 	return 0;
 }
