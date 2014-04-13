@@ -1,7 +1,6 @@
 \documentclass{boi2014}
 
 \usepackage{enumitem}
-\usepackage{todonotes}
 \usepackage{wrapfig}
 
 \renewcommand{\DayNum}{2}
@@ -11,19 +10,20 @@
 \newcommand{\constant}[1]{{\tt #1}}
 
 \begin{document}
-    There is a cake placed inside of a labyrinth and you desperately want
-    to eat it. You have a map of the labyrinth, which is
-    a grid of $R$ rows and $C$ columns.
-    Each grid cell contains one of the following characters:
+    There is a cake placed inside of a labyrinth and you desperately want to eat
+    it. You have a map of the labyrinth, which is a grid of $R$ rows and $C$
+    columns.  Each grid cell contains one of the following characters:
     \begin{description}[itemindent=1pt]
     	\item[\constant{\#}] (number sign) which denotes a wall,
         \item[\constant{.}] (dot) which denotes an open square,
-        \item[\constant{S}] (uppercase letter s) which denotes your current position,
-        \item[\constant{C}] (uppercase letter c) which denotes the position of the cake.
+        \item[\constant{S}] (uppercase letter s) which denotes an open square of
+        your current position,
+        \item[\constant{C}] (uppercase letter c) which denotes an open square
+        with the cake.
     \end{description}
-    You may only walk on the open squares. Additionally, the rectangular
-    area depicted on the map is surrounded by walls from the outside
-    with no open spaces.
+    You may only walk on the open squares and move from one open square to
+    another if they share a side. Additionally, the rectangular area depicted on
+    the map is surrounded by walls from the outside with no open spaces.
 
     In order to reach the cake faster you have acquired a portal gun from
     Aperture Science\texttrademark{}, which operates as follows.
@@ -33,15 +33,12 @@
     until it reaches the first wall. When this happens, a portal
     will be spawned on the side of that wall that faces you.
 
-    At most two portals can exist at any given time. If two portals
-    are already placed in the labyrinth, then one of them (selected
-    by you) will be removed immediately upon using the portal gun
-    again. Firing a portal at a wall where there is already a portal
-    placed will replace that portal (there may be at most one portal
-    per side of wall).
-    Note that there may be multiple portals placed
-    on different sides of same wall.
-    \todo{Did I get this note right?}
+    At most two portals can exist at any given time. If two portals are already
+    placed in the labyrinth, then one of them (selected by you) will be removed
+    immediately upon using the portal gun again. Firing a portal at a wall where
+    there is already a portal placed will replace that portal (there may be at
+    most one portal per side of wall).  Note that there may be multiple portals
+    placed on different sides of same wall.
 
     Once two portals are placed on the map you can use them to
     teleport yourself. When standing next to one of the portals,
@@ -96,11 +93,13 @@
 
     \Scoring
 
-    \begin{description}
-        \item[Subtask 1 (25 points):] $0 \le R \le 2, 0 \le C \le 2$.
-        \item[Subtask 2 (25 points):] $0 \le R \le 10, 0 \le C \le 10$.
-        \item[Subtask 3 (25 points):] $0 \le R \le 100, 0 \le C \le 100$.
-        \item[Subtask 4 (25 points):] $0 \le R \le 1000, 0 \le C \le 1000$.
+    \begin{description}[leftmargin=0pt]
+        \item[Subtask 1 (20 points):] $0 \le R \le 10, 0 \le C \le 10$.
+        \item[Subtask 2 (20 points):] $0 \le R \le 50, 0 \le C \le 50$.
+        \item[Subtask 3 (20 points):] $0 \le R \le 200, 0 \le C \le 200$.
+        Every open square has at least one wall adjacent to it.
+        \item[Subtask 4 (20 points):] $0 \le R \le 200, 0 \le C \le 200$.
+        \item[Subtask 5 (20 points):] $0 \le R \le 1000, 0 \le C \le 1000$.
     \end{description}
 
     \Constraints
@@ -109,6 +108,4 @@
         \item[Time limit:] 1 s.
         \item[Memory limit:] 256 MB.
     \end{description}
-
-    \todo{Need to add info about graders.}
 \end{document}
