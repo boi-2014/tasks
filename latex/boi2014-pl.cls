@@ -10,20 +10,20 @@
 %% Strings
 %%
 
-\newcommand{\Language}{EN}
+\newcommand{\Language}{PL}
 
-\newcommand{\Olympiad}{Baltic Olympiad in Informatics}
-\newcommand{\OlympiadDay}{Day \DayNum}
-\newcommand{\LocationDate}{April 26--30, Palanga}
+\newcommand{\Olympiad}{Bałtycka Olimpiada Informatyczna}
+\newcommand{\OlympiadDay}{Dzień \DayNum}
+\newcommand{\LocationDate}{26--30 kwietnia, Palanga}
 
-\newcommand{\PageOf}[2]{Page #1 of #2}
+\newcommand{\PageOf}[2]{Strona #1 z #2}
 
-\newcommand{\TitleTask}{Task}
-\newcommand{\TitleImplementation}{Implementation}
-\newcommand{\TitleOutput}{Output}
-\newcommand{\TitleInput}{Input}
-\newcommand{\TitleExample}{Example}
-\newcommand{\TitleExamples}{Examples}
-\newcommand{\TitleScoring}{Scoring}
-\newcommand{\TitleExplanation}{Comments}
-\newcommand{\TitleConstraints}{Constraints}
+\newcommand{\TitleTask}{Zadanie}
+\newcommand{\TitleImplementation}{Implementacja}
+\newcommand{\TitleOutput}{Wyjście}
+\newcommand{\TitleInput}{Wejście}
+\newcommand{\TitleExample}{Przykład}
+\newcommand{\TitleExamples}{Przykłady}
+\newcommand{\TitleScoring}{Ocenianie}
+\newcommand{\TitleExplanation}{Komentarz}
+\newcommand{\TitleConstraints}{Ograniczenia}
