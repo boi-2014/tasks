@@ -18,44 +18,37 @@
 
     \Task
 
-    Given the final sequence left on the blackboard, find the least
-    possible value of \param{N} with which it could have occured.
+    Given the final sequence left on the blackboard, find the smallest
+    value of \param{N} with which it could have occured.
 
-    \Implementation
+    \Input
 
-    Write a function \method{recreate\_sequence(K, B)} that takes
-    the following parameters:
-    \begin{itemize}
-        \item \param{K} --- the length of either sequence
-        \item \param{B} --- a one--dimensional array that describes
-                            Billy's sequence, in the order in which
-                            it is written on the blackboard: $\param{B}[i]$
-                            ($0 \le i \le \param{K}-1$) is a digit
-                            of $\param{N}+i$
-    \end{itemize}
+    The first line of the input contains a single integer \param{K} ---
+    the length of either sequence. The second line contains \param{K}
+    space-separated integers $\param{B_1}$, $\param{B_2}$, \dots, $\param{B_K}$
+    --- Billy's sequence, in the order in which it is written on the blackboard.
 
-    Function \method{recreate\_sequence} has to return the least possible
-    value of \param{N} with which this sequence could have occured.
+    \Output
+
+    The output should consist of a single line with the smallest value of
+    \param{N} with which this sequence could have occured.
 
     \Example
 
-    Let us consider the example where
-    \begin{figure}[H]
-        \centering
-        \constant{%
-            \param{K} = 6
-            \;
-            \param{B} =%
-            \begin{tabular}{c}
-                7\\8\\9\\5\\1\\2
-            \end{tabular}
-        }
-    \end{figure}
-
-    Then setting $\param{N}=47$ would correspond to Adam's sequence
-    being \constant{47 48 49 50 51 52} from which Billy's sequence
-    can indeed be obtained. As no smaller value of \param{N}
-    would work, your function has to return \constant{47}.
+    \example
+    {
+        6\newline
+        7 8 9 5 1 2
+    }
+    {
+        47
+    }
+    {
+        Setting $\param{N}=47$ would correspond to Adam's sequence
+        being \constant{47 48 49 50 51 52} from which Billy's sequence
+        can indeed be obtained. As no smaller value of \param{N}
+        would work, the answer is \constant{47}.
+    }
 
 \Scoring
 
