@@ -8,7 +8,7 @@ using namespace std;
 
 typedef tuple<int, int, int> Position;
 
-const int MAX_N = 1001, COP = 0, ROBBER = 1;
+const int COP = 0, ROBBER = 1;
 vector<int> Neighbours[MAX_N];
 int LeftToWin[2][MAX_N][MAX_N];
 
@@ -37,25 +37,25 @@ void markAsWinning(int turn, int cop, int robber) {
 	}
 }
 
-int Start(int N, int M, int U[], int V[]) {
-	for (int i = 0; i < M; i++) {
-		Neighbours[U[i]].push_back(V[i]);
-		Neighbours[V[i]].push_back(U[i]);
-	}
+int start(int N, bool A[MAX_N][MAX_N]) {
+	for (int i = 0; i < N; i++)
+		for (int j = 0; j < N; j++)
+			if (A[i][j])
+				Neighbours[i].push_back(j);
 
-	for (int c = 1; c <= N; c++) {
-		for (int r = 1; r <= N; r++) {
+	for (int c = 0; c < N; c++) {
+		for (int r = 0; r < N; r++) {
 			LeftToWin[COP][c][r] = 1;
 			LeftToWin[ROBBER][c][r] = Neighbours[r].size();
 		}
 	}
-	for (int i = 1; i <= N; i++) {
+	for (int i = 0; i < N; i++) {
 		markAsWinning(COP, i, i);
 		markAsWinning(ROBBER, i, i);
 	}
 	/*for (int t = 0; t < 2; t++) {
-		for (int c = 1; c <= N; c++) {
-			for (int r = 1; r <= N; r++) {
+		for (int c = 0; c < N; c++) {
+			for (int r = 0; r < N; r++) {
 				printf("%3d", LeftToWin[t][c][r]);
 			}
 			printf("\n");
@@ -63,12 +63,12 @@ int Start(int N, int M, int U[], int V[]) {
 		printf("\n");
 	}*/
 	bool can_win = true;	
-	for (int c = 1; c <= N; c++)
-		for (int r = 1; r <= N; r++)
+	for (int c = 0; c < N; c++)
+		for (int r = 0; r < N; r++)
 			can_win &= LeftToWin[COP][c][r] == 0;
 	return can_win;
 }
 
-int NextMove(int robber) {
+int nextMove(int robber) {
 	
 }
