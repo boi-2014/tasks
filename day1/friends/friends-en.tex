@@ -13,9 +13,9 @@
 
 \begin{document}
 
-    Pepe, Repe and Sepe are three friends. First Pepe chooses a string. Then
-    Repe constructs a new string that consists of two copies of the original
-    string. Finally Sepe adds one letter somewhere to the string.
+    A, B and C are three friends. First A chooses a string. Then
+    B constructs a new string that consists of two copies of the original
+    string. Finally C adds one letter somewhere to the string.
     
 
     \Task
@@ -23,36 +23,37 @@
     string
 
     \Input
-    The only input line contains the final string. It consists of letters
-    uppercase latters A \ldots{} Z.
+    The only input line contains the final string. It consists of
+    uppercase letters A \ldots{} Z.
 
     \Output
-    Your program should print the original string. However, if the original
-    string is not unique, you should print {\tt NOT UNIQUE}.
+    Your program should print the original string.
+    However, there are two exceptions:
+    If the original string is not unique, you should print {\tt NOT UNIQUE}.
+    In addition, if it is not possible that the final string
+    is created using above procedure, you should print {\tt IMPOSSIBLE}.
     
 
     \Examples
 
     \simpleexample{ABXCABC}{ABC}{}
-    \simpleexample{ABABABA}{ABA}{}
+    \simpleexample{ABCDEF}{IMPOSSIBLE}{}
     \simpleexample{ABABABABA}{NOT UNIQUE}{}
 
     \Scoring
 
-    \todo{Finalize subtasks.}
     \begin{description}
-        \item[Subtask 1 (X points):] The length of the original string is at
+        \item[Subtask 1 (30 points):] The length of the original string is at
         most $1000$ letters.
-        \item[Subtask 2 (X points):] The length of the original string is at
-        most $100\ 000$ letters.
+        \item[Subtask 2 (70 points):] The length of the original string is at
+        most $10000000$ letters.
     \end{description}
 
     \Constraints
 
-    \todo{Finalize limits.}
     \begin{description}
         \item[Time limit:] 1 s.
-        \item[Memory limit:] 256 MB.
+        \item[Memory limit:] 64 MB.
     \end{description}
 
 \end{document}
