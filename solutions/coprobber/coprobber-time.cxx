@@ -66,9 +66,9 @@ int start(int N, bool A[MAX_N][MAX_N]) {
 	for (int c = 0; c < N; c++)
 		for (int r = 0; r < N; r++)
 			can_win &= LeftToWin[COP][c][r] == 0;
-	return can_win;
+	return can_win ? 0 : -1;
 }
 
 int nextMove(int robber) {
-	
+	return 1;
 }
