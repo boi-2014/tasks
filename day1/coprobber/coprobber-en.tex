@@ -4,6 +4,8 @@
 \usepackage{todonotes}
 \usepackage{wrapfig}
 \usepackage{mathtools}
+\usepackage{tikz}
+%\usepackage{pgfmath}
 
 \renewcommand{\DayNum}{1}
 \renewcommand{\TaskCode}{coprobber}
@@ -17,7 +19,7 @@
 \begin{document}
     Crime level in the city of Bytemore is hitting an all--time high.
     Among other misdemeanours, robberies are happening every day.
-    And when the crime is comitted, it is always up to a lone patrolling
+    And when the crime is committed, it is always up to a lone patrolling
     police officer to chase down the robber through the narrow alleys
     that connect street corners (commonly referred to simply as
     \emph{corners}). Unfortunately, more often than not, robbers escape
@@ -27,11 +29,11 @@
     The Bytemore City Police Department (BCPD) is organising a summit
     to reduce crime. One of the initiatives is to use computer aid when
     pursuing the robbers. For this purpose, the BCPD has made a precise
-    map of the city. Now they need computer software to find the best
-    chasing strategy.
+    map of the city. Now they need computer software to find chasing
+    strategies.
 
-    The pursuit problem for two agents: one officer chasing one robber,
-    is modelled as follows:
+    The pursuit problem of one officer chasing one robber is modelled
+    as follows:
     \begin{enumerate}
         \item The police officer chooses a corner on which to patrol.
         \item The robber then chooses a corner for the robbery
@@ -76,14 +78,16 @@
                 \item $A$ --- a two--dimensional array that describes the
                     alleys: for $0 \le i, j \le N-1$,
                     $$
-                        A[i][j] \text{ is }
+                        A[i, j] \text{ is }
                         \begin{dcases*}
-                            0 & if $i$ and $j$ are not joined by any alley
+                            \texttt{false} & if $i$ and $j$ are not joined by any alley
                                 \\
-                            1 & if $i$ and $j$ are joined by an alley \\
-                            -1 & if $i = j$
+                            \texttt{true} & if $i$ and $j$ are joined by an alley
                         \end{dcases*}
                     $$
+                    There will be no alleys connecting a corner to itself (i.e. $A[i, i]$
+                    will be \texttt{false} for all $i$ values) and it will always be possible
+                    to reach any corner from any other corner by moving along the alleys.
             \end{itemize}
 
         If it is possible to catch the robber on the map described
@@ -113,19 +117,34 @@
     \todo{Provide an example.}
 
     \Scoring
-    \todo{Explain scoring.}
+    In order to score full points, your solution must:
+    \begin{enumerate}
+    	\item correctly determine whether the police officer can catch
+    		the robber;
+	\item successfully catch the robber by making moves on behalf
+		of the police officer.
+    \end{enumerate}
+    
+    However, in subtasks 3 and 4, solutions that only implement the
+    first requirement will score 30\% subtask points. 
 
-    \todo{Prepare subtasks.}
     \begin{description}
-        \item[Subtask 1 (25 points):]
-        \item[Subtask 2 (25 points):]
-        \item[Subtask 3 (25 points):]
-        \item[Subtask 4 (25 points):]
+        \item[Subtask 1 (15 points):] $N \le 500$. There will be exactly one path between every pair of corners.
+        \item[Subtask 2 (15 points):] $N \le 500$. The network of corners and alleys will form a grid-shaped structure. The grid will have at least two rows and columns and the street corner labelling will follow the pattern shown in Figure \ref{fig:grid}.
+        \begin{figure}
+           \centering
+           \begin{tikzpicture}
+           	\draw (0,0) grid (3,2);
+           	\foreach \x in {0,1,2,3} \foreach \y in {0,1,2}
+           		\draw (\x,\y) node[circle,draw,fill=white,inner sep=0,minimum size=0.7cm] {\pgfmathparse{int(8-4*\y+\x)}\pgfmathresult};
+           \end{tikzpicture}
+           \caption{Grid network with 3 rows and 4 columns (Subtask 2)} \label{fig:grid}
+	\end{figure}
+        \item[Subtask 3 (30 points):] $N \le 100$.
+        \item[Subtask 4 (40 points):] $N \le 500$.
     \end{description}
 
     \Constraints
-
-    \todo{Check constraints.}
     \begin{description}
         \item[Time limit:] 1 s.
         \item[Memory limit:] 256 MB.
