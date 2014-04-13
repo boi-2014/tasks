@@ -17,7 +17,9 @@ static int RobberStrategy[MAX_N][MAX_N + 1];
 // Visited positions are stored in the following array
 static bool VisitedPositions[MAX_N][MAX_N];
 
-typedef pair<bool, const char*> GraderResult;
+static const int OK = 0, PARTFAIL = 1, FAIL = 2;
+static const char* Messages[] = { "OK", "PARTFAIL", "FAIL" };
+typedef pair<int, const char*> GraderResult;
 
 GraderResult runGrader() {
 	int copCorner = start(N, A);
@@ -25,17 +27,17 @@ GraderResult runGrader() {
 		fprintf(stderr, "start() = %d\n", copCorner);
 	
 	if ((copCorner != -1) && !CopCanWin)
-		return GraderResult(false, "Cop cannot catch the robber, but start() did not return -1");
+		return GraderResult(FAIL, "Cop cannot catch the robber, but start() did not return -1");
 	if ((copCorner == -1) && CopCanWin)
-		return GraderResult(false, "Cop can catch the robber, but start() returned -1");
+		return GraderResult(FAIL, "Cop can catch the robber, but start() returned -1");
 	if (!CopCanWin)
-		return GraderResult(true, NULL);
+		return GraderResult(OK, NULL);
 	if (copCorner < 0 || copCorner >= N)
-		return GraderResult(false, "start() returned a value that is outside the 0..N-1 range");
+		return GraderResult(FAIL, "start() returned a value that is outside the 0..N-1 range");
 	int robberCorner = RobberStrategy[copCorner][N];
 	
 	if (robberCorner == copCorner)  // If N = 1
-		return GraderResult(true, NULL);
+		return GraderResult(OK, NULL);
 	
 	while (true) {
 		int nextCopCorner = nextMove(robberCorner);
@@ -50,26 +52,26 @@ GraderResult runGrader() {
 		 */
 		if (nextCopCorner < 0 || nextCopCorner >= N
 				|| !(copCorner == nextCopCorner || A[copCorner][nextCopCorner]))
-			return GraderResult(false,
+			return GraderResult(PARTFAIL,
 						"nextMove() returned a value that is either outside 0..N-1 "
 						"or the new cop position is not a neighbour to the previous one");
 		copCorner = nextCopCorner;
 		
 		// Check if the same position has not been encountered before
 		if (VisitedPositions[copCorner][robberCorner])
-			return GraderResult(false, "the situation repeated");
+			return GraderResult(PARTFAIL, "the situation repeated");
 		VisitedPositions[copCorner][robberCorner] = true;
 		
 		// Check the winning condition
 		if (copCorner == robberCorner)
-			return GraderResult(true, NULL);
+			return GraderResult(OK, NULL);
 		
 		robberCorner = RobberStrategy[copCorner][robberCorner];
 		
 		// Moving to cop's position could have been the only
 		// valid move for the robber
 		if (copCorner == robberCorner)
-			return GraderResult(true, NULL);
+			return GraderResult(OK, NULL);
 	}
 }
 
@@ -87,7 +89,7 @@ int main() {
 	}
 	
 	GraderResult result = runGrader();
-	puts(result.first ? "OK" : "WRONG");
+	puts(Messages[result.first]);
 	if (result.second != NULL)
 		puts(result.second);
 	
