@@ -5,6 +5,9 @@
 using namespace std;
 const int MaxN = 100010,
 	  	  MaxM = 400010;
+typedef pair<int,int> pii;
+
+set<pii> S;
 
 int E[MaxN][3];
 vector<int> k[MaxN];
@@ -23,6 +26,9 @@ int getU (int i, int v) {
 	return (v == E[i][0]) ? E[i][1] : E[i][0];
 }
 
+pii mpair (int a, int b) {
+	return pair<int, int> (min(a,b), max(a,b));
+}
 
 void dfs(int v) {
 	visited[v] = true;
@@ -34,9 +40,11 @@ void dfs(int v) {
 		for (; pr[v] < k[v].size(); pr[v]++) {
 			int i = pr[v],
 				u = getU(k[v][i], v);
-				if (E[k[v][i]][2] == false) {
+				if (S.find(mpair(u, v)) == S.end()) {
+					S.insert(mpair(u, v));
+				//if (E[k[v][i]][2] == false) {
 					//printf("  U = %d\n", u);
-					E[k[v][i]][2] = true;
+					//E[k[v][i]][2] = true;
 					if (visited[u]) {
 						newv = u;
 						ANS.push_back(vector<int>());
