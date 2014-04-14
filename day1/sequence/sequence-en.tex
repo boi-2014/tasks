@@ -6,32 +6,30 @@
 \renewcommand{\TaskCode}{sequence}
 \renewcommand{\TaskName}{Sequence}
 
-\newcommand{\param}[1]{{\tt #1}}
-\newcommand{\method}[1]{{\tt #1}}
 \newcommand{\constant}[1]{{\tt #1}}
 
 \begin{document}
-    Adam wrote down on a blackboard a sequence of \param{K} consequtive
-    positive integers starting with \param{N}. When he left, Billy came
+    Adam wrote down on a blackboard a sequence of $K$ consequtive
+    positive integers starting with $N$. When he left, Billy came
     in and erased all but one digit from each number, thus creating a
-    sequence of \param{K} integers between \constant{0} and \constant{9}.
+    sequence of $K$ integers between \constant{0} and \constant{9}.
 
     \Task
 
     Given the final sequence left on the blackboard, find the smallest
-    value of \param{N} with which it could have occured.
+    value of $N$ with which it could have occured.
 
     \Input
 
-    The first line of the input contains a single integer \param{K} ---
-    the length of either sequence. The second line contains \param{K}
-    space-separated integers $\param{B_1}$, $\param{B_2}$, \dots, $\param{B_K}$
-    --- Billy's sequence, in the order in which it is written on the blackboard.
+	The first line of the input contains a single integer $K$ --- the length of
+	either sequence. The second line contains $K$ space-separated integers
+	$B_1$, $B_2$, \dots, $B_K$ --- Billy's sequence, in the order in which it
+	is written on the blackboard.
 
     \Output
 
     The output should consist of a single line with the smallest value of
-    \param{N} with which this sequence could have occured.
+    $N$ with which this sequence could have occured.
 
     \Example
 
@@ -44,20 +42,20 @@
         47
     }
     {
-        Setting $\param{N}=47$ would correspond to Adam's sequence
+        Setting $N = 47$ would correspond to Adam's sequence
         being \constant{47 48 49 50 51 52} from which Billy's sequence
-        can indeed be obtained. As no smaller value of \param{N}
+        can indeed be obtained. As no smaller value of $N$
         would work, the answer is \constant{47}.
     }
 
 \Scoring
 
 \begin{description}
-    \item[Subtask 1 (? points).] $1 \le \param{K} \le 10$
-    \item[Subtask 2 (? points).] $1 \le \param{K} \le 1000$, correct
+    \item[Subtask 1 (? points).] $1 \le K \le 10$
+    \item[Subtask 2 (? points).] $1 \le K \le 1000$, correct
         answer does not exceed $1000$
-    \item[Subtask 3 (? points).] $1 \le \param{K} \le 1000$
-    \item[Subtask 4 (? points).] $1 \le \param{K} \le 100\,000$
+    \item[Subtask 3 (? points).] $1 \le K \le 1000$
+    \item[Subtask 4 (? points).] $1 \le K \le 100\,000$
 \end{description}
 
 \Constraints
