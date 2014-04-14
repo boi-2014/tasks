@@ -13,12 +13,6 @@
 \newcommand{\constant}[1]{{\tt #1}}
 
 \newcommand{\N}{\param{N}}
-\newcommand{\X}{\param{X}}
-\newcommand{\Y}{\param{Y}}
-\newcommand{\xa}{\param{x1}}
-\newcommand{\ya}{\param{y1}}
-\newcommand{\xb}{\param{x2}}
-\newcommand{\yb}{\param{y2}}
 
 
 \begin{document}
@@ -49,72 +43,59 @@
     by a horizontal or vertical segment into two congruent pieces. If
     it can, find one such segment.
 
-    \Implementation
-    You need to implement the procedure \method{divide\_island(N, X, Y)}
-    which takes the following parameters:
-    \begin{itemize}
-        \item \N{} --- the number of vertices in the polygonal outline of
-            the island
-        \item \X{} --- a one--dimensional array that contains the
-            $x$--coordinates of the vertices
-        \item \Y{} --- a one--dimensional array that contains the
-            $y$--coordinates of the vertices
-    \end{itemize}
-
-    More specifically, $(\X[i], \Y[i])$, $0 \le i \le \N-1$, are
-    coordinates of the $i$--th vertex of the polygon.
+    \Input
+	The first line of the input contains a single integer \N{}, the number of
+	vertices. The $i$th of the next \N{} lines contains a pair of integer
+	$\param{X_i}$ and $\param{Y_i}$, separated by space, which are the
+	coordinates of the $i$th vertex.
     %\todo{In what order are vertices given?}
 
-    Procedure \method{divide\_island} has to communicate the answer
-    by calling one of the two provided procedures:
-    \begin{itemize}
-        \item \method{division\_line(\xa, \ya, \xb, \yb)} --- call
-            this procedure if it is possible to divide the island
-            into congruent parts with a horizontal or vertical segment.
-            Its parameters must describe such segment: 
-            (\xa, \ya) and (\xb, \yb) must be the coordinates of its
-            endpoints. Either $\xa = \xb$ or $\ya = \yb$ must hold
-        \item \method{impossible} --- call this procedure with no
-            parameters if a suitable division cannot be found
-    \end{itemize}
+	\Output
+	Your program should output a single line. If it is possible to divide the
+	island into congruent parts with a horizontal or vertical segment, which
+	endpoints are $(x_1, y_1)$ and $(x_2, y_2)$, print 4 integers $x_1$,
+	$y_1$, $x_2$ and $y_2$, separated by spaces.
+	Either $x_1 = y_1$ or $y_1 = y_2$ must hold.
+
+	If a suitable division cannot be found, output a single word
+	``\constant{Impossible}'' (without quotes).
 
     \Examples
-    For the example
-    \begin{figure}[H]
-        \centering
-        \tt
-        \N{} = 10
-        \;
-        \X{} =%
-        \begin{tabular}{c}
-            0\\1\\1\\3\\3\\2\\2\\1\\1\\0
-        \end{tabular}
-        \;
-        \Y{} =%
-        \begin{tabular}{c}
-            0\\0\\1\\1\\5\\5\\3\\3\\2\\2
-        \end{tabular}
-    \end{figure}
-    \method{division\_line(1, 2, 3, 2)} should be called (this is
-    not the only correct choices of parameters).
+	\example
+	{
+		10
+		0 0
+		1 0
+		1 1
+		3 1
+		3 5
+		2 5
+		2 3
+		1 3
+		1 2
+		0 2
+	}
+	{
+		1 2 3 2
+	}
+	{
+		This is not the only correct choices of parameters.
+	}
 
-    On the other hand, for the example
-    \begin{figure}[H]
-        \centering
-        \tt
-        \N{} = 6
-        \;
-        \X{} =%
-        \begin{tabular}{c}
-            0\\1\\1\\2\\2\\0
-        \end{tabular}
-        \Y{} =%
-        \begin{tabular}{c}
-            0\\0\\1\\1\\2\\2
-        \end{tabular}
-    \end{figure}
-    the only correct solution is to call \method{impossible}.
-    \todo{Need illustrations for examples}
+	\example
+	{
+		6
+		0 0
+		1 0
+		1 1
+		2 1
+		2 2
+		0 2
+	}
+	{
+		Impossible
+	}
+
     \Scoring
 
     \begin{description}
