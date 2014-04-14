@@ -8,12 +8,7 @@
 \renewcommand{\TaskCode}{demarcation}
 \renewcommand{\TaskName}{Demarcation}
 
-\newcommand{\param}[1]{{\tt #1}}
-\newcommand{\method}[1]{{\tt #1}}
 \newcommand{\constant}[1]{{\tt #1}}
-
-\newcommand{\N}{\param{N}}
-
 
 \begin{document}
 
@@ -24,7 +19,7 @@
     Therefore they decided to divide the island into two provinces to
     rule them independently.  
  
-    On a map Byteotia is shaped as a polygon of \N{} vertices. Every
+    On a map Byteotia is shaped as a polygon of $N$ vertices. Every
     side of the polygon is parallel to a side of the map, and every
     two consecutive sides are perpendicular to each other.  Biteon
     and Byteon want to divide the polygon into two congruent figures,
@@ -44,10 +39,10 @@
     it can, find one such segment.
 
     \Input
-	The first line of the input contains a single integer \N{}, the number of
-	vertices. The $i$th of the next \N{} lines contains a pair of integer
-	$\param{X_i}$ and $\param{Y_i}$, separated by space, which are the
-	coordinates of the $i$th vertex.
+	The first line of the input contains a single integer $N$, the number of
+	vertices. The $i$th of the next $N$ lines contains a pair of integer $X_i$
+	and $Y_i$, separated by space, which are the coordinates of the $i$th
+	vertex.
     %\todo{In what order are vertices given?}
 
 	\Output
@@ -99,9 +94,9 @@
     \Scoring
 
     \begin{description}
-        \item[Subtask 1 (40 points).] $4 \le \N{} \le 200$
-        \item[Subtask 2 (10 points).] $4 \le \N{} \le 5000$
-        \item[Subtask 3 (50 points).] $4 \le \N{} \le 100\,000$
+        \item[Subtask 1 (40 points).] $4 \le N \le 200$
+        \item[Subtask 2 (10 points).] $4 \le N \le 5000$
+        \item[Subtask 3 (50 points).] $4 \le N \le 100\,000$
     \end{description}
 
     \Constraints
