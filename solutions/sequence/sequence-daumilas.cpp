@@ -3,6 +3,7 @@
  * Complexity - O(K log K).
  *
  * Author: Daumilas Ardickas
+ * Idea: Vytautas Gruslys
  */
  
 #include <cstdio>
