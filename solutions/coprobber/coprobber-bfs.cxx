@@ -39,12 +39,12 @@ int start(int N, bool A[MAX_N][MAX_N]) {
 		leftUntilWin--;
 		if (t == COP) {
 			for (int n : Neighbours[r])
-				if (c != n && LeftToWin[ROBBER][c][n] > 0
+				if (LeftToWin[ROBBER][c][n] > 0
 						&& (--LeftToWin[ROBBER][c][n]) == 0)
 					q.push(Position(ROBBER, c, n));
 		} else if (t == ROBBER) {
 			for (int n : Neighbours[c])
-				if (r != n && LeftToWin[COP][n][r] > 0
+				if (LeftToWin[COP][n][r] > 0
 						&& (--LeftToWin[COP][n][r]) == 0) {
 					q.push(Position(COP, n, r));
 					NextPos[n][r] = c;
