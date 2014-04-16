@@ -78,8 +78,11 @@ GraderResult runGrader() {
 int main() {
 	scanf("%d", &N);
 	for (int i = 0; i < N; i++)
-		for (int j = 0; j < N; j++)
-			scanf("%d", &A[i][j]);
+		for (int j = 0; j < N; j++) {
+			int t;
+			scanf("%d", &t);
+			A[i][j] = t;
+		}
 	
 	scanf("%d", &CopCanWin);
 	if (CopCanWin) {
