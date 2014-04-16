@@ -1,70 +1,55 @@
-#include <cstdio>
 #include <algorithm>
-#include <map>
-#include <set>
-#include <tuple>
-#include <vector>
+#include <cstdio>
 #include "coprobber.h"
 
 using namespace std;
 
-typedef tuple<bool, int, int> State;
+int N;
+bool (*A)[MAX_N];
+const int COP = 0, ROBBER = 1;
+int Cache[2][MAX_N][MAX_N];
+bool StateStack[2][MAX_N][MAX_N];
 
-vector<int> Neighbours[MAX_N];
-set<State> States;
-map<State, int> Cache;
-
-bool robberMove(int, int);
-
-// Can the cop win in this situation?
-bool copMove(int cop, int robber) {
+// Returns -1 if impossible to win
+int bestMove(int turn, int cop, int robber) {
 	if (cop == robber)
-		return true;
-	
-	State s(true, cop, robber);
-	if (Cache.count(s))
-		return Cache[s];
-	if (States.count(s))
-		return false;
-	States.insert(s);
-	bool result = any_of(Neighbours[cop].begin(), Neighbours[cop].end(), [&](int i) {
-		return !robberMove(i, robber);
-	}) || !robberMove(cop, robber);
-	States.erase(s);
-	Cache[s] = result;
-	return result;
-}
-
-// Can robber win in this situation?
-bool robberMove(int cop, int robber) {
-	if (cop == robber)
-		return false;
-	
-	State s(false, cop, robber);
-	if (Cache.count(s))
-		return Cache[s];
-	if (States.count(s))
-		return true;
-	States.insert(s);
-	bool result = any_of(Neighbours[robber].begin(), Neighbours[robber].end(), [&](int i) {
-		return !copMove(cop, i);
-	});
-	States.erase(s);
-	Cache[s] = result;
-	return result;
+		return turn == COP ? N : -1;
+	int &c = Cache[turn][cop][robber];
+	return c != -2 ? c : (c = [=]{
+		bool &ss = StateStack[turn][cop][robber];
+		if (ss) {
+			printf("(%d, %d, %d): loop\n", turn, cop, robber);
+			return turn == ROBBER ? N : -1;
+		}
+		ss = true;
+		printf("<\n");
+		int move = -1;
+		if (turn == COP)
+			for (int i = 0; i < N && move == -1; i++)
+				if ((A[cop][i] || cop == i) && bestMove(ROBBER, i, robber) == -1)
+					move = i;
+		else
+			for (int i = 0; i < N && move == -1; i++)
+				if (A[robber][i] && bestMove(COP, cop, i) == -1)
+					move = i;
+		ss = false;
+		printf("> bestMove(%d, %d, %d) = %d\n", turn, cop, robber, move);
+		return move;
+	}());
 }
 
 int start(int N, bool A[MAX_N][MAX_N]) {
-	for (int i = 0; i < N; i++)
-		for (int j = 0; j < N; j++)
-			if (A[i][j])
-				Neighbours[i].push_back(j);
+	::N = N; ::A = A;
+	fill(Cache[0][0], Cache[2][0], -2);
 	bool can_catch = true;
 	for (int i = 1; i < N; i++)
-		can_catch &= copMove(0, i);
-	return can_catch;
+		can_catch &= bestMove(COP, 0, i) != -1;
+	return can_catch ? 0 : -1;
 }
 
-int nextMove(int robber) {
+int cop = 0;
 
+int nextMove(int robber) {
+	cop = bestMove(COP, cop, robber);
+	return cop;
 }

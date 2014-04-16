@@ -140,11 +140,21 @@ bool calcStrategy(int strategy) {
 	return true;
 }
 
-int main() {
+int main(int argc, char* argv[]) {
+	if (argc != 2) {
+		fprintf(stderr, "Invalid syntax");
+		return 1;
+	}
+	int strategy;
+	sscanf(argv[1], "%d", &strategy);
+
 	scanf("%d", &N);
 	for (int i = 0; i < N; i++)
-		for (int j = 0; j < N; j++)
-			scanf("%d", &A[i][j]);
+		for (int j = 0; j < N; j++) {
+			int t;
+			scanf("%d", &t);
+			A[i][j] = t;
+		}
 	printf("%d\n", N);
 	for (int i = 0; i < N; i++) {
 		for (int j = 0; j < N; j++) {
@@ -153,7 +163,7 @@ int main() {
 		}
 		printf("\n");
 	}
-	bool copCanWin = calcStrategy(0);
+	bool copCanWin = calcStrategy(strategy);
 	printf("%d\n", copCanWin);
 	if (copCanWin) {
 		for (int c = 0; c < N; c++) {
