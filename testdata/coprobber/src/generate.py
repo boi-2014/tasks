@@ -56,16 +56,37 @@ t2_4 = lambda: grid(2, 250)
 t2_5 = lambda: grid(22, 22)
 t2_6 = lambda: grid(166, 3)
 
+
+# Subtask 4: N <= 500
+
+def random_full(n):
+    deg = [0] * n
+    edges = []
+    while not all(deg):
+        edge = (random.randrange(n), random.randrange(n))
+        if edge[0] == edge[1]:
+            continue
+        deg[edge[0]] += 1
+        deg[edge[1]] += 1
+        edges.append(edge)
+    return edges
+
+def full_graph(n):
+    return [(x, y) for x in xrange(n) for y in xrange(x + 1, n)]
+
+t4_1 = lambda: random_full(500)
+t4_2 = lambda: full_graph(500)
+
 PUBLIC_TESTS = [(1, 2)]
 
 TESTS = [
-    [t1_1, t1_2, t1_3, t1_4, t1_5, t1_6],
-    [t2_1, t2_2, t2_3, t2_4, t2_5, t2_6],
+    [],#t1_1, t1_2, t1_3, t1_4, t1_5, t1_6],
+    [],#t2_1, t2_2, t2_3, t2_4, t2_5, t2_6],
     [
     
     ],
     [
-    
+        t4_1, t4_2
     ],
 ]
 
