@@ -1,7 +1,6 @@
 /**
  * A solution for task PORTALS.
- * Searches for a wall each time portal is fired.
- * Complexity - O(RC(R+C)).
+ * Bugs in bfs and Dijkstra
  *
  * Author: Daumilas Ardickas
  */
@@ -16,6 +15,7 @@ using namespace std;
 int R, C, i, j;
 char lab[MAX_N][MAX_N]; //labyrinth
 int dw[MAX_N][MAX_N]; //distances to walls
+int wx[MAX_N][MAX_N][2], wy[MAX_N][MAX_N][2]; //wall coordinates
 int t[MAX_N][MAX_N]; //time
 int cx, cy;
 queue< pair<int, int> > q;
@@ -23,26 +23,16 @@ priority_queue< pair<int, pair<int, int> > > q2;
 
 void bfs(int x, int y) {
     if (x >= 0 && y >= 0 && x < C && y < R && dw[y][x] == -1) {
-        if (j < 0 || j == C || i < 0 || i == R)
-            dw[y][x] = 1;
-        else
-            dw[y][x] = dw[j][i] + 1;
+        dw[y][x] = dw[j][i] + 1;
         q.push(make_pair(x, y));
     }
 }
 
 void dijkstra(int x, int y, int d) {
-    if (x >= 0 && y >= 0 && x < C && y < R && (t[y][x] == -1 || t[y][x] > t[j][i] + d) && lab[y][x] != '#') {
+    if (x >= 0 && y >= 0 && x < C && y < R && t[y][x] == -1 && lab[y][x] != '#') {
         t[y][x] = t[j][i] + d;
         q2.push(make_pair(-t[y][x], make_pair(x, y)));
     }
-}
-
-int fire(int dx, int dy) {
-    int x = i, y = j;
-    while (x >= 0 && y >= 0 && x < C && y < R && lab[y][x] != '#') {x += dx; y += dy;}
-    x -= dx; y -= dy;
-    return dx ? x : y;
 }
 
 int main() {
@@ -76,20 +66,30 @@ int main() {
         bfs(i+1, j);
     }
     
+    for (j = 0; j < R; j++)
+        for (i = 0; i < C; i++) {
+            wy[j][i][0] = (j == 0 || lab[j-1][i] == '#') ? j : wy[j-1][i][0];
+            wx[j][i][0] = (i == 0 || lab[j][i-1] == '#') ? i : wx[j][i-1][0];
+        }
+        
+    for (j = R-1; j >= 0; j--)
+        for (i = C-1; i >= 0; i--) {
+            wy[j][i][1] = (j == R-1 || lab[j+1][i] == '#') ? j : wy[j+1][i][1];
+            wx[j][i][1] = (i == C-1 || lab[j][i+1] == '#') ? i : wx[j][i+1][1];
+        }
+    
     while (q2.size() && t[cy][cx] == -1) {
         i = q2.top().second.first;
         j = q2.top().second.second;
         q2.pop();
-        if (!lab[j][i]) continue;
         dijkstra(i, j-1, 1);
         dijkstra(i, j+1, 1);
         dijkstra(i-1, j, 1);
         dijkstra(i+1, j, 1);
-        dijkstra(fire(1, 0), j, dw[j][i]);
-        dijkstra(fire(-1, 0), j, dw[j][i]);
-        dijkstra(i, fire(0, 1), dw[j][i]);
-        dijkstra(i, fire(0, -1), dw[j][i]);
-        lab[j][i] = 0;
+        dijkstra(wx[j][i][0], j, dw[j][i]);
+        dijkstra(wx[j][i][1], j, dw[j][i]);
+        dijkstra(i, wy[j][i][0], dw[j][i]);
+        dijkstra(i, wy[j][i][1], dw[j][i]);
     }
     
     printf ("%d\n", t[cy][cx]);
