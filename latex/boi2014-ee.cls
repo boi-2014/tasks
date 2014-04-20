@@ -6,24 +6,27 @@
 \ProvidesClass{boi2014-ee}
 \LoadClass{boi2014}
 
+\RequirePackage[estonian]{babel}
+\RequirePackage[utf8]{inputenc}
+
 %%
 %% Strings
 %%
 
-\newcommand{\Language}{EN}
+\newcommand{\Language}{ET}
 
 \newcommand{\Olympiad}{Baltic Olympiad in Informatics}
 \newcommand{\OlympiadDay}{Day \DayNum}
 \newcommand{\LocationDate}{April 26--30, Palanga}
 
-\newcommand{\PageOf}[2]{Page #1 of #2}
+\newcommand{\PageOf}[2]{#1 / #2}
 
-\newcommand{\TitleTask}{Task}
-\newcommand{\TitleImplementation}{Implementation}
-\newcommand{\TitleOutput}{Output}
-\newcommand{\TitleInput}{Input}
-\newcommand{\TitleExample}{Example}
-\newcommand{\TitleExamples}{Examples}
-\newcommand{\TitleScoring}{Scoring}
-\newcommand{\TitleExplanation}{Comments}
-\newcommand{\TitleConstraints}{Constraints}
+\newcommand{\TitleTask}{Ülesanne}
+\newcommand{\TitleImplementation}{Realisatsioon}
+\newcommand{\TitleOutput}{Väljund}
+\newcommand{\TitleInput}{Sisend}
+\newcommand{\TitleExample}{Näide}
+\newcommand{\TitleExamples}{Näited}
+\newcommand{\TitleScoring}{Hindamine}
+\newcommand{\TitleExplanation}{Märkused}
+\newcommand{\TitleConstraints}{Piirangud}
