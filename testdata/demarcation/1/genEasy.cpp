@@ -144,6 +144,41 @@ void Test6()
 	Print(p);
 }
 
+// Small, not solvable test case
+void Small()
+{
+	vector <ii> p;
+	p.push_back(ii(5, 3));
+	p.push_back(ii(6, 3));
+	p.push_back(ii(6, 1));
+	p.push_back(ii(7, 1));
+	p.push_back(ii(7, 4));
+	p.push_back(ii(8, 4));
+	p.push_back(ii(8, 1));
+	p.push_back(ii(9, 1));
+	p.push_back(ii(9, -1));
+	p.push_back(ii(8, -1));
+	p.push_back(ii(8, -3));
+	p.push_back(ii(7, -3));
+	p.push_back(ii(7, -1));
+	p.push_back(ii(6, -1));
+	p.push_back(ii(6, -2));
+	p.push_back(ii(5, -2));
+	p.push_back(ii(5, -1));
+	p.push_back(ii(4, -1));
+	p.push_back(ii(4, -4));
+	p.push_back(ii(3, -4));
+	p.push_back(ii(3, -1));
+	p.push_back(ii(2, -1));
+	p.push_back(ii(2, 1));
+	p.push_back(ii(3, 1));
+	p.push_back(ii(3, 2));
+	p.push_back(ii(4, 2));
+	p.push_back(ii(4, 1));
+	p.push_back(ii(5, 1));
+	Print(p);
+}
+
 bool sanityCheck(const vector <ii> &p)
 {
 	if (p.size() > Maxn) return false;
@@ -254,5 +289,6 @@ int main()
 		if (!solvableOX()) i--;
 	for (int i = 0; i < 3; i++)
 		if (!solvableOY()) i--;
+	Small();
 	return 0;
 }
