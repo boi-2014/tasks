@@ -1,0 +1,4 @@
+1) Any OX or OY line won't cut polygon to more than two parts. (n <= 100 000).
+2) Polish: n <= 200
+3) Polish: n <= 5 000
+4) Polish: n <= 100 000.
