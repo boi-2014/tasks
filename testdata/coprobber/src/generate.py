@@ -86,6 +86,21 @@ def dup(edgelist):
         l.append((i, i + N))
     return l
 
+def many_edges(n, m):
+    ds = DisjointSet()
+    deg = [0] * n
+    edges = []
+    while not all(deg) or len(ds.group) > 1 or m > 0:
+        edge = (random.randrange(n), random.randrange(n))
+        if edge[0] == edge[1]:
+            continue
+        deg[edge[0]] += 1
+        deg[edge[1]] += 1
+        ds.add(*edge)
+        edges.append(edge)
+        m -= 1
+    return edges
+
 # Triangle
 t3_1 = lambda: [(0, 1), (0, 2), (1, 2)]
 # Cube
@@ -96,6 +111,7 @@ t3_4 = lambda: random_full(10)
 t3_5 = lambda: random_full(23)
 t3_6 = lambda: random_full(77)
 t3_7 = lambda: random_full(100)
+t3_8 = lambda: many_edges(100, 100*100/3)
 
 
 # Subtask 4: N <= 500
@@ -104,14 +120,16 @@ t4_1 = lambda: random_full(200)
 t4_2 = lambda: random_full(400)
 t4_3 = lambda: random_full(500)
 t4_4 = lambda: full_graph(500)
+t4_5 = lambda: many_edges(450, 450*450/4)
+t4_6 = lambda: many_edges(500, 500*500/6)
 
 PUBLIC_TESTS = [(1, 2)]
 
 TESTS = [
     [t1_1, t1_2, t1_3, t1_4, t1_5, t1_6],
     [t2_1, t2_2, t2_3, t2_4, t2_5, t2_6],
-    [t3_1, t3_2, t3_3, t3_4, t3_5, t3_6, t3_7],
-    [t4_1, t4_2, t4_3, t4_4],
+    [t3_1, t3_2, t3_3, t3_4, t3_5, t3_6, t3_7, t3_8],
+    [t4_1, t4_2, t4_3, t4_4, t4_5, t4_6],
 ]
 
 def print_test(f, edgelist):
