@@ -9,6 +9,11 @@
 
 using namespace std;
 
+const int MAX_K = 100000;
+
+int k;
+int B[MAX_K];
+
 bool contains(int number, int digit) {
 	while (number != 0) {
 		int now = number % 10;
@@ -19,10 +24,10 @@ bool contains(int number, int digit) {
 	return false;
 }
 
-long long recreate_sequence(int K, int B[]) {
+long long calcAnswer() {
 	for (int n = 1; true; ++n) {
 		bool found = true;
-		for (int i = 0; i < K; ++i)
+		for (int i = 0; i < k; ++i)
 			if (!contains(n+i, B[i])) {
 				found = false;
 				break;
@@ -32,10 +37,11 @@ long long recreate_sequence(int K, int B[]) {
 	}
 }
 
-const int LENGTH = 6;
-int ARRAY[LENGTH] = {7, 8, 9, 5, 1, 2};
 
 int main() {
-	cout << recreate_sequence(LENGTH, ARRAY) << endl;
+	cin >> k;
+	for (int i = 0; i < k; ++i)
+		cin >> B[i];
+	cout << calcAnswer() << endl;
 	return 0;
 }
