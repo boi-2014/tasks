@@ -45,5 +45,5 @@ int main() {
         scanf("%d", &d);
         A.push_back(1 << d);
     }
-    printf ("%LLd\n", minN(A));
+    printf ("%lld\n", minN(A));
 }

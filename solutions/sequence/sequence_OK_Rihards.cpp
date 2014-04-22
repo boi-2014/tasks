@@ -11,6 +11,9 @@ long long best = 102345678900000LL;
 
 int atb[17];
 
+int K;
+int B[N];
+
 void check(int gar)
 {
 	long long rez = 0;
@@ -191,7 +194,7 @@ void rek(int depth, int length, bool needFrontZero)
 	}
 }
 
-long long recreate_sequence(int K, int B[])
+long long recreate_sequence()
 {
 	best = 102345678900000LL;
 
@@ -216,7 +219,10 @@ int ARRAY[LENGTH] = {7, 8, 9, 5, 1, 2};
 
 int main()
 {
-	cout << recreate_sequence(LENGTH, ARRAY) << endl;
+	cin >> K;
+	for (int i = 0; i < K; ++i)
+		cin >> B[i];
+	cout << recreate_sequence() << endl;
 
 	return 0;
 }

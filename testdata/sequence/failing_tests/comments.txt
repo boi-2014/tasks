@@ -1,0 +1,6 @@
+Test - failing solution:
+A - Vytautas
+B - Vytautas
+C - Daumilas and Donatas
+D - Donatas
+E - Daumilas and Donatas

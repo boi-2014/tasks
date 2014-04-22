@@ -12,7 +12,7 @@ int main() {
 	N = S.size();
 	
 	if(N % 2 == 0) {
-		cout << "IMPOSSIBLE\n";
+		cout << "NOT POSSIBLE\n";
 		return 0;
 	}
 	int n = N / 2;
@@ -40,7 +40,7 @@ int main() {
 	if(found) {
 		cout << val << "\n";
 	} else {
-		cout << "IMPOSSIBLE\n";
+		cout << "NOT POSSIBLE\n";
 	}
 	
 	return 0;

@@ -22,13 +22,16 @@ priority_queue< pair<int, pair<int, int> > > q2;
 
 void bfs(int x, int y) {
     if (x >= 0 && y >= 0 && x < C && y < R && dw[y][x] == -1) {
-        dw[y][x] = dw[j][i] + 1;
+        if (j < 0 || j == C || i < 0 || i == R)
+            dw[y][x] = 1;
+        else
+            dw[y][x] = dw[j][i] + 1;
         q.push(make_pair(x, y));
     }
 }
 
 void dijkstra(int x, int y, int d) {
-    if (x >= 0 && y >= 0 && x < C && y < R && t[y][x] == -1 && lab[y][x] != '#') {
+    if (x >= 0 && y >= 0 && x < C && y < R && (t[y][x] == -1 || t[y][x] > t[j][i] + d) && lab[y][x] != '#') {
         t[y][x] = t[j][i] + d;
         q2.push(make_pair(-t[y][x], make_pair(x, y)));
     }
@@ -81,6 +84,7 @@ int main() {
         i = q2.top().second.first;
         j = q2.top().second.second;
         q2.pop();
+        if (!lab[j][i]) continue;
         dijkstra(i, j-1, 1);
         dijkstra(i, j+1, 1);
         dijkstra(i-1, j, 1);
@@ -89,6 +93,7 @@ int main() {
         dijkstra(wx[j][i][1], j, dw[j][i]);
         dijkstra(i, wy[j][i][0], dw[j][i]);
         dijkstra(i, wy[j][i][1], dw[j][i]);
+        lab[j][i] = 0;
     }
     
     printf ("%d\n", t[cy][cx]);

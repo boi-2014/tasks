@@ -28,6 +28,10 @@ Test input file format:
         2 0 0 2
         1 0 0 1
 
+Solution file format:
+
+ * The only number in the file specifies whether partially correct solutions should
+   be awarded 30% of the points. Currently, it is `0` for subtasks 1 and 2, and `1` for subtasks 3 and 4.
 
 ## Examples
 

@@ -28,7 +28,7 @@ void read_input (char * filename) {
     fclose(f);
 }
 
-void error (char s[]) {
+void error (const char s[]) {
     fprintf(stderr, "%s\n", s);
     printf("0\n");
     exit(0);
@@ -121,11 +121,13 @@ bool check () {
 
 int main(int argc, char * argv[]) {
     
-    if (argc < 3) 
-        error("Usage: checker file.in file.out");
+    if (argc < 4) {
+        fprintf(stderr, "Usage: checker file.in file.sol file.out\n");
+        exit(1);
+    }
   
     read_input(argv[1]);
-    read_output(argv[2]);
+    read_output(argv[3]);
     printf("%d\n", check ());
     return 0;    
 }

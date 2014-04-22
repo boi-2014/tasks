@@ -5,44 +5,48 @@
 
 \renewcommand{\DayNum}{2}
 \renewcommand{\TaskCode}{friends}
-\renewcommand{\TaskName}{Friends}
+\renewcommand{\TaskName}{Three Friends}
 
 \begin{document}
 
-    A, B and C are three friends. First A chooses a string. Then
-    B constructs a new string that consists of two copies of the original
-    string. Finally C adds one letter somewhere to the string.
-    
+    Three friends like to play the following game.
+    The first friend chooses a string.
+    Then the second friend constructs a new string that consists of
+    two copies of the original string. 
+    Finally, the third friend inserts one letter somewhere in the string.
 
     \Task
     You are given the final string and your task is to reconstruct the original
-    string
+    string.
 
     \Input
     The only input line contains the final string. It consists of
-    uppercase letters A \ldots{} Z.
+    uppercase letters A, B, C, \ldots{} Z.
 
     \Output
     Your program should print the original string.
     However, there are two exceptions:
-    If the original string is not unique, you should print {\tt NOT UNIQUE}.
-    In addition, if it is not possible that the final string
-    is created using above procedure, you should print {\tt IMPOSSIBLE}.
+    \begin{enumerate}
+        \item If it is not possible that the final string is created using above
+        procedure, you should print {\tt NOT POSSIBLE}.
+        \item If the original string is not unique, you should print {\tt NOT
+        UNIQUE}.
+    \end{enumerate}
     
 
     \Examples
 
     \simpleexample{ABXCABC}{ABC}{}
-    \simpleexample{ABCDEF}{IMPOSSIBLE}{}
+    \simpleexample{ABCDEF}{NOT POSSIBLE}{}
     \simpleexample{ABABABABA}{NOT UNIQUE}{}
 
     \Scoring
 
     \begin{description}
-        \item[Subtask 1 (30 points):] The length of the original string is at
-        most $1000$ letters.
-        \item[Subtask 2 (70 points):] The length of the original string is at
-        most $1000000$ letters.
+        \item[Subtask 1 (30 points):] The length of the final string is at
+        most $2001$ letters.
+        \item[Subtask 2 (70 points):] The length of the final string is at
+        most $2000001$ letters.
     \end{description}
 
     \Constraints
