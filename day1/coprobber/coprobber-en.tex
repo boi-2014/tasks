@@ -5,7 +5,6 @@
 \usepackage{wrapfig}
 \usepackage{mathtools}
 \usepackage{tikz}
-%\usepackage{pgfmath}
 
 \renewcommand{\DayNum}{1}
 \renewcommand{\TaskCode}{coprobber}
@@ -17,7 +16,7 @@
 \newcommand{\constant}[1]{{\tt #1}}
 
 \begin{document}
-    Crime level in the city of Bytemore is hitting an all--time high.
+    In the city of Bytemore crime level is hitting an all--time high.
     Among other misdemeanours, robberies are happening every day.
     And when the crime is committed, it is always up to a lone patrolling
     police officer to chase down the robber through the narrow alleys
@@ -55,9 +54,9 @@
                 it is to move next). This corresponds to the robber being
                 able to avoid the police officer indefinitely, so the
                 robber escapes;
-            \item both agents meet on the same corner after a move of
-                either of them. In this case the police officer catches
-                the robber.
+            \item the police officer and the robber meet on the same corner
+                after a move of either of them. In this case the police officer
+                catches the robber.
         \end{enumerate}
     \end{enumerate}
 
@@ -85,15 +84,18 @@
                             \texttt{true} & if $i$ and $j$ are joined by an alley
                         \end{dcases*}
                     $$
-                    There will be no alleys connecting a corner to itself (i.e. $A[i, i]$
-                    will be \texttt{false} for all $i$ values) and it will always be possible
-                    to reach any corner from any other corner by moving along the alleys.
+                    All alleys will be bidirectional (i.e. $A[i, j] = A[j, i]$
+                    for all values of $i$ and $j$) and there will be no alleys
+                    connecting a corner to itself (i.e.  $A[i, i]$ will be
+                    \texttt{false} for all values of $i$).  Also, you may assume
+                    that it will always be possible to reach any corner from any
+                    other corner by moving along the alleys.
             \end{itemize}
 
         If it is possible to catch the robber on the map described
-        by the parameters, function \method{start} has to return the
+        by the parameters, function \method{start} should return the
         label of the corner on which the police officer chooses to patrol.
-        Otherwise, it has to return $-1$.
+        Otherwise, it should return $-1$.
 
         \item \method{nextMove(R)} which takes as a
             parameter the label $R$ of the current corner of the robber
@@ -114,7 +116,37 @@
     \end{itemize}
 
     \Example
-    \todo{Provide an example.}
+    \begin{wrapfigure}[4]{r}{2cm}
+        \vspace{-0.5cm}
+        \centering
+        \begin{tikzpicture}
+        \draw (0,1) -- (0,0);
+        \draw (0,1) -- (1,0);
+        \draw (0,1) -- (1,1);
+        \foreach \x in {0,1} \foreach \y in {0,1}
+            \draw (\x,\y) node[circle,draw,fill=white,inner sep=0,minimum size=0.7cm] {\pgfmathparse{int(2-2*\y+\x)}\pgfmathresult};
+        \end{tikzpicture}
+    \end{wrapfigure}
+    Let's take a look at the example illustrated on the right. In this case any
+    corner is a good starting position for the police officer. If he starts in the
+    corner 0, he can wait in his first move and the robber will run into him.
+    On the other hand, if he starts on any other corner, he can wait until the
+    robber moves to corner 0, and then move there.
+    
+    Here's how a sample session could look like:
+
+    \begin{tabular}{|l|c|}
+        \hline
+            {\bf Function call} & {\bf Returns} \\
+        \hline
+            \method{start(4, [[0, 1, 1, 1], [1, 0, 0, 0], [1, 0, 0, 0], [1, 0, 0, 0]])} &
+            \constant{3} \\
+        \hline
+            \method{nextMove(1)} & \constant{3} \\
+        \hline
+            \method{nextMove(0)} & \constant{0} \\
+        \hline
+    \end{tabular}
 
     \Scoring
     In order to score full points, your solution must:
@@ -129,24 +161,24 @@
     first requirement will score 30\% subtask points. 
 
     \begin{description}
-        \item[Subtask 1 (15 points):] $N \le 500$. There will be exactly one path between every pair of corners.
-        \item[Subtask 2 (15 points):] $N \le 500$. The network of corners and alleys will form a grid-shaped structure. The grid will have at least two rows and columns and the street corner labelling will follow the pattern shown in Figure \ref{fig:grid}.
-        \begin{figure}
+        \item[Subtask 1 (15 points):] $2 \le N \le 500$. There will be exactly one path between every pair of corners.
+        \item[Subtask 2 (15 points):] $2 \le N \le 500$. The network of corners
+        and alleys will form a grid-shaped structure. The grid will have at
+        least two rows and columns and the street corner labelling will follow
+        the pattern illustrated below.
+        \begin{figure}[h!]
            \centering
            \begin{tikzpicture}
-           	\draw (0,0) grid (3,2);
-           	\foreach \x in {0,1,2,3} \foreach \y in {0,1,2}
-           		\draw (\x,\y) node[circle,draw,fill=white,inner sep=0,minimum size=0.7cm] {\pgfmathparse{int(8-4*\y+\x)}\pgfmathresult};
+            \draw (0,0) grid (3,2);
+            \foreach \x in {0,1,2,3} \foreach \y in {0,1,2}
+                \draw (\x,\y) node[circle,draw,fill=white,inner sep=0,minimum size=0.7cm] {\pgfmathparse{int(8-4*\y+\x)}\pgfmathresult};
            \end{tikzpicture}
-           \caption{Grid network with 3 rows and 4 columns (Subtask 2)} \label{fig:grid}
-	\end{figure}
-        \item[Subtask 3 (30 points):] $N \le 100$.
-        \item[Subtask 4 (40 points):] $N \le 500$.
+        \end{figure}
+        \item[Subtask 3 (30 points):] $2 \le N \le 100$.
+        \item[Subtask 4 (40 points):] $2 \le N \le 500$.
     \end{description}
 
     \Constraints
-    
-    $2 \le N$
     
     \begin{description}
         \item[Time limit:] 1 s.
@@ -155,4 +187,3 @@
 
     \todo{Need to add info about graders.}
 \end{document}
-
