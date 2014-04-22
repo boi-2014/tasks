@@ -14,6 +14,10 @@
 using namespace std;
 
 const long long INF = 1000000000000000000;
+const int MAX_K = 100000;
+
+int k;
+int B[MAX_K];
 
 long long find(vector<set<int> > sets, int depth, bool canFinish) {
 	int from = 0;
@@ -70,10 +74,10 @@ long long find(vector<set<int> > sets, int depth, bool canFinish) {
 	return best;
 }
 
-long long recreate_sequence(int K, int B[]) {
+long long calcAnswer() {
 	vector<set<int> > sets;
-	sets.reserve(K);
-	for (int i = 0; i < K; ++i) {
+	sets.reserve(k);
+	for (int i = 0; i < k; ++i) {
 		set<int> s;
 		s.insert(B[i]);
 		sets.push_back(s);
@@ -81,14 +85,11 @@ long long recreate_sequence(int K, int B[]) {
 	return find(sets, 0, true);
 }
 
-const int LENGTH = 6;
-int ARRAY[LENGTH] = {7, 8, 9, 5, 1, 2};
-
-//const int LENGTH = 10;
-//int ARRAY[LENGTH] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
-//answer: 10
 
 int main() {
-	cout << recreate_sequence(LENGTH, ARRAY) << endl;
+	cin >> k;
+	for (int i = 0; i < k; ++i)
+		cin >> B[i];
+	cout << calcAnswer() << endl;
 	return 0;
 }
