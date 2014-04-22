@@ -5,7 +5,7 @@
 
 using namespace std;
 
-const int MNODES = 200000;
+const int MNODES = 200010;
 set<int> g[MNODES];
 bool visited[MNODES];
 stack<pair<int, int> > s;

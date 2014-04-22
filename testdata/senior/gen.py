@@ -137,7 +137,7 @@ def print_test (T, filename):
 
 
 def print_tests(T):
-	template = "seniour.%d-%02d%s.in"
+	template = "senior.%d-%02d%s.in"
 	T[1] = T[0] + T[1]
 	T[2] = T[0] + T[2]
 	for subtask, t in enumerate(T):
@@ -163,10 +163,10 @@ print "GENERATING SUBTASK 1:"
 #print T[0]
 #exit(0)
 #public test case
-T[0].append((10, 15, [[1,2],[5,1],[2,3],[9,2],[3,4],[6,3],[4,5],[7,4],[4,8],[5,7],
-					  [8,5],[6,7],[7,8],[8,10],[10,9]]))
+T[0].append((10, 15, [[1,2],[1,3],[4,2],[5,2],[3,5],[6,2],[7,5],[3,8],[5,8],[3.7],
+					  [6,7],[8,7],[4,9],[9,10],[10,8]]))
 #triangle
-T[0].append((3, 3, [[1,2],[2,3],[3,2]]))
+T[0].append((3, 3, [[1,2],[2,3],[3,1]]))
 
 #3 squares making a triangle in the middle
 T[0].append((9, 12, [[1,2],[2,3],[3,4],[4,1],[4,5],[5,6],[6,7],[7,4],[3,7],[7,8],[8,9],[3,9]]))

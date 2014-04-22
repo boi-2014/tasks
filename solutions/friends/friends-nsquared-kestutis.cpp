@@ -23,11 +23,14 @@ int main() {
 			ANS.push_back(Sn.substr(0, N));
 	}
 
+
 	bool good = true;
 	for (int i = 1; i < ANS.size(); i++)
 		if (ANS[0] != ANS[i])
 			good = false;
-	if (good) 
+	if (ANS.size() == 0)
+		printf("IMPOSSIBLE\n");
+	else if (good) 
 		printf("%s\n", ANS[0].c_str());
 	else 
 		printf("NOT UNIQUE\n");

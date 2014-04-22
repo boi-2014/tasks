@@ -3,8 +3,8 @@
 #include <vector>
 #include <algorithm>
 using namespace std;
-const int MaxN = 100010,
-	  	  MaxM = 400010;
+const int MaxN = 1000010,
+	  	  MaxM = 1000010;
 typedef pair<int,int> pii;
 
 set<pii> S;
