@@ -21,7 +21,7 @@ static const int OK = 0, PARTFAIL = 1, FAIL = 2;
 static const char* Messages[] = { "OK", "PARTFAIL", "FAIL" };
 typedef pair<int, const char*> GraderResult;
 
-GraderResult runGrader() {
+static GraderResult runGrader() {
 	int copCorner = start(N, A);
 	if (TRACK_CALLS)
 		fprintf(stderr, "start() = %d\n", copCorner);
