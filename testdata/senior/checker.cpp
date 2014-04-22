@@ -55,6 +55,7 @@ int getInt (FILE * f, bool endln = false) {
         while (c != '\n' && c != EOF) 
             c = fgetc(f);
     }
+    printf("RET = %d\n", ret);
     return ret;
 }
 
@@ -67,9 +68,11 @@ void read_output (char * filename) {
     T = getInt(f, true);
     PT[0] = TC[0] = 0;
     for (T_ = 1; T_ <= T; T_++) {
-        TC[T_] = getInt(f);
+	TC[T_] = getInt(f);
+        printf ("%d - size()\n", TC[T_]);
         PT[T_] = PT[T_-1] + TC[T_-1];
-        if (PT[T_] + TC[T_] - 1 >= M) error ("Too many junctions in answer");
+	printf("STAT = %d, pt = %d\n", PT[T_] + TC[T_], PT[T_]);
+        if (PT[T_] + TC[T_] + 1 > M) error ("Too many junctions in answer");
         for (int i = 0; i < TC[T_]; i++) {
             TD[PT[T_]+i] = getInt(f,(i==TC[T_])?true:false);
             if (usedV[TD[PT[T_]+i]]) error("Junction twice in a tour");
