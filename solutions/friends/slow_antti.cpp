@@ -11,7 +11,7 @@ int main() {
     cin >> s;
     n = s.size();
     if (n%2 == 0) {
-        cout << "IMPOSSIBLE\n";
+        cout << "NOT POSSIBLE\n";
         return 0;
     }
     for (int i = 0; i < n; i++) {
@@ -21,7 +21,7 @@ int main() {
         if (a == b) q.insert(a);
     }
     if (q.size() == 0) {
-        cout << "IMPOSSIBLE\n";
+        cout << "NOT POSSIBLE\n";
     } else if (q.size() > 1) {
         cout << "NOT UNIQUE\n";
     } else {
