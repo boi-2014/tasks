@@ -18,15 +18,15 @@ def paths_len3 (N):
 		adj.append((1,i + 1))
 		adj.append((i,i + 1))
 	print "Graph of cycles=3, N = %d" % N
-	return (N, N + N/2, adj)
+	return (N, 3*(N-1)/2, adj)
 
 def ring (N):
 	adj = []
-	for i in range (1, N+1):
+	for i in range (1, N):
 		adj.append((i, i + 1))
 	adj.append((1, N))
 	print "Ring of N = %d" % N
-	return (N, N+1, adj)
+	return (N, N, adj)
 
 def ring_of_rings(N_rings):
 	N = 3*N_rings
@@ -34,13 +34,13 @@ def ring_of_rings(N_rings):
 	for i in range(0, N, 3):
 		adj.append((i+1, i+2))
 		adj.append((i+1, i+3))
-		if (i != N-1):
+		if (i+1 != N-2):
 			adj.append((i+2, i+4))
 			adj.append((i+3, i+4))
-	adj.append((3*N, 1))
-	adj.append((3*N-1, 1))
+	adj.append((3*N_rings, 1))
+	adj.append((3*N_rings-1, 1))
 	print "Ring of rings N_rings = %d" % N_rings
-	return (N, 4*N_rings, adj)
+	return (N, len(adj), adj)
 
 def getU (v, p):
 	return p[p[1]!=v]
@@ -121,12 +121,13 @@ def dense_small_graph (N, M):
 	if (K > N - 1):
 		K = N - 1
 	adj = []
-	for i in range (1, N):
+	for i in range (1, N+1):
 		for j in range (i + 1, i + K + 1):
 			t = (j, j-N)[j>N]
 			adj.append([i, t])
 	print "Dense small graph N = %d" % N
 	return (N, len(adj), adj)
+
 
 def print_test (T, filename):
 	file = open(filename, "w")
@@ -143,6 +144,7 @@ def print_tests(T):
 	for subtask, t in enumerate(T):
 		print "Printing %d subtask:" % (subtask+1)
 		for tnr, test in enumerate(t):
+			#print "Printing test %d" % tnr
 			filename = template % (subtask+1, tnr+1, ("","p")[subtask==0 and tnr==0])
 			file = open(filename, "w")
 			file.write(str(test[0]) + " " + str(test[1]) + "\n")
@@ -159,11 +161,8 @@ MAX_M = [100000, 100000, 500000]
 
 print "GENERATING SUBTASK 1:"
 
-#T[0].append(rand_small_graph(6, 10))
-#print T[0]
-#exit(0)
 #public test case
-T[0].append((10, 15, [[1,2],[1,3],[4,2],[5,2],[3,5],[6,2],[7,5],[3,8],[5,8],[3.7],
+T[0].append((10, 15, [[1,2],[1,3],[4,2],[5,2],[3,5],[6,2],[7,5],[3,8],[5,8],[3,7],
 					  [6,7],[8,7],[4,9],[9,10],[10,8]]))
 #triangle
 T[0].append((3, 3, [[1,2],[2,3],[3,1]]))
