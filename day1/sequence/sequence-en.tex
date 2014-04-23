@@ -6,13 +6,11 @@
 \renewcommand{\TaskCode}{sequence}
 \renewcommand{\TaskName}{Sequence}
 
-\newcommand{\constant}[1]{{\tt #1}}
-
 \begin{document}
-    Adam wrote down on a blackboard a sequence of $K$ consequtive
-    positive integers starting with $N$. When he left, Billy came
-    in and erased all but one digit from each number, thus creating a
-    sequence of $K$ integers between \constant{0} and \constant{9}.
+    Adam wrote down a sequence of $K$ consecutive positive integers starting
+    with $N$ on a blackboard. When he left, Billy came in and erased all but one
+    digit from each number, thus creating a sequence of $K$ integers between 0
+    and 9.
 
     \Task
 
@@ -21,10 +19,10 @@
 
     \Input
 
-	The first line of the input contains a single integer $K$ --- the length of
-	either sequence. The second line contains $K$ space-separated integers
-	$B_1$, $B_2$, \dots, $B_K$ --- Billy's sequence, in the order in which it
-	is written on the blackboard.
+    The first line of the input contains a single integer $K$ --- the length of
+    the sequence. The second line contains $K$ integers $B_1$, $B_2$, \dots,
+    $B_K$ --- Billy's sequence, in the order in which it is written on the
+    blackboard.
 
     \Output
 
@@ -42,10 +40,10 @@
         47
     }
     {
-        Setting $N = 47$ would correspond to Adam's sequence
-        being \constant{47 48 49 50 51 52} from which Billy's sequence
+        $N = 47$ would correspond to Adam's sequence
+        being $<47\ 48\ 49\ 50\ 51\ 52>$ from which Billy's sequence
         can indeed be obtained. As no smaller value of $N$
-        would work, the answer is \constant{47}.
+        would work, the answer is 47.
     }
 
 \Scoring

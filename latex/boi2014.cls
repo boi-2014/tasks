@@ -129,7 +129,7 @@
 \newcommand\example[3]{% need a flexible way to change column widths
     \renewcommand{\arraystretch}{1.5}
     \begin{figure}[h!]
-        \begin{tabular}{|p{4cm}|p{3cm}|p{7.2cm}|}
+        \begin{tabular}{|p{3.5cm}|p{3.5cm}|p{7.2cm}|}
             \hline
             {\bf\TitleInput} & {\bf\TitleOutput} & {\bf\TitleExplanation} \\
             \hline
