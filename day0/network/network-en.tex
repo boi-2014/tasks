@@ -7,9 +7,6 @@
 \renewcommand{\TaskCode}{network}
 \renewcommand{\TaskName}{Computer network}
 
-\newcommand{\includefile}[1]{\vspace{-1.5em}\verbatiminput{#1}}
-\newcommand{\method}[1]{{\tt #1}}
-
 \begin{document}
 
     There are $N$ computers in the computer classroom of a local
@@ -79,7 +76,6 @@
     \end{itemize}
 
     \Example
-
     Consider the example shown in the diagram below (points correspond to
     computers, lines --- to cables). There are $N = 4$ computers in total,
     and Adam and Billy are using computers $x = 1$ and $y = 4$.
@@ -114,7 +110,6 @@
     \end{figure}
 
     \Scoring
-
     In all subtasks the constraint $2 \le N \le 1000$ holds.
 
     \begin{description}
@@ -128,11 +123,26 @@
     \end{description}
 
     \Constraints
-
     \begin{description}
         \item[Time limit:] 1 s
         \item[Memory limit:] 64 MB
     \end{description}
+
+    \Experimentation
+    The sample grader on your computer will read data from standard input.
+    The first line of input should contain four integers $N, x, y$ and the
+    allowed limit for $M$. The next $N$ lines should
+    contain $N$ integers each, describing the layout of the cables:
+    the $j$--th integer in the $i$--th of these rows ($i \neq j$) should be
+    the number of intermediate computers that a message from $i$ to $j$
+    would visit. It does not matter what the entries with $i = j$ are.
+
+    The following input describes the above example with $M$ limited by
+    $100$:
+
+    \begin{tabular}{p{\textwidth/3}p{\textwidth/3}p{\textwidth/3}}
+        & \includefile{network.2-01p.in} &
+    \end{tabular}
 
 \end{document}
 

@@ -53,6 +53,14 @@
 \newcommand{\TitleScoring}{Scoring}
 \newcommand{\TitleExplanation}{Comments}
 \newcommand{\TitleConstraints}{Constraints}
+\newcommand{\TitleExperimentation}{Experimentation}
+
+%%
+%% Shorthands
+%%
+
+\newcommand{\includefile}[1]{\vspace{-1.5em}\verbatiminput{#1}}
+\newcommand{\method}[1]{{\tt #1}}
 
 %%
 %% Page layout
@@ -99,7 +107,9 @@
 \newcommand\Examples{\section*{\TitleExamples}}
 \newcommand\Scoring{\section*{\TitleScoring}}
 \newcommand\Constraints{\section*{\TitleConstraints}}
+\newcommand\Experimentation{\section*{\TitleExperimentation}}
 \newcommand\Extra{\section*{\TitleExtra}}
+
 
 %%
 %% Body
