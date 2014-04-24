@@ -3,10 +3,11 @@
 %%
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{boi2014-ee}
+\ProvidesClass{boi2014-et}
 \LoadClass{boi2014}
 
 \RequirePackage[estonian]{babel}
+\RequirePackage{amssymb}
 
 %%
 %% Strings
@@ -29,3 +30,7 @@
 \renewcommand{\TitleScoring}{Hindamine}
 \renewcommand{\TitleExplanation}{Märkused}
 \renewcommand{\TitleConstraints}{Piirangud}
+\renewcommand{\TitleExperimentation}{Katsetamine}
+
+\renewcommand{\le}{\leqslant}
+\renewcommand{\ge}{\geqslant}
