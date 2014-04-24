@@ -1,0 +1,1 @@
+python in2dot.py | neato -Tpdf -o out.pdf

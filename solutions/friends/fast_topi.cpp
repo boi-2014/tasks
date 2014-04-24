@@ -36,7 +36,7 @@ int main() {
 	N = S.size();
 	
 	if(N % 2 == 0) {
-		cout << "IMPOSSIBLE\n";
+		cout << "NOT POSSIBLE\n";
 		return 0;
 	}
 	int n = N / 2;
@@ -84,7 +84,7 @@ int main() {
 		S2.resize(n);
 		cout << S2 << "\n";
 	} else {
-		cout << "IMPOSSIBLE\n";
+		cout << "NOT POSSIBLE\n";
 	}
 	
 	return 0;

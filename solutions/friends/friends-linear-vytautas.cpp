@@ -29,7 +29,7 @@ void readInput()
 void writeOutput(int ans)
 {
     if (ans == NO) {
-        printf ("IMPOSSIBLE\n");
+        printf ("NOT POSSIBLE\n");
     }
 
     else if (ans == INITIAL) {

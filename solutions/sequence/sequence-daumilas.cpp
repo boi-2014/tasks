@@ -10,7 +10,7 @@
 #include <vector>
 using namespace std;
 
-long long minN(vector<int>& A, bool try9 = true) {
+long long minN(const vector<int>& A, bool try9 = true) {
     long long m = 102345678900000L;
     if (A.size() == 1) {
         m = 0;
@@ -19,6 +19,7 @@ long long minN(vector<int>& A, bool try9 = true) {
                 m = m * 10 + a;
                 if (m == a && A[0] & 1) m *= 10;
             }
+        if (m == 0 && A[0] & 1) m = 10;
         return m;
     }
     for (int n = 0; n < 9 + try9; n++) {
@@ -45,5 +46,5 @@ int main() {
         scanf("%d", &d);
         A.push_back(1 << d);
     }
-    printf ("%LLd\n", minN(A));
+    printf ("%lld\n", minN(A));
 }

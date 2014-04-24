@@ -44,12 +44,12 @@
     \Input
     The input describes the street network.
 
-    The first input line contains two integers $n$ and $m$.  $n$ ($1 \le n \le
-    100\ 000$) is the number of junctions, and $m$ ($1 \le m \le 400\ 000$) is
-    the number of streets. Junctions are numbered from 1 to $n$.
+    The first input line contains two integers $N$ and $M$. $N$ is the number of
+    junctions, and $M$ is the number of streets. Junctions are numbered from 1
+    to $N$.
 
-    Each of the following $m$ lines contains two integers $u$, meaning that
-    there is a street connecting junctions $u$ and $v$.
+    Each of the following $M$ lines contains two integers $U$, meaning that
+    there is a street connecting junctions $U$ and $V$.
 
     For any input holds:
     \begin{enumerate}
@@ -59,11 +59,11 @@
     \end{enumerate}
 
     \Output
-    The first output line is to contain an integer $t$, the number of tours.
+    The first output line is to contain an integer $T$, the number of tours.
 
-    The $t$ tours are described in the following $t$ lines. Each of these lines
-    is to contain at first the number $c$ of different junctions the mailman has
-    to pass on this tour. The following $c$ integers in the line are the numbers
+    The $T$ tours are described in the following $T$ lines. Each of these lines
+    is to contain at first the number $C$ of different junctions the mailman has
+    to pass on this tour. The following $C$ integers in the line are the numbers
     of the junctions in this tour. They must be output in the order the
     junctions are passed by the mailman, with the starting (and ending) junction
     being output first (and only once).
@@ -111,14 +111,15 @@
     \Scoring
 
     \begin{description}
-        \item[Subtask 1 (40 points):] $1 \le n \le 2\ 000$.
-        \item[Subtask 2 (60 points):] $2\ 000 \le n \le 100\ 000$.
+        \item[Subtask 1 (40 points):] $1 \le N \le 2\ 000$, $1 \le M \le 100\ 000$.
+        \item[Subtask 2 (20 points):] $1 \le N \le 100\ 000$, $1 \le M \le 100\ 000$.
+        \item[Subtask 3 (40 points):] $1 \le N \le 1\ 000\ 000$, $1 \le M \le 1\ 000\ 000$.
     \end{description}
 
     \Constraints
 
     \begin{description}
-        \item[Time limit:] 1 s.
+        \item[Time limit:] 2 s.
         \item[Memory limit:] 256 MB.
     \end{description}
 

@@ -22,7 +22,7 @@ int main() {
     cin >> s;
     int n = s.size();
     if (n%2 == 0) {
-        cout << "IMPOSSIBLE\n";
+        cout << "NOT POSSIBLE\n";
         return 0;
     }
     string a1 = s.substr(0, (n-1)/2);
@@ -32,7 +32,7 @@ int main() {
     string b2 = s.substr(0, (n-1)/2+1);
     if (ok(a2, b2)) q.insert(a2);
     if (q.size() == 0) {
-        cout << "IMPOSSIBLE\n";
+        cout << "NOT POSSIBLE\n";
     } else if (q.size() > 1) {
         cout << "NOT UNIQUE\n";
     } else {

@@ -1,0 +1,72 @@
+\documentclass{boi2014}
+
+\usepackage{enumitem}
+\usepackage{todonotes}
+
+\renewcommand{\DayNum}{0}
+\renewcommand{\TaskCode}{numbers}
+\renewcommand{\TaskName}{Numbers}
+
+\begin{document}
+
+    Given two positive integers, find all integers that are strictly
+    between them.
+
+    \Input
+    Input consists of a single line that contains two positive
+    integers $A$ and $B$.
+
+    \Output
+    The first line of output should consist of a single integer ---
+    the number of integers that are strictly between $A$ and $B$.
+    If there is at least one such integer, then all of them should
+    be listed in increasing order in the second line of output.
+    
+    \Examples
+
+    \simpleexample
+    {
+        8 14
+    }
+    {
+        5 \newline
+        9 10 11 12 13
+    }
+
+    \simpleexample
+    {
+        1 2
+    }
+    {
+        0
+    }
+
+    \Scoring
+
+        Your submission will score full points for a subtask if it
+        produces correct output for each testcase in 
+        that subtask. Otherwise, if it produces correct first
+        line of output for each testcase, it will score $50\%$ of the
+        points for the subtask. In all other events it will score no
+        points for the subtask.
+        Note that no points will be awarded for a subtask if
+        (in particular) time
+        limit is exceeded or a runtime error is encountered in at
+        least one testcase in that subtask.
+
+    \begin{description}
+
+        \item[Subtask 1 (30 points):] $1 \le A, B \le 1000$. 
+        \item[Subtask 2 (70 points):] $1 \le A, B \le 10^{15}$,
+            $A$ and $B$ differ by at most $100\,000$.
+    \end{description}
+
+    \Constraints
+
+    \begin{description}
+        \item[Time limit:] 1 s.
+        \item[Memory limit:] 64 MB.
+    \end{description}
+
+\end{document}
+

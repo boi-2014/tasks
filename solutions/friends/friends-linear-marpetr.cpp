@@ -31,11 +31,15 @@ int main() {
 	const string&
 		pos1 = try_candidate(final, orig_len + 1, orig_len, 0),
 		pos2 = try_candidate(final, 0, orig_len, orig_len);
-	if (pos1.empty())
+	if ( (pos1.empty() && pos2.empty()) || (final.size() % 2 == 0))
+		cout << "IMPOSSIBLE" << endl;
+	else if (pos1.empty())
 		cout << pos2 << endl;
-	else if (pos2.empty() || pos1 == pos2)
+	else if (pos2.empty())
 		cout << pos1 << endl;
-	else
+	else if (pos1 != pos2)
 		cout << "NOT UNIQUE" << endl;
+	else 
+		cout << pos1 << endl;
 	return 0;
 }
