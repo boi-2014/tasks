@@ -14,17 +14,17 @@
     joined by a cable directly, but a message can always be sent from any
     computer to any other computer through intermediate computers joined by
     cables.  A message always chooses the shortest route to travel: the number
-    of \emph{intermediate} computers along it's path (i.e. computers other than
-    the sender and the receiver that the message visits) is minimised.
+    of \emph{intermediate computers} along its path (i.e. computers other than
+    sender and receiver that the message visits) is minimised.
     
     Adam and Billy, who use distinct computers $a$ and $b$ in this classroom,
-    wish to determine a shortest route between their computers.  They do not
+    wish to determine a shortest route between their computers. They do not
     know the layout of the cables but they can send messages between all pairs
     of computers and calculate the number of intermediate computers that they
     visit.
 
     However, Adam and Billy are not very good with computers
-    and they ask you for your help to achieve their goal without sending
+    and they ask you for help to achieve their goal without sending
     too many messages.
 
     \Task
@@ -43,7 +43,7 @@
     \end{itemize}
 
     Your procedure \method{findRoute} can call function \method{ping(i, j)}
-    that takes as parameters two distinct labels of computers
+    that takes as parameters labels of two distinct computers
     ($i \neq j$ and $1 \le i, j \le N$) and returns the number of intermediate computers
     that a message travelling from $i$ to $j$ would visit.
 
