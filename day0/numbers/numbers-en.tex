@@ -7,8 +7,6 @@
 \renewcommand{\TaskCode}{numbers}
 \renewcommand{\TaskName}{Numbers}
 
-\newcommand{\includefile}[1]{\vspace{-1.5em}\verbatiminput{#1}}
-
 \begin{document}
 
     Given two positive integers, find all integers that are strictly
@@ -27,12 +25,21 @@
     \Examples
 
     \simpleexample
-    {\includefile{numbers.1-01p.in}}
-    {\includefile{numbers.1-01p.sol}}
+    {
+        8 14
+    }
+    {
+        5 \newline
+        9 10 11 12 13
+    }
 
     \simpleexample
-    {\includefile{numbers.1-02p.in}}
-    {\includefile{numbers.1-02p.sol}}
+    {
+        1 2
+    }
+    {
+        0
+    }
 
     \Scoring
 
@@ -57,8 +64,8 @@
     \Constraints
 
     \begin{description}
-        \item[Time limit:] 1 s
-        \item[Memory limit:] 64 MB
+        \item[Time limit:] 1 s.
+        \item[Memory limit:] 64 MB.
     \end{description}
 
 \end{document}

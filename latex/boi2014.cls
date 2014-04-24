@@ -53,6 +53,14 @@
 \newcommand{\TitleScoring}{Scoring}
 \newcommand{\TitleExplanation}{Comments}
 \newcommand{\TitleConstraints}{Constraints}
+\newcommand{\TitleExperimentation}{Experimentation}
+
+%%
+%% Shorthands
+%%
+
+\newcommand{\includefile}[1]{\vspace{-1.5em}\verbatiminput{#1}}
+\newcommand{\method}[1]{{\tt #1}}
 
 %%
 %% Page layout
@@ -99,7 +107,9 @@
 \newcommand\Examples{\section*{\TitleExamples}}
 \newcommand\Scoring{\section*{\TitleScoring}}
 \newcommand\Constraints{\section*{\TitleConstraints}}
+\newcommand\Experimentation{\section*{\TitleExperimentation}}
 \newcommand\Extra{\section*{\TitleExtra}}
+
 
 %%
 %% Body
@@ -129,7 +139,7 @@
 \newcommand\example[3]{% need a flexible way to change column widths
     \renewcommand{\arraystretch}{1.5}
     \begin{figure}[h!]
-        \begin{tabular}{|p{4cm}|p{3cm}|p{7.2cm}|}
+        \begin{tabular}{|p{3.5cm}|p{3.5cm}|p{7.2cm}|}
             \hline
             {\bf\TitleInput} & {\bf\TitleOutput} & {\bf\TitleExplanation} \\
             \hline
