@@ -102,9 +102,9 @@ int main() {
 	fprintf(stderr, "after dfs\n");
 	ANS_T = 0;
 	
-	printf("%d\n", ANS_C);
+	//printf("%d\n", ANS_C);
 	for(int i = 0; i < ANS_C; i++) {
-		printf("%d", ANS_cc[i]);
+		//printf("%d", ANS_cc[i]);
 		for (int j = 0; j < ANS_cc[i]; j++)
 			printf(" %d", ANS[ANS_T++]);
 		printf("\n");

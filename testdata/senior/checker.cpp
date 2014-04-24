@@ -14,10 +14,10 @@ bool used[2*MaxM];
 void read_input (char * filename) {
     FILE * f = fopen(filename, "r");
     fscanf(f, "%d%d", &N, &M);
-    for (int i = 0; i < M; i++) {
+	for (int i = 0; i < M; i++) {
         fscanf(f, "%d%d", &a[i], &b[i]);
         if (a[i] > N || b[i] > N)
-	    fprintf(stderr, "Blogas input failas\n");
+	    fprintf(stderr, "Bad input file\n");
 	C[a[i]]++; C[b[i]]++;
     }
     P[1] = 0;
@@ -38,34 +38,33 @@ void error (const char s[]) {
 
 bool isDigit (char c) {return (c >= '0' && c <= '9');}
 
-int getInt (FILE * f, bool endln = false, int lim = MaxN) {
+
+void getInt (FILE * f, int & n, bool & endln, bool & eof) {
     char c;
     do {
        c = fgetc(f);
     }while (c != EOF && c != '\n' && c != '\r' && !isDigit(c));
-    
-    if (c == EOF || c=='\n')  error("Not enough numbers in output");
-    
-    int ret = c - '0';
+	
+	if (c == '\n') {
+		endln = true;
+		return;
+	}else if (c == EOF) {
+		endln = eof = true;
+		return;
+	}
+	n = c - '0';
     c = fgetc(f);
     while (isDigit(c)) {
-        ret = ret*10 + (c - '0');
-        if (ret > lim) {
-		printf("ret = %d\n", ret);
-	error ("Number in output too big");
-        
+        n = n*10 + (c - '0');
+        if (n > N) 
+			error ("Number in output too big");
+		c = fgetc(f);
 	}
-	c = fgetc(f);
-    }
-    if (ret > lim) {
-    	printf("ret = %d\n", ret);
-    error ("Number in output too big");
-    }
-    if (endln) {
-        while (c != '\n' && c != EOF) 
-            c = fgetc(f);
-    }
-    return ret;
+	if (c == '\n')
+		endln = true;
+	else if (c == EOF)
+		endln = eof = true;
+
 }
 
 
@@ -74,22 +73,36 @@ bool usedV[MaxN];
 
 void read_output (char * filename) {
     FILE * f = fopen(filename, "r");
-    T = getInt(f, true, MaxM);
     PT[0] = TC[0] = 0;
-    for (T_ = 1; T_ <= T; T_++) {
-	TC[T_] = getInt(f);
-        //printf ("%d - size()\n", TC[T_]);
-        PT[T_] = PT[T_-1] + TC[T_-1];
-	//printf("STAT = %d, pt = %d\n", PT[T_] + TC[T_], PT[T_]);
-        if (PT[T_] + TC[T_] > M) error ("Too many junctions in answer");
-        for (int i = 0; i < TC[T_]; i++) {
-            TD[PT[T_]+i] = getInt(f,(i==TC[T_])?true:false);
-            if (usedV[TD[PT[T_]+i]]) error("Junction twice in a tour");
-            usedV[TD[PT[T_]+i]] = true;
-        }
-        for (int i = 0; i < TC[T_]; i++)
-            usedV[TD[PT[T_]+i]] = false;
-    }
+    T_ = 1;
+
+	bool eoln = false, eof = false;
+	int tmp;
+
+	while (!eof) {
+		//printf ("NEW ONE!\n");
+		PT[T_] = PT[T_-1] + TC[T_-1];
+		while (!eoln) {
+			tmp = -1;
+			getInt(f, tmp, eoln, eof);
+			//printf ("   TMP = %d\n", tmp);
+			if (tmp != -1) {
+				if (used[tmp]) error ("Junction twice in a tour");
+				TD[PT[T_] + TC[T_]] = tmp;
+				TC[T_]++;
+				used[tmp] = false;
+			}
+			if (PT[T_] + TC[T_] > M) error ("Too many junctions in answer");
+		}
+		eoln = false;
+		for (int i = 0; i < TC[T_]; i++)
+			used[TD[PT[T_]+i]] = false; 
+		if (TC[T_] > 0) T_++;
+		if (T_ > M) error("Too many junctions in answer");
+	}
+	if (TC[T_] == 0) T_--;
+	T = T_;
+	//printf("T = %d\n", T);
 }
 int b_search (int * E, int pr, int pb, int X) {
     while (pr < pb) {
