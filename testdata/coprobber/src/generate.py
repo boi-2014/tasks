@@ -65,6 +65,15 @@ tests += [
 
 # Subtask 3: N <= 100
 
+def shift(edgelist, offset):
+    return [(a + offset, b + offset) for a, b in edgelist]
+
+def reshuffle(edgelist):
+    n = 1 + max(max(a, b) for a, b in edgelist)
+    remap = range(n)
+    random.shuffle(remap)
+    return [(remap[a], remap[b]) for a, b in edgelist]
+
 def random_full(n):
     ds = DisjointSet()
     deg = [0] * n
@@ -107,6 +116,37 @@ def many_edges(n, m):
         m -= 1
     return edges
 
+def clique(n):
+    return [(i, j) for i in xrange(n) for j in xrange(i)]
+
+def ring(n):
+    return [(i, (i+1)%n) for i in xrange(n)]
+
+def domination(basegraph, total_nodes, edge_factor):
+    n = 1 + max(max(a, b) for a, b, in basegraph)
+    adj = [[] for i in xrange(total_nodes)]
+    randset = []
+    for a, b in basegraph:
+        adj[a].append(b)
+        adj[b].append(a)
+        randset.append(a)
+        randset.append(b)
+    while n < total_nodes:
+        while not adj[n]:
+            r = random.choice(randset)
+            for a in adj[r]:
+                if random.random() < edge_factor:
+                    adj[a].append(n)
+                    adj[n].append(a)
+                    randset.append(a)
+        n += 1
+    edges = []
+    for a in xrange(total_nodes):
+        for b in adj[a]:
+            if a < b:
+                edges.append((a, b))
+    return edges
+
 tests += [
     # Triangle
     (lambda: [(0, 1), (0, 2), (1, 2)], (3, 4)),
@@ -116,13 +156,28 @@ tests += [
     (lambda: [(0, 1), (1, 2), (2, 3), (3, 4), (4, 0)], (3, 4)),
     (lambda: random_full(10), (3, 4)),
     (lambda: random_full(23), (3, 4)),
-    (lambda: random_full(77), (3, 4)),
     (lambda: random_full(100), (3, 4)),
     (lambda: many_edges(100, 100*100/3), (3, 4)),
+    (lambda: domination(ring(5), 30, 0.5), (3, 4)),
+    (lambda: domination(clique(5), 50, 0.5), (3, 4)),
+    (lambda: ring(100), (3, 4)),
 ]
 
 
 # Subtask 4: N <= 500
+
+def line_and_clique():
+    edges = [(i, i+1) for i in xrange(99)]
+    edges += shift(clique(400), 100)
+    edges.append((49, 100))
+    return reshuffle(edges)
+
+def ten_cliques():
+    edges = []
+    for i in xrange(10):
+        edges += shift(clique(50), 50*i)
+        edges.append((50 * i, (50 * (i + 1)) % 500))
+    return reshuffle(edges)
 
 tests += [
     (lambda: random_full(200), (4,)),
@@ -131,7 +186,19 @@ tests += [
     (lambda: full_graph(500), (4,)),
     (lambda: many_edges(450, 450*450/4), (4,)),
     (lambda: many_edges(500, 500*500/6), (4,)),
+    (line_and_clique, (4,)),
+    (ten_cliques, (4,)),
 ]
+
+# Long chasing time
+t = lambda: domination(clique(15), 500, 0.7)
+t.seed = (27, 1)
+tests.append((t, (4,)))
+
+# Long chasing time when robber wins
+t = lambda: domination(ring(5), 500, 0.72)
+t.seed = (28, 6)
+tests.append((t, (4,)))
 
 
 def print_test(f, edgelist):
@@ -162,19 +229,34 @@ def add_strategy(input, strategy_num):
 def run():
     import sys, cStringIO, shutil
     
-    for test_num, (test_func, subtasks) in enumerate(tests, start=1):
+    all_tests = list(enumerate(tests, start=1))
+    
+    if len(sys.argv) > 1:
+        tnum = int(sys.argv[1])
+        all_tests = [all_tests[tnum - 1]]
+    
+    subtask_wincounts = {}
+    
+    for test_num, (test_func, subtasks) in all_tests:
         public = 'p' if getattr(test_func, 'public', None) else ''
-        subtasks = ''.join(str(x) for x in sorted(subtasks))
-        filename = '../coprobber.%02d%s-%s' % (test_num, public, subtasks)
+        subtasks_s = ''.join(str(x) for x in sorted(subtasks))
+        filename = '../coprobber.%02d%s-%s' % (test_num, public, subtasks_s)
         print >>sys.stderr, filename
         
         sio = cStringIO.StringIO()
+        random.seed(getattr(test_func, 'seed', test_num))
         print_test(sio, test_func())
         st = getattr(test_func, 'robber_strategy', 0)
         stdout = add_strategy(sio.getvalue(), st)
-        print cop_wins(stdout)
+        cop_wins_test = cop_wins(stdout)
+        print 'Cop wins' if cop_wins_test else 'Robber wins'
         with open(filename + '.in', 'w') as f:
             f.write(stdout)
+        for s in subtasks:
+            subtask_wincounts.setdefault(s, [0, 0])[0 if cop_wins_test else 1] += 1
+    
+    print
+    print '[cop, robber] win counts:', subtask_wincounts
 
 class DisjointSet(object):
     def __init__(self):
@@ -209,5 +291,4 @@ class DisjointSet(object):
 import random
 
 if __name__ == '__main__':
-    random.seed(1382525932)  # Make the generator deterministic
     run()

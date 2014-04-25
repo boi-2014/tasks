@@ -23,6 +23,8 @@ int NextPos[MAX_N][MAX_N];
 int StartPos[MAX_N];
 
 bool calcStrategy(int strategy) {
+	fill(TimeToWin[0][0], TimeToWin[2][0], INT_MAX);
+
 	for (int i = 0; i < N; i++)
 		for (int j = 0; j < N; j++)
 			if (A[i][j])
@@ -39,6 +41,8 @@ bool calcStrategy(int strategy) {
 	for (int i = 0; i < N; i++) {
 		q.push(Position(COP, i, i));
 		q.push(Position(ROBBER, i, i));
+		TimeToWin[COP][i][i] = 0;
+		TimeToWin[ROBBER][i][i] = 0;
 	}
 	
 	int leftUntilWin = 2 * N * N;
@@ -68,29 +72,34 @@ bool calcStrategy(int strategy) {
 			}
 		}
 	}
-	if (leftUntilWin != 0)
-		return false;
 	
 	/*for (int t = 0; t < 2; t++) {
-		printf("%d:\n", t);
+		fprintf(stderr, "%d:\n", t);
 		for (int c = 0; c < N; c++) {
 			for (int r = 0; r < N; r++) {
-				printf("%3d", TimeToWin[t][c][r]);
+				fprintf(stderr, "%3d", TimeToWin[t][c][r]);
 			}
-			printf("\n");
+			fprintf(stderr, "\n");
 		}
 	}*/
 	
+	int optimalChasingTime = INT_MAX;
 	// Calculate robber starting positions
 	// Strategy: maximise chasing time
 	for (int c = 0; c < N; c++) {
 		int maxTime = -1;
 		for (int r = 0; r < N; r++)
-			if (TimeToWin[COP][c][r] > maxTime) {
+			if (TimeToWin[COP][c][r] != INT_MAX
+					&& TimeToWin[COP][c][r] > maxTime) {
 				maxTime = TimeToWin[COP][c][r];
 				StartPos[c] = r;
 			}
+		optimalChasingTime = min(optimalChasingTime, maxTime);
 	}
+	fprintf(stderr, "Optimal chasing time: %d steps\n", optimalChasingTime);
+	
+	if (leftUntilWin != 0)
+		return false;
 	
 	// Calculate robber strategy
 	switch (strategy) {
