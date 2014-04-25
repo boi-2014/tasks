@@ -1,0 +1,175 @@
+\documentclass{boi2014-de}
+
+\usepackage{enumitem}
+\usepackage{todonotes}
+\usepackage{wrapfig}
+\usepackage{mathtools}
+\usepackage{tikz}
+
+\renewcommand{\DayNum}{1}
+\renewcommand{\TaskCode}{coprobber}
+\renewcommand{\TaskName}{Räuber und Gendarm}
+
+\renewcommand{\labelitemii}{$\circ$}
+\newcommand{\constant}[1]{{\tt #1}}
+
+\begin{document}
+    \begin{wrapfigure}{r}{6cm}
+		\includegraphics[width=6cm]{\TaskCode.jpeg}
+	\end{wrapfigure}
+
+    In Bytemore City sind die Räuber auf dem Vormarsch!  Und nach jedem Raub
+    ist es die Aufgabe eines einsamen Gendarmen, den Räuber durch die engen Straßen
+    der Stadt zu verfolgen, die die Straßenecken (kurz: Ecken) miteinander verbinden.
+    Dummerweise entkommen die Räuber häufig, da sie die Stadt viel besser kennen als die Gendarmen.
+
+    Das Bytemore City Police Department (BCPD) will nun Computer einsetzen,
+    um das Verbrechen besser zu bekämpfen.  Das BCPD hat dazu bereits einen präzisen
+    Stadtplan von Bytemore City angefertigt.  Nun wird noch Software benötigt,
+    die Strategien zur Verfolgung von Räubern ermitteln soll.
+
+    In der Software wird die Verfolgung eines Räubers durch einen Gendarmen so modelliert:
+    \begin{enumerate}
+        \item 
+        Der Gendarm wählt eine Ecke, von der aus er beginnt.
+        \item 
+            Der Räuber kennt nun die Position des Gendarmen und wählt eine Ecke für den Raub.
+            Von da an kennen Räuber und Gendarm gegenseitig ihre Position.
+        \item 
+            Nun ist der Gendarm am Zug.  Er kann sich über eine Straße zu einer benachbarten Ecke bewegen 
+            oder warten (und sich nicht bewegen).
+        \item 
+            Nun ist der Räuber am Zug.  Er bewegt sich in jedem Zug über eine Straße zu einer benachbarten Ecke.
+            Beachte: Räuber können einfach nicht warten, das Weglaufen gehört zum Berufsethos.
+        \item 
+        Nun ziehen Gendarm und Räuber abwechselnd (der Gendarm beginnt),
+        bis eines der folgenden Dinge passiert:
+        
+        \begin{enumerate}
+            \item 
+                Ein Zustand (gegeben durch die Positionen von Räuber und Gendarm und die
+                Angabe, wer als nächster am Zug ist) wiederholt sich.
+                Der Räuber kann also dem Gendarmen beliebig lange aus dem Weg gehen und entkommt so.
+            \item 
+                Nach einem Zug befinden sich Räuber und Gendarm auf derselben Ecke.
+                In diesem Fall ist der Räuber gefangen.
+        \end{enumerate}
+    \end{enumerate}
+
+    \Task
+    Schreibe ein Programm, das bei gegebenem Stadtplan bestimmt,
+    ob der Räuber gefangen werden kann, und, falls ja, die dazu nötigen Züge des Gendarmen angibt.
+
+    Dein Programm soll annehmen, dass der Räuber optimale Züge macht.
+
+    \Implementation
+    Du musst zwei Funktionen implementieren:
+    \begin{itemize}
+        \item \method{start(N, A)} mit den folgenden Parametern:
+            \begin{itemize}
+                \item $N$ -- die Anzahl der Ecken (die Ecken sind von 
+                     $0$ bis $N-1$ nummeriert);
+                \item $A$ -- ein zweidimensionales Array, das die Straßen beschreibt:
+                    für $0 \le i, j \le N-1$,
+                    $$
+                        A[i, j] \text{ ist }
+                        \begin{dcases*}
+                            \texttt{false} & falls $i$ und $j$ nicht durch eine Straße verbunden sind.
+                                \\
+                            \texttt{true} & falls $i$ und $j$ durch eine Straße verbunden sind.
+                        \end{dcases*}
+                    $$
+                    Alle Straßen sind in beiden Richtungen begehbar (also $A[i, j] = A[j, i]$ für alle $i, j$),
+                    und es gibt keine ``Schleifen'' (also: $A[i, i]$ ist \texttt{false} für alle $i$).
+                    Außerdem gilt: Für jede Ecke gibt es einen Weg zu jeder anderen Ecke über die Straßen.
+            \end{itemize}
+        
+        Falls der Räuber in dem durch den Stadtplan gegebenen Straßennetz gefangen werden kann,
+        soll die Funktion \method{start} die Nummer der Ecke liefern, 
+        die der Gendarm zu Beginn gewählt hat.  Sonst sollte sie $-1$ liefern.
+
+        \item \method{nextMove(R)} 
+            nimmt als Parameter die Nummer $R$ der Ecke, auf der sich der Räuber gerade befindet.
+            Sie liefert die Nummer der Ecke, auf der sich der Gendarm nach seinem Zug befindet.
+    \end{itemize}
+
+    Die Funktion \method{start} wird genau einmal aufgerufen, vor allen Aufrufen von \method{nextMove}.
+    Liefert \method{start} $-1$, dann wird  \method{nextMove} nicht aufgerufen.
+    Ansonsten wird \method{nextMove} wiederholt aufgerufen, bis die Verfolgung endet.
+    Genauer gesagt:  das Programm terminiert, sobald eines der folgenden Dinge passiert:
+    
+    \begin{itemize}
+        \item \method{nextMove} liefert einen ungültigen Zug;
+        \item ein Zustand wiederholt sich;
+        \item der Räuber ist gefangen.
+    \end{itemize}
+
+    \Example
+    \begin{wrapfigure}[4]{r}{2cm}
+        \vspace{-0.5cm}
+        \centering
+        \begin{tikzpicture}
+        \draw (0,1) -- (0,0);
+        \draw (0,1) -- (1,0);
+        \draw (0,1) -- (1,1);
+        \foreach \x in {0,1} \foreach \y in {0,1}
+            \draw (\x,\y) node[circle,draw,fill=white,inner sep=0,minimum size=0.7cm] {\pgfmathparse{int(2-2*\y+\x)}\pgfmathresult};
+        \end{tikzpicture}
+    \end{wrapfigure}
+    
+    Schauen wir uns das Beispiel rechts an.  Hier ist jede Ecke eine gute Startposition für den Gendarmen.
+    Startet er in Ecke 0, kann er im ersten Zug warten; der Räuber muss sich dann zu ihm bewegen.
+    Startet er in einer anderen Ecke, kann er warten, bis der Räuber auf Position 0 ist, und sich dann dorthin bewegen.
+    
+    In diesem Beispiel könnten die Funktionen also wie folgt aufgerufen werden:
+
+    \begin{tabular}{|l|c|}
+        \hline
+            {\bf Funktionsaufruf} & {\bf Liefert} \\
+        \hline
+            \method{start(4, [[0, 1, 1, 1], [1, 0, 0, 0], [1, 0, 0, 0], [1, 0, 0, 0]])} &
+            \constant{3} \\
+        \hline
+            \method{nextMove(1)} & \constant{3} \\
+        \hline
+            \method{nextMove(0)} & \constant{0} \\
+        \hline
+    \end{tabular}
+
+    \Scoring
+    Um volle Punktzahl zu erhalten, muss dein Programm
+    \begin{enumerate}
+    	\item korrekt bestimmen, ob der Gendarm den Räuber fangen kann; und
+	\item Züge angeben, mit denen der Gendarm den Räuber fangen kann.
+    \end{enumerate}
+    
+    In Subtasks 3 und 4 erhalten Lösungen, 
+    die nur die erste Anforderung erfüllen, 30\% der Punkte.
+
+    \begin{description}
+        \item[Subtask 1 (15 Punkte):] $2 \le N \le 500$. 
+        Zwischen je zwei Ecken gibt es genau einen Weg.
+        \item[Subtask 2 (15 Punkte):] $2 \le N \le 500$. 
+        Die Ecken und Straßen bilden ein Raster.  Das Raster hat mindestens zwei Reihen und Spalten,
+        und die Nummerierung der Ecken folgt dem unten abgebildeten Muster.
+        \begin{figure}[h!]
+           \centering
+           \begin{tikzpicture}
+            \draw (0,0) grid (3,2);
+            \foreach \x in {0,1,2,3} \foreach \y in {0,1,2}
+                \draw (\x,\y) node[circle,draw,fill=white,inner sep=0,minimum size=0.7cm] {\pgfmathparse{int(8-4*\y+\x)}\pgfmathresult};
+           \end{tikzpicture}
+        \end{figure}
+        \item[Subtask 3 (30 Punkte):] $2 \le N \le 100$.
+        \item[Subtask 4 (40 Punkte):] $2 \le N \le 500$.
+    \end{description}
+
+    \Constraints
+    
+    \begin{description}
+        \item[Time Limit:] 1 s.
+        \item[Memory Limit:] 256 MB.
+    \end{description}
+
+    \todo{Need to add info about graders.}
+\end{document}

@@ -148,34 +148,18 @@ void Test6()
 void Small()
 {
 	vector <ii> p;
-	p.push_back(ii(5, 3));
-	p.push_back(ii(6, 3));
-	p.push_back(ii(6, 1));
-	p.push_back(ii(7, 1));
-	p.push_back(ii(7, 4));
-	p.push_back(ii(8, 4));
-	p.push_back(ii(8, 1));
-	p.push_back(ii(9, 1));
-	p.push_back(ii(9, -1));
-	p.push_back(ii(8, -1));
-	p.push_back(ii(8, -3));
-	p.push_back(ii(7, -3));
-	p.push_back(ii(7, -1));
-	p.push_back(ii(6, -1));
-	p.push_back(ii(6, -2));
-	p.push_back(ii(5, -2));
-	p.push_back(ii(5, -1));
-	p.push_back(ii(4, -1));
-	p.push_back(ii(4, -4));
-	p.push_back(ii(3, -4));
-	p.push_back(ii(3, -1));
-	p.push_back(ii(2, -1));
-	p.push_back(ii(2, 1));
-	p.push_back(ii(3, 1));
-	p.push_back(ii(3, 2));
-	p.push_back(ii(4, 2));
-	p.push_back(ii(4, 1));
-	p.push_back(ii(5, 1));
+	p.push_back(ii(5, 15));
+	p.push_back(ii(6, 15));
+	p.push_back(ii(6, 16));
+	p.push_back(ii(7, 16));
+	p.push_back(ii(7, 11));
+	p.push_back(ii(6, 11));
+	p.push_back(ii(6, 10));
+	p.push_back(ii(5, 10));
+	p.push_back(ii(5, 12));
+	p.push_back(ii(4, 12));
+	p.push_back(ii(4, 14));
+	p.push_back(ii(5, 14));
 	Print(p);
 }
 

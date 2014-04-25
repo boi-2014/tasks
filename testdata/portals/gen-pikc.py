@@ -16,6 +16,6 @@ x = C // 4 * 3 + 1
 ar[R // 4][x] = '#'
 ar[R // 4 + 1][x] = 'C'
 
-print(R, C)
+print('{} {}'.format(R, C))
 for row in ar:
     print(''.join(row))
