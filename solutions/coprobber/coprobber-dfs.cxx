@@ -18,11 +18,11 @@ int bestMove(int turn, int cop, int robber) {
 	return c != -2 ? c : (c = [=]{
 		bool &ss = StateStack[turn][cop][robber];
 		if (ss) {
-			printf("(%d, %d, %d): loop\n", turn, cop, robber);
+			//printf("(%d, %d, %d): loop\n", turn, cop, robber);
 			return turn == ROBBER ? N : -1;
 		}
 		ss = true;
-		printf("<\n");
+		//printf("<\n");
 		int move = -1;
 		if (turn == COP)
 			for (int i = 0; i < N && move == -1; i++)
@@ -33,7 +33,7 @@ int bestMove(int turn, int cop, int robber) {
 				if (A[robber][i] && bestMove(COP, cop, i) == -1)
 					move = i;
 		ss = false;
-		printf("> bestMove(%d, %d, %d) = %d\n", turn, cop, robber, move);
+		//printf("> bestMove(%d, %d, %d) = %d\n", turn, cop, robber, move);
 		return move;
 	}());
 }
