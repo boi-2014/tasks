@@ -10,6 +10,6 @@ for r in range(1, R, 2):
 ar[0][0] = 'S'
 ar[-1][(C-1)*((R-1)%4 < 2)] = 'C'
 
-print(R, C)
+print('{} {}'.format(R, C))
 for row in ar:
     print(''.join(row))

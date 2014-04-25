@@ -11,6 +11,6 @@ for r in range(R):
 ar[0][2] = 'S'
 ar[-1][-1] = 'C'
 
-print(R, C)
+print('{} {}'.format(R, C))
 for row in ar:
     print(''.join(row))
