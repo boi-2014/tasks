@@ -11,6 +11,8 @@ vector<string> ANS;
 int N;
 
 int main() {
+	int NN;
+	cin >> NN;
 	cin >> S;
 	N = S.length() / 2;
 	for (int i = 0; i < S.size(); i++) {

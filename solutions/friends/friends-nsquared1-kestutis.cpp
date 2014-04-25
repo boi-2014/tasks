@@ -10,8 +10,10 @@ string S;
 vector<string> ANS;
 int N;
 int C[1000] = {0};
+int NN;
 
 int main() {
+	cin >> NN;
 	cin >> S;
 	
 	for (int i = 0; i < S.size(); i++)

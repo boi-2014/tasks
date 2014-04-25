@@ -26,6 +26,8 @@ string try_candidate(const string &s, int orig_start, int orig_len, int modified
 
 int main() {
 	string final;
+	int N;
+	cin >> N;
 	cin >> final;
 	int orig_len = (final.length() - 1) / 2;
 	const string&
