@@ -17,22 +17,20 @@ const int SOLUTIONS_COUNT = 1;
 const char *SOLUTIONS[SOLUTIONS_COUNT] = {
 	"sequence_OK_Rihards",
 	//"sequence-daumilas",
+	//"sequence_K2_Rihards",
 	//"sequence-bruteforce-donatas",
 	//"sequence-donatas",
 	//"sequence-KlogK-vytautas",
 };
 
-const int SUBTASKS_COUNT = 4;
 const int SUBTASK_TEST_COUNT = 10;
 
-const int SUBTASK_STATIC_TESTS[SUBTASKS_COUNT] = {
-	4,
-	4,
-	0,
-	5,
-};
+const int FIRST_TEST_INDEX = 13;
 
+class Test;
 
+vector<Test*> tests;
+int testIndex = FIRST_TEST_INDEX;
 
 class Test {
 public:
@@ -41,6 +39,7 @@ public:
 
 	Test() {
 		answer = -1;
+		tests.push_back(this);
 	}
 
 	Test(const int s[]) {
@@ -74,14 +73,6 @@ public:
 };
 
 
-//TODO: remove
-const int sample_test[] = { 7, 8, 9, 5, 1, 2 };
-const int static_test[] = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
-
-
-vector<Test> tests[SUBTASKS_COUNT];
-
-
 void makeTestFile(string filename, Test test) {
 	FILE *file = fopen(filename.c_str(), "w");
 	if (file == NULL)
@@ -101,7 +92,7 @@ string toString(ll number) {
 	return s;
 }
 
-Test generateTest(const ll k, const ll n) {
+Test generateNTest(const ll k, const ll n) {
 	Test test;
 	for (int i = 0; i < k; ++i) {
 		string s = toString(n + i);
@@ -113,16 +104,27 @@ Test generateTest(const ll k, const ll n) {
 
 }
 
-Test generateRandomTest(const ll maxK, const ll maxN=MAX_ANSWER) {
-	ll k = rand() % (maxK+1);
-	ll n = rand() % (maxN+1);
-	return generateTest(k, n);
+Test generateNRandomTest(const ll maxK, const ll maxN=MAX_ANSWER) {
+	ll k = (rand() % maxK) + 1;
+	ll n = (rand() % maxN) + 1;
+	return generateNTest(k, n);
 }
 
-Test generateOneDigitRandomTest(const ll MAX_K) {
+Test generateSequenceTest(const ll k) {
+	Test test;
+	for (int i = 0; i < k; ++i) {
+		test.add(rand() % 10);
+	}
+	return test;
+}
+
+Test generateRandomSequenceTest(const ll maxK) {
+	return generateSequenceTest((rand() % maxK) + 1);
+}
+
+Test generateOneDigitTest(const ll k) {
 	Test test;
 	int digit = rand() % 10;
-	int k = rand() % (MAX_K + 1);
 	cout << k << " x \"" << digit << "\"" << endl;
 	for (int i = 0; i < k; ++i) {
 		test.add(digit);
@@ -130,15 +132,40 @@ Test generateOneDigitRandomTest(const ll MAX_K) {
 	return test;
 }
 
-Test makeStaticTest(const int sequence[], int answer=-1) {
-	Test test(sequence);
-	test.answer = answer;
-	return test;
+Test generateOneDigitRandomTest(const ll maxK) {
+	return generateOneDigitTest((rand() % maxK) + 1);
 }
 
 
-void addTest(int subtask, Test test) {
-	tests[subtask-1].push_back(test);
+//AAAA random(exluding BCD...) AAAA
+Test generateaabaaTest(int length) {
+	Test test;
+	int sideValue = rand() % 10;
+	int sidesSize = length / 3;
+	int middleSize = length - (2 * sidesSize);
+	int excludedCharactersCount = 3;
+
+	vector<int> digits;
+	for (int i = 0; i < 10; ++i) {
+		digits.push_back(i);
+	}
+
+	for (int i = 0; i < excludedCharactersCount; ++i) {
+		digits.erase(digits.begin() + (rand() % digits.size()));
+	}
+
+	for (int i = 0; i < sidesSize; ++i) {
+		test.add(sideValue);
+	}
+
+	for (int i = 0; i < middleSize; ++i) {
+		test.add(digits[rand() % digits.size()]);
+	}
+
+	for (int i = 0; i < sidesSize; ++i) {
+		test.add(sideValue);
+	}
+	return test;
 }
 
 ll readAnswer(const char *filename) {
@@ -168,6 +195,7 @@ bool contains(ll number, int digit) {
 bool isCorrect(Test test, ll answer) {
 	for (ll i = 0; i < test.sequence.size(); ++i) {
 		if (!contains(answer + i, test.sequence[i])) {
+			cout << answer+i << " does not contain " << test.sequence[i] << endl;
 			return false;
 		}
 	}
@@ -205,41 +233,58 @@ ll testFile(const char *inputFilename, Test test) {
 	return answer;
 }
 
+void makeTest(string subtasks, Test test) {
+	cout << "--------------" << endl;
+	char buffer[255];
+	sprintf(buffer, "sequence.%02d-%s", testIndex++, subtasks.c_str());
+	string inputFile = string(buffer) + ".in";
+	string outputFile = string(buffer) + ".sol";
+	cout << "Supposed answer: " << test.answer << endl;
+	cout << inputFile << endl;
+	makeTestFile(inputFile, test);
+
+	cout << outputFile << endl;
+	ll answer = testFile(inputFile.c_str(), test);
+	writeAnswer(answer, outputFile.c_str());
+}
+
 int main() {
 	srand(time(0));
 	try {
 		cout << "Generating tests..." << endl;
 		//generate tests
+		//makeTest("0", generateSequenceTest(10000));
+
+		makeTest("24", generateaabaaTest(1000));//TODO: manually check, if it can be made for subtask 1
+
+		int i;
 		//#1: N, K <= 1000
-		for (int i = 0; i < SUBTASK_TEST_COUNT - SUBTASK_STATIC_TESTS[0]; ++i)
-			addTest(1, generateRandomTest(1000, 1000));
+		for (i = 0; i < 4; ++i)
+			makeTest("124", generateNRandomTest(1000, 1000));
+		for (i = 0; i < 2; ++i)
+			makeTest("124", generateNTest(1000, 1000));
+
 		//#2: K <= 1000
-		for (int i = 0; i < SUBTASK_TEST_COUNT - SUBTASK_STATIC_TESTS[1]; ++i)
-			addTest(2, generateRandomTest(1000));
-		//#3: all digits are equal
-		for (int i = 0; i < SUBTASK_TEST_COUNT - SUBTASK_STATIC_TESTS[2]; ++i)
-			addTest(3, generateOneDigitRandomTest(1000));
+		for (i = 0; i < 3; ++i)
+			makeTest("24", generateNRandomTest(1000));
+		//generateNTest(1000);
+		for (i = 0; i < 3; ++i)
+			makeTest("24", generateRandomSequenceTest(1000));
+		for (i = 0; i < 1; ++i)
+			makeTest("24", generateSequenceTest(1000));
+
+		//#3: all digits are equal, K <= 100 000
+		for (i = 0; i < 4; ++i)
+			makeTest("34", generateOneDigitRandomTest(100000));
+		for (i = 0; i < 2; ++i)
+			makeTest("34", generateOneDigitTest(100000));
+		
 		//#4: K <= 100 000
-		for (int i = 0; i < SUBTASK_TEST_COUNT - SUBTASK_STATIC_TESTS[3]; ++i)
-			addTest(4, generateRandomTest(100000));
+		for (i = 0; i < 5; ++i)
+			makeTest("4", generateNRandomTest(100000));
+		for (i = 0; i < 3; ++i)
+			makeTest("4", generateSequenceTest(100000));
 
-		//make tests
-		for (int i = 0; i < SUBTASKS_COUNT; ++i) {
-			for (int j = 0; j < tests[i].size(); ++j) {
-				cout << "--------------" << endl;
-				char buffer[255];
-				sprintf(buffer, "sequence.%d-%02d", i+1, SUBTASK_STATIC_TESTS[i]+j+1);
-				string inputFile = string(buffer) + ".in";
-				string outputFile = string(buffer) + ".sol";
-				cout << "Supposed answer: " << tests[i][j].answer << endl;
-				cout << inputFile << endl;
-				makeTestFile(inputFile, tests[i][j]);
-
-				cout << outputFile << endl;
-				ll answer = testFile(inputFile.c_str(), tests[i][j]);
-				writeAnswer(answer, outputFile.c_str());
-			}
-		}
 	}
 	catch (const char *text) {
 		cout << "Error: " << text << endl;
