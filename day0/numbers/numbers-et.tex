@@ -1,0 +1,66 @@
+\documentclass{boi2014-et}
+
+\usepackage{enumitem}
+\usepackage{todonotes}
+
+\renewcommand{\DayNum}{0}
+\renewcommand{\TaskCode}{numbers}
+\renewcommand{\TaskName}{Arvud}
+
+\begin{document}
+
+    On antud kaks positiivset täisarvu. Leida kõik täisarvud, mis
+    jäävad rangelt antud arvude vahele.
+
+    \Input
+
+    Ainsal real on kaks positiivset täisarvu $A$ and $B$.
+
+    \Output
+
+    Esimesele reale väljastada üks täisarv --- rangelt $A$ ja $B$
+    vahele jäävate täisarvude arv. Kui selliseid arve leidub,
+    väljastada nad kõik kasvavas järjekorras teisele reale.
+    
+    \Examples
+
+    \simpleexample
+    {
+        8 14
+    }
+    {
+        5 \newline
+        9 10 11 12 13
+    }
+
+    \simpleexample
+    {
+        1 2
+    }
+    {
+        0
+    }
+
+    \Scoring
+
+    Programm teenib täispunktid iga alamülesande eest, milles ta
+    lahendab õigesti kõik testid. Kui ta väljastab kõigis testides
+    õigesti esimese rea, teenib ta $50\%$ alamülesande punktidest.
+    Igal muul juhul ta punkte ei saa. Muuhulgas ei saa ta punkte
+    ka juhul, kui ta kasvõi ühes testis ületab ajalimiiti või
+    lõpetab oma töö veaga.
+
+    \begin{description}
+        \item[Alamülesanne 1 (30 punkti):] $1 \le A, B \le 1\,000$. 
+        \item[Alamülesanne 2 (70 punkti):] $1 \le A, B \le 10^{15}$,
+            $A$ ja $B$ vahe ei ületa $100\,000$.
+    \end{description}
+
+    \Constraints
+
+    \begin{description}
+        \item[Ajalimiit:] 1 s.
+        \item[Mälulimiit:] 64 MB.
+    \end{description}
+
+\end{document}
