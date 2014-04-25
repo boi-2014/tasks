@@ -1,8 +1,5 @@
 \documentclass{boi2014}
 
-\usepackage{enumitem}
-\usepackage{todonotes}
-
 \renewcommand{\DayNum}{1}
 \renewcommand{\TaskCode}{friends}
 \renewcommand{\TaskName}{Three Friends}
@@ -23,7 +20,8 @@
     string.
 
     \Input
-    The only input line contains the final string. It consists of
+    The first line of the input contains the length of the final string $N$.
+    The string itself is given on the second line. It consists of $N$
     uppercase letters A, B, C, \ldots{} Z.
 
     \Output
@@ -39,17 +37,15 @@
 
     \Examples
 
-    \simpleexample{ABXCABC}{ABC}{}
-    \simpleexample{ABCDEF}{NOT POSSIBLE}{}
-    \simpleexample{ABABABABA}{NOT UNIQUE}{}
+    \simpleexample{7\newline ABXCABC}{ABC}{}
+    \simpleexample{6\newline ABCDEF}{NOT POSSIBLE}{}
+    \simpleexample{9\newline ABABABABA}{NOT UNIQUE}{}
 
     \Scoring
 
     \begin{description}
-        \item[Subtask 1 (30 points):] The length of the final string is at
-        most $2001$ letters.
-        \item[Subtask 2 (70 points):] The length of the final string is at
-        most $2000001$ letters.
+        \item[Subtask 1 (30 points):] $1 \le N \le 2001$.
+        \item[Subtask 2 (70 points):] $1 \le N \le 2000001$.
     \end{description}
 
     \Constraints
