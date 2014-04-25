@@ -11,6 +11,6 @@ for r in range(1, R):
 ar[0][0] = 'S'
 ar[-1][-1 - ((R-1)%4 > 1)] = 'C'
 
-print(R, C)
+print('{} {}'.format(R, C))
 for row in ar:
     print(''.join(row))

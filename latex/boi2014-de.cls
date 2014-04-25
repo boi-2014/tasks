@@ -10,20 +10,21 @@
 %% Strings
 %%
 
-\newcommand{\Language}{EN}
+\renewcommand{\Language}{DE}
 
-\newcommand{\Olympiad}{Baltic Olympiad in Informatics}
-\newcommand{\OlympiadDay}{Day \DayNum}
-\newcommand{\LocationDate}{26.--30. April, Palanga}
+%\newcommand{\Olympiad}{Baltic Olympiad in Informatics}
+\renewcommand{\OlympiadDay}{Tag \DayNum}
+\renewcommand{\LocationDate}{26.--30. April, Palanga}
 
-\newcommand{\PageOf}[2]{Seite #1 von #2}
+\renewcommand{\PageOf}[2]{Seite #1 von #2}
 
-\newcommand{\TitleTask}{Aufgabe}
-\newcommand{\TitleImplementation}{Implementierung}
-\newcommand{\TitleOutput}{Ausgabe}
-\newcommand{\TitleInput}{Eingabe}
-\newcommand{\TitleExample}{Beispiel}
-\newcommand{\TitleExamples}{Beispiele}
-\newcommand{\TitleScoring}{Bewertung}
-\newcommand{\TitleExplanation}{Anmerkungen}
-\newcommand{\TitleConstraints}{Constraints}
+\renewcommand{\TitleTask}{Aufgabe}
+\renewcommand{\TitleImplementation}{Implementierung}
+\renewcommand{\TitleOutput}{Ausgabe}
+\renewcommand{\TitleInput}{Eingabe}
+\renewcommand{\TitleExample}{Beispiel}
+\renewcommand{\TitleExamples}{Beispiele}
+\renewcommand{\TitleScoring}{Bewertung}
+\renewcommand{\TitleExplanation}{Anmerkungen}
+\renewcommand{\TitleConstraints}{Constraints}
+\renewcommand{\TitleExperimentation}{Experimentieren}
