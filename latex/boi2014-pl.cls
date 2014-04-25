@@ -6,24 +6,27 @@
 \ProvidesClass{boi2014-pl}
 \LoadClass{boi2014}
 
+\usepackage{polski}
+\usepackage[polish]{babel}
+
 %%
 %% Strings
 %%
 
-\newcommand{\Language}{PL}
+\renewcommand{\Language}{PL}
 
-\newcommand{\Olympiad}{Bałtycka Olimpiada Informatyczna}
-\newcommand{\OlympiadDay}{Dzień \DayNum}
-\newcommand{\LocationDate}{26--30 kwietnia, Palanga}
+\renewcommand{\Olympiad}{Bałtycka Olimpiada Informatyczna}
+\renewcommand{\OlympiadDay}{Dzień \DayNum}
+\renewcommand{\LocationDate}{26--30 kwietnia, Palanga}
 
-\newcommand{\PageOf}[2]{Strona #1 z #2}
+\renewcommand{\PageOf}[2]{Strona #1 z #2}
 
-\newcommand{\TitleTask}{Zadanie}
-\newcommand{\TitleImplementation}{Implementacja}
-\newcommand{\TitleOutput}{Wyjście}
-\newcommand{\TitleInput}{Wejście}
-\newcommand{\TitleExample}{Przykład}
-\newcommand{\TitleExamples}{Przykłady}
-\newcommand{\TitleScoring}{Ocenianie}
-\newcommand{\TitleExplanation}{Komentarz}
-\newcommand{\TitleConstraints}{Ograniczenia}
+\renewcommand{\TitleTask}{Zadanie}
+\renewcommand{\TitleImplementation}{Implementacja}
+\renewcommand{\TitleOutput}{Wyjście}
+\renewcommand{\TitleInput}{Wejście}
+\renewcommand{\TitleExample}{Przykład}
+\renewcommand{\TitleExamples}{Przykłady}
+\renewcommand{\TitleScoring}{Ocenianie}
+\renewcommand{\TitleExplanation}{Komentarz}
+\renewcommand{\TitleConstraints}{Ograniczenia}
