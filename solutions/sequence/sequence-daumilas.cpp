@@ -24,16 +24,20 @@ long long minN(const vector<int>& A, bool try9 = true) {
     }
     for (int n = 0; n < 9 + try9; n++) {
         int y = n, a = 0;
+	bool zero = false;
         vector<int> B;
         for (int i = 0; i < A.size(); i++) {
             a |= A[i] & (1023 - (1 << y));
+	    if (A[i] & 1 && y == 0) zero = true;
             y = (y + 1) % 10;
             if (!y || i == A.size() - 1) {
                 B.push_back(a);
                 a = 0;
             }
         }
-        m = min(m, minN(B, n < 9 || A.size() > 2) * 10 + n);
+	long long mm = minN(B, n < 9 || A.size() > 2) * 10 + n;
+	if (!mm && zero) mm = 10;
+        m = min(m, mm);
     }
     return m;
 }
