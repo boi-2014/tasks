@@ -1,0 +1,69 @@
+\documentclass{boi2014-de}
+
+\usepackage{enumitem}
+\usepackage{todonotes}
+
+\renewcommand{\DayNum}{0}
+\renewcommand{\TaskCode}{numbers}
+\renewcommand{\TaskName}{Zahlen}
+
+\begin{document}
+
+    Gegeben seien zwei positive Integer-Zahlen.  
+    Finde alle Integer, die echt zwischen den gegebenen Zahlen liegen.
+
+    \Input
+    Die einzige Zeile der Eingabe enthält zwei positive Integer $A$ und $B$.
+
+    \Output
+    Die erste Ausgabezeile sollte genau ein Integer enthalten: 
+    die Anzahl der Integer, die echt zwischen $A$ und $B$ liegen.
+    Wenn es mindestens ein solches Integer gibt, sollten alle solche
+    in der zweiten Zeile ausgegeben werden, und zwar in aufsteigender Folge.
+    
+    \Examples
+
+    \simpleexample
+    {
+        8 14
+    }
+    {
+        5 \newline
+        9 10 11 12 13
+    }
+
+    \simpleexample
+    {
+        1 2
+    }
+    {
+        0
+    }
+
+    \Scoring
+
+        In jeder Subtask werden die Punkte so vergeben:
+        Die volle Punktzahl wird erreicht,
+        wenn die Ausgabe für alle Testfälle korrekt ist.
+        Andernfalls, wenn immer die erste Ausgabezeile korrekt ist, 
+        werden $50\%$ der Punkte erreicht.  Sonst werden keine Punkte erreicht.
+        Beachte, dass es auch keine Punkte gibt, wenn in mindestens einem
+        Testfall der Subtask das Time oder Memory Limit überschritten wird 
+        oder ein Laufzeitfehler passiert.
+
+    \begin{description}
+
+        \item[Subtask 1 (30 Punkte):] $1 \le A, B \le 1000$. 
+        \item[Subtask 2 (70 Punkte):] $1 \le A, B \le 10^{15}$,
+            $A$ und $B$ unterscheiden sich um höchstens $100\,000$.
+    \end{description}
+
+    \Constraints
+
+    \begin{description}
+        \item[Time Limit:] 1 s.
+        \item[Memory Limit:] 64 MB.
+    \end{description}
+
+\end{document}
+
