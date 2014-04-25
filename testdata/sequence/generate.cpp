@@ -12,11 +12,11 @@ const ll MAX_ANSWER = 102345678900000LL;
 
 const char *TEMP_OUTPUT = "temp_output";//TODO: remove this file after
 
-const char *SOLUTIONS_ROOT = "../../../solutions/sequence/";
-const int SOLUTIONS_COUNT = 2;
+const char *SOLUTIONS_ROOT = "../../solutions/sequence/";
+const int SOLUTIONS_COUNT = 1;
 const char *SOLUTIONS[SOLUTIONS_COUNT] = {
 	"sequence_OK_Rihards",
-	"sequence-daumilas",
+	//"sequence-daumilas",
 	//"sequence_K2_Rihards",
 	//"sequence-bruteforce-donatas",
 	//"sequence-donatas",
@@ -92,7 +92,7 @@ string toString(ll number) {
 	return s;
 }
 
-Test generateTest(const ll k, const ll n) {
+Test generateNTest(const ll k, const ll n) {
 	Test test;
 	for (int i = 0; i < k; ++i) {
 		string s = toString(n + i);
@@ -104,10 +104,10 @@ Test generateTest(const ll k, const ll n) {
 
 }
 
-Test generateRandomTest(const ll maxK, const ll maxN=MAX_ANSWER) {
+Test generateNRandomTest(const ll maxK, const ll maxN=MAX_ANSWER) {
 	ll k = (rand() % maxK) + 1;
 	ll n = (rand() % maxN) + 1;
-	return generateTest(k, n);
+	return generateNTest(k, n);
 }
 
 Test generateSequenceTest(const ll k) {
@@ -122,10 +122,9 @@ Test generateRandomSequenceTest(const ll maxK) {
 	return generateSequenceTest((rand() % maxK) + 1);
 }
 
-Test generateOneDigitRandomTest(const ll MAX_K) {
+Test generateOneDigitTest(const ll k) {
 	Test test;
 	int digit = rand() % 10;
-	int k = (rand() % MAX_K) + 1;
 	cout << k << " x \"" << digit << "\"" << endl;
 	for (int i = 0; i < k; ++i) {
 		test.add(digit);
@@ -133,7 +132,10 @@ Test generateOneDigitRandomTest(const ll MAX_K) {
 	return test;
 }
 
-//void foo(vector<int> )
+Test generateOneDigitRandomTest(const ll maxK) {
+	return generateOneDigitTest((rand() % maxK) + 1);
+}
+
 
 //AAAA random(exluding BCD...) AAAA
 Test generateaabaaTest(int length) {
@@ -255,27 +257,33 @@ int main() {
 
 		makeTest("24", generateaabaaTest(1000));//TODO: manually check, if it can be made for subtask 1
 
+		int i;
 		//#1: N, K <= 1000
-		//for (int i = 0; i < 10; ++i)
-			//makeTest("124", generateRandomTest(1000, 1000));
-		for (int i = 0; i < 3; ++i)
-			makeTest("12", generateTest(1000, 1000));
+		for (i = 0; i < 4; ++i)
+			makeTest("124", generateNRandomTest(1000, 1000));
+		for (i = 0; i < 2; ++i)
+			makeTest("124", generateNTest(1000, 1000));
 
 		//#2: K <= 1000
-		for (int i = 0; i < 10; ++i)
-			//makeTest("24", generateRandomTest(1000));
+		for (i = 0; i < 3; ++i)
+			makeTest("24", generateNRandomTest(1000));
+		//generateNTest(1000);
+		for (i = 0; i < 3; ++i)
 			makeTest("24", generateRandomSequenceTest(1000));
-		for (int i = 0; i < 3; ++i)
+		for (i = 0; i < 1; ++i)
 			makeTest("24", generateSequenceTest(1000));
 
-		//#3: all digits are equal
-		for (int i = 0; i < 10; ++i)
-			makeTest("3", generateOneDigitRandomTest(1000));
-
+		//#3: all digits are equal, K <= 100 000
+		for (i = 0; i < 4; ++i)
+			makeTest("34", generateOneDigitRandomTest(100000));
+		for (i = 0; i < 2; ++i)
+			makeTest("34", generateOneDigitTest(100000));
+		
 		//#4: K <= 100 000
-		//for (int i = 0; i < 10; ++i)
-			//makeTest("4", generateRandomTest(100000));
-		//makeTest
+		for (i = 0; i < 5; ++i)
+			makeTest("4", generateNRandomTest(100000));
+		for (i = 0; i < 3; ++i)
+			makeTest("4", generateSequenceTest(100000));
 
 	}
 	catch (const char *text) {
