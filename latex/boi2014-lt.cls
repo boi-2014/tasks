@@ -33,3 +33,6 @@
 \renewcommand{\TitleScoring}{Vertinimas}
 \renewcommand{\TitleExplanation}{Komentarai}
 \renewcommand{\TitleConstraints}{Ribojimai}
+
+\usepackage{fontspec}
+\usepackage[lithuanian]{babel}
