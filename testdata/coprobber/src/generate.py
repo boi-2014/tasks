@@ -146,8 +146,19 @@ def print_test(f, edgelist):
         assert any(x == '1' for x in r)
         print >>f, ' '.join(r)
 
+def cop_wins(output):
+    lines = output.split('\n')
+    return lines[int(lines[0]) + 1] == '1'
+
+def add_strategy(input, strategy_num):
+    import subprocess
+    p = subprocess.Popen(['add_robber_strategy', str(strategy_num)],
+        stdin=subprocess.PIPE, stdout=subprocess.PIPE,
+        universal_newlines=True)
+    return p.communicate(input)[0]
+
 def run():
-    import sys, subprocess, cStringIO, shutil
+    import sys, cStringIO, shutil
     
     subtask4_additional = []
     
@@ -164,22 +175,15 @@ def run():
             if callable(test):
                 sio = cStringIO.StringIO()
                 print_test(sio, test())
+                st = getattr(test, 'robber_strategy', 0)
+                stdout = add_strategy(sio.getvalue(), st)
+                print cop_wins(stdout)
                 with open(filename + '.in', 'w') as f:
-                    st = getattr(test, 'robber_strategy', 0)
-                    p = subprocess.Popen(['add_robber_strategy', str(st)],
-                        stdin=subprocess.PIPE, stdout=subprocess.PIPE,
-                        universal_newlines=True)
-                    stdout = p.communicate(sio.getvalue())[0]
-                    lines = stdout.split('\n')
-                    print lines[int(lines[0]) + 1]
                     f.write(stdout)
             else:
                 shutil.copyfile(test + '.in', filename + '.in')
             with open(filename + '.sol', 'w') as f:
                 print >>f, 1 if subtask >= 3 else 0
-
-import random
-random.seed(1382525932)  # Make the generator deterministic
 
 class DisjointSet(object):
     def __init__(self):
@@ -211,6 +215,8 @@ class DisjointSet(object):
                 self.leader[a] = self.leader[b] = a
                 self.group[a] = set([a, b])
 
+import random
 
 if __name__ == '__main__':
+    random.seed(1382525932)  # Make the generator deterministic
     run()
