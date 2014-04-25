@@ -159,7 +159,11 @@ tests += [
     (lambda: random_full(100), (3, 4)),
     (lambda: many_edges(100, 100*100/3), (3, 4)),
     (lambda: domination(ring(5), 30, 0.5), (3, 4)),
+    (lambda: domination(ring(10), 75, 0.3), (3, 4)),
+    (lambda: domination(ring(7), 100, 0.8), (3, 4)),
     (lambda: domination(clique(5), 50, 0.5), (3, 4)),
+    (lambda: domination(clique(9), 50, 0.6), (3, 4)),
+    (lambda: domination(clique(40), 100, 0.5), (3, 4)),
     (lambda: ring(100), (3, 4)),
 ]
 
@@ -188,6 +192,8 @@ tests += [
     (lambda: many_edges(500, 500*500/6), (4,)),
     (line_and_clique, (4,)),
     (ten_cliques, (4,)),
+    (lambda: domination(clique(93), 497, 0.85), (4,)),
+    (lambda: domination(clique(2), 476, 0.3), (4,)),
 ]
 
 # Long chasing time
@@ -252,8 +258,8 @@ def run():
         print 'Cop wins' if cop_wins_test else 'Robber wins'
         with open(filename + '.in', 'w') as f:
             f.write(stdout)
-        for s in subtasks:
-            subtask_wincounts.setdefault(s, [0, 0])[0 if cop_wins_test else 1] += 1
+        
+        subtask_wincounts.setdefault(min(subtasks), [0, 0])[0 if cop_wins_test else 1] += 1
     
     print
     print '[cop, robber] win counts:', subtask_wincounts
