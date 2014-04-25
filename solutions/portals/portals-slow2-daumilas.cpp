@@ -14,7 +14,7 @@ using namespace std;
 #define MAX_N 50
 
 int R, C, i, j, c, cx, cy;
-char lab[MAX_N][MAX_N]; //labyrinth
+char lab[MAX_N][MAX_N+1]; //labyrinth
 
 struct pos {
     int x, y, px, py;
@@ -27,7 +27,7 @@ struct pos {
 int t[MAX_N][MAX_N][MAX_N][MAX_N][2]; //y, x, py, px, fired
 queue<pos> q;
 
-void bfs(pos& p) {
+void bfs(const pos& p) {
     if (t[p.y][p.x][p.py][p.px][p.fired] == -1) {
         pos& pp = q.front();
         t[p.y][p.x][p.py][p.px][p.fired] = t[pp.y][pp.x][pp.py][pp.px][pp.fired] + !p.fired;
@@ -44,7 +44,7 @@ void fire(pos& p, int dir) {
         p.px = w[p.y][p.x][dir];
     } else {
         p.px = p.x;
-        p.py = w[p.y][p.x][dir];        
+        p.py = w[p.y][p.x][dir];
     }
     bfs(p);
 }

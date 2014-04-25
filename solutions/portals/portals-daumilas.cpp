@@ -80,11 +80,11 @@ int main() {
             wx[j][i][1] = (i == C-1 || lab[j][i+1] == '#') ? i : wx[j][i+1][1];
         }
     
-    while (q2.size() && t[cy][cx] == -1) {
+    while (q2.size()) {
         i = q2.top().second.first;
         j = q2.top().second.second;
         q2.pop();
-        if (!lab[j][i]) continue;
+	if (lab[j][i] == 'C') break;
         dijkstra(i, j-1, 1);
         dijkstra(i, j+1, 1);
         dijkstra(i-1, j, 1);
@@ -93,7 +93,6 @@ int main() {
         dijkstra(wx[j][i][1], j, dw[j][i]);
         dijkstra(i, wy[j][i][0], dw[j][i]);
         dijkstra(i, wy[j][i][1], dw[j][i]);
-        lab[j][i] = 0;
     }
     
     printf ("%d\n", t[cy][cx]);
