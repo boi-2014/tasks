@@ -10,20 +10,21 @@
 %% Strings
 %%
 
-\newcommand{\Language}{EN}
+\renewcommand{\Language}{LV}
 
-\newcommand{\Olympiad}{Baltic Olympiad in Informatics}
-\newcommand{\OlympiadDay}{Day \DayNum}
-\newcommand{\LocationDate}{April 26--30, Palanga}
+\renewcommand{\Olympiad}{Baltijas Informātikas Olimpiāde}
+\renewcommand{\OlympiadDay}{\DayNum . Diena}
+\renewcommand{\LocationDate}{26.--30. Aprīlis, Palanga}
 
-\newcommand{\PageOf}[2]{Page #1 of #2}
+\renewcommand{\PageOf}[2]{Lapa #1 of #2}
 
-\newcommand{\TitleTask}{Task}
-\newcommand{\TitleImplementation}{Implementation}
-\newcommand{\TitleOutput}{Output}
-\newcommand{\TitleInput}{Input}
-\newcommand{\TitleExample}{Example}
-\newcommand{\TitleExamples}{Examples}
-\newcommand{\TitleScoring}{Scoring}
-\newcommand{\TitleExplanation}{Comments}
-\newcommand{\TitleConstraints}{Constraints}
+\renewcommand{\TitleTask}{Uzdevums}
+\renewcommand{\TitleImplementation}{Implementācija}
+\renewcommand{\TitleOutput}{Izvaddati}
+\renewcommand{\TitleInput}{Ievaddati}
+\renewcommand{\TitleExample}{Piemērs}
+\renewcommand{\TitleExamples}{Piemēri}
+\renewcommand{\TitleScoring}{Vērtēšana}
+\renewcommand{\TitleExplanation}{Komentāri}
+\renewcommand{\TitleConstraints}{Ierobežojumi}
+\renewcommand{\TitleExperimentation}{Eksperimentēšana}

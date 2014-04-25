@@ -1,7 +1,6 @@
 \documentclass{boi2014}
 
 \usepackage{enumitem}
-\usepackage{todonotes}
 \usepackage{wrapfig}
 \usepackage{mathtools}
 \usepackage{tikz}
@@ -14,7 +13,8 @@
 \newcommand{\constant}[1]{{\tt #1}}
 
 \begin{document}
-    \begin{wrapfigure}{r}{6cm}
+    \begin{wrapfigure}[8]{r}{6cm}
+        \vspace{-24pt}
 		\includegraphics[width=6cm]{\TaskCode.jpeg}
 	\end{wrapfigure}
 
@@ -150,6 +150,9 @@
         \hline
     \end{tabular}
 
+    Note: in the call to \method{start} above \constant{0} zero denotes
+    \constant{false} and \constant{1} denotes \constant{true} for brevity.
+
     \Scoring
     In order to score full points, your solution must:
     \begin{enumerate}
@@ -187,5 +190,63 @@
         \item[Memory limit:] 256 MB.
     \end{description}
 
-    \todo{Need to add info about graders.}
+    \Experimentation
+    The sample grader on your computer will read data from the standard input.
+    The first line of the input should contain integer $N$ --- the number of
+    corners.  The following $N$ lines should contain the adjacency matrix $A$.
+    Each of these lines should contain $N$ numbers, where each one is 0 or 1.
+    The matrix must be symmetric and the main diagonal values must all be
+    zeroes.
+
+    The next line should contain number 1, if police can catch the robber,
+    and 0 otherwise.
+
+    Finally, if police officer can catch the robber, $N$ lines should follow,
+    describing the strategy of the robber.  Each of these lines should contain
+    $N+1$ integers between 0 and $N-1$.  The value at row $r$ and column $c$,
+    where $c < N$, corresponds to a situation where it's robber's turn, the
+    police officer is at corner $r$ and the robber is at corner $c$, and
+    represents the corner, which the robber has to move to.  The main diagonal
+    values will be ignored, as they correspond to situations where the robber
+    and the police officer are at the same corner.  The right--most column
+    defines robber's starting corners for each possible police officer's
+    starting corner.
+
+    Here is an example input to the sample grader which represents three corners
+    that are connected together:
+
+    \begin{center}
+        \begin{tabular}{p{4cm}}
+            {\tt
+                3 \newline
+                0 1 1 \newline
+                1 0 1 \newline
+                1 1 0 \newline
+                1 \newline
+                0 2 1 2 \newline
+                2 0 0 2 \newline
+                1 0 0 1 \newline
+            }
+        \end{tabular}
+    \end{center}
+
+    And here is the input which matches the example given in the task statement
+    above:
+
+    \begin{center}
+        \begin{tabular}{p{4cm}}
+            {\tt
+                4 \newline
+                0 1 1 1 \newline
+                1 0 0 0 \newline
+                1 0 0 0 \newline
+                1 0 0 0 \newline
+                1 \newline
+                0 0 0 0 1 \newline
+                2 0 0 0 2 \newline
+                3 0 0 0 3 \newline
+                1 0 0 0 1 \newline
+            }
+        \end{tabular}
+    \end{center}
 \end{document}
