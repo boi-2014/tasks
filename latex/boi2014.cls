@@ -17,6 +17,7 @@
 \RequirePackage{listings}
 \RequirePackage{lmodern}
 \RequirePackage{multirow}
+\RequirePackage{placeins}
 \RequirePackage{pstricks}
 \RequirePackage[compact]{titlesec}
 \RequirePackage{verbatim}
@@ -99,16 +100,16 @@
 %% Headings
 %%
 
-\newcommand\Task{\section*{\TitleTask}}
-\newcommand\Implementation{\section*{\TitleImplementation}}
-\newcommand\Input{\section*{\TitleInput}}
-\newcommand\Output{\section*{\TitleOutput}}
-\newcommand\Example{\section*{\TitleExample}}
-\newcommand\Examples{\section*{\TitleExamples}}
-\newcommand\Scoring{\section*{\TitleScoring}}
-\newcommand\Constraints{\section*{\TitleConstraints}}
-\newcommand\Experimentation{\section*{\TitleExperimentation}}
-\newcommand\Extra{\section*{\TitleExtra}}
+\newcommand\Task{\FloatBarrier\section*{\TitleTask}}
+\newcommand\Implementation{\FloatBarrier\section*{\TitleImplementation}}
+\newcommand\Input{\FloatBarrier\section*{\TitleInput}}
+\newcommand\Output{\FloatBarrier\section*{\TitleOutput}}
+\newcommand\Example{\FloatBarrier\section*{\TitleExample}}
+\newcommand\Examples{\FloatBarrier\section*{\TitleExamples}}
+\newcommand\Scoring{\FloatBarrier\section*{\TitleScoring}}
+\newcommand\Constraints{\FloatBarrier\section*{\TitleConstraints}}
+\newcommand\Experimentation{\FloatBarrier\section*{\TitleExperimentation}}
+\newcommand\Extra{\FloatBarrier\section*{\TitleExtra}}
 
 
 %%
