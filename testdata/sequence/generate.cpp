@@ -13,21 +13,25 @@ const ll MAX_ANSWER = 102345678900000LL;
 const char *TEMP_OUTPUT = "temp_output";//TODO: remove this file after
 
 const char *SOLUTIONS_ROOT = "../../solutions/sequence/";
-const int SOLUTIONS_COUNT = 3;
+const int SOLUTIONS_COUNT = 1;
 const char *SOLUTIONS[SOLUTIONS_COUNT] = {
 	"sequence_OK_Rihards",
-	"sequence-daumilas",
-	"sequence-bruteforce-donatas",
+	//"sequence-daumilas",
+	//"sequence-bruteforce-donatas",
 	//"sequence-donatas",
 	//"sequence-KlogK-vytautas",
 };
-const int SOLUTIONS_START_NUMBER[SOLUTIONS_COUNT] = {
+
+const int SUBTASKS_COUNT = 4;
+const int SUBTASK_TEST_COUNT = 10;
+
+const int SUBTASK_STATIC_TESTS[SUBTASKS_COUNT] = {
+	4,
+	4,
 	0,
-	0,
-	0,
+	5,
 };
 
-const int SUBTASKS_COUNT = 5;
 
 
 class Test {
@@ -207,16 +211,16 @@ int main() {
 		cout << "Generating tests..." << endl;
 		//generate tests
 		//#1: N, K <= 1000
-		for (int i = 0; i < 10; ++i)
+		for (int i = 0; i < SUBTASK_TEST_COUNT - SUBTASK_STATIC_TESTS[0]; ++i)
 			addTest(1, generateRandomTest(1000, 1000));
 		//#2: K <= 1000
-		for (int i = 0; i < 10; ++i)
+		for (int i = 0; i < SUBTASK_TEST_COUNT - SUBTASK_STATIC_TESTS[1]; ++i)
 			addTest(2, generateRandomTest(1000));
 		//#3: all digits are equal
-		for (int i = 0; i < 10; ++i)
-			addTest(1, generateOneDigitRandomTest(1000));
+		for (int i = 0; i < SUBTASK_TEST_COUNT - SUBTASK_STATIC_TESTS[2]; ++i)
+			addTest(3, generateOneDigitRandomTest(1000));
 		//#4: K <= 100 000
-		for (int i = 0; i < 10; ++i)
+		for (int i = 0; i < SUBTASK_TEST_COUNT - SUBTASK_STATIC_TESTS[3]; ++i)
 			addTest(4, generateRandomTest(100000));
 
 		//make tests
@@ -224,7 +228,7 @@ int main() {
 			for (int j = 0; j < tests[i].size(); ++j) {
 				cout << "--------------" << endl;
 				char buffer[255];
-				sprintf(buffer, "sequence.%d-%02d", i+1, SOLUTIONS_START_NUMBER[i]+j);
+				sprintf(buffer, "sequence.%d-%02d", i+1, SUBTASK_STATIC_TESTS[i]+j+1);
 				string inputFile = string(buffer) + ".in";
 				string outputFile = string(buffer) + ".sol";
 				cout << "Supposed answer: " << tests[i][j].answer << endl;
