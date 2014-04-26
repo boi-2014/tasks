@@ -147,13 +147,16 @@ def domination(basegraph, total_nodes, edge_factor):
                 edges.append((a, b))
     return edges
 
+pentagon = lambda: [(0, 1), (1, 2), (2, 3), (3, 4), (4, 0)]
+pentagon.public = True
+
 tests += [
     # Triangle
     (lambda: [(0, 1), (0, 2), (1, 2)], (3, 4)),
     # Cube
     (lambda: dup(dup([(0, 1)])), (3, 4)),
     # Pentagon
-    (lambda: [(0, 1), (1, 2), (2, 3), (3, 4), (4, 0)], (3, 4)),
+    (pentagon, (3, 4)),
     (lambda: random_full(10), (3, 4)),
     (lambda: random_full(23), (3, 4)),
     (lambda: random_full(100), (3, 4)),

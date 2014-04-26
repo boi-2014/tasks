@@ -76,31 +76,25 @@ static GraderResult runGrader() {
 }
 
 int main() {
-    fclose(fopen("coprobber-i3hfiehflasil.out", "w"));
-    FILE *fin = fopen("coprobber-i3hfiehflasil.in", "r");
-    fscanf(fin, "%d", &N);
+    scanf("%d", &N);
     for (int i = 0; i < N; i++)
         for (int j = 0; j < N; j++) {
             int t;
-            fscanf(fin, "%d", &t);
+            scanf("%d", &t);
             A[i][j] = t;
         }
     
-    fscanf(fin, "%d", &CopCanWin);
+    scanf("%d", &CopCanWin);
     if (CopCanWin) {
         for (int c = 0; c < N; c++)
             for (int r = 0; r <= N; r++)
-                fscanf(fin, "%d", &RobberStrategy[c][r]);
+                scanf("%d", &RobberStrategy[c][r]);
     }
-    fclose(fin);
     
     GraderResult result = runGrader();
-    
-    FILE *fout = fopen("coprobber-i3hfiehflasil.out", "w");
-    fprintf(fout, "%s\n", Messages[result.first]);
+    puts(Messages[result.first]);
     if (result.second != NULL)
-        fprintf(fout, "%s\n", result.second);
-    fclose(fout);
+        puts(result.second);
     
     return 0;
 }

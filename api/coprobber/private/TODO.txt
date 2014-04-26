@@ -1,0 +1,2 @@
+Update grader.pas to read and write to secret files just like grader.cpp.
+An empty output file needs to be created before doing anything else.

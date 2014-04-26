@@ -8,7 +8,7 @@
 \renewcommand{\DayNum}{1}
 \renewcommand{\TaskCode}{coprobber}
 \renewcommand{\TaskName}{Rosvo ja poliisi}
-\renewcommand{\TaskVersion}{1.2}
+\renewcommand{\TaskVersion}{1.3}
 
 \renewcommand{\labelitemii}{$\circ$}
 \newcommand{\constant}[1]{{\tt #1}}
@@ -146,17 +146,6 @@
     \constant{1} tarkoittaa samaa kuin \constant{true} lyhyyden vuoksi.
 
     \Scoring
-    Saadakseen täydet pisteet ratkaisusi täytyy
-    \begin{enumerate}
-        \item määrittää oikein, saako poliisi rosvon kiinni
-    \item ottaa rosvo kiinni menestyksekkäästi tekemällä
-              poliisin siirrot
-    \end{enumerate}
-    
-    Kuitenkin osatehtävissä 3 ja 4 ratkaisut,
-    jotka toteuttavat vain ensimmäisen vaatimuksen,
-    saavat 30\% osatehtävän pisteistä.
-
     \begin{description}
         \item[Osatehtävä 1 (16 pistettä):] $2 \le N \le 500$.
         Jokaisen kahden kadunkulman välillä on tasan yksi polku.        
@@ -176,6 +165,23 @@
         \item[Osatehtävä 4 (40 pistettä):] $2 \le N \le 500$.
     \end{description}
 
+    Ratkaisusi tulisi täyttää seuraavat kaksi vaatimusta:
+    \begin{enumerate}
+        \item määrittää oikein voiko poliisi saada rosvon kiinni;
+        \item onnistuu ottamaan rosvon kiinni tekemällä poliisin siirrot
+    \end{enumerate}
+    
+    Osatehtävissä 1 ja 2 ratkaisusi täytyy toteuttaa molemmat vaatimukset
+    saadakseen pisteitä.
+    Osatehtävissä 3 ja 4 ratkaisut jotka toteuttavat vain ensimmäisen vaatimuksen
+    saavat 30\% osatehtävän pisteistä. 
+    Mikäli ratkaisusi tähtää vain osittaisiin pisteisiin, voit lopettaa
+    ohjelman tulostamalla virheellisen siirron (esimerkiksi palauttaa $-1$
+    funktiossa \method{nextMove}).
+    
+    Huomaa että perusvaatimukset (aika- ja muistirajat, ei ajonaikaisia virheitä)
+    täytyy toteutua jotta saisit yhtään pisteitä.
+    
     \Constraints
     
     \begin{description}
