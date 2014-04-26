@@ -16,7 +16,7 @@
 \renewcommand{\OlympiadDay}{\DayNum . Diena}
 \renewcommand{\LocationDate}{26.--30. Aprīlis, Palanga}
 
-\renewcommand{\PageOf}[2]{Lapa #1 of #2}
+\renewcommand{\PageOf}[2]{Lapa #1 no #2}
 
 \renewcommand{\TitleTask}{Uzdevums}
 \renewcommand{\TitleImplementation}{Implementācija}
