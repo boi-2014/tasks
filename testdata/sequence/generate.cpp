@@ -122,10 +122,11 @@ Test generateRandomSequenceTest(const ll maxK) {
 	return generateSequenceTest((rand() % maxK) + 1);
 }
 
-Test generateOneDigitTest(const ll k) {
+Test generateOneDigitTest(const ll k, ll digit=-1) {
+	if (digit == -1)
+		digit = rand() % 10;
 	Test test;
-	int digit = rand() % 10;
-	cout << k << " x \"" << digit << "\"" << endl;
+	//cout << k << " x \"" << digit << "\"" << endl;
 	for (int i = 0; i < k; ++i) {
 		test.add(digit);
 	}
@@ -135,7 +136,6 @@ Test generateOneDigitTest(const ll k) {
 Test generateOneDigitRandomTest(const ll maxK) {
 	return generateOneDigitTest((rand() % maxK) + 1);
 }
-
 
 //AAAA random(exluding BCD...) AAAA
 Test generateaabaaTest(int length) {
@@ -251,10 +251,7 @@ void makeTest(string subtasks, Test test) {
 int main() {
 	srand(time(0));
 	try {
-		cout << "Generating tests..." << endl;
-		//generate tests
-		//makeTest("0", generateSequenceTest(10000));
-
+		makeTest("1234", generateOneDigitTest(1, 0));
 		makeTest("24", generateaabaaTest(1000));//TODO: manually check, if it can be made for subtask 1
 
 		int i;
@@ -265,26 +262,28 @@ int main() {
 			makeTest("124", generateNTest(1000, 1000));
 
 		//#2: K <= 1000
-		for (i = 0; i < 3; ++i)
+		for (i = 0; i < 2; ++i)
 			makeTest("24", generateNRandomTest(1000));
-		//generateNTest(1000);
-		for (i = 0; i < 3; ++i)
+		for (i = 0; i < 2; ++i)
 			makeTest("24", generateRandomSequenceTest(1000));
-		for (i = 0; i < 1; ++i)
+		for (i = 0; i < 2; ++i)
 			makeTest("24", generateSequenceTest(1000));
 
 		//#3: all digits are equal, K <= 100 000
-		for (i = 0; i < 4; ++i)
+		makeTest("34", generateOneDigitTest(11111, 9));
+		makeTest("34", generateOneDigitTest(11112, 9));
+		makeTest("34", generateOneDigitTest(11111, 0));
+		makeTest("34", generateOneDigitTest(11112, 0));
+		for (i = 0; i < 3; ++i)
 			makeTest("34", generateOneDigitRandomTest(100000));
 		for (i = 0; i < 2; ++i)
 			makeTest("34", generateOneDigitTest(100000));
 		
 		//#4: K <= 100 000
-		for (i = 0; i < 5; ++i)
-			makeTest("4", generateNRandomTest(100000));
 		for (i = 0; i < 3; ++i)
+			makeTest("4", generateNRandomTest(100000));
+		for (i = 0; i < 2; ++i)
 			makeTest("4", generateSequenceTest(100000));
-
 	}
 	catch (const char *text) {
 		cout << "Error: " << text << endl;

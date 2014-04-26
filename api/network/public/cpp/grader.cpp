@@ -1,7 +1,7 @@
 #include <cstdio>
 #include <cstdlib>
 
-#include "grader.h"
+#include "network.h"
 
 static const int MAX_N = 1010;
 
@@ -10,7 +10,7 @@ static int N, a, b, M,
            routeLength, current;
 static int distance[MAX_N][MAX_N];
 
-static void raiseError (char* message)
+static void raiseError (const char* message)
 {
     printf ("ERROR\n%s\n", message);
     exit (0);
