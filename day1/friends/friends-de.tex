@@ -1,0 +1,55 @@
+\documentclass{boi2014}
+
+\renewcommand{\DayNum}{1}
+\renewcommand{\TaskCode}{friends}
+\renewcommand{\TaskName}{Drei Freunde}
+
+\begin{document}
+    \begin{wrapfigure}{r}{4cm}
+        \vspace{-24pt}
+		\includegraphics[width=4cm]{\TaskCode.jpeg}
+	\end{wrapfigure}
+    Drei Freunde spielen das folgende Spiel:
+    Der erste Freund wählt ein Wort.
+    Dann konstruiert der zweite Freund ein neues Wort als Verkettung von zwei Kopien des ersten Wortes.
+    Schließlich fügt der dritte Freund irgendwo im Wort einen Buchstaben ein.
+
+    \Task
+    Gegeben das letzte, vom dritten Freund konstruierte Wort, sollst du das ursprüngliche, vom ersten Freund gewählte Wort rekonstruieren.
+
+    \Input
+    Die erste Zeile beinhaltet die Länge $N$ des vom dritten Freund konstruierten Wortes.
+    Das Wort selbst bildet die zweite Zeile, bestehend aus $N$ Großbuchstaben A, B, C, \ldots{} Z.
+
+    \Output
+    Dein Programm sollte den vom ersten Freund gewählten String ausgeben.
+    Es gibt zwei Ausnahmen:
+    \begin{enumerate}
+        \item Ist es unmöglich, dass das Wort in der Eingabe nach dem oben beschriebenen Ablauf entstanden ist, gib {\tt NOT POSSIBLE} aus.
+        \item Ist dies nicht der Fall, doch lässt sich nicht eindeutig auf das vom ersten Freund gewählte Wort schließen, gib {\tt NOT
+        UNIQUE} aus.
+    \end{enumerate}
+    
+
+    \Examples
+
+    \simpleexample{7\newline ABXCABC}{ABC}{}
+    \simpleexample{6\newline ABCDEF}{NOT POSSIBLE}{}
+    \simpleexample{9\newline ABABABABA}{NOT UNIQUE}{}
+
+    \Scoring
+
+    \begin{description}
+        \item[Teilaufgabe 1 (30 Punkte):] $1 \le N \le 2001$.
+        \item[Teilaufgabe 2 (70 Punkte):] $1 \le N \le 2000001$.
+    \end{description}
+
+    \Constraints
+
+    \begin{description}
+        \item[Zeitlimit:] 1 s.
+        \item[Speicherlimit:] 64 MB.
+    \end{description}
+
+\end{document}
+
