@@ -1,0 +1,57 @@
+\documentclass{boi2014-se}
+
+\renewcommand{\DayNum}{1}
+\renewcommand{\TaskCode}{friends}
+\renewcommand{\TaskName}{Tre Vänner}
+\renewcommand{\TaskVersion}{1.3}
+
+\begin{document}
+    \begin{wrapfigure}{r}{4cm}
+        \vspace{-24pt}
+		\includegraphics[width=4cm]{\TaskCode.jpeg}
+	\end{wrapfigure}
+    Tre vänner gillar att leka följande lek. Den första vännen väljer en sträng $S$.
+    Den andra vännen skapar en ny sträng $T$ som består av två kopior av strängen $S$.
+    Slutligen lägger den tredje vännen in ett tecken i början, slutet, eller
+    någonstans i mitten av strängen $T$, och skapar på så sätt en sträng $U$.
+
+    \Task
+    Du är given strängen $U$, och din uppgift är att återkonstruera den ursprungliga strängen $S$.
+
+    \Input
+    Första raden av indata innehåller längden $N$ av den resulterande strängen $U$.
+    Strängen $U$ självt ges på den andra raden. Den består av $N$ stora engelska
+    bokstäver (A, B, C, \ldots{}, Z).
+
+    \Output
+    Ditt program ska skriva ut den ursprungliga strängen $S$.
+    Det finns dock två undantag:
+    \begin{enumerate}
+        \item Om det inte är möjligt för $U$ att ha skapats genom
+        ovanståande procedur, skriv ut {\tt NOT POSSIBLE}.
+        \item Om ursprungssträngen $S$ inte är unik, skriv ut {\tt NOT UNIQUE}.
+    \end{enumerate}
+    
+
+    \Examples
+
+    \simpleexample{7\newline ABXCABC}{ABC}{}
+    \simpleexample{6\newline ABCDEF}{NOT POSSIBLE}{}
+    \simpleexample{9\newline ABABABABA}{NOT UNIQUE}{}
+
+    \Scoring
+
+    \begin{description}
+        \item[Deluppgift 1 (35 poäng):] $2 \le N \le 2001$.
+        \item[Deluppgift 2 (65 poäng):] $2 \le N \le 2000001$.
+    \end{description}
+
+    \Constraints
+
+    \begin{description}
+        \item[Tidsgräns:] 0.5 s.
+        \item[Minnesgräns:] 256 MB.
+    \end{description}
+
+\end{document}
+
