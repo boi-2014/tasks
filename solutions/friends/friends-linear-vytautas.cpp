@@ -9,7 +9,7 @@
 
 using namespace std;
 
-#define MAX_N 1000000
+#define MAX_N 2000010
 
 #define NO 0
 #define INITIAL 1
@@ -21,9 +21,9 @@ char seq[MAX_N];
 
 void readInput()
 {
-    scanf ("%d", &N);
+    scanf ("%d\n", &N);
     for (int i = 0; i < N; ++i)
-        scanf (" %c", &seq[i]);
+        scanf ("%c", &seq[i]);
 }
 
 void writeOutput(int ans)

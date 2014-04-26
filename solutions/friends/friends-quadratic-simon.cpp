@@ -5,8 +5,9 @@ using namespace std;
 int a(int a, int b) {
 	return a >= b ? a+1 : a;
 }
-
+int N;
 int main() {
+	cin >> N;
 	string S;
 	cin >> S;
 	int sz = (int)S.size(), N = sz / 2;
