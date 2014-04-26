@@ -21,7 +21,7 @@
 		\includegraphics[width=6cm]{\TaskCode.jpeg}
 	\end{wrapfigure}
 
-  \smallskip
+  \medskip
     Przestępczość w Bajtogrodzie jest na porządku dziennym.
     Szczególnie często mają miejsce kradzieże.
     Jedną z przyczyn tego stanu rzeczy może być fakt, iż w pogoń za złodziejem
@@ -33,7 +33,8 @@
   \smallskip
     Komenda Stołeczna Policji w Bajtogrodzie (KSPB) organizuje zgrupowanie poświęcone
     zmniejszeniu skali przestępczości w mieście.
-    Jednym z pomysłów jest wprowadzenie automatycznego systemu planowania tras pościgu.
+    Jednym z pomysłów jest wprowadzenie automatycznego systemu planowania tras pościgu
+    za złodziejami.
     W tym celu KSPB zdobyło już dokładny plan miasta.
     Teraz poproszono Cię, abyś przygotował program, który korzystając z tych danych,
     umożliwi efektywne planowanie pościgu.
@@ -59,7 +60,7 @@
                 obu graczy oraz to, do którego gracza należy najbliższy ruch).
                 Oznacza to, że złodziej może unikać spotkania z policjantem w nieskończoność,
                 więc przyjmujemy, że złodziej uciekł policjantowi; albo
-            \item policjant i złodziej spotykają się na tym samym skrzyżowaniu
+            \item policjant i złodziej spotkają się na tym samym skrzyżowaniu
                 po ruchu któregoś z nich.
                 Wówczas policjant łapie złodzieja.
         \end{enumerate}
@@ -133,7 +134,7 @@
     Przyjrzyjmy się przykładowi opisanemu przez obrazek po prawej.
     W tym przykładzie każde skrzyżowanie jest dobrą pozycją początkową dla policjanta.
     Jeśli policjant rozpocznie patrol przy skrzyżowaniu numer 0, w swoim pierwszym ruchu
-    może postanowić poczekać -- wówczas złodziej sam na niego wpadnie.
+    może czekać -- wówczas złodziej sam na niego wpadnie.
     Jeśli zaś policjant rozpocznie patrol przy jakimkolwiek innym skrzyżowaniu, może poczekać,
     aż złodziej znajdzie się przy skrzyżowaniu numer 0, i wówczas przejść na to skrzyżowanie.
    
@@ -163,7 +164,7 @@
     \end{enumerate}
    
     Jednakże w podzadaniach 3 i 4, rozwiązania, które spełniają tylko pierwsze
-    w powyższych wymagań, uzyskają 30\% punktów za odpowiednie podzadanie.
+    z powyższych wymagań, uzyskają 30\% punktów za odpowiednie podzadanie.
 
     \begin{description}
         \item[Podzadanie 1 (15 punktów):] $2 \le N \le 500$. Między każdą parą skrzyżowań jest dokładnie jedna ścieżka.
@@ -192,7 +193,7 @@
     \Experimentation
     Przykładowy program oceniający znajdujący się na Twoim komputerze
     wczytuje dane ze standardowego wejścia.
-    W pierwszym wierszu wczytuje on liczbę całkowitą $N$ -- liczbę skrzyżowań.
+    W pierwszym wierszu wejścia powinna znaleźć się liczba całkowita $N$ -- liczba skrzyżowań.
     W kolejnych $N$ wierszach powinna znaleźć się macierz sąsiedztwa $A$.
     Każdy z tych wierszy powinien zawierać $N$ liczb, z których każda to 0 albo 1.
     Macierz musi być symetryczna, a na jej głównej przekątnej muszą być same zera.
@@ -215,7 +216,7 @@
     złodziej dokonuje włamania, jeśli policjant rozpoczął patrol przy skrzyżowaniu numer $r$.
 
     Poniżej znajduje się przykładowe wejście do przykładowego programu oceniającego
-    opisujące trzy skrzyżowania połączone parami.
+    opisujące trzy skrzyżowania połączone parami:
 
     \begin{center}
         \begin{tabular}{p{4cm}}
