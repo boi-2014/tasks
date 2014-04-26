@@ -16,18 +16,26 @@
 \newcommand{\constant}[1]{{\tt #1}}
 
 \begin{document}
+    \begin{wrapfigure}[8]{r}{6cm}
+        \vspace{-24pt}
+		\includegraphics[width=6cm]{\TaskCode.jpeg}
+	\end{wrapfigure}
+
+  \medskip
     Przestępczość w Bajtogrodzie jest na porządku dziennym.
     Szczególnie często mają miejsce kradzieże.
     Jedną z przyczyn tego stanu rzeczy może być fakt, iż w pogoń za złodziejem
     rusza zazwyczaj tylko jeden policjant znajdujący się akurat w terenie.
     Pościg w starościeckim stylu odbywa się wąskimi uliczkami łączącymi
-    \emph{skrzyżowania} Bajtogrodu, więc dzięki dobrej znajomości miasta złodziejowi
+    \emph{skrzyżowania} Bajtogrodu, a dzięki dobrej znajomości miasta złodziejowi
     nierzadko udaje się umknąć policjantowi.
 
+  \smallskip
     Komenda Stołeczna Policji w Bajtogrodzie (KSPB) organizuje zgrupowanie poświęcone
     zmniejszeniu skali przestępczości w mieście.
-    Jednym z pomysłów jest wprowadzenie automatycznego systemu planowania tras pościgu.
-    Pierwszym krokiem było zdobycie przez KSPB precyzyjnego planu miasta.
+    Jednym z pomysłów jest wprowadzenie automatycznego systemu planowania tras pościgu
+    za złodziejami.
+    W tym celu KSPB zdobyło już dokładny plan miasta.
     Teraz poproszono Cię, abyś przygotował program, który korzystając z tych danych,
     umożliwi efektywne planowanie pościgu.
 
@@ -35,7 +43,7 @@
     \begin{enumerate}
         \item Policjant wybiera skrzyżowanie, na którym rozpoczyna swój patrol.
         \item Następnie złodziej wybiera skrzyżowanie, przy którym dokona włamania
-            (zna on skrzyżowanie, na którym znajduje się policjant).
+            (wie on, na którym skrzyżowaniu znajduje się policjant).
             Od tego momentu zakładamy, że policjant i złodziej znają wzajemnie
             swoje położenia.
         \item W pojedynczym ruchu policjant przemieszcza się na sąsiednie skrzyżowanie
@@ -49,10 +57,10 @@
             aż do momentu, gdy:
         \begin{enumerate}
             \item wcześniejsza sytuacja powtórzy się (przez sytuację rozumiemy pozycje
-                obu postaci oraz to, do którego gracza należy najbliższy ruch).
-                Wówczas złodziej może unikać spotkania z policjantem w nieskończoność,
-                więc przyjmujemy, że złodziej ucieka; albo
-            \item policjant i złodziej spotykają się na tym samym skrzyżowaniu
+                obu graczy oraz to, do którego gracza należy najbliższy ruch).
+                Oznacza to, że złodziej może unikać spotkania z policjantem w nieskończoność,
+                więc przyjmujemy, że złodziej uciekł policjantowi; albo
+            \item policjant i złodziej spotkają się na tym samym skrzyżowaniu
                 po ruchu któregoś z nich.
                 Wówczas policjant łapie złodzieja.
         \end{enumerate}
@@ -69,15 +77,15 @@
     \begin{itemize}
         \item \method{start(N, A)} o następujących parametrach:
             \begin{itemize}
-                \item $N$ --- liczba skrzyżowań (skrzyżowania są ponumerowane od $0$ do $N-1$)
-                \item $A$ --- dwuwymiarowa tablica opisująca uliczki;
+                \item $N$ -- liczba skrzyżowań (skrzyżowania są ponumerowane od $0$ do $N-1$)
+                \item $A$ -- dwuwymiarowa tablica opisująca uliczki;
                     dla $0 \le i, j \le N-1$,
                     $$
                         A[i, j] \text{ jest równe }
                         \begin{dcases*}
-                            \texttt{false} & jeśli $i$ oraz $j$ nie są połączone uliczką
+                            \texttt{false} & jeśli skrzyżowania $i$ oraz $j$ nie są połączone uliczką
                                 \\
-                            \texttt{true} & jeśli $i$ oraz $j$ są połączone uliczką
+                            \texttt{true} & jeśli skrzyżowania $i$ oraz $j$ są połączone uliczką.
                         \end{dcases*}
                     $$
                     Wszystkie uliczki są dwukierunkowe (tzn.\ $A[i, j] = A[j, i]$
@@ -93,7 +101,7 @@
         W przeciwnym razie wynikiem funkcji powinno być $-1$.
 
         \item \method{nextMove(R)} przyjmującą jako parametr liczbę
-            $R$ oznaczającą numer skrzyżowania, przy którym znajduje się złodziej
+            $R$ oznaczającą numer skrzyżowania, przy którym znajduje się złodziej,
             i zwracającą numer skrzyżowania, przy którym policjant znajdzie się
             po wykonaniu swojego ruchu.
     \end{itemize}
@@ -104,7 +112,7 @@
     funkcja \method{nextMove} nie będzie wywoływana.
     W przeciwnym razie, funkcja \method{nextMove} będzie wywoływana w kółko
     aż do końca pościgu.
-    Program zakończy się, gdy nastąpi jeden z poniższych warunków:
+    Program zakończy się, gdy spełniony zostanie jeden z poniższych warunków:
     \begin{itemize}
         \item funkcja \method{nextMove} zwróci niepoprawny ruch;
         \item wcześniejsza sytuacja powtórzy się;
@@ -123,11 +131,11 @@
             \draw (\x,\y) node[circle,draw,fill=white,inner sep=0,minimum size=0.7cm] {\pgfmathparse{int(2-2*\y+\x)}\pgfmathresult};
         \end{tikzpicture}
     \end{wrapfigure}
-    Przyjrzyjmy się przykładowi opisanemu przez obrazek po prawej stronie.
+    Przyjrzyjmy się przykładowi opisanemu przez obrazek po prawej.
     W tym przykładzie każde skrzyżowanie jest dobrą pozycją początkową dla policjanta.
-    Jeśli policjant rozpocznie przy skrzyżowaniu numer 0, w swoim pierwszym ruchu
-    może postanowić poczekać -- wówczas złodziej sam na niego wpadnie.
-    Jeśli zaś policjant rozpocznie przy jakimkolwiek innym skrzyżowaniu, może poczekać,
+    Jeśli policjant rozpocznie patrol przy skrzyżowaniu numer 0, w swoim pierwszym ruchu
+    może czekać -- wówczas złodziej sam na niego wpadnie.
+    Jeśli zaś policjant rozpocznie patrol przy jakimkolwiek innym skrzyżowaniu, może poczekać,
     aż złodziej znajdzie się przy skrzyżowaniu numer 0, i wówczas przejść na to skrzyżowanie.
    
     Oto jedno z możliwych wykonań programu dla tego przykładu:
@@ -145,16 +153,18 @@
         \hline
     \end{tabular}
 
+    Uwaga: w powyższym wywołaniu funkcji \method{start} liczba \constant{0} oznacza
+    \constant{false} a liczba \constant{1} oznacza \constant{true}.
+
     \Scoring
     Aby uzyskać pełną punktację, Twoje rozwiązanie musi:
-    In order to score full points, your solution must:
     \begin{enumerate}
       \item poprawnie stwierdzić, czy policjant może złapać złodzieja;
       \item skutecznie złapać złodzieja, wykonując ruchy w imieniu policjanta.
     \end{enumerate}
    
     Jednakże w podzadaniach 3 i 4, rozwiązania, które spełniają tylko pierwsze
-    w powyższych wymagań, uzyskają 30\% punktów za odpowiednie podzadanie.
+    z powyższych wymagań, uzyskają 30\% punktów za odpowiednie podzadanie.
 
     \begin{description}
         \item[Podzadanie 1 (15 punktów):] $2 \le N \le 500$. Między każdą parą skrzyżowań jest dokładnie jedna ścieżka.
@@ -180,5 +190,66 @@
         \item[Dostępna pamięć:] 256 MB.
     \end{description}
 
-    \todo{Need to add info about graders.}
+    \Experimentation
+    Przykładowy program oceniający znajdujący się na Twoim komputerze
+    wczytuje dane ze standardowego wejścia.
+    W pierwszym wierszu wejścia powinna znaleźć się liczba całkowita $N$ -- liczba skrzyżowań.
+    W kolejnych $N$ wierszach powinna znaleźć się macierz sąsiedztwa $A$.
+    Każdy z tych wierszy powinien zawierać $N$ liczb, z których każda to 0 albo 1.
+    Macierz musi być symetryczna, a na jej głównej przekątnej muszą być same zera.
+
+    Kolejny wiersz powinien zawierać liczbę 1, jeśli policjant może złapać złodzieja,
+    a 0 w przeciwnym przypadku.
+
+    Jeśli policjant może złapać złodzieja, w kolejnych $N$ wierszach powinna zostać
+    opisana strategia złodzieja.
+    Każdy z tych wierszy powinien zawierać 
+    $N+1$ liczb całkowitych z zakresu od 0 do $N-1$.
+    Liczba znajdująca się w wierszu $r$ i kolumnie $c$, dla $c < N$,
+    odpowiada sytuacji, kiedy ruch należy do złodzieja, policjant
+    znajduje się przy skrzyżowaniu numer $r$, a złodziej przy skrzyżowaniu numer $c$.
+    Liczba ta powinna oznaczać numer skrzyżowania, na które w tej sytuacji
+    przemieszcza się złodziej.
+    Liczby znajdujące się na głównej przekątnej nie są istotne, ponieważ odpowiadają one
+    sytuacji, w której policjant i złodziej znajdują się na tym samym skrzyżowaniu.
+    Liczba w skrajnie prawej kolumnie w wierszu numer $r$ opisuje numer skrzyżowania, przy którym
+    złodziej dokonuje włamania, jeśli policjant rozpoczął patrol przy skrzyżowaniu numer $r$.
+
+    Poniżej znajduje się przykładowe wejście do przykładowego programu oceniającego
+    opisujące trzy skrzyżowania połączone parami:
+
+    \begin{center}
+        \begin{tabular}{p{4cm}}
+            {\tt
+                3 \newline
+                0 1 1 \newline
+                1 0 1 \newline
+                1 1 0 \newline
+                1 \newline
+                0 2 1 2 \newline
+                2 0 0 2 \newline
+                1 0 0 1 \newline
+            }
+        \end{tabular}
+    \end{center}
+
+    Natomiast poniższe wejście odpowiada przykładowi podanemu w treści zadania:
+
+    \begin{center}
+        \begin{tabular}{p{4cm}}
+            {\tt
+                4 \newline
+                0 1 1 1 \newline
+                1 0 0 0 \newline
+                1 0 0 0 \newline
+                1 0 0 0 \newline
+                1 \newline
+                0 0 0 0 1 \newline
+                2 0 0 0 2 \newline
+                3 0 0 0 3 \newline
+                1 0 0 0 1 \newline
+            }
+        \end{tabular}
+    \end{center}
+
 \end{document}

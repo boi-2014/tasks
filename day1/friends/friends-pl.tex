@@ -11,26 +11,27 @@
     \begin{wrapfigure}{r}{3cm}
 		\includegraphics[width=3cm]{\TaskCode.jpeg}
 	\end{wrapfigure}
-    Trzech przyjaciół lubi następującą zabawę.
+    Troje przyjaciół gra w następującą grę.
     Pierwszy z nich układa pewien napis.
-    Następnie drugi konstruuje kolejny napis, składający się z dwóch identycznych kopii napisu ułożonego przez pierwszego.
+    Następnie drugi tworzy napis złożony z dwóch identycznych kopii napisu ułożonego przez pierwszego.
     Na koniec, trzeci z przyjaciół dokłada jedną literę do napisu ułożonego przez poprzednika.
 
     \Task
     Masz dany napis końcowy. Zrekonstruuj napis ułożony przez pierwszego z przyjaciół.
 
     \Input
-    W pierwszym wejścia znajduje się długość końcowego napisu $N$.
-    W drugim wierszu znajduje się napis.
-    Składa się z wielkich liter A, B, C, \ldots{} Z.
+    W pierwszym wierszu wejścia znajduje się długość końcowego napisu $N$.
+    W drugim wierszu znajduje się sam napis.
+    Napis składa się z wielkich liter A, B, C, \ldots{}, Z.
 
     \Output
     Twój program powinien wypisać początkowy napis.
-    Jednakże, są dwa wyjątki:
+    Są jednak dwa wyjątki:
     \begin{enumerate}
-        \item Jeśli nie jest możliwe, by w wyniku zabawy z pewnego napisu początkowego powstał podany napis końcowy, program powinien wypisać {\tt NOT POSSIBLE}.
+        \item Jeśli nie jest możliwe, by w wyniku zabawy z pewnego napisu początkowego powstał podany napis końcowy, program powinien wypisać {\tt NOT POSSIBLE}
+          (co oznacza: \emph{niemożliwe}).
         \item Jeśli początkowy napis można zrekonstruować na więcej niż jeden sposób, program powinien wypisać {\tt NOT
-        UNIQUE}.
+          UNIQUE} (co oznacza: \emph{niejednoznaczne}).
     \end{enumerate}
     
 
@@ -43,15 +44,15 @@
     \Scoring
 
     \begin{description}
-        \item[Podzadanie 1 (30 punktów):] Długość napisu końcowego to co najwyżej $2\,001$ znaków.
-        \item[Podzadanie 2 (70 punktów):] Długość napisu końcowego to co najwyżej $2\,000\,001$ znaków.
+        \item[Podzadanie 1 (30 punktów):] Napis końcowy składa się z co najwyżej $2\,001$ znaków.
+        \item[Podzadanie 2 (70 punktów):] Napis końcowy składa się z co najwyżej $2\,000\,001$ znaków.
     \end{description}
 
     \Constraints
 
     \begin{description}
         \item[Limit czasu:] 1 s.
-        \item[Limit pamięci:] 64 MB.
+        \item[Dostępna pamięć:] 64 MB.
     \end{description}
 
 \end{document}
