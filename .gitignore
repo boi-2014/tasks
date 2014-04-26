@@ -1,3 +1,7 @@
+# editor-generated backups
+*~
+*.backup
+
 # LaTeX junk
 *.aux
 *.dvi
