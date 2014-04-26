@@ -165,9 +165,54 @@
     \Constraints
     
     \begin{description}
-        \item[Zeitlimit:] 1 s.
-        \item[Speicherlimit:] 256 MB.
+        \item[Time Limit:] 1,5 s.
+        \item[Memory Limit:] 256 MB.
     \end{description}
 
-    \todo{Need to add info about graders.}
+    \Experimentation
+    Der Beispiel-Grader auf deinem Rechner liest Daten von der Standard-Eingabe.
+    Die erste Zeile der Eingabe sollte aus der Anzahl $N$ der Kreuzungen bestehen.
+    Die folgenden $N$ Zeilen sollten die Adjazenzmatrix $A$ enthalten.
+    Jede dieser Zeilen sollte $N$ Zahlen enthalten, jeweils $0$ oder $1$.
+    Die Matrix muss symmetrisch sein und die Einträge auf der Hauptdiagonale müssen alle $0$ sein.
+
+    Die nächste Zeile sollte eine Zahl enthalten: $1$, falls die Genarmerie den Räuber fangen kann, andernfalls $0$.
+    
+    Schlussendlich soll im Fall, dass der Gendarm den Räuber fangen kann, sollten $N$ Zeilen folgen, die die Strategie des Räubers beschreiben. Jede Zeile sollte $N+1$ Zahlen zwischen $0$ und $N-1$ einschließlich enthalten. Der Wert in Zeile $r$ und Spalte $c$ wobei $c<N$ beschreibt durch Angabe einer Kreuzungsnummer, wohin der Räuber in der Situation zieht, in der der Räuber am Zug ist, der Gendarm an Kreuzung $r$ und der Räuber an Kreuzung $c$ steht. Die Werte auf der Hauptdiagonale werden ignoriert, da sie Situationen entsprechen, in denen der Räuber bereits verloren hat. Der Eintrag für $c=N$ in jeder Zeile $r$ gibt an, wo der Räuber in Abhängigkeit von der Startposition $r$ des Gendarms startet.
+    
+    Eine Beispieleingabe für den Beispiel-Grader mit drei Kreuzungen, die jeweils miteinander verbunden sind:
+
+    \begin{center}
+        \begin{tabular}{p{4cm}}
+            {\tt
+                3 \newline
+                0 1 1 \newline
+                1 0 1 \newline
+                1 1 0 \newline
+                1 \newline
+                0 2 1 2 \newline
+                2 0 0 2 \newline
+                1 0 0 1 \newline
+            }
+        \end{tabular}
+    \end{center}
+
+    Die folgende Eingabe passt zum oben angegebenen Beispiel:
+
+    \begin{center}
+        \begin{tabular}{p{4cm}}
+            {\tt
+                4 \newline
+                0 1 1 1 \newline
+                1 0 0 0 \newline
+                1 0 0 0 \newline
+                1 0 0 0 \newline
+                1 \newline
+                0 0 0 0 1 \newline
+                2 0 0 0 2 \newline
+                3 0 0 0 3 \newline
+                1 0 0 0 1 \newline
+            }
+        \end{tabular}
+    \end{center}
 \end{document}
