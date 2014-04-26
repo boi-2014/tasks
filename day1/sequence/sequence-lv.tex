@@ -1,0 +1,78 @@
+\documentclass{boi2014-lv}
+
+\usepackage{todonotes}
+
+\renewcommand{\DayNum}{1}
+\renewcommand{\TaskCode}{sequence}
+\renewcommand{\TaskName}{Virkne}
+
+\begin{document}
+    \begin{wrapfigure}[5]{r}{5cm}
+        \vspace{-24pt}
+		\includegraphics[width=5cm]{\TaskCode.jpeg}
+	\end{wrapfigure}
+
+		Ādams uz tāfeles uzrakstīja virkni no $K$ secīgiem pozitīviem skaitļiem sākot no $N$. Kad viņš aizgāja, Billijs no katra uzrakstītā skaitļa nodzēsa visus izņemot vienu ciparu, tādējādi uz tāfeles palika virkne no $K$ viencipara skaitļiem. 
+    %Adam wrote down a sequence of $K$ consecutive positive integers starting
+    %with $N$ on a blackboard. When he left, Billy came in and erased all but one
+    %digit from each number, thus creating a sequence of $K$ integers between 0
+    %and 9.
+
+    \Task
+
+		Dotai iegūtajai virknei atrodiet mazāko korekto $N$ vērtību, kura varēja tikt izmantota kā virknes pirmais skaitlis.
+    %Given the final sequence left on the blackboard, find the smallest
+    %value of $N$ with which it could have occured.
+
+    \Input
+
+		Ievaddatu pirmā rinda satur vienu veselu pozitīvu skaitli $K$ --- virknes garumu. Otrā rinda satur $K$ skaitļus $B_1$, $B_2$, \dots, $B_K$ --- Billija iegūto virkni ($0 \le B_i \le 9$),  tādā secībā kādā tā bija rakstīta uz tāfeles.
+		
+    %The first line of the input contains a single integer $K$ --- the length of
+    %the sequence. The second line contains $K$ integers $B_1$, $B_2$, \dots,
+    %$B_K$ --- Billy's sequence, in the order in which it is written on the
+    %blackboard.
+
+    \Output
+
+		Izvaddatu vienīgajā rindā jāizvada mazākā $N$ vērtība ar kuru sākotnējā virkne varētu būt sākusies.
+    %The output should consist of a single line with the smallest value of
+    %$N$ with which this sequence could have occured.
+
+    \Example
+
+    \example
+    {
+        6\newline
+        7 8 9 5 1 2
+    }
+    {
+        47
+    }
+    {
+				$N = 47$, kuram atbilstu Ādama virkne $47\ 48\ 49\ 50\ 51\ 52$ no kuras ir iespējams izveidot Billija iegūto virkni. Tā kā neviena cita mazāka $N$ vērtība nebūtu derējusi, atbilde ir 47.
+        %$N = 47$ would correspond to Adam's sequence
+        %being $47\ 48\ 49\ 50\ 51\ 52$ from which Billy's sequence
+        %can indeed be obtained. As no smaller value of $N$
+        %would work, the answer is 47.
+    }
+
+\Scoring
+
+\begin{description}
+    \item[Apakšuzdevums 1 (9 punkti).] $1 \le K \le 1000$, pareizā atbilde nepārsniedz $1000$ %correct
+        %answer does not exceed $1000$
+    \item[Apakšuzdevums 2 (33 punkti).] $1 \le K \le 1000$
+    \item[Apakšuzdevums 3 (25 punkti).] $1 \le K \le 100\,000$, visi dotās virknes locekļi ir vienādi%all
+		%elements of the given sequence are equal
+    \item[Apakšuzdevums 4 (33 punkti).] $1 \le K \le 100\,000$
+\end{description}
+
+\Constraints
+
+Laika ierobežojums: $1$ s.
+
+Atmiņas ierobežojums: $256$ MB.
+
+\end{document}
+
