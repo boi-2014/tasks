@@ -1,0 +1,62 @@
+\documentclass{boi2014-pl}
+
+\usepackage{todonotes}
+
+\renewcommand{\DayNum}{1}
+\renewcommand{\TaskCode}{sequence}
+\renewcommand{\TaskName}{Ciąg}
+
+\begin{document}
+    \begin{wrapfigure}[5]{r}{5cm}
+        \vspace{-24pt}
+		\includegraphics[width=5cm]{\TaskCode.jpeg}
+	\end{wrapfigure}
+
+    Adrian napisał na tablicy ciąg złożony z $K$ kolejnych, dodatnich liczb całkowitych, zaczynając od liczby $N$.
+    Kiedy nikt nie patrzył, Bartek zmazał z każdej liczby zmazał wszystkie cyfry, oprócz jednej.
+    W ten sposób utworzył ciąg $K$ liczb, pomiędzy 0 a 9.
+
+    \Task
+
+    Mając dany końcowy ciąg, znajdź najmniejszą wartość $N$, dla której mógł on powstać.
+
+    \Input
+
+    Pierwszy wiersz wejścia zawiera jedną liczbę całkowitą $K$ --- długość ciągu na tablicy.
+    Drugi wiersz zawiera $K$ cyfr $B_1,\, B_2 ,\, \ldots ,\, B_K$ --- ciąg Bartka, w kolejności w jakiej jest na tablicy.
+    
+    \Output
+
+    Wyjście powinno zawierać pojedynczy wiersz z najmniejszą wartością $N$, dla której taki ciąg mógł się pojawić.
+    
+    \Example
+
+    \example
+    {
+        6\newline
+        7 8 9 5 1 2
+    }
+    {
+        47
+    }
+    {
+        $N = 47$ odpowiada początkowemu ciągowi $<47\ 48\ 49\ 50\ 51\ 52>$, z którego mógł powstać ciąg Bartka. Jako że nie mogło tak być dla żadnego mniejszego $N$, to poprawna odpowiedź wynosi 47.
+    }
+
+\Scoring
+
+\begin{description}
+    \item[Podzadanie 1 (10 punktów).] $1 \le K \le 1\,000$, poprawna odpowiedź nie przekracza $1\,000$
+    \item[Podzadanie 2 (30 punktów).] $1 \le K \le 1\,000$
+    \item[Podzadanie 3 (25 punktów).] $1 \le K \le 100\,000$, wszystkie elementy w ciągu Bartka są równe
+    \item[Podzadanie 4 (35 punktów).] $1 \le K \le 100\,000$
+\end{description}
+
+\Constraints
+
+Limit czasu: $?$ s.
+
+Limit pamięci: $?$ MB.
+
+\end{document}
+
