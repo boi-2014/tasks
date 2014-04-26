@@ -1,0 +1,61 @@
+\documentclass{boi2014-lt}
+
+\renewcommand{\DayNum}{1}
+\renewcommand{\TaskCode}{friends}
+\renewcommand{\TaskName}{Trys draugai}
+\renewcommand{\TaskVersion}{1.1}
+
+\begin{document}
+    \begin{wrapfigure}{r}{4cm}
+        \vspace{-24pt}
+		\includegraphics[width=4cm]{\TaskCode.jpeg}
+	\end{wrapfigure}
+	Trys draugai žaidžia tokį žaidimą:
+	Pirmasis draugas sugalvoja tam tikrą simbolių eilutę $S$.
+	Tada antrasis draugas sukonstruoja naują simbolių eilutę $T$, kuri susideda
+	iš dviejų simbolių eilutės $S$ kopijų.
+	Galų gale trečiasis draugas įterpia vieną raidę bet kurioje simbolių eilutės
+	$T$ pozicijoje ir taip gauna naują simbolių eilutę $U$.
+
+    \Task
+    Duotai simbolių eilutei $U$ rekonstruokite pradinę simbolių eilutę $S$.
+
+    \Input
+    Pirmoje eilutėje įrašytas vienas sveikasis skaičius $N$ --- galutinės simbolių
+    eilutės $U$ ilgis. Pati simbolių eilutė pateikta antroje įvesties eilutėje.
+    Ji sudaryta iš $N$ didžiųjų lotyniškų raidžių A, B, C, \ldots{}, Z.
+
+    \Output
+    Jūsų sprendimas turėtų išspausdinti pradinę simbolių eilutę $S$.
+    Tačiau gali būti keletas išimčių:
+    \begin{enumerate}
+        \item Jeigu eilutės $U$ neįmanoma suformuoti anksčiau aprašytu būdu,
+        jūsų sprendimas turėtų išspausdinti tekstą {\tt NOT POSSIBLE}.
+        \item Jeigu yra daugiau nei viena eilutė $S$, iš kurios galima
+        suformuoti eilutę $U$, jūsų sprendimas turėtų išspausdinti tekstą
+        {\tt NOT UNIQUE}.
+    \end{enumerate}
+    
+
+    \Examples
+
+    \simpleexample{7\newline ABXCABC}{ABC}{}
+    \simpleexample{6\newline ABCDEF}{NOT POSSIBLE}{}
+    \simpleexample{9\newline ABABABABA}{NOT UNIQUE}{}
+
+    \Scoring
+
+    \begin{description}
+        \item[Dalinė užduotis nr. 1 (35 taškai):] $1 \le N \le 2001$.
+        \item[Dalinė užduotis nr. 2 (65 taškai):] $1 \le N \le 2000001$.
+    \end{description}
+
+    \Constraints
+
+    \begin{description}
+        \item[Laiko limitas:] 0.5 s.
+        \item[Atminties limitas:] 256 MB.
+    \end{description}
+
+\end{document}
+
