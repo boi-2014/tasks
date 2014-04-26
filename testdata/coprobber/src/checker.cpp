@@ -7,11 +7,6 @@ int main(int argc, char *argv[]) {
 		return 1;
 	}
 	
-	int partialScoring;
-	FILE *fsol = fopen(argv[2], "r");
-	fscanf(fsol, "%d", &partialScoring);
-	fclose(fsol);
-	
 	char result[9];
 	FILE *fout = fopen(argv[3], "r");
 	fscanf(fout, "%8s", result);
@@ -19,7 +14,7 @@ int main(int argc, char *argv[]) {
 	
 	if (!strcmp(result, "OK"))
 		printf("1\n");
-	else if (!strcmp(result, "PARTFAIL") && partialScoring)
+	else if (!strcmp(result, "PARTFAIL"))
 		printf("0.3\n");
 	else
 		printf("0\n");
