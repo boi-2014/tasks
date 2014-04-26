@@ -8,7 +8,7 @@
 \renewcommand{\DayNum}{1}
 \renewcommand{\TaskCode}{coprobber}
 \renewcommand{\TaskName}{The Cop and the Robber}
-\renewcommand{\TaskVersion}{1.3}
+\renewcommand{\TaskVersion}{1.4}
 
 \renewcommand{\labelitemii}{$\circ$}
 \newcommand{\constant}[1]{{\tt #1}}
@@ -33,7 +33,7 @@
 	BCPD lavet et præcist kort over byen. Nu har de brug for et
 	program til at finde jagtstrategier.
 
-	Jagtproblemet, hvor en betjent jager en røver er modelleret på
+	Jagtproblemet, hvor én betjent jager en røver er modelleret på
 	følgende måde:
     \begin{enumerate}
     	\item Politibetjenten vælger et hjørne at patruljere på.
@@ -43,7 +43,7 @@
     		  røveren ved hvor den anden er.
     	\item Politibetjentens træk består af at han flytter til
     		  et nabo-hjørne (dvs. et, der er forbundet til det
-    		  nuværende af en gade) eller venter (dvs. undlade
+    		  nuværende af en gade) eller venter (dvs. undlader
     		  at flytte).
     	\item Røverens træk består af at han flytter sig til et
     		  nabo-hjørne. Bemærk, at røveren, ulig betjenten,
@@ -66,7 +66,7 @@
 
     \Task
     Du skal skrive et program, der givet et kort over byen, skal
-    bestemme hvorvidt det er muligt at fange røveren, og hvis det
+    bestemme hvorvidt det er muligt at fange røveren, og, hvis det
     er, skal fange røveren ved at lave træk på vegne af
     politibetjenten.
 
@@ -192,9 +192,9 @@
 
     I delopgave 1 og 2 skal dit program implementere begge krav for at score
     nogen point. I delopgave 3 og 4 vil løsninger, der kun opfylder det første
-	krav dog score 30\% af delopgavens point. I dette tilfælde kan du afslutte
-    dit program ved at udføre et ulovligt træk (eksempelvis ved at returnere
-    $-1$ i {\tt nextMove}).
+	krav dog score 30\% af delopgavens point. Hvis dit program ikke opfylder
+    det andet krav kan det i stedet afslutte sig selv ved at udføre et ulovligt
+    træk (eksempelvis ved at returnere $-1$ i {\tt nextMove}).
 
     Bemærk at standardkravene (tids- og hukommelsesbegrænsning og ingen
     runtime errors) skal overholdes for at få nogen point.
@@ -210,10 +210,10 @@
     {\em Eksempel-graderen} på din computer kan læse data fra standard input
     som beskrevet herunder.
     Første linje af inputtet skal indeholde et heltal $N$ --- antallet af
-    hjørner. De følgende $N$ linjer skal indeholde adjacency matricen $A$.
-    Hver af disse linjer skal indeholde $N$ heltal, der hver er 0 eller 1.
-    Matricen skal være symmetrisk og værdierne på diagonalen skal alle
-    være nuller.
+    hjørner. De følgende $N$ linjer skal indeholde adjacency matricen $A$ (som
+    beskrevet øverst side 2). Hver af disse linjer skal indeholde $N$ heltal,
+    der hver er enten 0 eller 1. Matricen skal være symmetrisk og værdierne på
+    diagonalen skal alle være nuller.
 
     Den næste linje skal indeholde 1, hvis politibetjenten kan fange røveren
     og 0 ellers.

@@ -13,16 +13,15 @@
 \newcommand{\constant}[1]{{\tt #1}}
 
 \begin{document}
-    \begin{wrapfigure}[8]{r}{6cm}
-        \vspace{-24pt}
+    \begin{wrapfigure}[11]{r}{6cm}
 		\includegraphics[width=6cm]{\TaskCode.jpeg}
 	\end{wrapfigure}
 
 	Bitangoje nusikalstamumo lygis muša visų laikų rekordus. Be kitų
-	nusikaltimų, kasdien vyksta apiplėšimai. Kaskart įvykus nusikaltimui,
-	siaurais skersgatviais, kurie jungia įvairius miesto užkampius, sprunkantį
-	plėšiką tenka gaudyti vienišam policininkui. Deja, dažniausiai plėšikai
-	pasprunka nuo persekiotojų, kadangi jie miestą pažįsta žymiai geriau už
+	nusikaltimų, kasdien vyksta apiplėšimai. Kaskart įvykus nusikaltimui vienišam
+	policininkui tenka gaudyti plėšiką, sprunkantį siaurais skersgatviais, kurie
+	jungia įvairius miesto užkampius. Deja, dažniausiai plėšikai
+	pasprunka nuo persekiotojų, kadangi jie pažįsta miestą žymiai geriau už
 	pareigūnus.
 
 	Bitangos miesto policijos departamentas (BMPD) organizuoja aukščiausio
@@ -31,7 +30,7 @@
 	tikslų miesto žemėlapį. Dabar jiems reikia programinės įrangos, kuri
 	sukurtų persekiojimo strategijas.
 
-	Vieno pareigūno persekiojančio vieną plėšiką uždavinys modeliuojamas taip:
+	Vieną plėšiką persekiojančio vieno policininko uždavinys modeliuojamas taip:
 	\begin{enumerate}
 		\item Policijos pareigūnas pasirenka vieną užkampį ir ima jame
 			patruliuoti.
@@ -41,11 +40,12 @@
 		\item Policijos pareigūno ėjimo metu jis nukeliauja į gretimą užkampį
 			(t.~y. užkampį, kurį su dabartiniu užkampiu jungia skersgatvis)
 			arba laukia (t.~y. nepajuda niekur).
-		\item Plėšiko ėjimo metu jis nukeliauja į gretimą užkampį. Atkreipkite
+		\item Plėšikas ėjimo metu nukeliauja į gretimą užkampį. Atkreipkite
 			dėmesį, jog priešingai negu policininkas, plėšikas laukti negali.
 			Instinktas jiems liepia nepaliaujamai bėgti.
 		\item Policijos pareigūnas ir plėšikas vienas po kito atlieka ėjimus
-			(pirmas eina pareigūnas) kol kuri nors iš šių sąlygų tampa patenkinta:
+			(pirmas eina pareigūnas) tol, kol kuri nors iš šių sąlygų tampa
+			patenkinta:
 			\begin{enumerate}
 				\item situacija pasikartoja (situacija yra apibrėžta abiejų
 					dalyvių pozicijomis bei kieno eilė yra daryti ėjimą).
@@ -74,35 +74,35 @@
                 \item $A$ -- dvimatis masyvas, apibūdinantis skersgatvius:
                     kiekvienam $0 \le i, j \le N-1$,
                     $$
-                        A[i, j] \text{ is }
+                        A[i, j] \text{ yra }
                         \begin{dcases*}
-                            \texttt{false} & jeigu $i$ ir $j$ nejungia skersgatvis
+                            \texttt{false} & jeigu $i$ ir $j$ nejungia
+                                             skersgatvis
                                 \\
                             \texttt{true} & jeigu $i$ ir $j$ jungia skersgatvis
                         \end{dcases*}
                     $$
                     Visi skersgatviai bus dvikrypčiai (t.~y. $A[i, j] = A[j, i]$
-                    su kiekviena galima $i$ ir $j$ reikšme) ir nebus jokių skersgatvių,
-					jungiančių užkampį su juo pačiu (t.~y. $A[i, i]$ bus
-                    \texttt{false} kiekvienam galimam $i$). Be to, galite daryti
-					prielaidą, jog judant skersgatviais visada bus įmanoma iš bet kurio
-					užkampio pasieki bet kurį kitą.
+                    su kiekviena galima $i$ ir $j$ reikšme) ir nebus jokių
+                    skersgatvių, jungiančių užkampį su juo pačiu (t.~y. $A[i, i]$
+                    bus \texttt{false} kiekvienam galimam $i$). Be to, galite
+                    daryti prielaidą, jog judant skersgatviais visada bus įmanoma
+                    iš bet kurio užkampio pasieki bet kurį kitą.
             \end{itemize}
 
 		Jeigu duotame žemėlapyje įmanoma pagauti plėšiką, funkcija \method{start}
-		turi grąžinti numerį užkampio, kuriame policijos pareigūnas pasirenka
-		patruliuoti. Priešingu atveju, ji turi gražinti $-1$.
+		turi grąžinti užkampio, kuriame policijos pareigūnas pasirenka
+		patruliuoti, numerį. Priešingu atveju, ji turi gražinti $-1$.
 
-		\item \method{nextMove(R)}, kurios argumentas $R$ yra numeris užkampio,
-			kuriame dabar yra plėšikas, ir turi grąžinti numerį užkampio,
-			kuriame policijos pareigūnas bus po savo ėjimo.
+		\item \method{nextMove(R)}, priimanti vieną argumentą $R$ --- užkampio,
+			kuriame dabar yra plėšikas, numerį. Ji turi grąžinti užkampio,
+			kuriame policijos pareigūnas bus po savo ėjimo, numerį.
     \end{itemize}
 
-    Funkcija \method{start} bus iškviesta lygiai kartą, prieš bet kurį
+    Funkcija \method{start} bus iškviesta lygiai vieną kartą, prieš bet kurį
     funkcijos \method{nextMove} iškvietimą. Jeigu \method{start} grąžina
-    $-1$, tada \method{nextMove} nebus iškviesta. Priešingu atveju,
-	\method{nextMove} bus pakartotinai kviečiama tol, kol baigsis
-	persekiojimas.
+    $-1$, funkcija \method{nextMove} nebus iškviesta. Priešingu atveju,
+	\method{nextMove} bus pakartotinai kviečiama tol, kol baigsis persekiojimas.
     Tiksliau, programa baigs darbą atsiradus kuriai nors iš šių sąlygų:
     \begin{itemize}
         \item \method{nextMove} grąžina neleistiną ėjimą;

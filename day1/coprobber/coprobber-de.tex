@@ -9,6 +9,7 @@
 \renewcommand{\DayNum}{1}
 \renewcommand{\TaskCode}{coprobber}
 \renewcommand{\TaskName}{Räuber und Gendarm}
+\renewcommand{\TaskVersion}{1.4}
 
 \renewcommand{\labelitemii}{$\circ$}
 \newcommand{\constant}[1]{{\tt #1}}
@@ -135,14 +136,6 @@
     \end{tabular}
 
     \Scoring
-    Um volle Punktzahl zu erhalten, muss dein Programm
-    \begin{enumerate}
-    	\item korrekt bestimmen, ob der Gendarm den Räuber fangen kann; und
-	\item Züge angeben, mit denen der Gendarm den Räuber fangen kann.
-    \end{enumerate}
-    
-    In Subtasks 3 und 4 erhalten Lösungen, 
-    die nur die erste Anforderung erfüllen, 30\% der Punkte.
 
     \begin{description}
         \item[Teilaufgabe 1 (16 Punkte):] $2 \le N \le 500$. 
@@ -161,19 +154,32 @@
         \item[Teilaufgabe 3 (30 Punkte):] $2 \le N \le 100$.
         \item[Teilaufgabe 4 (40 Punkte):] $2 \le N \le 500$.
     \end{description}
+    
+    Um volle Punktzahl zu erhalten, muss dein Programm folgende Bedingungen erfüllen
+    \begin{enumerate}
+    	\item korrekt bestimmen, ob der Gendarm den Räuber fangen kann; und
+	\item Züge angeben, mit denen der Gendarm den Räuber fangen kann.
+    \end{enumerate}
+    
+    In Subtasks 3 und 4 erhalten Lösungen, 
+    die nur die erste Anforderung erfüllen, 30\% der Punkte.
+    
+    In Teilaufgabe 1 und 2 muss dein Programm beide Bedingungen erfüllen, um Punkte zu erhalten.
+    In Teilaufgabe 3 und 4 genügt die erste Bedingung, um 30\% der Punkte zu bekommen.
+    Falls deine Lösung nur auf Teilpunkte abzielt, kann dass Programm also einfach beendet werden indem \method{nextMove} einen ungültigen Wert zurückgibt (z.B. $-1$).
 
     \Constraints
     
     \begin{description}
-        \item[Time Limit:] 1,5 s.
-        \item[Memory Limit:] 256 MB.
+        \item[Zeitlimit:] 1,5 s.
+        \item[Speicherlimit:] 256 MB.
     \end{description}
 
     \Experimentation
     Der Beispiel-Grader auf deinem Rechner liest Daten von der Standard-Eingabe.
     Die erste Zeile der Eingabe sollte aus der Anzahl $N$ der Kreuzungen bestehen.
     Die folgenden $N$ Zeilen sollten die Adjazenzmatrix $A$ enthalten.
-    Jede dieser Zeilen sollte $N$ Zahlen enthalten, jeweils $0$ oder $1$.
+    Jede dieser Zeilen sollte $N$ Zahlen enthalten jeweils $0$ oder $1$.
     Die Matrix muss symmetrisch sein und die Einträge auf der Hauptdiagonale müssen alle $0$ sein.
 
     Die nächste Zeile sollte eine Zahl enthalten: $1$, falls die Genarmerie den Räuber fangen kann, andernfalls $0$.
