@@ -27,3 +27,4 @@
 \renewcommand{\TitleScoring}{Pisteytys}
 \renewcommand{\TitleExplanation}{Kommentit}
 \renewcommand{\TitleConstraints}{Rajat}
+\renewcommand{\TitleExperimentation}{Kokeileminen}
