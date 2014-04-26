@@ -17,48 +17,40 @@
         \vspace{-24pt}
 		\includegraphics[width=6cm]{\TaskCode.jpeg}
 	\end{wrapfigure}
+    
+    Bytemoren kaupungissa rikosten määrä on saavuttamassa kaikkien aikojen
+    huipun. Muun rötöstelyn lisäksi ryöstöjä tapahtuu joka päivä.
+    Joka kerta kun ryöstö tapahtuu, on yksittäisen partioivan poliisin
+    tehtävä jahdata ryöstäjä kiinni kadunkulmia yhdistäviä kapeita kujia
+    pitkin. Ikävä kyllä, useimmiten rosvot pääsevät pakoon takaa-ajajiltaan,
+    koska he tuntevat kaupungin paljon poliisia paremmin.
 
-    In the city of Bytemore crime level is hitting an all--time high.
-    Among other misdemeanours, robberies are happening every day.
-    And when the crime is committed, it is always up to a lone patrolling
-    police officer to chase down the robber through the narrow alleys
-    that connect street corners (commonly referred to simply as
-    \emph{corners}). Unfortunately, more often than not, robbers escape
-    their pursuers, because they know the city much better than
-    the police.
-
-    The Bytemore City Police Department (BCPD) is organising a summit
-    to reduce crime. One of the initiatives is to use computer aid when
-    pursuing the robbers. For this purpose, the BCPD has made a precise
-    map of the city. Now they need computer software to find chasing
-    strategies.
-
-    The pursuit problem of one officer chasing one robber is modelled
-    as follows:
+    Bytemoren kaupungin poliisilaitos järjestää kokouksen jonka tehtävänä
+    on vähentää rikollisuutta. Yksi aloitteista on käyttää tietokonetta
+    apna rosvojen jahtaamisessa. Tätä varten poliisilaitos on tehnyt tarkan
+    kartan kaupungista. Nyt he tarvitsevat tietokoeohjelmaa
+    jahtausstrategioiden päättämiseen.
+    
+    Rosvojahti jossa yksi poliisi jahtaa yhtä rosvoa on seuraavanlainen.
     \begin{enumerate}
-        \item The police officer chooses a corner on which to patrol.
-        \item The robber then chooses a corner for the robbery
-            (he knows where the officer is). From this moment on it
-            is always assumed that both the officer and the robber
-            know where each other is.
-        \item The police officer's move consists of him moving to a
-            neighbouring corner (i.e. one that is connected to the
-            current one by an alley) or waiting (i.e. not moving).
-        \item The robber's move consists of him moving to a neighbouring
-            corner. Note that, unlike the police, robbers cannot wait.
-            It is in their instinct to keep running.
-        \item The police officer and the robber keep making moves one after
-        another (starting with the officer) until one of the following
-        happens:
+        \item Poliisi valitsee kadunkulman jossa partioi.
+        \item Rosvo valitsee kadunkulman jossa ryöstö tehdään (hän tietää
+            aina missä poliisi on). Tästä lähtien oletetaan aina että sekä
+            poliisi että rosvo tietävät missä kumpikin ovat.
+        \item Poliisi siirtyy siirrollaan joko viereiseen kadunkulmaan
+            (sellaiseen johon kulkee nykyisestä kuja) tai odottaa (ei siirry).
+        \item Rosvo siirtyy aina vuorollaan viereiseen kadunkulmaan. Huomaa,
+            että toisin kuin poliisit, rosvot eivät voi odottaa paikallaan.
+            Heidän vaistonsa saa heidät jatkamaan juoksua.
+        \item Poliisi ja rosvo tekevät siirtoja vuorotellen (aloittaen poliisista)
+            kunnes yksi seuraavista tapahtuu:
         \begin{enumerate}
-            \item situation repeats itself (situation is defined
-                by the positions of both agents and the side whose turn
-                it is to move next). This corresponds to the robber being
-                able to avoid the police officer indefinitely, so the
-                robber escapes;
-            \item the police officer and the robber meet on the same corner
-                after a move of either of them. In this case the police officer
-                catches the robber.
+            \item tilanne toistuu (tilanne määritellään rosvon ja poliisin
+                sijainteina ja sillä, kenen vuoro on seuraavaksi). Tämä vastaa
+                sitä, että rosvo voi vältellä poliisia loputtomasti, joten
+                rosvo pääsee pakoon;
+            \item poliisi ja rosvo ovat samassa kadunkulmassa kumman tahansa
+                vuoron jälkeen. Tässä tapauksessa poliisi saa rosvon kiinni.
         \end{enumerate}
     \end{enumerate}
 
