@@ -10,7 +10,7 @@
 %% Strings
 %%
 
-\newcommand{\Language}{EN}
+\newcommand{\Language}{NO}
 
 \newcommand{\Olympiad}{Baltic Olympiad in Informatics}
 \newcommand{\OlympiadDay}{Day \DayNum}
