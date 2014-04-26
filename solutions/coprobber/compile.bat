@@ -1,1 +1,1 @@
-g++ -I..\..\day1\coprobber\api ..\..\day1\coprobber\api\grader.cpp %1 -std=c++11 -O2 -lm
+g++ -I..\..\api\coprobber\private ..\..\api\coprobber\private\grader.cpp %1 -std=c++11 -O2 -lm
