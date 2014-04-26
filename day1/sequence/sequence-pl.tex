@@ -14,20 +14,20 @@
 
     Adrian napisał na tablicy ciąg złożony z $K$ kolejnych, dodatnich liczb całkowitych, zaczynając od liczby $N$.
     Kiedy nikt nie patrzył, Bartek zmazał z każdej liczby zmazał wszystkie cyfry, oprócz jednej.
-    W ten sposób utworzył ciąg $K$ liczb, pomiędzy 0 a 9.
+    W ten sposób utworzył ciąg $K$ cyfr.
 
     \Task
 
-    Mając dany końcowy ciąg, znajdź najmniejszą wartość $N$, dla której mógł on powstać.
+    Mając dany końcowy ciąg, znajdź najmniejszą wartość $N$, od której mógł zacząć się początkowy ciąg.
 
     \Input
 
     Pierwszy wiersz wejścia zawiera jedną liczbę całkowitą $K$ --- długość ciągu na tablicy.
-    Drugi wiersz zawiera $K$ cyfr $B_1,\, B_2 ,\, \ldots ,\, B_K$ --- ciąg Bartka, w kolejności w jakiej jest na tablicy.
+    Drugi wiersz zawiera $K$ cyfr $B_1,\, B_2 ,\, \ldots ,\, B_K$ --- ciąg Bartka ($0 \le B_i \le 9$), w kolejności w jakiej jest na tablicy.
     
     \Output
 
-    Wyjście powinno zawierać pojedynczy wiersz z najmniejszą wartością $N$, dla której taki ciąg mógł się pojawić.
+    Wyjście powinno zawierać pojedynczy wiersz z najmniejszą wartością $N$, od której mógł zaczynać się ciąg Adriana.
     
     \Example
 
@@ -46,17 +46,17 @@
 \Scoring
 
 \begin{description}
-    \item[Podzadanie 1 (10 punktów).] $1 \le K \le 1\,000$, poprawna odpowiedź nie przekracza $1\,000$
-    \item[Podzadanie 2 (30 punktów).] $1 \le K \le 1\,000$
+    \item[Podzadanie 1 (9 punktów).] $1 \le K \le 1\,000$, poprawna odpowiedź nie przekracza $1\,000$
+    \item[Podzadanie 2 (33 punktów).] $1 \le K \le 1\,000$
     \item[Podzadanie 3 (25 punktów).] $1 \le K \le 100\,000$, wszystkie elementy w ciągu Bartka są równe
-    \item[Podzadanie 4 (35 punktów).] $1 \le K \le 100\,000$
+    \item[Podzadanie 4 (33 punktów).] $1 \le K \le 100\,000$
 \end{description}
 
 \Constraints
 
-Limit czasu: $?$ s.
+Limit czasu: 1 s.
 
-Limit pamięci: $?$ MB.
+Limit pamięci: 256 MB.
 
 \end{document}
 

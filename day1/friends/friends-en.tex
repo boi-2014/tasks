@@ -3,7 +3,7 @@
 \renewcommand{\DayNum}{1}
 \renewcommand{\TaskCode}{friends}
 \renewcommand{\TaskName}{Three Friends}
-\renewcommand{\TaskVersion}{1.1}
+\renewcommand{\TaskVersion}{1.3}
 
 \begin{document}
     \begin{wrapfigure}{r}{4cm}
@@ -21,17 +21,17 @@
     You are given the string $U$ and your task is to reconstruct the original string $S$.
 
     \Input
-    The first line of the input contains the length of the final string $N$.
-    The string itself is given on the second line. It consists of $N$
+    The first line of the input contains $N$, the length of the final string $U$.
+    The string $U$ itself is given on the second line. It consists of $N$
     uppercase English letters (A, B, C, \ldots{}, Z).
 
     \Output
-    Your program should print the original string.
+    Your program should print the original string $S$.
     However, there are two exceptions:
     \begin{enumerate}
-        \item If it is not possible that the final string is created using the above
+        \item If the final string $U$ could not have been created using the above
         procedure, you should print {\tt NOT POSSIBLE}.
-        \item If the original string is not unique, you should print {\tt NOT
+        \item If the original string $S$ is not unique, you should print {\tt NOT
         UNIQUE}.
     \end{enumerate}
 
@@ -44,8 +44,8 @@
     \Scoring
 
     \begin{description}
-        \item[Subtask 1 (35 points):] $1 \le N \le 2001$.
-        \item[Subtask 2 (65 points):] $1 \le N \le 2000001$.
+        \item[Subtask 1 (35 points):] $2 \le N \le 2001$.
+        \item[Subtask 2 (65 points):] $2 \le N \le 2000001$.
     \end{description}
 
     \Constraints

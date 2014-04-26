@@ -1,0 +1,63 @@
+\documentclass{boi2014-dk}
+
+\renewcommand{\DayNum}{1}
+\renewcommand{\TaskCode}{friends}
+\renewcommand{\TaskName}{Three Friends}
+\renewcommand{\TaskVersion}{1.2}
+
+\begin{document}
+    \begin{wrapfigure}{r}{4cm}
+        \vspace{-24pt}
+		\includegraphics[width=4cm]{\TaskCode.jpeg}
+	\end{wrapfigure}
+	Tre venner kan lide at spille det følgende spil.
+	Den første ven vælger en tekststreng, $S$.
+	Så konstruerer den anden ven en ny tekststreng, $T$, som
+	består af to kopier af den første tekststreng, $S$.
+	Til sidst indsætter den tredje ven et bogstav i begyndelsen, slutningen
+    eller et sted inden i $T$, og laver en ny tekststreng $U$.
+
+    \Task
+    Du er givet den endelige tekststreng, $U$, og din
+    opgave er at rekonstruere den originale tekststreng $S$.
+
+    \Input
+    Den første linje i inputtet indeholder længden, $N$, af den
+    endelige tekststreng $U$.
+	Selve tekststrengen, $U$, står på den anden linje.
+    Den består af $N$ store bogstaver (A, B, C, \ldots, Z).
+
+    \Output
+	Dit program skal udskrive den originale tekststreng.
+	Der er dog to undtagelser:
+    \begin{enumerate}
+    	\item Hvis det er umuligt at den endelige tekststreng, $U$, er
+    	skrevet ved proceduren beskrevet ovenfor skal du udskrive
+    	 {\tt NOT POSSIBLE}.
+    	\item Hvis den originale tekststreng ikke unikt kan bestemmes
+    	skal du udskrive {\tt NOT UNIQUE}.
+    \end{enumerate}
+
+
+    \Examples
+
+    \simpleexample{7\newline ABXCABC}{ABC}{}
+    \simpleexample{6\newline ABCDEF}{NOT POSSIBLE}{}
+    \simpleexample{9\newline ABABABABA}{NOT UNIQUE}{}
+
+    \Scoring
+
+    \begin{description}
+        \item[Delopgave 1 (35 point):] $2 \le N \le 2001$.
+        \item[Delopgave 2 (65 point):] $2 \le N \le 2000001$.
+    \end{description}
+
+    \Constraints
+
+    \begin{description}
+        \item[Tidsbegrænsning:] 0.5 s.
+        \item[Hukommelsesbegrænsning:] 256 MB.
+    \end{description}
+
+\end{document}
+

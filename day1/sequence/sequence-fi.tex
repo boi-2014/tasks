@@ -1,0 +1,71 @@
+\documentclass{boi2014-fi}
+
+\usepackage{todonotes}
+
+\renewcommand{\DayNum}{1}
+\renewcommand{\TaskCode}{sequence}
+\renewcommand{\TaskName}{Lukujono}
+
+\begin{document}
+    \begin{wrapfigure}[5]{r}{5cm}
+        \vspace{-24pt}
+\includegraphics[width=5cm]{\TaskCode.jpeg}
+\end{wrapfigure}
+
+    Aatu kirjoitti liitutaululle lukujonon, joka muodostuu $K$ peräkkäisestä
+    positiivisesta kokonaisluvusta luvusta $N$ aloittaen.
+    Hänen lähdettyään Pekka tuli paikalle ja poisti jokaisesta luvusta
+    kaikki numerot yhtä lukuun ottamatta.
+    Näin syntyi lukujono, joka koostuu $K$ numerosta.
+
+    \Task
+
+    Annettuna on liitutaululle jäänyt lukujono,
+    ja tehtäväsi on etsiä pienin mahdollinen arvo $N$,
+    josta alkuperäinen lukujono on voinut alkaa.
+
+    \Input
+
+    Syötteen ensimmäisellä rivillä on yksi kokonaisluku $K$:
+    lukujonon pituus. Toinen rivi sisältää $K$ kokonaislukua $B_1$, $B_2$, \dots,
+    $B_K$: Pekan lukujono ($0 \le B_i \le 9$) siinä järjestyksessä,
+    kun se on kirjoitettu taululle.
+
+    \Output
+
+    Tulosteessa tulee olle yksi rivi, jossa on pienin mahdollinen arvo $N$,
+    josta alkuperäinen lukujono on voinut alkaa.
+
+    \Example
+
+    \example
+    {
+        6\newline
+        7 8 9 5 1 2
+    }
+    {
+        47
+    }
+    {
+        $N = 47$ vastaisi Aatun lukujonoa
+        $47\ 48\ 49\ 50\ 51\ 52$, josta Pekan lukujono todellakin saadaan.
+        Koska mikään pienempi arvo $N$ ei toimisi, vastaus on 47.
+    }
+
+\Scoring
+
+\begin{description}
+    \item[Osatehtävä 1 (9 pistettä).] $1 \le K \le 1000$, oikea
+        vastaus ei ole suurempi kuin $1000$.
+    \item[Osatehtävä 2 (33 pistettä).] $1 \le K \le 1000$.
+    \item[Osatehtävä 3 (25 pistettä).] $1 \le K \le 100\,000$, kaikki lukujonon jäsenet ovat samat.
+    \item[Osatehtävä 4 (33 pistettä).] $1 \le K \le 100\,000$.
+\end{description}
+
+\Constraints
+
+Aikaraja: 1 s.
+
+Muistiraja: 256 MB.
+
+\end{document}

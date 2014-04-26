@@ -7,7 +7,8 @@
 
 \renewcommand{\DayNum}{1}
 \renewcommand{\TaskCode}{coprobber}
-\renewcommand{\TaskName}{The Cop and the Robber}
+\renewcommand{\TaskName}{Rosvo ja poliisi}
+\renewcommand{\TaskVersion}{1.2}
 
 \renewcommand{\labelitemii}{$\circ$}
 \newcommand{\constant}[1]{{\tt #1}}
@@ -21,31 +22,31 @@
     Bytemoren kaupungissa rikosten määrä on saavuttamassa kaikkien aikojen
     huipun. Muun rötöstelyn lisäksi ryöstöjä tapahtuu joka päivä.
     Joka kerta kun ryöstö tapahtuu, on yksittäisen partioivan poliisin
-    tehtävä jahdata ryöstäjä kiinni kadunkulmia yhdistäviä kapeita kujia
+    tehtävä jahdata rosvo kiinni kadunkulmia yhdistäviä kapeita kujia
     pitkin. Ikävä kyllä, useimmiten rosvot pääsevät pakoon takaa-ajajiltaan,
     koska he tuntevat kaupungin paljon poliisia paremmin.
 
-    Bytemoren kaupungin poliisilaitos järjestää kokouksen jonka tehtävänä
+    Bytemoren kaupungin poliisilaitos järjestää kokouksen, jonka tehtävänä
     on vähentää rikollisuutta. Yksi aloitteista on käyttää tietokonetta
-    apna rosvojen jahtaamisessa. Tätä varten poliisilaitos on tehnyt tarkan
-    kartan kaupungista. Nyt he tarvitsevat tietokoeohjelmaa
+    apuna rosvojen jahtaamisessa. Tätä varten poliisilaitos on tehnyt tarkan
+    kartan kaupungista. Nyt he tarvitsevat tietokoneohjelmaa
     jahtausstrategioiden päättämiseen.
     
-    Rosvojahti jossa yksi poliisi jahtaa yhtä rosvoa on seuraavanlainen.
+    Rosvojahti jossa yksi poliisi jahtaa yhtä rosvoa mallinnetaan seuraavasti:
     \begin{enumerate}
         \item Poliisi valitsee kadunkulman jossa partioi.
         \item Rosvo valitsee kadunkulman jossa ryöstö tehdään (hän tietää
             aina missä poliisi on). Tästä lähtien oletetaan aina että sekä
             poliisi että rosvo tietävät missä kumpikin ovat.
         \item Poliisi siirtyy siirrollaan joko viereiseen kadunkulmaan
-            (sellaiseen johon kulkee nykyisestä kuja) tai odottaa (ei siirry).
+            (sellaiseen johon kulkee nykyisestä kuja) tai odottaa paikallaan (ei siirry).
         \item Rosvo siirtyy aina vuorollaan viereiseen kadunkulmaan. Huomaa,
             että toisin kuin poliisit, rosvot eivät voi odottaa paikallaan.
             Heidän vaistonsa saa heidät jatkamaan juoksua.
         \item Poliisi ja rosvo tekevät siirtoja vuorotellen (aloittaen poliisista)
             kunnes yksi seuraavista tapahtuu:
         \begin{enumerate}
-            \item tilanne toistuu (tilanne määritellään rosvon ja poliisin
+            \item sama tilanne toistuu (tilanne määritellään rosvon ja poliisin
                 sijainteina ja sillä, kenen vuoro on seuraavaksi). Tämä vastaa
                 sitä, että rosvo voi vältellä poliisia loputtomasti, joten
                 rosvo pääsee pakoon;
@@ -68,47 +69,44 @@
             \begin{itemize}
                 \item $N$ --- kadunkulmien lukumäärä (kadunkulmat numeroidaan
                     luvuilla $0 \ldots N-1$);
-                \item $A$ --- a two--dimensional array that describes the
-                    alleys: for $0 \le i, j \le N-1$,
+                \item $A$ --- kaksiulotteinen taulukko joka määrittelee kujat:
+                Kaikille $0 \le i, j \le N-1$,
                     $$
-                        A[i, j] \text{ is }
+                        A[i, j] \text{ on }
                         \begin{dcases*}
-                            \texttt{false} & if $i$ and $j$ are not joined by any alley
+                            \texttt{false}, & jos kadunkulmia $i$ ja $j$ ei yhdistä kuja
                                 \\
-                            \texttt{true} & if $i$ and $j$ are joined by an alley
+                            \texttt{true}, & jos kadunkulmia $i$ ja $j$ yhdistää kuja
                         \end{dcases*}
                     $$
-                    All alleys will be bidirectional (i.e. $A[i, j] = A[j, i]$
-                    for all values of $i$ and $j$) and there will be no alleys
-                    connecting a corner to itself (i.e.  $A[i, i]$ will be
-                    \texttt{false} for all values of $i$).  Also, you may assume
-                    that it will always be possible to reach any corner from any
-                    other corner by moving along the alleys.
+                    Kaikki kujat ovat kaksisuuntaisia (siis $A[i, j] = A[j, i]$
+                    kaikille kadunkulmille $i$ ja $j$) ja mikään kuja ei liitä
+                    kadunkulmaa itseensä (siis $A[i, i]$ on \texttt{false} kaikille
+                    kadunkulmille $i$). Voit myös olettaa että voit saavuttaa minkä
+                    tahansa kadunkulman mistä tahansa toisesta kadunkulmasta liikkumalla
+                    kujia pitkin.
             \end{itemize}
 
-        If it is possible to catch the robber on the map described
-        by the parameters, function \method{start} should return the
-        label of the corner on which the police officer chooses to patrol.
-        Otherwise, it should return $-1$.
-
-        \item \method{nextMove(R)} which takes as a
-            parameter the label $R$ of the current corner of the robber
-            and must return the label of the corner where the officer
-            will be after his move.
+        Mikäli poliisin on mahdollista saada rosvo kiinni annetussa kartassa,
+        funktion \method{start} tulisi palauttaa sen kadunkulman tunnusnumero
+        jossa poliisi päättää partioida. Muussa tapauksessa sen tulisi palauttaa $-1$.
+        
+        \item \method{nextMove(R)} joka ottaa parametrina rosvon nykyisen kadunkulman
+            tunnusnumeron $R$ ja palauttaa sen kadunkulman tunnusnumeron missä
+            poliisi on siirtonsa jälkeen.
     \end{itemize}
 
-    Function \method{start} will be called exactly once before any
-    calls to \method{nextMove} are made. If \method{start} returns
-    $-1$, then \method{nextMove} will not be called. Otherwise,
-    \method{nextMove} will be called repeatedly until the pursuit ends.
-    More precisely, the program will terminate as soon as one of the
-    following happens:
+    Funktiota \method{start} kutsutaan täsmälleen kerran ennen kuin kutsuja
+    funktioon \method{nextMove} tehdään. Mikäli \method{start} palauttaa $-1$,
+    niin funktiota \method{nextMove} ei kutsuta. Muussa tapauksessa funktiota
+    \method{nextMove} kutsutaan toistuvasti kunnes jahti on ohi. Tarkemmin
+    ohjelma loppuu kun yksi seuraavista tapahtuu:
     \begin{itemize}
-        \item \method{nextMove} returns an invalid move;
-        \item the situation repeats itself;
-        \item the robber is caught.
+        \item \method{nextMove} palauttaa virheellisen siirron;
+        \item tilanne toistuu;
+        \item poliisi saa rosvon kiinni.
     \end{itemize}
-
+    
     \Example
     \begin{wrapfigure}[4]{r}{2cm}
         \vspace{-0.5cm}
@@ -121,17 +119,18 @@
             \draw (\x,\y) node[circle,draw,fill=white,inner sep=0,minimum size=0.7cm] {\pgfmathparse{int(2-2*\y+\x)}\pgfmathresult};
         \end{tikzpicture}
     \end{wrapfigure}
-    Let's take a look at the example illustrated on the right. In this case any
-    corner is a good starting position for the police officer. If he starts in the
-    corner 0, he can wait in his first move and the robber will run into him.
-    On the other hand, if he starts on any other corner, he can wait until the
-    robber moves to corner 0, and then move there.
-    
-    Here's how a sample session could look like:
+    Tarkastellaan oikealla olevaa esimerkkiä.
+    Tässä tapauksessa mikä tahansa kadunkulma on hyvä aloituskohta poliisille.
+    Jos hän aloittaa kadunkulmasta 0, hän voi odottaa ensimmäisen siirtonsa ajan
+    ja rosvo juoksee hänen luokseen.
+    Jos taas hän aloittaa mistä tahansa muusta kadunkulmasta,
+    hän voi odottaa, kunnes rosvo siirtyy kadunkulmaan 0, ja siirtyä sitten sinne.
+
+    Tässä on esimerkki tapahtumien kulusta:
 
     \begin{tabular}{|l|c|}
         \hline
-            {\bf Function call} & {\bf Returns} \\
+            {\bf Funktiokutsu} & {\bf Palauttaa} \\
         \hline
             \method{start(4, [[0, 1, 1, 1], [1, 0, 0, 0], [1, 0, 0, 0], [1, 0, 0, 0]])} &
             \constant{3} \\
@@ -142,27 +141,29 @@
         \hline
     \end{tabular}
 
-    Note: in the call to \method{start} above \constant{0} zero denotes
-    \constant{false} and \constant{1} denotes \constant{true} for brevity.
+    Huomaa, että funktion \method{start} kutsussa ylhäällä
+    \constant{0} tarkoittaa samaa kuin \constant{false} ja
+    \constant{1} tarkoittaa samaa kuin \constant{true} lyhyyden vuoksi.
 
     \Scoring
-    In order to score full points, your solution must:
+    Saadakseen täydet pisteet ratkaisusi täytyy
     \begin{enumerate}
-    	\item correctly determine whether the police officer can catch
-    		the robber;
-	\item successfully catch the robber by making moves on behalf
-		of the police officer.
+        \item määrittää oikein, saako poliisi rosvon kiinni
+    \item ottaa rosvo kiinni menestyksekkäästi tekemällä
+              poliisin siirrot
     \end{enumerate}
     
-    However, in subtasks 3 and 4, solutions that only implement the
-    first requirement will score 30\% subtask points. 
+    Kuitenkin osatehtävissä 3 ja 4 ratkaisut,
+    jotka toteuttavat vain ensimmäisen vaatimuksen,
+    saavat 30\% osatehtävän pisteistä.
 
     \begin{description}
-        \item[Subtask 1 (15 points):] $2 \le N \le 500$. There will be exactly one path between every pair of corners.
-        \item[Subtask 2 (15 points):] $2 \le N \le 500$. The network of corners
-        and alleys will form a grid-shaped structure. The grid will have at
-        least two rows and columns and the street corner labelling will follow
-        the pattern illustrated below.
+        \item[Osatehtävä 1 (16 pistettä):] $2 \le N \le 500$.
+        Jokaisen kahden kadunkulman välillä on tasan yksi polku.        
+        \item[Osatehtävä 2 (14 pistettä):] $2 \le N \le 500$. Kadunkulmien ja
+        kujien verkosto muodostaa ruudukkorakenteen. Ruudukossa on vähintään
+        kaksi riviä ja saraketta, ja kadunkulmien numerointi noudattaa
+        alla olevaa sääntöä.
         \begin{figure}[h!]
            \centering
            \begin{tikzpicture}
@@ -171,41 +172,42 @@
                 \draw (\x,\y) node[circle,draw,fill=white,inner sep=0,minimum size=0.7cm] {\pgfmathparse{int(8-4*\y+\x)}\pgfmathresult};
            \end{tikzpicture}
         \end{figure}
-        \item[Subtask 3 (30 points):] $2 \le N \le 100$.
-        \item[Subtask 4 (40 points):] $2 \le N \le 500$.
+        \item[Osatehtävä 3 (30 pistettä):] $2 \le N \le 100$.
+        \item[Osatehtävä 4 (40 pistettä):] $2 \le N \le 500$.
     \end{description}
 
     \Constraints
     
     \begin{description}
-        \item[Time limit:] 1 s.
-        \item[Memory limit:] 256 MB.
+        \item[Aikaraja:] 1.5 s.
+        \item[Muistiraja:] 256 MB.
     \end{description}
 
     \Experimentation
-    The sample grader on your computer will read data from the standard input.
-    The first line of the input should contain integer $N$ --- the number of
-    corners.  The following $N$ lines should contain the adjacency matrix $A$.
-    Each of these lines should contain $N$ numbers, where each one is 0 or 1.
-    The matrix must be symmetric and the main diagonal values must all be
-    zeroes.
+    Koneellasi oleva esimerkkitarkastaja lukee tietoa standardisyötteestä.
+    Syötteen ensimmäisellä rivillä tulee olla kokonaisluku $N$ ---
+    kadunkulmien lukumäärä. Seuraavilla $N$ rivillä tulee olla
+    vierusmatriisi $A$. Jokaisella tällaisella rivillä tulee olla $N$ lukua,
+    joista jokainen on 0 tai 1.
+    Matriisin tulee olla symmetrinen ja päädiagonaalin kaikkien arvojen
+    tulee olla nollia.
 
-    The next line should contain number 1, if police can catch the robber,
-    and 0 otherwise.
+    Seuraavalla rivillä tulee olla luku 1, jos poliisi pystyy saamaan kiinni ryöstäjän,
+    ja muuten luku 0.
 
-    Finally, if police officer can catch the robber, $N$ lines should follow,
-    describing the strategy of the robber.  Each of these lines should contain
-    $N+1$ integers between 0 and $N-1$.  The value at row $r$ and column $c$,
-    where $c < N$, corresponds to a situation where it's robber's turn, the
-    police officer is at corner $r$ and the robber is at corner $c$, and
-    represents the corner, which the robber has to move to.  The main diagonal
-    values will be ignored, as they correspond to situations where the robber
-    and the police officer are at the same corner.  The right--most column
-    defines robber's starting corners for each possible police officer's
-    starting corner.
+    Jos poliisi pystyy ottamaan rosvon kiinni, täytyy tulla vielä $N$ riviä,
+    jotka kuvaavat rosvon strategian.
+    Jokaisella tällaisella rivillä tulee olla $N+1$ kokonaislukua 0:n ja $N-1$:n välillä.
+    Rivin $r$ sarakkeen $c$ arvo, jossa $c < N$, vastaa tilannetta,
+    jossa on rosvon vuoro, poliisi on kadunkulmassa $r$ ja rosvo on
+    kadunkulmassa $c$. Arvo kuvaa kadunkulman, johon rosvon on siirryttävä.
+    Päädiagonaalin arvoista ei välitetä, koska ne vastaavat tilanteita,
+    joissa rosvo ja poliisi ovat samassa kadunkulmassa.
+    Rivin $r$ viimeinen arvo määrittelee rosvon aloituskadunkulman jos poliisin
+    aloituskadunkulma on $r$.
 
-    Here is an example input to the sample grader which represents three corners
-    that are connected together:
+    Tässä on esimerkkisyöte tarkastajalle, joka kuvaa kolme kadunkulmaa,
+    jotka on yhdistetty toisiinsa:
 
     \begin{center}
         \begin{tabular}{p{4cm}}
@@ -222,8 +224,7 @@
         \end{tabular}
     \end{center}
 
-    And here is the input which matches the example given in the task statement
-    above:
+    Ja tässä on syöte, joka täsmää yllä olevan tehtävänannon esimerkkiin:
 
     \begin{center}
         \begin{tabular}{p{4cm}}

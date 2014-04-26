@@ -8,7 +8,7 @@
 \renewcommand{\DayNum}{1}
 \renewcommand{\TaskCode}{coprobber}
 \renewcommand{\TaskName}{Cop and Robber}
-\renewcommand{\TaskVersion}{1.1}
+\renewcommand{\TaskVersion}{1.3}
 
 \renewcommand{\labelitemii}{$\circ$}
 \newcommand{\constant}[1]{{\tt #1}}
@@ -155,19 +155,10 @@
     \constant{false} and \constant{1} denotes \constant{true} for brevity.
 
     \Scoring
-    In order to score full points, your solution must:
-    \begin{enumerate}
-    	\item correctly determine whether the police officer can catch
-    		the robber;
-	\item successfully catch the robber by making moves on behalf
-		of the police officer.
-    \end{enumerate}
     
-    However, in subtasks 3 and 4, solutions that only implement the
-    first requirement will score 30\% subtask points. 
-
     \begin{description}
-        \item[Subtask 1 (16 points):] $2 \le N \le 500$. There will be exactly one path between every pair of corners.
+        \item[Subtask 1 (16 points):] $2 \le N \le 500$.
+        Each pair of corners will be connected by exactly one path of alleys.
         \item[Subtask 2 (14 points):] $2 \le N \le 500$. The network of corners
         and alleys will form a grid-shaped structure. The grid will have at
         least two rows and columns and the street corner labelling will follow
@@ -183,11 +174,28 @@
         \item[Subtask 3 (30 points):] $2 \le N \le 100$.
         \item[Subtask 4 (40 points):] $2 \le N \le 500$.
     \end{description}
+    
+    Your solution should fulfill two requirements:
+    \begin{enumerate}
+    	\item correctly determine whether the police officer can catch
+    		the robber;
+	\item successfully catch the robber by making moves on behalf
+		of the police officer.
+    \end{enumerate}
+    
+    In subtasks 1 and 2, your solution must implement both requirements to score any points.
+    In subtasks 3 and 4, solutions that only implement the
+    first requirement will score 30\% of subtask's points.
+    If your solution only aims for partial score, you can terminate
+    the program by outputting any invalid move (e.g. return $-1$ in \method{nextMove}).
 
+	Note that the standard requirements (time and memory limits, no runtime errors)
+	must be satisfied to score any points.
+    
     \Constraints
     
     \begin{description}
-        \item[Time limit:] 1 s.
+        \item[Time limit:] 1.5 s.
         \item[Memory limit:] 256 MB.
     \end{description}
 
