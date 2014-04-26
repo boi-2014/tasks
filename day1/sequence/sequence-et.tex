@@ -1,0 +1,67 @@
+\documentclass{boi2014-et}
+
+\renewcommand{\DayNum}{1}
+\renewcommand{\TaskCode}{sequence}
+\renewcommand{\TaskName}{Jada}
+
+\begin{document}
+
+    \begin{wrapfigure}[5]{r}{5cm}
+        \vspace{-24pt}
+        \includegraphics[width=5cm]{\TaskCode.jpeg}
+    \end{wrapfigure}
+
+    Adam kirjutas tahvlile $K$ järjestikust positiivset täisarvu alates arvust $N$.
+    Kui ta lahkus, tuli Billy ja kustutas tahvlilt numbreid nii, et igast arvust jäi järele üks number.
+    Seega oli lõpuks tahvlil $N$ numbrist koosnev jada.
+
+    \Task
+
+    Leida tahvlile jäänud jada põhjal vähim võimalik $N$, millega esialgne jada alata võis.
+
+    \Input
+
+    Sisendi esimesel real on üks täisarv $K$: jada pikkus.
+    Teisel real on $K$ täisarvu $B_1$, $B_2$, \dots, $B_K$ ($0 \le B_i \le 9$):
+    Billy saadud jada elemendid selles järjekorras, nagu nad tahvlil olid.
+
+    \Output
+
+    Ainsale reale väljastada üks täisarv: vähim võimalik $N$, millest alustades
+    oleks võimalik saada sisendis antud lõpptulemus.
+
+    \Example
+
+    \example
+    {
+        6\newline
+        7 8 9 5 1 2
+    }
+    {
+        47
+    }
+    {
+        $N = 47$ korral oleks Adami esialgne jada $47\ 48\ 49\ 50\ 51\ 52$
+        ja sellest võiks tõesti Billy jada saada. Kuna ühegi väiksema
+        $N$ korral see nii pole, peabki vastus olema 47.
+    }
+
+    \Scoring
+
+    \begin{description}
+        \item[Alamülesanne 1 (9 punkti).] $1 \le K \le 1\,000$,
+            vastus ei ületa $1\,000$.
+        \item[Alamülesanne 2 (33 punkti).] $1 \le K \le 1\,000$.
+        \item[Alamülesanne 3 (25 punkti).] $1 \le K \le 100\,000$,
+            kõik Billy jada elemendid on ühesugused.
+        \item[Alamülesanne 4 (33 punkti).] $1 \le K \le 100\,000$.
+    \end{description}
+
+    \Constraints
+
+    \begin{description}
+        \item[Ajalimiit:] 1 s.
+        \item[Mälulimiit:] 256 MB.
+    \end{description}
+
+\end{document}
