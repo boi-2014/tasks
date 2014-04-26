@@ -1,0 +1,62 @@
+\documentclass{boi2014-de}
+
+\usepackage{todonotes}
+
+\renewcommand{\DayNum}{1}
+\renewcommand{\TaskCode}{sequence}
+\renewcommand{\TaskName}{Folge}
+
+\begin{document}
+    \begin{wrapfigure}[5]{r}{5cm}
+        \vspace{-24pt}
+		\includegraphics[width=5cm]{\TaskCode.jpeg}
+	\end{wrapfigure}
+
+    Adam hat eine Folge von $K$ aufeinanderfolgenden Zahlen, beginnend bei $N$, auf eine Tafel geschrieben.
+    Nachdem er gegangen war, hat Billy von jeder Zahl alle bis auf eine Ziffer weg gewischt,
+    sodass nun eine Folge von $K$ Ziffern zwischen $0$ und $9$ an der Tafel stehen.
+
+    \Task
+
+    Gegeben die Ziffernfolge die am Ende auf der Tafel steht, finde die kleinste Zahl $N$, mit der Adam die ursprüngliche Folge begonnen haben könnte.
+
+    \Input
+
+    Die erste Zeile der Eingabe enthält Zahl $K$, die Länge der Folge.
+    Die zweite Zeile enthält $K$ ganze Zahlen $B_1$, $B_2$, \dots, $B_K$, die Ziffernfolge, die Billy hinterlassen hat.
+
+    \Output
+
+    Die Ausgabe soll eine Zeile mit der kleinsten Zahl $N$ enthalten, mit der Adam seine Folge begonnen haben könnte.
+
+    \Example
+
+    \example
+    {
+        6\newline
+        7 8 9 5 1 2
+    }
+    {
+        47
+    }
+    {
+        $N = 47$ heißt, dass Adams Folge $<47\ 48\ 49\ 50\ 51\ 52>$ war, von der aus Billy durch passendes Wegwischen die Ziffernfolge kreiren kann. Da kein kleinerer Wert für $N$ funktioniert, ist die Antwort $47$.
+    }
+
+\Scoring
+
+\begin{description}
+    \item[Subtask 1 (10 points).] $1 \le K \le 1000$ und die korrekte Antwort ist nicht größer als $1000$.
+    \item[Subtask 2 (30 points).] $1 \le K \le 1000$
+    \item[Subtask 3 (25 points).] $1 \le K \le 100\,000$ und alle Elemente der Ziffernfolge sind gleich.
+    \item[Subtask 4 (35 points).] $1 \le K \le 100\,000$
+\end{description}
+
+\Constraints
+
+Zeit Limit: $?$ s.
+
+Speicher Limit: $?$ MB.
+
+\end{document}
+
