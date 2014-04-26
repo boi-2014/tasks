@@ -9,7 +9,7 @@
 \renewcommand{\DayNum}{1}
 \renewcommand{\TaskCode}{coprobber}
 \renewcommand{\TaskName}{Policists un zaglis}
-\renewcommand{\TaskVersion}{1.2}
+\renewcommand{\TaskVersion}{1.3}
 
 \renewcommand{\labelitemii}{$\circ$}
 \newcommand{\constant}[1]{{\tt #1}}
@@ -177,21 +177,9 @@
     %\constant{false} and \constant{1} denotes \constant{true} for brevity.
 
     \Scoring
-    %In order to score full points, your solution must:
-	Lai iegūtu punktus Jūsu risinājumam jāspēj:
-    \begin{enumerate}
-    	\item korekti noteikt vai policists var noķert zagli;%correctly determine whether the police officer can catch
-    		%the robber;
-	\item izpildot gājienus policista vietā noķert zagli.%successfully catch the robber by making moves on behalf
-		%of the police officer.
-    \end{enumerate}
-    
-	Apakšuzdevumiem 3 un 4 risinājumi, kas izpilda tikai pirmo nosacījumu iegūs 30\% no apakšuzdevuma punktiem.
-    %However, in subtasks 3 and 4, solutions that only implement the
-    %first requirement will score 30\% subtask points. 
 
     \begin{description}
-        \item[Apakšuzdevums 1 (16 punkti):] $2 \le N \le 500$. Starp katriem diviem krustojumiem ir tieši viens ceļš.%There will be exactly one path between every pair of corners.
+        \item[Apakšuzdevums 1 (16 punkti):] $2 \le N \le 500$. Starp katriem diviem krustojumiem ir tieši viens veids kā no viena nokļūt uz otru.%There will be exactly one path between every pair of corners.
         \item[Apakšuzdevums 2 (14 punkti):] $2 \le N \le 500$.  Krustojumu un ielu tīkls veidos rež\v{g}veida strutūru. Rež\v{g}im būs vismaz divas rindas un kolonnas un krustojumu numerācija atbildīs zemāk norādītajam šablonam.
         %The network of corners
         %and alleys will form a grid-shaped structure. The grid will have at
@@ -208,6 +196,21 @@
         \item[Apakšuzdevums 3 (30 punkti):] $2 \le N \le 100$.
         \item[Apakšuzdevums 4 (40 punkti):] $2 \le N \le 500$.
     \end{description}
+
+    %In order to score full points, your solution must:
+	Lai iegūtu visus punktus Jūsu risinājumam jāspēj:
+    \begin{enumerate}
+    	\item korekti noteikt vai policists var noķert zagli;%correctly determine whether the police officer can catch
+    		%the robber;
+	\item izpildot gājienus policista vietā noķert zagli.%successfully catch the robber by making moves on behalf
+		%of the police officer.
+    \end{enumerate}
+    	Apakšuzdevumos 1 un 2 risinājumiem ir jāizpilda abas prasības.
+	Apakšuzdevumiem 3 un 4 risinājumi, kas izpilda tikai pirmo nosacījumu iegūs 30\% no apakšuzdevuma punktiem. Izpildot tikai pirmo nosacijumu Jūs  varat apturēt programmu veicot nekorektu gājienu (piemēram, atgriezt $-1$ metodē \method{nextMove)}). 
+    %However, in subtasks 3 and 4, solutions that only implement the
+    %first requirement will score 30\% subtask points.
+
+	Ņemiet vērā ka standarta prasibām (atmiņas un laika ierobežojumiem, izpilde beidzas bez izpildes laika kļūdām) jābut izpildītām, lai risinājums saņemtu punktus. 
 
     \Constraints
     

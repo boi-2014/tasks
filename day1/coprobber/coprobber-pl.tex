@@ -9,6 +9,7 @@
 \renewcommand{\DayNum}{1}
 \renewcommand{\TaskCode}{coprobber}
 \renewcommand{\TaskName}{Policjant i złodziej}
+\renewcommand{\TaskVersion}{1.3}
 
 \renewcommand{\labelitemii}{$\circ$}
 \newcommand{\param}[1]{{\tt #1}}
@@ -26,7 +27,7 @@
     Szczególnie często mają miejsce kradzieże.
     Jedną z przyczyn tego stanu rzeczy może być fakt, iż w pogoń za złodziejem
     rusza zazwyczaj tylko jeden policjant znajdujący się akurat w terenie.
-    Pościg w starościeckim stylu odbywa się wąskimi uliczkami łączącymi
+    Pościg w staroświeckim stylu odbywa się wąskimi uliczkami łączącymi
     \emph{skrzyżowania} Bajtogrodu, a dzięki dobrej znajomości miasta złodziejowi
     nierzadko udaje się umknąć policjantowi.
 
@@ -157,18 +158,9 @@
     \constant{false} a liczba \constant{1} oznacza \constant{true}.
 
     \Scoring
-    Aby uzyskać pełną punktację, Twoje rozwiązanie musi:
-    \begin{enumerate}
-      \item poprawnie stwierdzić, czy policjant może złapać złodzieja;
-      \item skutecznie złapać złodzieja, wykonując ruchy w imieniu policjanta.
-    \end{enumerate}
-   
-    Jednakże w podzadaniach 3 i 4, rozwiązania, które spełniają tylko pierwsze
-    z powyższych wymagań, uzyskają 30\% punktów za odpowiednie podzadanie.
-
     \begin{description}
-        \item[Podzadanie 1 (15 punktów):] $2 \le N \le 500$. Między każdą parą skrzyżowań jest dokładnie jedna ścieżka.
-        \item[Podzadanie 2 (15 punktów):] $2 \le N \le 500$. Sieć skrzyżowań i uliczek tworzy kratkę.
+        \item[Podzadanie 1 (16 punktów):] $2 \le N \le 500$. Każda para skrzyżowań jest połączona za pomocą dokładnie jednej ścieżki złożonej z uliczek.
+        \item[Podzadanie 2 (14 punktów):] $2 \le N \le 500$. Sieć skrzyżowań i uliczek tworzy kratkę.
         Kratka składa się z co najmniej dwóch wierszy i kolumn, a numeracja skrzyżowań
         odpowiada schematowi przedstawionemu na rysunku poniżej.
         \begin{figure}[h!]
@@ -183,10 +175,29 @@
         \item[Podzadanie 4 (40 punktów):] $2 \le N \le 500$.
     \end{description}
 
+    Twoje rozwiązanie musi spełniać dwa wymagania:
+    \begin{enumerate}
+      \item poprawnie stwierdzać, czy policjant może złapać złodzieja;
+      \item skutecznie łapać złodzieja, wykonując ruchy w imieniu policjanta, jeśli
+        to jest możliwe.
+    \end{enumerate}
+
+    W przypadku podzadań 1 i 2, Twoje rozwiązanie musi spełnić oba te wymagania, aby
+    uzyskać jakiekolwiek punkty.
+    Natomiast w podzadaniach 3 i 4, rozwiązania, które spełniają tylko pierwsze
+    wymaganie, uzyskają 30\% punktów za odpowiednie podzadanie.
+    Jeśli w swoim rozwiązaniu chciałbyś uzyskać jedynie tę częściową punktację,
+    możesz zakończyć swój program, wykonując niepoprawny ruch 
+    (np.\ zwrócić $-1$ w funkcji \method{nextMove}).
+
+    Pamiętaj, że standardowe wymagania (zmieszczenie się w limitach czasu i pamięci
+    oraz brak błędów wykonania) i tak muszą być spełnione przez Twój program, aby miał
+    szansę uzyskać jakieś punkty.
+
     \Constraints
     
     \begin{description}
-        \item[Limit czasu:] 1 s.
+        \item[Limit czasu:] 1,5 s.
         \item[Dostępna pamięć:] 256 MB.
     \end{description}
 
@@ -212,7 +223,7 @@
     przemieszcza się złodziej.
     Liczby znajdujące się na głównej przekątnej nie są istotne, ponieważ odpowiadają one
     sytuacji, w której policjant i złodziej znajdują się na tym samym skrzyżowaniu.
-    Liczba w skrajnie prawej kolumnie w wierszu numer $r$ opisuje numer skrzyżowania, przy którym
+    Ostatnia liczba w wierszu numer $r$ opisuje numer skrzyżowania, przy którym
     złodziej dokonuje włamania, jeśli policjant rozpoczął patrol przy skrzyżowaniu numer $r$.
 
     Poniżej znajduje się przykładowe wejście do przykładowego programu oceniającego

@@ -5,7 +5,8 @@
 
 \renewcommand{\DayNum}{1}
 \renewcommand{\TaskCode}{friends}
-\renewcommand{\TaskName}{Przyjaciele}
+\renewcommand{\TaskName}{Troje przyjaciół}
+\renewcommand{\TaskVersion}{1.3}
 
 \begin{document}
     \begin{wrapfigure}{r}{3cm}
@@ -17,20 +18,20 @@
     Na koniec, trzeci z przyjaciół dokłada jedną literę na początku, na końcu, bądź w środku napisu $T$, tworząc napis $U$.
 
     \Task
-    Masz dany napis końcowy $U$. Zrekonstruuj napis $S$ ułożony przez pierwszego z przyjaciół.
+    Masz dany napis końcowy $U$. Zrekonstruuj początkowy napis $S$.
 
     \Input
-    W pierwszym wierszu wejścia znajduje się długość końcowego napisu $N$.
-    W drugim wierszu znajduje się sam napis.
-    Napis składa się z wielkich liter A, B, C, \ldots{}, Z.
+    W pierwszym wierszu wejścia znajduje się długość $N$ końcowego napisu $U$.
+    W drugim wierszu znajduje się napis $U$.
+    Napis składa się z wielkich liter alfabetu angielskiego (A, B, C, \ldots{}, Z).
 
     \Output
-    Twój program powinien wypisać początkowy napis.
+    Twój program powinien wypisać początkowy napis $S$.
     Są jednak dwa wyjątki:
     \begin{enumerate}
-        \item Jeśli nie jest możliwe, by w wyniku zabawy z pewnego napisu początkowego powstał podany napis końcowy, program powinien wypisać {\tt NOT POSSIBLE}
+        \item Jeśli nie jest możliwe, by podany napis końcowy $U$ powstał w wyniku opisanej zabawy, program powinien wypisać {\tt NOT POSSIBLE}
           (co oznacza: \emph{niemożliwe}).
-        \item Jeśli początkowy napis można zrekonstruować na więcej niż jeden sposób, program powinien wypisać {\tt NOT
+        \item Jeśli początkowy napis $S$ można zrekonstruować na więcej niż jeden sposób, program powinien wypisać {\tt NOT
           UNIQUE} (co oznacza: \emph{niejednoznaczne}).
     \end{enumerate}
     
@@ -44,8 +45,8 @@
     \Scoring
 
     \begin{description}
-        \item[Podzadanie 1 (35 punktów):] Napis końcowy składa się z co najwyżej $2\,001$ znaków.
-        \item[Podzadanie 2 (65 punktów):] Napis końcowy składa się z co najwyżej $2\,000\,001$ znaków.
+        \item[Podzadanie 1 (35 punktów):] $2 \le N \le 2\,001$.
+        \item[Podzadanie 2 (65 punktów):] $2 \le N \le 2\,000\,001$.
     \end{description}
 
     \Constraints
