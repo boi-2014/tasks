@@ -4,14 +4,16 @@
 #include <iostream>
 using namespace std;
 
-#define MaxN 100010
+#define MaxN 200010
 
 string S;
 vector<string> ANS;
 int N;
 int C[1000] = {0};
+int NN;
 
 int main() {
+	cin >> NN;
 	cin >> S;
 	
 	for (int i = 0; i < S.size(); i++)
@@ -34,7 +36,7 @@ int main() {
 		if (ANS[0] != ANS[i])
 			good = false;
 	if (ANS.size() == 0)
-		printf("IMPOSSIBLE\n");
+		printf("NOT POSSIBLE\n");
 	else if (good) 
 		printf("%s\n", ANS[0].c_str());
 	else 

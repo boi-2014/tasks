@@ -1,0 +1,67 @@
+\documentclass{boi2014-lt}
+
+\usepackage{todonotes}
+
+\renewcommand{\DayNum}{1}
+\renewcommand{\TaskCode}{sequence}
+\renewcommand{\TaskName}{Seka}
+
+\begin{document}
+    \begin{wrapfigure}[5]{r}{5cm}
+        \vspace{-24pt}
+		\includegraphics[width=5cm]{\TaskCode.jpeg}
+	\end{wrapfigure}
+
+    Ant lentos Adomas užrašė $K$ iš eilės einančių sveikųjų skaičių pradedant
+    nuo $N$. Adomui išėjus, atėjo Bilas, kuris kiekvienam ant lentos užrašytam
+    skaičiui nutrynė visus jo skaitmenis išskyrus vieną. Tokiu būdu jis gavo
+    $K$ skaitmenų seką.
+
+    \Task
+    Duotai galutinei skaičių sekai lentoje, raskite mažiausią galimą skaičių $N$,
+    kuriuo galėjo prasidėti Adomo užrašyta seka.
+
+    \Input
+    Pirmoje eilutė įrašytas vienas sveikasis skaičius $K$ --- sekos ilgis. Antroje
+    eilutėje pateikti $K$ sveikųjų skaičių
+    $B_1$, $B_2$, \dots, $B_K$ ($0 \le B_i \le 9$) --- skaičių seka, kurią ant
+    lentos paliko Bilas.
+
+    \Output
+    Jūsų sprendimas turėtų išvesti mažiausią skaičių $N$, kuriuo galėjo prasidėti
+    Adomo užrašyta seka.
+
+    \Example
+
+    \example
+    {
+        6\newline
+        7 8 9 5 1 2
+    }
+    {
+        47
+    }
+    {
+        $N = 47$ atitinka Adomo skaičių seką $47\ 48\ 49\ 50\ 51\ 52$, iš kurios
+        galima gauti Bilo skaičių seką. Kadangi mažesnių skaičių $N$, iš kurių
+        galima suformuoti Bilo seką, nėra, tai atsakymas yra $47$.
+    }
+
+    \Scoring
+
+    \begin{description}
+        \item[Dalinė užduotis nr. 1 (9 taškai).] $1 \le K \le 1000$, teisingas atsakymas neviršyja $1000$
+        \item[Dalinė užduotis nr. 2 (33 taškai).] $1 \le K \le 1000$
+        \item[Dalinė užduotis nr. 3 (25 taškai).] $1 \le K \le 100\,000$, visi duotos sekos nariai yra lygūs
+        \item[Dalinė užduotis nr. 4 (33 taškai).] $1 \le K \le 100\,000$
+    \end{description}
+
+    \Constraints
+
+    \begin{description}
+        \item[Laiko limitas:] 1 s.
+        \item[Atminties limitas:] 256 MB.
+    \end{description}
+
+\end{document}
+

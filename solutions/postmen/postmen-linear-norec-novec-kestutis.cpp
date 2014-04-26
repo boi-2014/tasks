@@ -32,7 +32,6 @@ int getU (int i, int v) {
 
 
 inline void dfs(int v) {
-	visited[v] = true;
 	path.clear();
 	path.push_back(v);	
 	while (v != -1) {
@@ -43,10 +42,8 @@ inline void dfs(int v) {
 			int i = pr[v],
 				u = getU(k[P[v]+i], v);
 				if (E[k[P[v]+i]][2] == false) {
-					//printf("  U = %d\n", u);
 					E[k[P[v]+i]][2] = true;
 					if (visited[u]) {
-						//printf("RADOM\n");
 						newv = u;
 						while (path.back() != u) {
 							ANS[ANS_T++] = path.back();
@@ -64,6 +61,10 @@ inline void dfs(int v) {
 					break;
 				}
 		}
+		if (newv == -1 and path.size() > 1) {
+			newv = path.back();
+			path.pop_back();
+		}
 		v =newv;
 	}
 	for (int i = 0; i < path.size(); i++)
@@ -76,8 +77,6 @@ int main() {
 	scanf("%d%d\n", &N, &M);
 	for (int i = 0; i < M; i++) {
 		scanf("%d%d", &E[i][0], &E[i][1]);
-		if (E[i][0] > N || E[i][1] > N)
-			printf("broken: %d, %d, %d\n", i, E[i][0], E[i][1]);
 		E[i][2] = false;
 		C[E[i][0]]++;
 		C[E[i][1]]++;
@@ -94,12 +93,10 @@ int main() {
 		tmp[E[i][0]]++;
 		tmp[E[i][1]]++;
 	}
-	fprintf(stderr, "nuskaitem\n");
 	for (int i = 1; i <= N; i++) {
 		dfs(i);
 		
 		}
-	fprintf(stderr, "after dfs\n");
 	ANS_T = 0;
 	
 	//printf("%d\n", ANS_C);

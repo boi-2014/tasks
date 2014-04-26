@@ -1,0 +1,60 @@
+\documentclass{boi2014-fi}
+
+\renewcommand{\DayNum}{1}
+\renewcommand{\TaskCode}{friends}
+\renewcommand{\TaskName}{Kolme kaverusta}
+\renewcommand{\TaskVersion}{1.3}
+
+\begin{document}
+    \begin{wrapfigure}{r}{4cm}
+        \vspace{-24pt}
+\includegraphics[width=4cm]{\TaskCode.jpeg}
+\end{wrapfigure}
+    Kolme kaverusta tykkäävät seuraavasta pelistä.
+    Ensimmäinen valitsee merkkijonon $S$.
+    Sitten toinen luo uuden merkkijonon $T$,
+    joka muodostuu kahdesta merkkijonon $S$ kopiosta.
+    Lopuksi kolmas lisää yhden kirjaimen merkkijonon $T$
+    alkuun, loppuun tai johonkin keskelle ja
+    muodostaa näin lopullisen merkkijonon $U$.
+
+    \Task
+    Sinulle on annettu lopullinen merkkijono $U$ ja tehtäväsi on
+    muodostaa takaisin alkuperäinen merkkijono $S$.
+
+    \Input
+    Syötteen ensimmäisellä rivillä on lopullisen merkkijonon $U$ pituus $N$.
+    Toisella rivillä on lopullinen merkkijono $U$. Se muodostuu $N$:stä
+    englannin kielen suuresta kirjaimesta (A, B, C, \ldots{}, Z).
+
+    \Output
+    Ohjelmasi tulee tulostaa alkuperäinen merkkijono $S$.
+    Kuitenkin on kaksi poikkeusta:
+    \begin{enumerate}
+        \item Jos ei ole mahdollista, että lopullinen merkkijono $U$ on luotu
+        yllä olevalla tavalla, tulosta {\tt NOT POSSIBLE}.
+        \item Jos alkuperäinen merkkijono $S$ ei ole yksikäsitteinen,
+        tulosta {\tt NOT UNIQUE}.
+    \end{enumerate}
+
+    \Examples
+
+    \simpleexample{7\newline ABXCABC}{ABC}{}
+    \simpleexample{6\newline ABCDEF}{NOT POSSIBLE}{}
+    \simpleexample{9\newline ABABABABA}{NOT UNIQUE}{}
+
+    \Scoring
+
+    \begin{description}
+        \item[Osatehtävä 1 (35 pistettä):] $2 \le N \le 2001$.
+        \item[Osatehtävä 2 (65 pistettä):] $2 \le N \le 2000001$.
+    \end{description}
+
+    \Constraints
+
+    \begin{description}
+        \item[Aikaraja:] 0.5 s.
+        \item[Muistiraja:] 256 MB.
+    \end{description}
+
+\end{document}

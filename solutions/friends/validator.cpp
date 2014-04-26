@@ -1,12 +1,12 @@
 /**
- * wrong solution for friends.
+ * A valid solution for task FRIENDS.
  *
- * Author: Marijonas Petraukas, Kestutis Vilcinskas.
+ * Author: Marijonas Petrauskas
  */
 
 #include <iostream>
 #include <string>
-
+#include <cstdio>
 using namespace std;
 
 string try_candidate(const string &s, int orig_start, int orig_len, int modified_start) {
@@ -26,16 +26,27 @@ string try_candidate(const string &s, int orig_start, int orig_len, int modified
 
 int main() {
 	string final;
+	int N;
+	cin >> N;
 	cin >> final;
+	
+	if (N  < 2 || N > 2000001 || final.size() != N)	{
+		printf("BLAH\n");
+		return 0;
+	}
 	int orig_len = (final.length() - 1) / 2;
 	const string&
 		pos1 = try_candidate(final, orig_len + 1, orig_len, 0),
 		pos2 = try_candidate(final, 0, orig_len, orig_len);
-	
-	if (pos1.empty())
+	if ( (pos1.empty() && pos2.empty()) || (final.size() % 2 == 0))
+		cout << "NOT POSSIBLE" << endl;
+	else if (pos1.empty())
 		cout << pos2 << endl;
-	else
+	else if (pos2.empty())
 		cout << pos1 << endl;
-
+	else if (pos1 != pos2)
+		cout << "NOT UNIQUE" << endl;
+	else 
+		cout << pos1 << endl;
 	return 0;
 }

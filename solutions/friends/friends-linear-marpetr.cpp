@@ -26,13 +26,15 @@ string try_candidate(const string &s, int orig_start, int orig_len, int modified
 
 int main() {
 	string final;
+	int N;
+	cin >> N;
 	cin >> final;
 	int orig_len = (final.length() - 1) / 2;
 	const string&
 		pos1 = try_candidate(final, orig_len + 1, orig_len, 0),
 		pos2 = try_candidate(final, 0, orig_len, orig_len);
 	if ( (pos1.empty() && pos2.empty()) || (final.size() % 2 == 0))
-		cout << "IMPOSSIBLE" << endl;
+		cout << "NOT POSSIBLE" << endl;
 	else if (pos1.empty())
 		cout << pos2 << endl;
 	else if (pos2.empty())

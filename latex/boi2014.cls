@@ -32,6 +32,7 @@
 \newcommand{\DayNum}{}    % renew in task description
 \newcommand{\TaskCode}{}  % renew in task description
 \newcommand{\TaskName}{}  % renew in task description
+\newcommand{\TaskVersion}{1.0}  % renew in task description
 
 %%
 %% Strings
@@ -86,7 +87,7 @@
             \vskip 2.5mm \hrule\vskip 2.5mm%
             {\sffamily\makebox[0pt][l]{%
                 \LocationDate}%
-            \hfill\ttfamily\bfseries\makebox[0pt][r]{\TaskCode\enskip$\bullet$\enskip\Language}}
+            \hfill\ttfamily\bfseries\makebox[0pt][r]{\TaskCode\enskip$\bullet$\enskip\Language\enskip$\bullet$\enskip{}v\TaskVersion}}
         \end{minipage}%
     \end{tabular}%
 }

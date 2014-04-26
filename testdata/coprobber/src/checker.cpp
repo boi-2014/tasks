@@ -12,12 +12,12 @@ int main(int argc, char *argv[]) {
 	fscanf(fout, "%8s", result);
 	fclose(fout);
 	
-	if (!strcmp(result, "OK"))
+	if (!strcmp(result, "OK")) {
 		printf("1\n");
-	else if (!strcmp(result, "PARTFAIL"))
+	} else if (!strcmp(result, "PARTFAIL")) {
 		printf("0.3\n");
-	else
+	} else {
 		printf("0\n");
-	
+	}
 	return 0;
 }
