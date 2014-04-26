@@ -3,7 +3,7 @@
 \renewcommand{\DayNum}{1}
 \renewcommand{\TaskCode}{friends}
 \renewcommand{\TaskName}{Trīs draugi}
-\renewcommand{\TaskVersion}{1.1}
+\renewcommand{\TaskVersion}{1.3}
 
 \begin{document}
     \begin{wrapfigure}{r}{4cm}
@@ -24,19 +24,19 @@
     %string.
 
     \Input
-    Ievaddatu pirmā rinda satur beigās iegūtās burtu virknes garumu $N$. Beigās iegūtā burtu virkne dota ievaddatu otrajā rindā. Virkne sastāv no $N$ lielajiem burtiem A, B, C, \ldots{}, Z.
+    Ievaddatu pirmajā rindā ir dots $N$, beigās iegūtās burtu virknes garums. Beigās iegūtā burtu virkne $U$ dota ievaddatu otrajā rindā. Virkne sastāv no $N$ lielajiem burtiem A, B, C, \ldots{}, Z.
 		%The first line of the input contains the length of the final string $N$.
     %The string itself is given on the second line. It consists of $N$
     %uppercase letters A, B, C, \ldots{} Z.
 
     \Output
-		Jūsu programmai jāizvada ori\v{g}inālā burtu virkne, taču eksistē divi izņēmumi:
+		Jūsu programmai jāizvada ori\v{g}inālā burtu virkne $S$, taču eksistē divi izņēmumi:
     %Your program should print the original string.
     %However, there are two exceptions:
     \begin{enumerate}
-        \item Ja ievaddatos norādītā virkni nevarēja iegūt izmantojot iepriekš aprakstīto paņēmienu, tad Jūsu programmai jāizvada {\tt NOT POSSIBLE}.%If it is not possible that the final string is created using above
+        \item Ja ievaddatos norādītā virkni $U$ nevarēja iegūt izmantojot iepriekš aprakstīto paņēmienu, tad Jūsu programmai jāizvada {\tt NOT POSSIBLE}.%If it is not possible that the final string is created using above
         %procedure, you should print {\tt NOT POSSIBLE}.
-        \item Ja sākotnējā virkne nav viennozīmīgi nosakāma, tad Jūsu programmai jāizvada {\tt NOT UNIQUE}. %If the original string is not unique, you should print {\tt NOT UNIQUE}.
+        \item Ja sākotnējā virkne $S$ nav viennozīmīgi nosakāma, tad Jūsu programmai jāizvada {\tt NOT UNIQUE}. %If the original string is not unique, you should print {\tt NOT UNIQUE}.
     \end{enumerate}
     
 
@@ -49,8 +49,8 @@
     \Scoring
 
     \begin{description}
-        \item[Apakšuzdevums 1 (35 punkti):] $1 \le N \le 2001$.
-        \item[Apakšuzdevums 2 (65 punkti):] $1 \le N \le 2000001$.
+        \item[Apakšuzdevums 1 (35 punkti):] $2 \le N \le 2001$.
+        \item[Apakšuzdevums 2 (65 punkti):] $2 \le N \le 2000001$.
     \end{description}
 
     \Constraints
