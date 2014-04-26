@@ -1,6 +1,6 @@
 #include <iostream>
 #include <algorithm>
-
+#include <vector>
 using namespace std;
 
 int N;
@@ -8,10 +8,10 @@ string S;
 int n;
 
 // Ranges for which S[i] == S[i + n];
-vector<pair<int, bool>> short_eq;
+vector<pair<int, bool> > short_eq;
 
 // Ranges for which S[i] == S[i + n + 1];
-vector<pair<int, bool>> long_eq;
+vector<pair<int, bool> > long_eq;
 
 // Is S[i] == S[i + n] true for all i = a..b.
 bool shortEqAll(int a, int b) {

@@ -9,7 +9,7 @@ set<string> q;
 
 int main() {
 	int NN;
-	cin NN;
+	cin >> NN;
 	cin >> s;
     n = s.size();
     if (n%2 == 0) {

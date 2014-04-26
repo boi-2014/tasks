@@ -36,7 +36,7 @@ int main() {
 		if (ANS[0] != ANS[i])
 			good = false;
 	if (ANS.size() == 0)
-		printf("IMPOSSIBLE\n");
+		printf("NOT POSSIBLE\n");
 	else if (good) 
 		printf("%s\n", ANS[0].c_str());
 	else 
