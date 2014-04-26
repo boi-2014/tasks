@@ -68,9 +68,9 @@ int main() {
 	for (int i = 1; i <= N; i++)
 		dfs(i);
 	
-	printf("%d\n", ANS.size());
+	//printf("%d\n", ANS.size());
 	for (int i = 0; i < ANS.size(); i++) {
-		printf("%d", ANS[i].size());
+		//printf("%d", ANS[i].size());
 		for (int j = 0; j < ANS[i].size(); j++)
 			printf(" %d", ANS[i][j]);
 		printf("\n");
