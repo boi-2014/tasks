@@ -146,4 +146,109 @@
 	Pastaba: \method{start} kvietime trumpumo vardan \constant{false} žymima
 	\constant{0} ir \constant{true} žymima \constant{1}.
 
+    \Scoring
+    
+    \begin{description}
+        \item[Dalinė užduotis Nr. 1 (16 taškų):] $2 \le N \le 500$.
+        Kiekvieną užkampių porą jungs lygiai viena skersgatvių seka.
+        \item[Dalinė užduotis Nr. 2 (14 taškų):] $2 \le N \le 500$.
+			Užkampių ir skersgatvių tinklas suformuos tinklelį primenančią struktūrą.
+			Tinklelis turės bent dvi eilutes ir stulpelius, o užkampiai bus
+			sunumeruoti tokia tvarka, kaip pavaizduota žemiau.
+        \begin{figure}[h!]
+           \centering
+           \begin{tikzpicture}
+            \draw (0,0) grid (3,2);
+            \foreach \x in {0,1,2,3} \foreach \y in {0,1,2}
+                \draw (\x,\y) node[circle,draw,fill=white,inner sep=0,minimum size=0.7cm] {\pgfmathparse{int(8-4*\y+\x)}\pgfmathresult};
+           \end{tikzpicture}
+        \end{figure}
+        \item[Dalinė užduotis Nr. 3 (30 taškų):] $2 \le N \le 100$.
+        \item[Dalinė užduotis Nr. 4 (40 taškų):] $2 \le N \le 500$.
+    \end{description}
+    
+    Jūsų sprendimas turėtų patenkinti du reikalavimus:
+    \begin{enumerate}
+    	\item teisingai nustatyti, ar policininkas gali pagauti plėšiką;
+		\item sėkmingai sučiupti plėšiką darydama ėjimus už policijos
+			pareigūną, jeigu įmanoma tai padaryti.
+    \end{enumerate}
+    
+	Dalinėse užduotyse Nr. 1 ir Nr. 2 sprendimas surinks taškus tik tokiu
+	atveju, jei patenkins abu reikalavimus.
+	Dalinėse užduotyse Nr. 3 ir Nr. 4, sprendimai, kurie patenkina tik pirmą
+	reikalavimą, surinks 30\% dalinės užduoties taškų.
+	Jeigu jūsų sprendimas siekia tik dalinių taškų, galite nutraukti programos
+	vykdymą atlikdami bet kokį neleistiną ėjimą (pvz. funkcijoje
+	\method{nextMove} grąžinti $-1$).
+
+	Atkreipkite dėmesį, jog nepatenkinus standartinių reikalavimų (laiko ir
+	atminties limitai, jokių vykdymo klaidų), sprendimas negaus jokių taškų.
+    
+    \Constraints
+    
+    \begin{description}
+        \item[Laiko limitas:] 1,5 s.
+        \item[Atminties limitas:] 256 MB.
+    \end{description}
+
+    \Experimentation
+	Pavyzdinis vertintuvas jūsų kompiuteryje skaitys duomenis iš standartinės
+	įvesties. Pirmoje įvesties eilutėje turi būti sveikasis skaičius $N$ --
+	užkampių kiekis. Tolesnėse $N$ eilučių turi būti kaimynystės matrica $A$.
+	Kiekvienoje iš šių eilučių turi būti po $N$ skaičių, kurių kiekvienas yra
+	0 arba 1. Matricas privalo būti simetriška, o pagrindinėje įstrižainėje
+	turi būti vien nuliai.
+
+	Kitoje eilutėje turi būti skaičius 1, jeigu policininkas gali pagauti
+	plėšiką, o priešingu atveju -- 0.
+
+	Galiausiai, jeigu policijos pareigūnas gali pagauti plėšiką, toliau turi
+	būti $N$ eilučių, apibūdinančių plėšiko strategiją. Kiekvienoje iš šių
+	eilučių turi būti po $N + 1$ sveikąjį skaičių tarp 0 ir $N - 1$. Reikšmė
+	$e$-osios iš šių eilučių $s$-ajame stulpelyje, kur $s < N$, atitinka
+	situaciją, kai yra plėšiko ėjimas, policijos pareigūnas yra užkampyje
+	Nr. $e$, plėšikas yra užkampyje Nr. $s$, ir žymi užkampio numerį, į kurį
+	šioje situacijoje plėšikas turi nukeliauti. Pagrindinės įstrižainės
+	reikšmės bus ignoruojamos, kadangi jie atitinka situacijas, kuriose
+	plėšikas ir policijos pareigūnas yra tame pačiame užkampyje. Paskutinė
+	reikšmė eilutėje $e$ apibrėžia plėšiko pradinį užkampį, jei policijos
+	pareigūnas pradeda užkampyje Nr. $e$.
+
+	Čia pateiktas įvesties pavyzdiniam vertintuvui pavyzdys, kuris atitinka
+	tris tarpusavyje sujungtus užkampius:
+
+    \begin{center}
+        \begin{tabular}{p{4cm}}
+            {\tt
+                3 \newline
+                0 1 1 \newline
+                1 0 1 \newline
+                1 1 0 \newline
+                1 \newline
+                0 2 1 2 \newline
+                2 0 0 2 \newline
+                1 0 0 1 \newline
+            }
+        \end{tabular}
+    \end{center}
+
+	O čia įvestis, kuri atitinka aukščiau užduotyje pateiktą pavyzdį.
+
+    \begin{center}
+        \begin{tabular}{p{4cm}}
+            {\tt
+                4 \newline
+                0 1 1 1 \newline
+                1 0 0 0 \newline
+                1 0 0 0 \newline
+                1 0 0 0 \newline
+                1 \newline
+                0 0 0 0 1 \newline
+                2 0 0 0 2 \newline
+                3 0 0 0 3 \newline
+                1 0 0 0 1 \newline
+            }
+        \end{tabular}
+    \end{center}
 \end{document}
