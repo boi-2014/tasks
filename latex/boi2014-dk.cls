@@ -27,3 +27,4 @@
 \renewcommand{\TitleScoring}{Pointgivning}
 \renewcommand{\TitleExplanation}{Kommentarer}
 \renewcommand{\TitleConstraints}{Begrænsninger}
+\renewcommand{\TitleExperimentation}{Eksperimentering}
