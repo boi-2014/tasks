@@ -45,76 +45,59 @@ def ring_of_rings(N_rings):
 def getU (v, p):
 	return p[p[1]!=v]
 
-def find_cycle (N, adj, k):
+def find_cycle (N, k):
 	visited = [0 for i in range (N + 1)]
 	v = random.randint (1, N);
-	while (len(k[v]) == 0):
-		v = random.randint(1, N);
 	cycle = [v]
-	edges = []
 	p = -1
+	FULL = set ( range(1, N + 1) )
+	
 	while (True):
-		#print "V = %d" % v, cycle
 		visited[v] = True
-		neigh = list(k[v])
+		neigh = list ( FULL - k[v] - set([v]) )
 		random.shuffle(neigh)
 		if (len(neigh)==0):
 			return False
-		for j in neigh:
-			u = getU(v, adj[j])
-			if (p != u):
-				edges.append(j)
-				#print "rm %d->%d (%d)" % (v, u, j), adj[j]
-				k[u].remove(j)
-				k[v].remove(j)
-				if not visited[u]:
-					cycle.append(u)
-					v = u
-					p = v
-					break
-				else:
-					ans = []
-					ans = cycle[cycle.index(u):]
-					#print ans
-					for x in range(len(cycle)-len(ans)):
-						k[cycle[x]].add(edges[x])
-						k[cycle[x+1]].add(edges[x])
-						#print cycle[x], cycle[x+1], edges[x]
-					return (ans, k)
+
+		for u in neigh:
+			k[u].add(v)
+			k[v].add(u)
+
+			if not visited[u]:
+				cycle.append(u)
+				v = u
+				break
+			else:
+				ans = cycle[cycle.index(u):]
+				for x in range(cycle.index(u)):
+					k[cycle[x]].remove(cycle[x+1])
+					k[cycle[x+1]].remove(cycle[x])
+				return (ans, k)
 	return False
 
 def rand_small_graph (N, M):
-	dict = {}
-
 	
+	k = [set() for x in xrange (N+1)]
 	adj = []
-	k = [set() for x in range (N+1)]
-	
-	index = 0
-	for i in range (1, N +1):
-		for j in range (i+1, N+1):
-			adj.append((i, j));
-			k[i].add(index)
-			k[j].add(index)
-			index += 1	
-	print "VIso briaunu: %d" % len(adj)	
-	adj_ret = []
+	for i in xrange (1, N):
+		k[i].add(i+1)
+		k[i+1].add(i)
+		adj.append((i, i+1))
+	k[1].add(N)
+	k[N].add(1)
+	adj.append((1, N))
 
-	b = find_cycle(N, adj, k)
-	while (b != False and len(adj_ret) < M):
+	b = find_cycle(N, k)
+	while (b != False):
 		k = b[1]
-		#print "lenret = %d, lenAll = %d, M = %d" % (len(b[0]), len(adj_ret), M)
-		if (len(b[0]) + len(adj_ret) > M):
-			print "Rand graph small N = %d, M = %d" % (N, len(adj_ret))
-			return (N, len(adj_ret), adj_ret)
-		
+		if (len(b[0]) + len(adj) > M):
+			break
 		for i in range(len(b[0])):
-			adj_ret.append((b[0][i], b[0][(i+1)%len(b[0])]))
-		
-		b = find_cycle(N, adj, k)
+			adj.append((b[0][i], b[0][(i+1)%len(b[0])]))
+		b = find_cycle(N, k)
 	
-	print "Rand graph small N = %d, M = %d" % (N, len(adj_ret))
-	return (N, len(adj_ret), adj_ret)	
+	print "Rand graph small N = %d, M = %d" % (N, len(adj))
+	return (N, len(adj), adj)	
 
 def dense_small_graph (N, M):
 	K = M / N
@@ -128,6 +111,34 @@ def dense_small_graph (N, M):
 	print "Dense small graph N = %d" % N
 	return (N, len(adj), adj)
 
+def tree_graph (M):
+	M = M - M%3
+	N = M/3+1
+	ret = []
+	V = 1
+	for i in range (2, N + 1):
+		ret.append((random.randint(1, V), i))
+		V += 1
+	for xxx in range(N-1):
+		e = ret[xxx] 
+		V += 1
+		ret.append((e[0], V))
+		ret.append((e[1], V))
+	return (2*N-1, len(ret), ret)
+
+def click_graph (M):
+	M = M - M%4
+	N1 = M/4
+	ret = []
+	for i in range (1,N1):
+		ret.append( (i, i + 1) )
+	ret.append( (1, N1) )
+	for i in range (1, N1 + 1):
+		ret.append( (i,i+N1) )
+		ret.append( (i,i+2*N1) )
+		ret.append( (i+N1, i+2*N1) )
+	return (3*N1, len(ret), ret)
+
 
 def print_test (T, filename):
 	file = open(filename, "w")
@@ -138,21 +149,25 @@ def print_test (T, filename):
 
 
 def print_tests(T):
-	template = "senior.%d-%02d%s.in"
-	T[1] = T[0] + T[1]
-	T[2] = T[0] + T[2]
+	template = "postmen.%02d%s-%s.in"
+	ss = "123"
+	K = 1
 	for subtask, t in enumerate(T):
-		print "Printing %d subtask:" % (subtask+1)
 		for tnr, test in enumerate(t):
-			#print "Printing test %d" % tnr
-			filename = template % (subtask+1, tnr+1, ("","p")[subtask==0 and tnr==0])
+			filename = template % (K, ("","p")[K==1], ss)
 			file = open(filename, "w")
 			file.write(str(test[0]) + " " + str(test[1]) + "\n")
 			random.shuffle(test[2])
 			for edge in test[2]:
 				file.write(str(edge[0]) + " " + str(edge[1]) + "\n")
 			file.close()
+			K += 1
+		ss = ss[1:]
 
+print rand_small_graph(10, 20)
+print tree_graph(6)
+print click_graph(12)
+exit()
 
 T = [[],[],[]]
 
