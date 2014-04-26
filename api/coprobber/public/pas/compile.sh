@@ -1,3 +1,3 @@
 #!/bin/sh
 
-fpc -XS -O2 grader.pas -ocoprobber
+fpc -XS -O2 -Wall grader.pas -o coprobber
