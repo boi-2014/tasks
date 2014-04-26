@@ -6,6 +6,7 @@
 \ProvidesClass{boi2014-pl}
 \LoadClass{boi2014}
 
+%\usepackage[utf8]{inputenc}
 \usepackage{polski}
 \usepackage[polish]{babel}
 
@@ -30,3 +31,4 @@
 \renewcommand{\TitleScoring}{Ocenianie}
 \renewcommand{\TitleExplanation}{Komentarz}
 \renewcommand{\TitleConstraints}{Ograniczenia}
+\renewcommand{\TitleExperimentation}{Przykładowa biblioteka oceniająca}
