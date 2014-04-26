@@ -8,7 +8,9 @@ string S;
 int n;
 
 int main() {
-	cin >> S;
+	int NN;
+	cin >> NN;
+cin >> S;
 	N = S.size();
 	
 	if(N % 2 == 0) {

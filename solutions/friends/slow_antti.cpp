@@ -8,7 +8,9 @@ int n;
 set<string> q;
 
 int main() {
-    cin >> s;
+	int NN;
+	cin NN;
+	cin >> s;
     n = s.size();
     if (n%2 == 0) {
         cout << "NOT POSSIBLE\n";

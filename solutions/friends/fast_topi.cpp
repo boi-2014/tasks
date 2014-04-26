@@ -32,6 +32,8 @@ bool longEqAll(int a, int b) {
 }
 
 int main() {
+	int NN;
+	cin >> NN;
 	cin >> S;
 	N = S.size();
 	
