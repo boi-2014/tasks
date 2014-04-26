@@ -10,20 +10,20 @@
 %% Strings
 %%
 
-\newcommand{\Language}{EN}
+\renewcommand{\Language}{DK}
 
-\newcommand{\Olympiad}{Baltic Olympiad in Informatics}
-\newcommand{\OlympiadDay}{Day \DayNum}
-\newcommand{\LocationDate}{April 26--30, Palanga}
+\renewcommand{\Olympiad}{Baltic Olympiad in Informatics}
+\renewcommand{\OlympiadDay}{Dag \DayNum}
+\renewcommand{\LocationDate}{26.--30.~april, Palanga}
 
-\newcommand{\PageOf}[2]{Page #1 of #2}
+\renewcommand{\PageOf}[2]{Side #1 af #2}
 
-\newcommand{\TitleTask}{Task}
-\newcommand{\TitleImplementation}{Implementation}
-\newcommand{\TitleOutput}{Output}
-\newcommand{\TitleInput}{Input}
-\newcommand{\TitleExample}{Example}
-\newcommand{\TitleExamples}{Examples}
-\newcommand{\TitleScoring}{Scoring}
-\newcommand{\TitleExplanation}{Comments}
-\newcommand{\TitleConstraints}{Constraints}
+\renewcommand{\TitleTask}{Opgave}
+\renewcommand{\TitleImplementation}{Implementering}
+\renewcommand{\TitleOutput}{Output}
+\renewcommand{\TitleInput}{Input}
+\renewcommand{\TitleExample}{Eksempel}
+\renewcommand{\TitleExamples}{Eksempler}
+\renewcommand{\TitleScoring}{Pointgivning}
+\renewcommand{\TitleExplanation}{Kommentarer}
+\renewcommand{\TitleConstraints}{Begrænsninger}

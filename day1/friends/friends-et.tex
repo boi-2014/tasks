@@ -1,0 +1,59 @@
+\documentclass{boi2014-et}
+
+\renewcommand{\DayNum}{1}
+\renewcommand{\TaskCode}{friends}
+\renewcommand{\TaskName}{Kolm sõpra}
+\renewcommand{\TaskVersion}{1.1}
+
+\begin{document}
+
+    \begin{wrapfigure}{r}{4cm}
+        \vspace{-24pt}
+        \includegraphics[width=4cm]{\TaskCode.jpeg}
+    \end{wrapfigure}
+
+    Kolm sõpra mängivad järgmist mängu.
+    Esimene sõber valib sõne $S$.
+    Seejärel moodustab teine sõber uue sõne $T$, mis koosneb sõne $S$ kahekordsest kordusest.
+    Lõpuks lisab kolmas sõber ühe tähe sõne $T$ algusse, lõppu või kuhugi keskele, saades nii sõne $U$.
+
+    \Task
+
+    Taastada nii saadud sõne $U$ põhjal esialgne sõne $S$.
+
+    \Input
+
+    Sisendi esimesel real on lõpptulemusena saadud sõne pikkus $N$ ja teisel real sõne ise.
+    Sõne koosneb $N$ inglise tähestiku suurtähest (A, B, C, \ldots, Z).
+
+    \Output
+
+    Väljastada esialgne sõne.
+    Siiski on kaks erijuhtu:
+    \begin{enumerate}
+        \item Kui pole võimalik, et sisendis antud sõne on saadud eelkirjeldatud
+            protseduuriga, väljastada tekst {\tt NOT POSSIBLE}.
+        \item Kui esialgne sõne pole üheselt määratud, väljastada tekst {\tt NOT UNIQUE}.
+    \end{enumerate}
+
+    \Examples
+
+    \simpleexample{7\newline ABXCABC}{ABC}{}
+    \simpleexample{6\newline ABCDEF}{NOT POSSIBLE}{}
+    \simpleexample{9\newline ABABABABA}{NOT UNIQUE}{}
+
+    \Scoring
+
+    \begin{description}
+        \item[Alamülesanne 1 (35 punkti):] $1 \le N \le 2\,001$.
+        \item[Alamülesanne 2 (65 punkti):] $1 \le N \le 2\,000\,001$.
+    \end{description}
+
+    \Constraints
+
+    \begin{description}
+        \item[Ajalimiit:] 0,5 s.
+        \item[Mälulimiit:] 256 MB.
+    \end{description}
+
+\end{document}

@@ -7,7 +7,8 @@
 
 \renewcommand{\DayNum}{1}
 \renewcommand{\TaskCode}{coprobber}
-\renewcommand{\TaskName}{The Cop and the Robber}
+\renewcommand{\TaskName}{Cop and Robber}
+\renewcommand{\TaskVersion}{1.2}
 
 \renewcommand{\labelitemii}{$\circ$}
 \newcommand{\constant}[1]{{\tt #1}}
@@ -150,7 +151,7 @@
         \hline
     \end{tabular}
 
-    Note: in the call to \method{start} above \constant{0} zero denotes
+    Note: in the call to \method{start} above \constant{0} denotes
     \constant{false} and \constant{1} denotes \constant{true} for brevity.
 
     \Scoring
@@ -166,8 +167,8 @@
     first requirement will score 30\% subtask points. 
 
     \begin{description}
-        \item[Subtask 1 (15 points):] $2 \le N \le 500$. There will be exactly one path between every pair of corners.
-        \item[Subtask 2 (15 points):] $2 \le N \le 500$. The network of corners
+        \item[Subtask 1 (16 points):] $2 \le N \le 500$. There will be exactly one path between every pair of corners.
+        \item[Subtask 2 (14 points):] $2 \le N \le 500$. The network of corners
         and alleys will form a grid-shaped structure. The grid will have at
         least two rows and columns and the street corner labelling will follow
         the pattern illustrated below.
@@ -186,7 +187,7 @@
     \Constraints
     
     \begin{description}
-        \item[Time limit:] 1 s.
+        \item[Time limit:] 1.5 s.
         \item[Memory limit:] 256 MB.
     \end{description}
 
@@ -208,10 +209,9 @@
     police officer is at corner $r$ and the robber is at corner $c$, and
     represents the corner, which the robber has to move to.  The main diagonal
     values will be ignored, as they correspond to situations where the robber
-    and the police officer are at the same corner.  The right--most column
-    defines robber's starting corners for each possible police officer's
-    starting corner.
-
+    and the police officer are at the same corner.  The last value at row $r$
+    defines robber's starting corner if the police officer's starting corner is $r$.
+    
     Here is an example input to the sample grader which represents three corners
     that are connected together:
 

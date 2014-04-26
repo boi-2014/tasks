@@ -1,0 +1,64 @@
+\documentclass{boi2014-lv}
+
+\renewcommand{\DayNum}{1}
+\renewcommand{\TaskCode}{friends}
+\renewcommand{\TaskName}{Trīs draugi}
+\renewcommand{\TaskVersion}{1.1}
+
+\begin{document}
+    \begin{wrapfigure}{r}{4cm}
+        \vspace{-24pt}
+		\includegraphics[width=4cm]{\TaskCode.jpeg}
+	\end{wrapfigure}
+		Trīs draugiem patīk spēlēt šādu spēli.
+		Pirmais draugs izvēlas burtu virkni $S$. Pēc tam otrais draugs izveido jaunu burtu virkni $T$, kas sastāv no divām ori\v{g}inālās virknes $S$ kopijām. Beigās trešais draugs izveidotajā virknē iesprauž vienu burtu virknes $T$ sākumā, beigās vai pa vidu, tādā veidā izveidojot virkni $U$.
+    %Three friends like to play the following game.
+    %The first friend chooses a string.
+    %Then the second friend constructs a new string that consists of
+    %two copies of the original string. 
+    %Finally, the third friend inserts one letter somewhere in the string.
+
+    \Task
+    Jums tiek iedota burtu virkne $U$ un jūsu uzdevums ir rekonstruēt sākotnējo virkni $S$.
+		%You are given the final string and your task is to reconstruct the original
+    %string.
+
+    \Input
+    Ievaddatu pirmā rinda satur beigās iegūtās burtu virknes garumu $N$. Beigās iegūtā burtu virkne dota ievaddatu otrajā rindā. Virkne sastāv no $N$ lielajiem burtiem A, B, C, \ldots{}, Z.
+		%The first line of the input contains the length of the final string $N$.
+    %The string itself is given on the second line. It consists of $N$
+    %uppercase letters A, B, C, \ldots{} Z.
+
+    \Output
+		Jūsu programmai jāizvada ori\v{g}inālā burtu virkne, taču eksistē divi izņēmumi:
+    %Your program should print the original string.
+    %However, there are two exceptions:
+    \begin{enumerate}
+        \item Ja ievaddatos norādītā virkni nevarēja iegūt izmantojot iepriekš aprakstīto paņēmienu, tad Jūsu programmai jāizvada {\tt NOT POSSIBLE}.%If it is not possible that the final string is created using above
+        %procedure, you should print {\tt NOT POSSIBLE}.
+        \item Ja sākotnējā virkne nav viennozīmīgi nosakāma, tad Jūsu programmai jāizvada {\tt NOT UNIQUE}. %If the original string is not unique, you should print {\tt NOT UNIQUE}.
+    \end{enumerate}
+    
+
+    \Examples
+
+    \simpleexample{7\newline ABXCABC}{ABC}{}
+    \simpleexample{6\newline ABCDEF}{NOT POSSIBLE}{}
+    \simpleexample{9\newline ABABABABA}{NOT UNIQUE}{}
+
+    \Scoring
+
+    \begin{description}
+        \item[Apakšuzdevums 1 (35 punkti):] $1 \le N \le 2001$.
+        \item[Apakšuzdevums 2 (65 punkti):] $1 \le N \le 2000001$.
+    \end{description}
+
+    \Constraints
+
+    \begin{description}
+        \item[Laika ierobežojums:] 0.5 s.
+        \item[Atmiņas ierobežojums:] 256 MB.
+    \end{description}
+
+\end{document}
+
