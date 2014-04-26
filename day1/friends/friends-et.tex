@@ -3,7 +3,7 @@
 \renewcommand{\DayNum}{1}
 \renewcommand{\TaskCode}{friends}
 \renewcommand{\TaskName}{Kolm sõpra}
-\renewcommand{\TaskVersion}{1.1}
+\renewcommand{\TaskVersion}{1.3}
 
 \begin{document}
 
@@ -23,17 +23,17 @@
 
     \Input
 
-    Sisendi esimesel real on lõpptulemusena saadud sõne pikkus $N$ ja teisel real sõne ise.
-    Sõne koosneb $N$ inglise tähestiku suurtähest (A, B, C, \ldots, Z).
+    Sisendi esimesel real on lõpptulemusena saadud sõne $U$ pikkus $N$ ja teisel real sõne $U$ ise.
+    Sõne $U$ koosneb $N$ inglise tähestiku suurtähest (A, B, C, \ldots, Z).
 
     \Output
 
-    Väljastada esialgne sõne.
+    Väljastada esialgne sõne $S$.
     Siiski on kaks erijuhtu:
     \begin{enumerate}
-        \item Kui pole võimalik, et sisendis antud sõne on saadud eelkirjeldatud
+        \item Kui pole võimalik, et sisendis antud sõne $U$ on saadud eelkirjeldatud
             protseduuriga, väljastada tekst {\tt NOT POSSIBLE}.
-        \item Kui esialgne sõne pole üheselt määratud, väljastada tekst {\tt NOT UNIQUE}.
+        \item Kui esialgne sõne $S$ pole üheselt määratud, väljastada tekst {\tt NOT UNIQUE}.
     \end{enumerate}
 
     \Examples
@@ -45,8 +45,8 @@
     \Scoring
 
     \begin{description}
-        \item[Alamülesanne 1 (35 punkti):] $1 \le N \le 2\,001$.
-        \item[Alamülesanne 2 (65 punkti):] $1 \le N \le 2\,000\,001$.
+        \item[Alamülesanne 1 (35 punkti):] $2 \le N \le 2\,001$.
+        \item[Alamülesanne 2 (65 punkti):] $2 \le N \le 2\,000\,001$.
     \end{description}
 
     \Constraints
