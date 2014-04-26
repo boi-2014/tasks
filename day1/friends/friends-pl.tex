@@ -12,12 +12,12 @@
 		\includegraphics[width=3cm]{\TaskCode.jpeg}
 	\end{wrapfigure}
     Troje przyjaciół gra w następującą grę.
-    Pierwszy z nich układa pewien napis.
-    Następnie drugi tworzy napis złożony z dwóch identycznych kopii napisu ułożonego przez pierwszego.
-    Na koniec, trzeci z przyjaciół dokłada jedną literę do napisu ułożonego przez poprzednika.
+    Pierwszy z nich układa pewien napis $S$.
+    Następnie drugi tworzy napis $T$ złożony z dwóch identycznych kopii napisu $S$.
+    Na koniec, trzeci z przyjaciół dokłada jedną literę na początku, na końcu, bądź w środku napisu $T$, tworząc napis $U$.
 
     \Task
-    Masz dany napis końcowy. Zrekonstruuj napis ułożony przez pierwszego z przyjaciół.
+    Masz dany napis końcowy $U$. Zrekonstruuj napis $S$ ułożony przez pierwszego z przyjaciół.
 
     \Input
     W pierwszym wierszu wejścia znajduje się długość końcowego napisu $N$.
@@ -37,22 +37,22 @@
 
     \Examples
 
-    \simpleexample{ABXCABC}{ABC}{}
-    \simpleexample{ABCDEF}{NOT POSSIBLE}{}
-    \simpleexample{ABABABABA}{NOT UNIQUE}{}
+    \simpleexample{7\newline ABXCABC}{ABC}{}
+    \simpleexample{6\newline ABCDEF}{NOT POSSIBLE}{}
+    \simpleexample{9\newline ABABABABA}{NOT UNIQUE}{}
 
     \Scoring
 
     \begin{description}
-        \item[Podzadanie 1 (30 punktów):] Napis końcowy składa się z co najwyżej $2\,001$ znaków.
-        \item[Podzadanie 2 (70 punktów):] Napis końcowy składa się z co najwyżej $2\,000\,001$ znaków.
+        \item[Podzadanie 1 (35 punktów):] Napis końcowy składa się z co najwyżej $2\,001$ znaków.
+        \item[Podzadanie 2 (65 punktów):] Napis końcowy składa się z co najwyżej $2\,000\,001$ znaków.
     \end{description}
 
     \Constraints
 
     \begin{description}
-        \item[Limit czasu:] 1 s.
-        \item[Dostępna pamięć:] 64 MB.
+        \item[Limit czasu:] 0,5 s.
+        \item[Dostępna pamięć:] 256 MB.
     \end{description}
 
 \end{document}
