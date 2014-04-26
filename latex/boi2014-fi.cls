@@ -10,20 +10,20 @@
 %% Strings
 %%
 
-\renewcommand{\Language}{EN}
+\renewcommand{\Language}{FI}
 
 \renewcommand{\Olympiad}{Baltic Olympiad in Informatics}
-\renewcommand{\OlympiadDay}{Day \DayNum}
-\renewcommand{\LocationDate}{April 26--30, Palanga}
+\renewcommand{\OlympiadDay}{Päivä \DayNum}
+\renewcommand{\LocationDate}{26.-30.4.2014, Palanga}
 
-\renewcommand{\PageOf}[2]{Page #1 of #2}
+\renewcommand{\PageOf}[2]{Sivu #1/#2}
 
-\renewcommand{\TitleTask}{Task}
-\renewcommand{\TitleImplementation}{Implementation}
-\renewcommand{\TitleOutput}{Output}
-\renewcommand{\TitleInput}{Input}
-\renewcommand{\TitleExample}{Example}
-\renewcommand{\TitleExamples}{Examples}
-\renewcommand{\TitleScoring}{Scoring}
-\renewcommand{\TitleExplanation}{Comments}
-\renewcommand{\TitleConstraints}{Constraints}
+\renewcommand{\TitleTask}{Tehtävä}
+\renewcommand{\TitleImplementation}{Toteutus}
+\renewcommand{\TitleOutput}{Tuloste}
+\renewcommand{\TitleInput}{Syöte}
+\renewcommand{\TitleExample}{Esimerkki}
+\renewcommand{\TitleExamples}{Esimerkit}
+\renewcommand{\TitleScoring}{Pisteytys}
+\renewcommand{\TitleExplanation}{Kommentit}
+\renewcommand{\TitleConstraints}{Rajat}
