@@ -27,10 +27,11 @@
     Bitonas norėtų padalinti salą į dvi kongruenčias figūras viena atkarpa, kuri
     būtų lygiagreti žemėlapio kraštinei. (Dvi figūros yra kongruenčios jeigu
     viena iš jų gali būti transformuota į kitą kokia nors atspindžio, posūkio
-    arba poslinkio operacijų kombinacija.) Visų daugiakampio kraštinių ir
+    arba poslinkio operacijų kombinacija.) Visų daugiakampio viršūnių ir
     ieškomos dalinančios atkarpos galų koordinatės yra sveikieji skaičiai.
  
-    Karaliaus sūnūs prašo jūsų patikrinti ar toks salos padalinimas yra įmanomas.
+    Karaliaus sūnūs prašo jūsų patikrinti, ar toks salos padalinimas yra
+    įmanomas.
 
     \Task
     Duotai salos formai nustatykite, ar ji gali būti padalinta horizontalia arba
@@ -38,21 +39,21 @@
     egzistuoja, raskite salą dalinančią atkarpą.
 
     \Input
-	The first line of the input contains a single integer $N$, the number of
-	vertices. The $i$th of the next $N$ lines contains a pair of integer $X_i$
-	and $Y_i$, separated by space, which are the coordinates of the $i$th
-	vertex.
+    Pirmoje eilutėje įrašytas vienas sveikasis skaičius $N$ -- daugiakampio
+    viršūnių skaičius. Toliau kiekvienoje iš $N$ eilučių įrašyta tarpais atskirta sveikųjų skaičių pora $X_i$ ir $Y_i$ -- $i$-osios viršūnės koordinatės.
     %\todo{In what order are vertices given?}
+    %\todo{Pavyzdyje neteisingai suformatuota.}
 
 	\Output
-	Your program should output a single line. If it is possible to divide the
-	island into congruent parts with a horizontal or vertical segment, which
-	endpoints are $(x_1, y_1)$ and $(x_2, y_2)$, print 4 integers $x_1$,
-	$y_1$, $x_2$ and $y_2$, separated by spaces.
-	Either $x_1 = y_1$ or $y_1 = y_2$ must hold.
+    Jūsų programa turėtų išvesti vieną eilutę. Jeigu įmanoma padalinti salą į dvi
+    kongruenčias figūras horizontalia arba vertikalia atkarpa, kurios galų
+    koordinatės yra $(x_1, y_1)$ ir $(x_2, y_2)$, išspausdinkite $4$ tarpais
+    atskirtus sveikuosius skaičius $x_1$, $y_1$, $x_2$ ir $y_2$. Jiems turėtų
+    galioti bent viena iš lygybių $x_1 = y_1$ arba $y_1 = y_2$.
 
-	If a suitable division cannot be found, output a single word
-	``\constant{Impossible}'' (without quotes).
+	Jeigu neįmanoma rasti tinkamo salos padalinimo, išveskite vieną žodį
+	IMPOSSIBLE.
+	%\todo{Pagerinti išvedamą žodį. Ir pavyzdyje!}
 
     \Examples
 	\example
@@ -73,7 +74,7 @@
 		1 2 3 2
 	}
 	{
-		This is not the only correct choices of parameters.
+		Tai vienintelis galimas sprendinys.
 	}
 
 	\example
@@ -87,22 +88,22 @@
 		0 2
 	}
 	{
-		Impossible
+		IMPOSSIBLE
 	}
 
     \Scoring
 
     \begin{description}
-        \item[Subtask 1 (? points).] $4 \le N \le 200$
-        \item[Subtask 2 (? points).] $4 \le N \le 4000$
-        \item[Subtask 3 (? points).] $4 \le N \le 100\ 000$
+        \item[Dalinė užduotis nr. 1 (? taškų).] $4 \le N \le 200$
+        \item[Dalinė užduotis nr. 2 (? taškų).] $4 \le N \le 4\ 000$
+        \item[Dalinė užduotis nr. 3 (? taškų).] $4 \le N \le 100\ 000$
     \end{description}
 
     \Constraints
 
     \begin{description}
-        \item[Time limit:] ? s.
-        \item[Memory limit:] ? MB.
+        \item[Laiko limitas:] ? s.
+        \item[Atminties limitas:] ? MB.
     \end{description}
 
 \end{document}
