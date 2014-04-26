@@ -5,7 +5,7 @@
 
 \renewcommand{\DayNum}{0}
 \renewcommand{\TaskCode}{network}
-\renewcommand{\TaskName}{Computer Network}
+\renewcommand{\TaskName}{Kompiuterių tinklas}
 
 \begin{document}
     Vidurinės mokyklos kompiuterių klasėje $N$ kompiuterių yra kabeliais
@@ -13,17 +13,17 @@
     kompiuterius. Kai kurie kompiuteriai gali būti nesujungti kabeliu
     tiesiogiai, tačiau tarp bet kurių dviejų kompiuterių galima persiųsti
     pranešimą tiesiogiai arba per tarpinius kabeliais sujungtus kompiuterius.
-    Pranešimai visada pasirenka trumpiausią kelią, t.y. pakeliui aplanko
+    Pranešimai visada pasirenka trumpiausią kelią, t.~y. pakeliui aplanko
     mažiausią galimą skaičių kompiuterių (neskaičiuojant pranešimą siunčiančio
     ir gaunančio kompiuterių).
     
-    Adam ir Billy, kurie klasėje naudojasi skirtingais kompiuteriais $a$ ir $b$,
+    Adomas ir Bilas, kurie klasėje naudojasi skirtingais kompiuteriais $a$ ir $b$,
     norėtų rasti trumpiausią kelią tarp savo kompiuterių. Jie nežino, kaip
     išvedžioti kabeliai, bet gali siųsti pranešimus tarp kiekvienos
     kompiuterių poros ir suskaičiuoti, kiek tarpinių kompiuterių siunčiami
     pranešimai aplanko.
     
-    Adam ir Billy nelabai gaudosi kompiuteriuose, tad prašo jūsų pagalbos, kad
+    Adomas ir Bilas nelabai gaudosi kompiuteriuose, tad prašo jūsų pagalbos, kad
     netektų siųsti per daug pranešimų.
 
     \Task
@@ -34,22 +34,22 @@
     Jums reikia realizuoti vieną procedūrą \method{findRoute(N, a, b)}, kurios argumentai yra:
 
     \begin{itemize}
-        \item $N$ --- klasėje esančių kompiuterių skaičius
+        \item $N$ -- klasėje esančių kompiuterių skaičius
             (jie sunumeruoti nuo $1$ iki $N$)
-        \item $a, b$ --- Adam ir Billy kompiuterių numeriai
+        \item $a, b$ -- Adomo ir Bilo kompiuterių numeriai
             ($a \neq b$ ir $1 \le a, b \le N$)
     \end{itemize}
 
     Jūsų procedūra \method{findRoute} gali kviesti funkciją \method{ping(i, j)},
     kurios argumentai yra dviejų skirtingų kompiuterių numeriai
-    ($i \neq j$ ir $1 \le i, j \le N$), o grąžinama reikšmė --- tarpinių
+    ($i \neq j$ ir $1 \le i, j \le N$), o grąžinama reikšmė -- tarpinių
     kompiuterių skaičius pranešimui keliaujant iš kompiuterio $i$ į
     kompiuterį $j$.
 
     Jūsų procedūra \method{findRoute} turi įvardinti trumpiausią kelią, kuriuo
     keliaus pranešimas, išsiųstas iš kompiuterio $a$ į kompiuterį $b$. Tai
     turi būti atliekama pakartotinai kviečiant procedūrą \method{travelTo(k)} su
-    vieninteliu argumentu --- kompiuterio, į kurį turi keliauti
+    vieninteliu argumentu -- kompiuterio, į kurį turi keliauti
     pranešimas kitu ėjimu ($1 \le k \le N$), numeriu. Pranešimas kelionę pradeda
     kompiuteryje $a$ ir, kai tik iškviečiama procedūra \method{travelTo(k)}, jis
     persikelia į kompiuterį $k$.
@@ -72,11 +72,11 @@
 
     \Example
     Tarkime, kad duotas kompiuterių tinklas atrodo taip, kaip pavaizduotas
-    diagromoje žemiau (taškai žymi kompiuterius, o atkarpos --- kabelius). Iš
-    viso tinkle yra $N = 4$ kompiuteriai, o Adam ir Billy naudojasi
+    diagromoje žemiau (taškai žymi kompiuterius, o atkarpos -- kabelius). Iš
+    viso tinkle yra $N = 4$ kompiuteriai, o Adomas ir Bilas naudojasi
     kompiuteriais $a = 1$ ir $b = 4$.
 
-    \begin{wrapfigure}[1]{r}{5cm}
+    \begin{wrapfigure}[1]{r}{4.5cm}
         \includegraphics{network-example}
     \end{wrapfigure}
 
@@ -110,17 +110,17 @@
     Visose užduočių grupėse galioja apribojimas $2 \le N \le 1000$.
 
     \begin{description}
-        \item[Subtask 1 (25 points):] tarp bet kurių dviejų kompiuterių yra
+        \item[Použduotis 1 (25 taškai):] tarp bet kurių dviejų kompiuterių yra
             lygiai vienas trumpiausias kelias; $M$ negali viršyti $2N$.
-        \item[Subtask 2 (25 points):] $M$ negali viršyti $N^2$.
-        \item[Subtask 3 (25 points):] $M$ negali viršyti $4N$.
-        \item[Subtask 4 (25 points):] $M$ negali viršyti $2N$.
+        \item[Použduotis 2 (25 taškai):] $M$ negali viršyti $N^2$.
+        \item[Použduotis 3 (25 taškai):] $M$ negali viršyti $4N$.
+        \item[Použduotis 4 (25 taškai):] $M$ negali viršyti $2N$.
     \end{description}
 
     \Constraints
     \begin{description}
-        \item[Time limit:] 1 s.
-        \item[Memory limit:] 64 MB.
+        \item[Laiko limitas:] 1 s.
+        \item[Atminties limitas:] 64 MB.
     \end{description}
 
     \Experimentation
@@ -128,8 +128,8 @@
     standartinės įvesties. Pirmoje eilutėje turėtų būti keturi sveikieji
     skaičiai $N, a, b, M$. Kitose $N$ eilučių turėtų būti po $N$ sveikųjų
     skaičių, apibūdinančių kabelių išdėstymą:
-    $j$--asis skaičius $i$--ojoje eilutėje ($i \neq j$) žymi tarpinių
-    kompiuterių, kurį aplankys pranešimas keliaudamas iš kompiuterio $i$ į
+    $j$-asis skaičius $i$-ojoje eilutėje ($i \neq j$) žymi tarpinių
+    kompiuterių, kuriuos aplankys pranešimas keliaudamas iš kompiuterio $i$ į
     kompiuterį $j$, skaičių. Jeigu $i = j$, gali būti nurodytos bet kokios
     reikšmės.
 
