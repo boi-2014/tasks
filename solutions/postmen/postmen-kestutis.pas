@@ -4,11 +4,12 @@ const Max = 500010;
 
 var i, j, N, M, u, v, newv, pp: longint;
     a, b : array [0..Max] of longint;
-    k : array [0..Max] of longint;
-    used, visited : array [0..Max] of boolean;
+    k : array [0..2*Max] of longint;
+    used : array [0..2*Max] of boolean;
+    visited : array [0..Max] of boolean;
     C, P, tmp, pr : array [0..Max] of longint;
     path : array [1..Max] of longint;
-    pb : integer;
+    pb : longint;
 
 function getU (i, v : longint) : longint;
 begin
@@ -41,7 +42,8 @@ begin
     end;
     
     pp := -1;
-        v := 1;
+    for i := 1 to N do begin
+        v := i;
         pb := 1; //clear path
         path[pb] := v; inc(pb);
         
@@ -52,6 +54,7 @@ begin
                 used[k[P[v]+pr[v]]] := true;
                 inc(pr[v]);
                 if not visited[u] then begin
+                    //Writeln(pb);
                     path[pb] := u; inc(pb);
                     visited[u] := true;
                     newv := u;
@@ -65,10 +68,15 @@ begin
                 end;
                 break;
             end else inc(pr[v]);
-            if (newv = -1) and (pb > 2) then begin
+            if (newv = -1) then
+                if (pb > 2) then begin
                 visited[path[pb-1]] := false; dec(pb);
                 newv := path[pb-1];
-            end;
+                end else if (pb > 1) then begin
+                    visited[path[pb-1]] := false;
+                    dec (pb);
+                end;
             v := newv;
         end;
+    end;
 end.

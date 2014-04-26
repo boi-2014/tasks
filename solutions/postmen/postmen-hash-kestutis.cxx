@@ -1,10 +1,16 @@
 #include <cstdio>
 #include <set>
+#include <unordered_set>
 #include <vector>
 #include <algorithm>
 using namespace std;
 const int MaxN = 1000010,
 	  	  MaxM = 2*1000010;
+const long long MUL = 10000000;
+typedef pair<int,int> pii;
+typedef long long ll;
+
+unordered_set<ll> S;
 
 int E[MaxM][3];
 int pr[MaxN] = {0};
@@ -22,7 +28,6 @@ int ANS[2*MaxM];
 
 bool visited[MaxN] = {0};
 vector<int> path;
-//vector< vector<int> > ANS;
 
 int RET = -1;
 
@@ -30,8 +35,12 @@ int getU (int i, int v) {
 	return (v == E[i][0]) ? E[i][1] : E[i][0];
 }
 
+ll mpair (int a, int b) {
+	return (ll)min(a,b) * MUL + (ll) max(a, b);
+}
 
-inline void dfs(int v) {
+void dfs(int v) {
+	visited[v] = true;
 	path.clear();
 	path.push_back(v);	
 	while (v != -1) {
@@ -41,9 +50,10 @@ inline void dfs(int v) {
 		for (; pr[v] < C[v]; pr[v]++) {
 			int i = pr[v],
 				u = getU(k[P[v]+i], v);
-				if (E[k[P[v]+i]][2] == false) {
-					E[k[P[v]+i]][2] = true;
+				if (S.find(mpair(u, v)) == S.end()) {
+					S.insert(mpair(u, v));
 					if (visited[u]) {
+						//printf("RADOM\n");
 						newv = u;
 						while (path.back() != u) {
 							ANS[ANS_T++] = path.back();
@@ -61,14 +71,12 @@ inline void dfs(int v) {
 					break;
 				}
 		}
-		if (newv == -1 and path.size() > 1) {
-			newv = path.back();
-			path.pop_back();
+		if (newv == -1 && path.size() > 1) {
+			newv = path.back(); 
+			path.pop_back();	
 		}
 		v =newv;
 	}
-	for (int i = 0; i < path.size(); i++)
-		visited[path[i]] = false;
 }
 
 
@@ -93,10 +101,10 @@ int main() {
 		tmp[E[i][0]]++;
 		tmp[E[i][1]]++;
 	}
-	for (int i = 1; i <= N; i++) {
-		dfs(i);
-		
-		}
+
+	for (int i = 1; i <= N; i++)
+		dfs(i);	
+	
 	ANS_T = 0;
 	
 	//printf("%d\n", ANS_C);
@@ -106,6 +114,6 @@ int main() {
 			printf(" %d", ANS[ANS_T++]);
 		printf("\n");
 	}
-			
+	
 	return 0;
 }
