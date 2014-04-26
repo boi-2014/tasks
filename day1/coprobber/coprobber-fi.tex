@@ -22,31 +22,31 @@
     Bytemoren kaupungissa rikosten määrä on saavuttamassa kaikkien aikojen
     huipun. Muun rötöstelyn lisäksi ryöstöjä tapahtuu joka päivä.
     Joka kerta kun ryöstö tapahtuu, on yksittäisen partioivan poliisin
-    tehtävä jahdata ryöstäjä kiinni kadunkulmia yhdistäviä kapeita kujia
+    tehtävä jahdata rosvo kiinni kadunkulmia yhdistäviä kapeita kujia
     pitkin. Ikävä kyllä, useimmiten rosvot pääsevät pakoon takaa-ajajiltaan,
     koska he tuntevat kaupungin paljon poliisia paremmin.
 
-    Bytemoren kaupungin poliisilaitos järjestää kokouksen jonka tehtävänä
+    Bytemoren kaupungin poliisilaitos järjestää kokouksen, jonka tehtävänä
     on vähentää rikollisuutta. Yksi aloitteista on käyttää tietokonetta
-    apna rosvojen jahtaamisessa. Tätä varten poliisilaitos on tehnyt tarkan
-    kartan kaupungista. Nyt he tarvitsevat tietokoeohjelmaa
+    apuna rosvojen jahtaamisessa. Tätä varten poliisilaitos on tehnyt tarkan
+    kartan kaupungista. Nyt he tarvitsevat tietokoneohjelmaa
     jahtausstrategioiden päättämiseen.
     
-    Rosvojahti jossa yksi poliisi jahtaa yhtä rosvoa on seuraavanlainen.
+    Rosvojahti jossa yksi poliisi jahtaa yhtä rosvoa mallinnetaan seuraavasti:
     \begin{enumerate}
         \item Poliisi valitsee kadunkulman jossa partioi.
         \item Rosvo valitsee kadunkulman jossa ryöstö tehdään (hän tietää
             aina missä poliisi on). Tästä lähtien oletetaan aina että sekä
             poliisi että rosvo tietävät missä kumpikin ovat.
         \item Poliisi siirtyy siirrollaan joko viereiseen kadunkulmaan
-            (sellaiseen johon kulkee nykyisestä kuja) tai odottaa (ei siirry).
+            (sellaiseen johon kulkee nykyisestä kuja) tai odottaa paikallaan (ei siirry).
         \item Rosvo siirtyy aina vuorollaan viereiseen kadunkulmaan. Huomaa,
             että toisin kuin poliisit, rosvot eivät voi odottaa paikallaan.
             Heidän vaistonsa saa heidät jatkamaan juoksua.
         \item Poliisi ja rosvo tekevät siirtoja vuorotellen (aloittaen poliisista)
             kunnes yksi seuraavista tapahtuu:
         \begin{enumerate}
-            \item tilanne toistuu (tilanne määritellään rosvon ja poliisin
+            \item sama tilanne toistuu (tilanne määritellään rosvon ja poliisin
                 sijainteina ja sillä, kenen vuoro on seuraavaksi). Tämä vastaa
                 sitä, että rosvo voi vältellä poliisia loputtomasti, joten
                 rosvo pääsee pakoon;
@@ -72,7 +72,7 @@
                 \item $A$ --- kaksiulotteinen taulukko joka määrittelee kujat:
                 Kaikille $0 \le i, j \le N-1$,
                     $$
-                        A[i, j] \text{ is }
+                        A[i, j] \text{ on }
                         \begin{dcases*}
                             \texttt{false}, & jos kadunkulmia $i$ ja $j$ ei yhdistä kuja
                                 \\
