@@ -10,30 +10,29 @@
 		\includegraphics[width=4cm]{\TaskCode.jpeg}
 	\end{wrapfigure}
     Three friends like to play the following game.
-    The first friend chooses a string.
-    Then the second friend constructs a new string that consists of
-    two copies of the original string. 
-    Finally, the third friend inserts one letter somewhere in the string.
+    The first friend chooses a string $S$.
+    Then the second friend constructs a new string $T$ that consists of
+    two copies of the string $S$. 
+    Finally, the third friend inserts one letter at the beginning, the end or somewhere
+    inside the string $T$, thereby creating a string $U$.
 
     \Task
-    You are given the final string and your task is to reconstruct the original
-    string.
+    You are given the string $U$ and your task is to reconstruct the original string $S$.
 
     \Input
     The first line of the input contains the length of the final string $N$.
     The string itself is given on the second line. It consists of $N$
-    uppercase letters A, B, C, \ldots{} Z.
+    uppercase English letters (A, B, C, \ldots{}, Z).
 
     \Output
     Your program should print the original string.
     However, there are two exceptions:
     \begin{enumerate}
-        \item If it is not possible that the final string is created using above
+        \item If it is not possible that the final string is created using the above
         procedure, you should print {\tt NOT POSSIBLE}.
         \item If the original string is not unique, you should print {\tt NOT
         UNIQUE}.
     \end{enumerate}
-    
 
     \Examples
 
@@ -51,8 +50,8 @@
     \Constraints
 
     \begin{description}
-        \item[Time limit:] 1 s.
-        \item[Memory limit:] 64 MB.
+        \item[Time limit:] 0.5 s.
+        \item[Memory limit:] 256 MB.
     \end{description}
 
 \end{document}
