@@ -55,19 +55,19 @@
     \end{enumerate}
 
     \Task
-    You have to write a program which, given the map of the city,
-    would determine whether catching the robber is possible, and if it is,
-    would catch him by making moves on behalf of the police officer.
-
-    Your program must assume that the robber moves optimally.
+    Sinun tulee kirjoittaa ohjelma, jolle annetaan kaupungin kartta, ja joka
+    päättelee onko poliisin mahdollista saada rosvo kiinni, ja jos on, osaa
+    kertoa millä poliisin siirroilla rosvo saadaan kiinni.
+    
+    Ohjelmasi on oletettava että rosvo liikkuu optimaalisesti.
 
     \Implementation
-    You need to implement two functions:
+    Sinun tulee toteuttaa kaksi funktiota:
     \begin{itemize}
-        \item \method{start(N, A)} which takes the following parameters:
+        \item \method{start(N, A)} joka ottaa seuraavat parametrit:
             \begin{itemize}
-                \item $N$ --- the number of corners (corners are labelled
-                    from $0$ to $N-1$);
+                \item $N$ --- kadunkulmien lukumäärä (kadunkulmat numeroidaan
+                    luvuilla $0 \ldots N-1$);
                 \item $A$ --- a two--dimensional array that describes the
                     alleys: for $0 \le i, j \le N-1$,
                     $$
