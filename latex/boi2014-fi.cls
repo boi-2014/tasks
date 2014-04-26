@@ -10,20 +10,20 @@
 %% Strings
 %%
 
-\newcommand{\Language}{EN}
+\renewcommand{\Language}{EN}
 
-\newcommand{\Olympiad}{Baltic Olympiad in Informatics}
-\newcommand{\OlympiadDay}{Day \DayNum}
-\newcommand{\LocationDate}{April 26--30, Palanga}
+\renewcommand{\Olympiad}{Baltic Olympiad in Informatics}
+\renewcommand{\OlympiadDay}{Day \DayNum}
+\renewcommand{\LocationDate}{April 26--30, Palanga}
 
-\newcommand{\PageOf}[2]{Page #1 of #2}
+\renewcommand{\PageOf}[2]{Page #1 of #2}
 
-\newcommand{\TitleTask}{Task}
-\newcommand{\TitleImplementation}{Implementation}
-\newcommand{\TitleOutput}{Output}
-\newcommand{\TitleInput}{Input}
-\newcommand{\TitleExample}{Example}
-\newcommand{\TitleExamples}{Examples}
-\newcommand{\TitleScoring}{Scoring}
-\newcommand{\TitleExplanation}{Comments}
-\newcommand{\TitleConstraints}{Constraints}
+\renewcommand{\TitleTask}{Task}
+\renewcommand{\TitleImplementation}{Implementation}
+\renewcommand{\TitleOutput}{Output}
+\renewcommand{\TitleInput}{Input}
+\renewcommand{\TitleExample}{Example}
+\renewcommand{\TitleExamples}{Examples}
+\renewcommand{\TitleScoring}{Scoring}
+\renewcommand{\TitleExplanation}{Comments}
+\renewcommand{\TitleConstraints}{Constraints}
