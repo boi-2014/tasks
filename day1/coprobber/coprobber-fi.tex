@@ -8,6 +8,7 @@
 \renewcommand{\DayNum}{1}
 \renewcommand{\TaskCode}{coprobber}
 \renewcommand{\TaskName}{The Cop and the Robber}
+\renewcommand{\TaskVersion}{1.2}
 
 \renewcommand{\labelitemii}{$\circ$}
 \newcommand{\constant}[1]{{\tt #1}}
@@ -141,7 +142,7 @@
     \end{tabular}
 
     Huomaa, että funktion \method{start} kutsussa ylhäällä
-    \constant{0} nolla tarkoittaa samaa kuin \constant{false} ja
+    \constant{0} tarkoittaa samaa kuin \constant{false} ja
     \constant{1} tarkoittaa samaa kuin \constant{true} lyhyyden vuoksi.
 
     \Scoring
@@ -157,9 +158,9 @@
     saavat 30\% osatehtävän pisteistä.
 
     \begin{description}
-        \item[Osatehtävä 1 (15 pistettä):] $2 \le N \le 500$.
+        \item[Osatehtävä 1 (16 pistettä):] $2 \le N \le 500$.
         Jokaisen kahden kadunkulman välillä on tasan yksi polku.        
-        \item[Osatehtävä 2 (15 pistettä):] $2 \le N \le 500$. Kadunkulmien ja
+        \item[Osatehtävä 2 (14 pistettä):] $2 \le N \le 500$. Kadunkulmien ja
         kujien verkosto muodostaa ruudukkorakenteen. Ruudukossa on vähintään
         kaksi riviä ja saraketta, ja kadunkulmien numerointi noudattaa
         alla olevaa sääntöä.
@@ -178,7 +179,7 @@
     \Constraints
     
     \begin{description}
-        \item[Aikaraja:] 1 s.
+        \item[Aikaraja:] 1.5 s.
         \item[Muistiraja:] 256 MB.
     \end{description}
 
@@ -202,8 +203,8 @@
     kadunkulmassa $c$. Arvo kuvaa kadunkulman, johon rosvon on siirryttävä.
     Päädiagonaalin arvoista ei välitetä, koska ne vastaavat tilanteita,
     joissa rosvo ja poliisi ovat samassa kadunkulmassa.
-    Oikeanpuoleisin sarake määrittää rosvon alkukadunkulmat jokaiselle
-    poliisin alkukadunkulmalle.
+    Rivin $r$ viimeinen arvo määrittelee rosvon aloituskadunkulman jos poliisin
+    aloituskadunkulma on $r$.
 
     Tässä on esimerkkisyöte tarkastajalle, joka kuvaa kolme kadunkulmaa,
     jotka on yhdistetty toisiinsa:
