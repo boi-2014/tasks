@@ -1,9 +1,9 @@
 #include <cstdio>
 #include <cstdlib>
 
-#include "grader.h"
+#include "network.h"
 
-static const char SECRET_OUT = "network_p2l.out"
+static const char* SECRET_OUT = "network_2pl.out";
 
 static const int MAX_N = 1010;
 
@@ -12,9 +12,9 @@ static int N, a, b, M,
            routeLength, current;
 static int distance[MAX_N][MAX_N];
 
-static void raiseError (char* message)
+static void raiseError (const char* message)
 {
-    FILE *f = fopen (SECRET_OUT, "w")
+    FILE *f = fopen (SECRET_OUT, "w");
     fprintf (f, "ERROR\n%s\n", message);
     fclose (f);
     exit (0);
@@ -66,8 +66,8 @@ int main()
     if (routeLength < distance[a-1][b-1] + 1)
         raiseError ("Unexpected: route is too short");
 
-    FILE *f = fopen (SECRET_OUT, "r");
-    printf ("OK\n");
+    FILE *f = fopen (SECRET_OUT, "w");
+    fprintf (f, "OK");
     fclose (f);
 
     return 0;
