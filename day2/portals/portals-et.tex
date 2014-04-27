@@ -1,4 +1,4 @@
-﻿\documentclass{boi2014-et}
+\documentclass{boi2014-et}
 
 \usepackage{enumitem}
 
@@ -15,14 +15,14 @@
         \includegraphics[width=4cm]{\TaskCode.jpeg}
     \end{wrapfigure}
 
-    Labürinti on peidetud kook, mida sa tahad ära süüa.
-    Sul on labürindi kaart, mis on ruudustik $R$ rea ja $C$ veeruga.
-    Ruudustiku iga element sisaldab üht järgmistest märkidest:
+    Labürinti on peidetud kook, mille sa tahad ära süüa.
+    Sul on labürindi kaart, mis on $R$ rea ja $C$ veeruga ruudustik.
+    Ruudustiku igas lahtris on üks järgmistest märkidest:
     \begin{description}[itemindent=1pt]
         \item[\constant{\#}] (ruut) tähistab seinablokki,
         \item[\constant{.}] (punkt) tähistab tühja ruutu,
-        \item[\constant{S}] (suur s) tähistab sinu asukohta,
-        \item[\constant{C}] (suur c) tähistab kooki.
+        \item[\constant{S}] (suur s) tähistab sinu algasukohta,
+        \item[\constant{C}] (suur c) tähistab koogi asukohta.
     \end{description}
 
     Sa võid kõndida ainult mööda tühje ruute ning liikuda ühelt ruudult teisele,
@@ -37,17 +37,17 @@
     Kui see juhtub, tekib vastava seinabloki sinupoolsele küljele portaal.
 
     Korraga saab eksisteerida kuni kaks portaali. Kui kaks portaali on juba olemas,
-    saab ühe neist (sina otsustad, kumma) eemaldada, kasutades portaalipüssi uuesti.
+    siis portaalipüssi uuesti kasutades üks neist (sina otsustad, kumb) kaob.
     Olemasoleva portaali pihta tulistamine asendab selle portaali uuega
-    (iga seinabloki samal küljel saab korraga olla ainult üks portaal).
+    (iga seinabloki ühel küljel saab korraga olla ainult üks portaal).
     Seinabloki erinevatel külgedel võivad portaalid korraga olla.
 
-    Kui kaardile on kaks portaali paigutatud, saab neid kasutada enda teleporteerimiseks.
+    Kui labürindis on kaks portaali, saab neid kasutada enda teleporteerimiseks.
     Seistes ühe portaali kõrval, saab sellesse sisse kõndida ning väljuda ruudul,
-    mis on teise portaali kõrval. See võtab sama palju aega kui kõndimine ühelt naaberruudult teisele.
+    mis on teise portaali kõrval. See võtab sama palju aega kui ühelt naaberruudult teisele kõndimine.
 
     Võib eeldada, et portaalide tulistamine ei võta aega ning ühelt ruudult teisele liikumine
-    (või läbi portaalide teleporteerimine) võtab ühe ühiku aega.
+    (või läbi portaalide teleporteerumine) võtab ühe ühiku aega.
 
     \Task
 
@@ -66,9 +66,9 @@
     \Output
 
     Väljund peab koosnema ühest täisarvust --- minimaalne aeg,
-    mis on vajalik algpositsioonist koogini jõudmiseks.
+    mis on vajalik algasukohast koogini jõudmiseks.
 
-    Võib eeldada, et algpositsioonist saab alati koogini jõuda.
+    Võib eeldada, et algasukohast saab alati koogini jõuda.
 
     \Example
 
@@ -100,9 +100,9 @@
         \item[Alamülesanne 1 (? points):] $1 \le R \le 10, 1 \le C \le 10$.
         \item[Alamülesanne 2 (? points):] $1 \le R \le 50, 1 \le C \le 50$.
         \item[Alamülesanne 3 (? points):] $1 \le R \le 200, 2 \le C \le 200$.
-            Iga ruudu kõrval on vähemalt üks sein.
+            Iga tühja ruudu kõrval on vähemalt üks seinablokk.
         \item[Alamülesanne 4 (? points):] $1 \le R \le 200, 1 \le C \le 200$.
-        \item[Alamülesanne 5 (? points):] $1 \le R \le 1000, 1 \le C \le 1000$.
+        \item[Alamülesanne 5 (? points):] $1 \le R \le 1\,000, 1 \le C \le 1\,000$.
     \end{description}
 
     \Constraints

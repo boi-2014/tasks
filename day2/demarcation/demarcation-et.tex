@@ -1,8 +1,10 @@
-﻿\documentclass{boi2014-et}
+\documentclass{boi2014-et}
+
+\usepackage{tikz}
 
 \renewcommand{\DayNum}{2}
 \renewcommand{\TaskCode}{demarcation}
-\renewcommand{\TaskName}{Demarcation}
+\renewcommand{\TaskName}{Piiri tõmbamine}
 
 \newcommand{\constant}[1]{{\tt #1}}
 
@@ -16,11 +18,12 @@
     Kaua aega valitses Bytopia saart hea kuningas Byteasar.
     Pärast kuninga ootamatut surma ei suutnud tema kaksikud pojad
     Biteon ja Byteon otsustada, kumb neist peaks troonile asuma.
-    Seetõttu otsustati saar kaheks jagada ja neid sõltumatult valitseda.
+    Seetõttu otsustati jagada saar kaheks provintsiks ja neid
+    sõltumatult valitseda.
 
     Kaardil on Byteotia $N$ tipuga hulknurga kujuline.
     Hulknurga kõik küljed on paralleelsed ristkülikukujulise kaardi külgedega ning
-    kõik järjestikused küljed paiknevad teineteise suhtes täisnurga all.
+    iga kaks järjestikust külge paiknevad teineteise suhtes täisnurga all.
     Biteon ja Byteon tahavad hulknurga jagada kaheks kongruentseks kujundiks,
     kasutades poolitamiseks üht sirglõiku,
     mis on hulknurga sees ning paralleelne ühega kaardi külgedest.
@@ -45,6 +48,8 @@
     Tipud on antud järjekorras, s.t lõigud $(X_1,Y_1) - (X_2,Y_2)$,
     $(X_2,Y_2) - (X_3,Y_3)$, \ldots, $(X_{N-1},Y_{N-1}) - (X_N,Y_N)$ ja
     $(X_N,Y_N) - (X_1,Y_1)$ on parajasti hulknurga külgedeks.
+    Lisaks on teada, et iga kaks eelnevas nimekirjas järjestikust
+    lõiku on teineteisega risti.
 
     \Output
 
@@ -54,10 +59,12 @@
     $(x_1, y_1)$ ja $(x_2, y_2)$.
     Peab kehtima kas $x_1 = x_2$ või $y_1 = y_2$.
 
-    Kui selline jagamine pole võimalik, väljastada sõna
-    ``\constant{NO}'' (ilma jutumärkideta).
+    Kui selline jagamine pole võimalik, väljastada sõna \constant{NO}.
+
+\clearpage
 
     \Examples
+
     \example
     {
         10 \newline
@@ -76,7 +83,7 @@
         1 2 3 2
     }
     {
-        Selles näites on rohkem kui üks võimalik õige vastus.
+        Selles näites on mitu võimalikku õiget vastust.
 
         \begin{center}
             \begin{tikzpicture}
@@ -102,7 +109,8 @@
         NO
     }
     {
-        Selles näites ei saa saart jagada.
+        Selles näites ei saa saart kaheks kongruentseks osaks jagada.
+
         \begin{center}
             \begin{tikzpicture}
             \draw[help lines] (0,0) grid (2,2);
@@ -115,16 +123,19 @@
     \Scoring
 
     \begin{description}
-        \item[Alamülesanne 1 (? punkti).] $4 \le N \le 200$.
-        \item[Alamülesanne 2 (? punkti).] $4 \le N \le 4 000$.
-        \item[Alamülesanne 3 (? punkti).] $4 \le N \le 100 000$.
+        \item[Alamülesanne 1 (? punkti).] $4 \le N \le 100\,000$.
+            Mistahes horisontaalne või vertikaalne joon, mis hulknurka lõikab,
+            jagab selle täpselt kaheks osaks.
+        \item[Alamülesanne 2 (? punkti).] $4 \le N \le 200$.
+        \item[Alamülesanne 3 (? punkti).] $4 \le N \le 4\,000$.
+        \item[Alamülesanne 4 (? punkti).] $4 \le N \le 100\,000$.
     \end{description}
 
     \Constraints
 
     \begin{description}
-        \item[Ajapiirang:] ? s.
-        \item[Mälupiirang:] ? MB.
+        \item[Ajapiirang:] 0,5 s.
+        \item[Mälupiirang:] 256 MB.
     \end{description}
 
 \end{document}
