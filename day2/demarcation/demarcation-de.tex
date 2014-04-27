@@ -17,11 +17,11 @@
 		\includegraphics[width=3cm]{\TaskCode.jpeg}
 	\end{wrapfigure}
     
-    Seit langer Zeit steht das Inselreicht Byteopia unter der Regentschaft des großen Königs Byteasar.
-    Doch nach seinem plötzlichen Tod können sich seine beiden Söhne --- die Zwillinge Biteon und Byteon --- nicht einigen, wer im auf dem Thron nachfolgen soll.
-    Also entscheiden sie sich, die Insel in zwei Provinzen zu teilen um sie unabhängig voneinander zu regieren.
+    Seit langer Zeit steht das Inselreich Byteopia unter der Regentschaft des großen Königs Byteasar.
+    Doch nach seinem plötzlichen Tod können sich seine beiden Söhne --- die Zwillinge Biteon und Byteon --- nicht einigen, wer ihm auf den Thron nachfolgen soll.
+    Also entscheiden sie sich, die Insel in zwei Provinzen zu teilen, um sie unabhängig voneinander zu regieren.
  
-    Auf einer rechteckigen Karte hat Byteopia die Form eines Polygons mit $N$ Ecken, wobei jede Seite des Polygons parallel zu einer Kante der Karte ist, und zwischen zwei benachbarten Kanten stehts im rechten Winkel zueinander stehen. Keine zwei Seiten des Polygons berührt oder schneidet dabei eine andere Seite (außer natürlich im gemeinsamen Eckpunkt zweier benachbarter Seiten).
+    Auf einer rechteckigen Karte hat Byteopia die Form eines Polygons mit $N$ Ecken, wobei jede Seite des Polygons parallel zu einer Kante der Karte ist. Haben zwei Kanten einen gemeinsamen Punkt, so ist dieser eine Ecke.
     
     Biteon und Byteon wollen das Polygon in zwei kongruente Polygone zerteilen. Dazu wollen sie eine gerade Strecke durch das Polygon führen, die vollständig in diesem enthalten ist, und parallel zu einer Kante der Karte liegt. (Zwei Polygone sind kongruent zueinander wenn das eine durch eine Kombination von Reflexionen, Rotationen und Verschiebungen in das andere überführt werden kann.)
     Alle Koordinaten des Polygons und der Trennlinie sind ganze Zahlen.
@@ -41,7 +41,7 @@
 
     \Output
     Dein Programm soll eine einzige Zeile ausgeben.
-    Falls die Teilung durch einen horizontalen oder vertikalen Schnitt mit den Endpunkten $(x_1, y_1)$ und $(x_2, y_2)$, möglich ist, gebe diese vier Zahlen $x_1$, $y_1$, $x_2$ und $y_2$ aus, durch Leerzeichen getrennt. Die Koordinaten müssen entweder $x_1 = x_2$ oder $y_1 = y_2$ erfüllen.
+    Falls die Teilung durch einen horizontalen oder vertikalen Schnitt mit den Endpunkten $(x_1, y_1)$ und $(x_2, y_2)$, möglich ist, gib diese vier Zahlen $x_1$, $y_1$, $x_2$ und $y_2$ aus, durch Leerzeichen getrennt. Die Koordinaten müssen entweder $x_1 = x_2$ oder $y_1 = y_2$ erfüllen.
     
     Der Schnitt muss vollständig im Polygon liegen, und nur seine beiden Endpunkte dürfen den Rand berühren.
 
@@ -68,7 +68,7 @@
 		1 2 3 2
 	}
 	{
-        Beachte dass {\tt 3 2 1 2} ebenfalls eine gültige Lösung ist.
+        Beachte, dass {\tt 3 2 1 2} ebenfalls eine gültige Lösung ist.
 
         \begin{center}
             \begin{tikzpicture}
@@ -107,11 +107,11 @@
     \Scoring
 
     \begin{description}
-        \item[Teilaufgabe 1 (12 points).] $4 \le N \le 100\ 000$.
+        \item[Teilaufgabe 1 (12 Punkte).] $4 \le N \le 100\ 000$.
         Jede horizontale oder vertikale Gerade, die das Polygon zerteilt, zerteilt es in genau zwei Teile.        
-        \item[Teilaufgabe 2 (15 points).] $4 \le N \le 200$.
-        \item[Teilaufgabe 3 (23 points).] $4 \le N \le 4\ 000$.
-        \item[Teilaufgabe 4 (50 points).] $4 \le N \le 100\ 000$.
+        \item[Teilaufgabe 2 (15 Punkte).] $4 \le N \le 200$.
+        \item[Teilaufgabe 3 (23 Punkte).] $4 \le N \le 4\ 000$.
+        \item[Teilaufgabe 4 (50 Punkte).] $4 \le N \le 100\ 000$.
     \end{description}
 
     \Constraints
