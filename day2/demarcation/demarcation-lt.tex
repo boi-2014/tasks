@@ -41,8 +41,12 @@
 
     \Input
     Pirmoje eilutėje įrašytas vienas sveikasis skaičius $N$ -- daugiakampio
-    viršūnių skaičius. Toliau kiekvienoje iš $N$ eilučių įrašyta tarpais atskirta
+    viršūnių skaičius. Toliau $i$-ojoje iš $N$ eilučių įrašyta tarpais atskirta
     sveikųjų skaičių pora $X_i$ ir $Y_i$ -- $i$-osios viršūnės koordinatės.
+    Viršūnės pateiktos tokia tvarka, kad atkarpos $(X_1,Y_1) - (X_2,Y_2)$,
+    $(X_2,Y_2) - (X_3,Y_3)$, \ldots, $(X_{N-1},Y_{N-1}) - (X_N,Y_N)$ ir
+    $(X_N,Y_N) - (X_1,Y_1)$ yra daugiakampio kraštinės. Be to, bet kurios dvi iš
+    eilės einančios atkarpos sąraše yra viena kitai statmenos.
 
     \Output
     Jūsų programa turėtų išvesti vieną eilutę. Jeigu įmanoma padalinti salą į dvi
@@ -74,6 +78,15 @@
 	}
 	{
 		Atkreipkite dėmesį, kad tai ne vienintelis galimas teisingas atsakymas.
+		
+        \begin{center}
+            \begin{tikzpicture}
+            \draw[help lines] (0,0) grid (3,5);
+            \draw[thick] (0,0) -- (1,0) -- (1,1) -- (3,1) -- (3,5) --
+                         (2,5) -- (2,3) -- (1,3) -- (1,2) -- (0,2) -- (0,0);
+            \draw[ultra thick,dotted] (1,2) -- (3,2);
+            \end{tikzpicture}
+        \end{center}
 	}
 
 	\example
@@ -89,20 +102,33 @@
 	{
 		NO
 	}
+	{
+        Šiuo atveju padalinti salą į dvi kongruenčias figūras yra neįmanoma.
+        \begin{center}
+            \begin{tikzpicture}
+            \draw[help lines] (0,0) grid (2,2);
+            \draw[thick] (0,0) -- (1,0) -- (1,1) --
+                         (2,1) -- (2,2) -- (0,2) -- (0,0);
+            \end{tikzpicture}
+        \end{center}
+	}
 
     \Scoring
 
     \begin{description}
-        \item[Dalinė užduotis nr. 1 (? taškų).] $4 \le N \le 200$
-        \item[Dalinė užduotis nr. 2 (? taškų).] $4 \le N \le 4\ 000$
-        \item[Dalinė užduotis nr. 3 (? taškų).] $4 \le N \le 100\ 000$
+        \item[Dalinė užduotis nr. 1 (? taškų).] $4 \le N \le 100\ 000$.
+            Bet kuri horizontali arba vertikali tiesė dalina daugiakampį į lygiai
+            dvi dalis.
+        \item[Dalinė užduotis nr. 2 (? taškų).] $4 \le N \le 200$
+        \item[Dalinė užduotis nr. 3 (? taškų).] $4 \le N \le 4\ 000$
+        \item[Dalinė užduotis nr. 4 (? taškų).] $4 \le N \le 100\ 000$
     \end{description}
 
     \Constraints
 
     \begin{description}
-        \item[Laiko limitas:] ? s.
-        \item[Atminties limitas:] ? MB.
+        \item[Laiko limitas:] 0,5 s.
+        \item[Atminties limitas:] 256 MB.
     \end{description}
 
 \end{document}
