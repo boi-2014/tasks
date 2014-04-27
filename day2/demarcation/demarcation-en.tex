@@ -23,14 +23,18 @@
     Therefore they decided to divide the island into two provinces to
     rule them independently.  
  
-    On a rectangular map Byteotia is shaped as a polygon of $N$ vertices. Every
+    On a rectangular map Byteotia is shaped as a polygon of $N$ vertices.  Every
     side of the polygon is parallel to a side of the map, and every two
-    consecutive sides are perpendicular to each other.  Biteon and Byteon want
-    to divide the polygon into two congruent figures, using one line segment
-    contained in the polygon and parallel to a side of the map.  (Two figures
-    are congruent if one can be transformed into the other using a combination
-    of reflections, rotations and translations.) Coordinates of the polygon
-    vertices and the endpoints of the dividing segment are integers.  
+    consecutive sides are perpendicular to each other. No segment of the polygon
+    crosses or touches any other segment, except for the consecutive segments
+    where sides join.
+    
+    Biteon and Byteon want to divide the polygon into two congruent figures,
+    using one line segment contained in the polygon and parallel to a side of
+    the map.  (Two figures are congruent if one can be transformed into the
+    other using a combination of reflections, rotations and translations.)
+    Coordinates of the polygon vertices and the endpoints of the dividing
+    segment are integers.  
  
     The king's sons asked you to verify whether such a division is
     possible.
@@ -43,7 +47,9 @@
     \Input
     The first line of the input contains a single integer $N$, the number of
     vertices. The $i$th of the next $N$ lines contains a pair of integers $X_i$
-    and $Y_i$ which are the coordinates of the $i$th vertex.
+    and $Y_i$ ($0 \le X_i, Y_i \le 10^9$) which are the coordinates of the $i$th
+    vertex.
+
     The vertices are given in order, i.e. line segments $(X_1,Y_1) - (X_2,Y_2)$,
     $(X_2,Y_2) - (X_3,Y_3)$, \ldots, $(X_{N-1},Y_{N-1}) - (X_N,Y_N)$ and
     $(X_N,Y_N) - (X_1,Y_1)$ are all sides of the polygon.
@@ -56,6 +62,8 @@
 	endpoints are $(x_1, y_1)$ and $(x_2, y_2)$, print 4 integers $x_1$,
 	$y_1$, $x_2$ and $y_2$, separated by spaces.
 	Either $x_1 = x_2$ or $y_1 = y_2$ must hold.
+    The segment should touch, but not cross or overlap with any side of the
+    polygon.
 
 	If a suitable division cannot be found, output a single word
 	\constant{NO}.

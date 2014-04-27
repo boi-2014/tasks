@@ -14,8 +14,8 @@
 		\includegraphics[width=4cm]{\TaskCode.jpeg}
 	\end{wrapfigure}
 
-    Kažkur labirinte paslėptas pyragas ir jūs desperatiškai norite jį suvalgyti.
-    Šio labirinto žemėlapis yra lentelė sudaryta iš $R$ eilučių ir $C$ stulpelių.
+    Kažkur labirinte yra tortas ir jūs desperatiškai norite jį suvalgyti.
+    Šio labirinto žemėlapis yra lentelė, sudaryta iš $R$ eilučių ir $C$ stulpelių.
     Kiekviename langelyje yra po vieną iš ženklų:
     \begin{description}[itemindent=1pt]
     	\item[\constant{\#}] (grotelės) žymi labirinto sienos bloką,
@@ -23,15 +23,14 @@
         \item[\constant{S}] (didžioji raidė s) žymi atvirą langelį su jūsų
             dabartine pozicija,
         \item[\constant{C}] (didžioji raidė c) žymi atvirą langelį, kuriame yra
-            pyragas.
+            tortas.
     \end{description}
 
     Jūs galite vaikščioti tiktai atvirais langeliais ir pereiti į gretimus
-    atvirus langelius, jeigu jie liečiasi kraštinėmis. Papildomai, žemėlapyje
-    pavaizduota stačiakampė sritis yra visiškai atskirta nuo išorės sienų
-    blokais.
+	atvirus langelius, jeigu jie turi bendrą kraštinę. Be to, žemėlapyje
+	vaizduojamą sritį iš visų pusių supa sienų blokai.
 
-    Tam, kad greičiau pasiektumėte pyragą, jūs įsigijote portalsvaidį iš
+    Tam, kad greičiau pasiektumėte tortą, jūs įsigijote portalsvaidį iš
     Aperture Science\texttrademark{}. Bet kuriuo laiko momentu juo galite sviesti
     portalą viena iš krypčių: \emph{aukštyn}, \emph{kairėn}, \emph{žemyn} ir
     \emph{dešinėn}. Kai portalas sviedžiamas kuria nors kryptimi, jis skrenda
@@ -41,37 +40,37 @@
     Vienu metu gali egzistuoti daugiausiai du portalai. Jeigu du portalai jau
     išskleisti labirinte, vienas iš jų (jūsų pasirinkimu) bus pašalintas iškart,
     kai tik portalsvydis bus panaudotas dar kartą. Portalas, sviedžiamas ant
-    sienos, kur jau yra išskleistas kitas portalas, pakeis ten išskleistą portalą
-    (t.y. ant kiekvienos sienos pusės daugiausiai gali būti tik vienas portalas).
-    Atkreipkite dėmesį, kad keletas portalų gali būti išskleisti ant to paties
-    sienos bloko, bet iš kelių skirtingų pusių.
+	jau išskleisto portalo, jį pakeis (t.~y. ant kiekvienos sienos bloko pusės
+	daugiausiai gali būti tik vienas portalas).
+	Atkreipkite dėmesį, kad du portalai gali būti išskleisti ant skirtingų to
+	paties sienos bloko pusių.
 
     Kai labirinte išskleisti du portalai, juos galima naudoti teleportacijai:
-    jeigu stovite langelyje šalia portalo, galite į jį įeiti ir atsidurti šalia
+    jeigu stovite langelyje šalia portalo, galite į jį įeiti ir atsidurti atvirame langelyje šalia
     kito portalo. Šis veiksmas užtrunka lygiai tiek pat, kiek ir pereiti tarp
     gretimų langelių.
 
     Laikykite, kad portalų svaidymas neužima laiko, o perėjimas tarp gretimų
-    langelių (ir teleportacija tarp portalų) užtrunka vieną laiko vienetą.
+    langelių arba teleportacija tarp portalų užtrunka vieną laiko vienetą.
 
     \Task
-    Duotam labirinto žemėlapiui su pažymėtomis jūsų ir pyrago pozicijomis
-    apskaičiuokite trumpiausia laiką, per kurį galite pasiekti pyragą.
+    Duotam labirinto žemėlapiui su pažymėtomis jūsų ir torto pozicijomis
+    apskaičiuokite trumpiausia laiką, per kurį galite pasiekti tortą.
 
     \Input
-    Pirmoje eilutėje yra du sveikieji skaičiai: eilučių $R$ ir stulpelių $C$
-    skaičius žemėlapyje. Toliau $R$ eilučių apibūdina žemėlapį. Kiekvienoje
-    eilutėje yra lygiai $C$ ženklų: \constant{\#}, \constant{.}, \constant{S}
-    arba \constant{C} (kurių reikšmės buvo apibrėžtos aukščiau).
+	Pirmoje eilutėje yra du sveikieji skaičiai: žemėlapio eilučių skaičius $R$
+	ir stulpelių skaičius $C$. Toliau $R$ eilučių apibūdina žemėlapį.
+	Kiekvienoje iš šių eilučių yra lygiai $C$ ženklų: \constant{\#}, \constant{.},
+	\constant{S} arba \constant{C} (kurių reikšmės apibrėžtos aukščiau).
 
     Garantuojama, kad ženklai \constant{S} ir \constant{C} žemėlapyje bus
-    panaudoti tik po vieną kartą.
+    panaudoti po vieną kartą.
 
     \Output
     Jūsų programa turi išvesti vieną sveikąjį skaičių -- kiek mažiausiai laiko
-    vienetų užtrunka pasiekti pyragą iš pradinės pozicijos.
+    vienetų užtrunka pasiekti tortą iš pradinės pozicijos.
 
-    Laikykite, kad iš jūsų pradinės pozicijos galima pasiekti pyragą.
+    Laikykite, kad iš jūsų pradinės pozicijos galima pasiekti tortą.
 
     \Example
     \example
@@ -86,10 +85,9 @@
         4
     }
     {
-        Vienas greičiausias būdas pasiekti pyragą yra: 1) paeikite į dešinę,
-        2) paeikite į dešinę, svieskite portalą į viršų ir dar vieną į apačią,
-        3) įeikite į portalą žemyn -- jūs atsirasite pozicijoje ($eilutė = 0,
-        stulpelis = 2$, 4) paeikite į dešinę ir čiupkite pyragą.
+        Vienas greičiausias būdas pasiekti tortą yra: 1) paeiti į dešinę,
+        2) paeiti į dešinę, sviesti vieną portalą į viršų ir dar vieną į apačią,
+        3) eiti žemyn į portalą, 4) eiti į dešinę ir čiupti tortą.
         
         \begin{center}
             \includegraphics[width=4cm]{portals-example}
@@ -99,23 +97,23 @@
     \Scoring
 
     \begin{description}[leftmargin=0pt]
-        \item[Dalinė užduotis nr. 1 (? taškų):]
+        \item[Dalinė užduotis Nr. 1 (? taškų):]
             $1 \le R \le 10, 1 \le C \le 10$.
-        \item[Dalinė užduotis nr. 2 (? taškų):]
+        \item[Dalinė užduotis Nr. 2 (? taškų):]
             $1 \le R \le 50, 1 \le C \le 50$.
-        \item[Dalinė užduotis nr. 3 (? taškų):]
+        \item[Dalinė užduotis Nr. 3 (? taškų):]
             $1 \le R \le 200, 1 \le C \le 200$.
-            Kiekvienas atviras langelis turi bent vieną jam gretimą sieną.
-        \item[Dalinė užduotis nr. 4 (? taškų):]
+            Kiekvienas atviras langelis turi bent vieną jam gretimą sienos bloką.
+        \item[Dalinė užduotis Nr. 4 (? taškų):]
             $1 \le R \le 200, 1 \le C \le 200$.
-        \item[Dalinė užduotis nr. 5 (? taškų):]
+        \item[Dalinė užduotis Nr. 5 (? taškų):]
             $1 \le R \le 1\ 000, 1 \le C \le 1\ 000$.
     \end{description}
 
     \Constraints
 
     \begin{description}
-        \item[Laiko limitas:] ? s.
-        \item[Atminties limitas:] ? MB.
+        \item[Laiko limitas:] 1 s.
+        \item[Atminties limitas:]  MB.
     \end{description}
 \end{document}
