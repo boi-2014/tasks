@@ -15,10 +15,9 @@
     keep them healthy, the European ministry for majority groups (seniors
     \emph{are} a majority!) suggests to have them deliver the small amount of
     paper mail that is still being sent --- typically to seniors. This
-    suggestion is going to be implemented all over Europe, even in the Free
-    States of Norway and Switzerland.
+    suggestion is going to be implemented all over Europe.
 
-    The ministry has devised a "senior postmen system" in the following way:
+    The ministry has devised a ``senior postmen system'' in the following way:
     Europe has been divided into mail districts. A mail district has a street
     network of streets and junctions. Every street in the network can be walked
     in both directions. In each district, arbitrarily many senior citizens are
@@ -28,7 +27,7 @@
     following conditions:
 
     \begin{itemize}
-        \item It starts and ends at the same junction. (Hey, it’s a tour!)
+        \item It starts and ends at the same junction.
         \item It never passes a junction more than once. (The seniors shall not
         be confused.)
         \item It must not have a street in common with any other tour; hence,
@@ -57,18 +56,20 @@
 
     For any input holds:
     \begin{enumerate}
-        \item For any two junctions, you can walk from one junction to the other.
+        \item Any two junctions can be connected by no more than one street.
+        \item You can reach any junction from any other by traveling along one or more streets.
         \item There is a solution, i.e. a set of senior--compatible tours can be
         computed that cover the network.
     \end{enumerate}
 
     \Output
-    Output should contain as many lines as there are seniour--compatible tours.
+    Each line of the output should correspond to one senior--compatible tour,
+    and should list the numbers of the junctions in that tour.
+    Junction numbers must be output in the order the junctions are passed by the mailman,
+    with the
+    starting (and ending) junction being output first (and only once).
 
-    Each line contains the numbers of the junctions in each tour. They must be output
-    in the order the junctions are passed by the mailman, with the starting (and 
-    ending) junction being output first (and only once).
-
+    If more than one solution exists, your program may output any one of them.
 
     \Example
 
@@ -93,7 +94,7 @@
     }
     {
         2 3 4 5 8 10 9 \newline
-        4 7 8 \newline
+        7 8 4 \newline
         1 5 7 6 3
     }
     {
@@ -110,15 +111,15 @@
     \Scoring
 
     \begin{description}
-        \item[Subtask 1 (40 points):] $1 \le N \le 2\ 000$, $1 \le M \le 100\ 000$.
-        \item[Subtask 2 (20 points):] $1 \le N \le 100\ 000$, $1 \le M \le 100\ 000$.
-        \item[Subtask 3 (40 points):] $1 \le N \le 500\ 000$, $1 \le M \le 500\ 000$.
+        \item[Subtask 1 (? points):] $3 \le N \le 2\ 000$, $3 \le M \le 100\ 000$.
+        \item[Subtask 2 (? points):] $3 \le N \le 100\ 000$, $3 \le M \le 100\ 000$.
+        \item[Subtask 3 (? points):] $3 \le N \le 500\ 000$, $3 \le M \le 500\ 000$.
     \end{description}
 
     \Constraints
 
     \begin{description}
-        \item[Time limit:] 1 s.
+        \item[Time limit:] 0.5 s.
         \item[Memory limit:] 256 MB.
     \end{description}
 

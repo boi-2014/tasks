@@ -11,7 +11,7 @@
         \vspace{-18pt}
 		\includegraphics[width=4cm]{\TaskCode.jpeg}
 	\end{wrapfigure}
-    Ir 2036 gads un Eiropa ir pārpilna ar pensionāriem. Lai uzturētu tos pie veselības, Eiropas vairākuma grupas ministrija (pensionāri \emph{ir} vairākums!) piedāvā likt viņiem piegādāt papīra pastu, kas vēl aizvien tiek sūtīts --- tipiski sūtījumu saņēmēji arī ir pensionāri. Šis ierosinājums tiks ieviests visā Eiropā pat Norvē\v{g}ijā un Šveicē.
+    Ir 2036 gads un Eiropa ir pārpilna ar pensionāriem. Lai uzturētu tos pie veselības, Eiropas vairākuma grupas ministrija (pensionāri \emph{ir} vairākums!) piedāvā likt viņiem piegādāt papīra pastu, kas vēl aizvien tiek sūtīts --- tipiski sūtījumu saņēmēji arī ir pensionāri. Šis ierosinājums tiks ieviests visā Eiropā.
 		%It is the year 2036 and Europe is crowded by senior citizens. In order to
     %keep them healthy, the European ministry for majority groups (seniors
     %\emph{are} a majority!) suggests to have them deliver the small amount of
@@ -38,7 +38,7 @@
         %seniors shall not fight with each other.)
     \end{itemize}
 
-		Visiem maršrutiem kopā jānosedz viss ielu tīks: katrai ielai jābūt daļai no tieši viena maršruta.
+		Visiem maršrutiem kopā jānosedz viss ielu tīkls: katrai ielai jābūt daļai no tieši viena maršruta.
     %Together, the tours must cover the given network: each street in the network
     %must be part of exactly one tour.
 
@@ -59,24 +59,26 @@
     %junctions, and $M$ is the number of streets. Junctions are numbered from 1
     %to $N$.
 
-		Katra no nākamajām $M$ rindām satur divus veselus skaitļus $U$ un $V$, kas norāda ka krustojumus $U$ un $V$ savieno iela.
+		Katra no nākamajām $M$ rindām satur divus veselus skaitļus $u$ un $v$ ($1 \le u, v \le N, u \neq v$), kas norāda ka krustojumus $v$ un $v$ savieno iela.
     %Each of the following $M$ lines contains two integers $U$, meaning that
     %there is a street connecting junctions $U$ and $V$.
 
 		Ievaddatiem vienmēr spēkā:
     %For any input holds:
     \begin{enumerate}
-        \item Ir iespējams aiziet no jebkura krustojuma uz jebkuru citu %For any two junctions, you can walk from one junction to the other.
+        \item Divus krustojumus savieno ne vairāk kā viena iela.
+	\item Ir iespējams aiziet no jebkura krustojuma uz jebkuru citu, ejot pa vienu vai vairākām ielām. %For any two junctions, you can walk from one junction to the other.
         \item Vienmēr eksistē atrisinājums, t.i. var atrast tādu pensionāru-savietojamu maršrutu kopu, kas nosedz visu tīklu. %There is a solution, i.e. a set of senior-compatible tours can be
         %computed that cover the network.
+	
     \end{enumerate}
 
     \Output
-		Izvaddatu pirmajai rindā jābūt rakstītam maršrutu skaitam $T$.
+		Izvaddatos jābut cik rindām cik maršruti tiks lietoti.
 		
     %The first output line is to contain an integer $T$, the number of tours.
 
-		Nākamajās $T$ rindās jāapraksta visi $T$ maršruti. Katrai rindai sākumā rakstīts dažādo maršrutā iekļauto krustojumu skaits $C$, kam seko $C$ maršrutā iekļauto krustojumu numuri. Krustojumu numuri jāsāk ar sākotnējā (un beigu) krustojuma numuru un jāizvada tādā pat secībā, kādā tos apstaigā pastnieks. Sākotnējā krustojuma numurs jāzvada tikai vienreiz.
+		 Katrā rindā jāraksta vienā maršrutā iekļauto krustojumu numuri. Krustojumu numuri jāsāk ar sākotnējā (un beigu) krustojuma numuru un jāizvada tādā pat secībā, kādā tos apstaigā pastnieks. Sākotnējā krustojuma numurs jāzvada tikai vienreiz.
     %The $T$ tours are described in the following $T$ lines. Each of these lines
     %is to contain at first the number $C$ of different junctions the mailman has
     % to pass on this tour. The following $C$ integers in the line are the numbers
@@ -92,7 +94,7 @@
     \example
     {
         10 15 \newline
-        1 2 \newline
+        1 3 \newline
         5 1\newline
         2 3 \newline
         9 2\newline
@@ -109,10 +111,9 @@
         10 9
     }
     {
-        3 \newline
-        7 2 3 4 5 8 10 9 \newline
-        3 4 7 8 \newline
-        5 1 5 7 6 3
+        2 3 4 5 8 10 9 \newline
+        7 8 4 \newline
+        1 5 7 6 3
     }
     {
         Sekojošais attēls ilustrē ielu tīklu un trīs pensionār-savietojamus maršrutus, kas pārklāj visu ielu tīklu.
@@ -130,15 +131,15 @@
     \Scoring
 
     \begin{description}
-        \item[Apakšuzdevums 1 (40 punkti):] $1 \le N \le 2\ 000$, $1 \le M \le 100\ 000$.
-        \item[Apakšuzdevums 2 (20 punkti):] $1 \le N \le 100\ 000$, $1 \le M \le 100\ 000$.
-        \item[Apakšuzdevums 3 (40 punkti):] $1 \le N \le 500\ 000$, $1 \le M \le 500\ 000$.
+        \item[Apakšuzdevums 1 (? punkti):] $3 \le N \le 2\ 000$, $1 \le M \le 100\ 000$.
+        \item[Apakšuzdevums 2 (? punkti):] $3 \le N \le 100\ 000$, $1 \le M \le 100\ 000$.
+        \item[Apakšuzdevums 3 (? punkti):] $3 \le N \le 500\ 000$, $1 \le M \le 500\ 000$.
     \end{description}
 
     \Constraints
 
     \begin{description}
-        \item[Laika ierobežojums:] 1 s.
+        \item[Laika ierobežojums:] 0.5 s.
         \item[Atmiņas ierobežojums:] 256 MB.
     \end{description}
 

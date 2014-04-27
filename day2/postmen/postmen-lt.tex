@@ -11,12 +11,11 @@
         \vspace{-18pt}
 		\includegraphics[width=4cm]{\TaskCode.jpeg}
 	\end{wrapfigure}
-	Dabar 2036-ieji metai ir Europa yra perpildyta garbaus amžiaus piliečiais.
-	Tam, kad jie išsaugotų sveikatą, Europos daugumų ministerija (garbaus amžiaus
-	piliečiai \emph{yra} dauguma!) siūlo įdarbinti juos popierinių laiškų,
-	kurie vis dar yra siunčiama (dažniausiai būtent garbaus amžiaus piliečiams),
-	išnešiotojais. Šis pasiūlymas bus realizuotas visoje Europoje, netgi
-	nepriklausomose Norvegijos ir Šveicarijos valstijose.
+    Dabar 2036-ieji metai ir Europa yra perpildyta garbaus amžiaus piliečiais.
+    Tam, kad jie išsaugotų sveikatą, Europos daugumų ministerija (garbaus amžiaus
+    piliečiai \emph{yra} dauguma!) siūlo įdarbinti juos popierinių laiškų,
+    kurie vis dar yra siunčiama (dažniausiai būtent garbaus amžiaus piliečiams),
+    išnešiotojais. Šis pasiūlymas bus realizuotas visoje Europoje.
 
     Ministerija sukūrė ``garbaus amžiaus piliečių sistemą'' padalindama visą
     Europą į pašto rajonus. Pašto rajoną -- tai gatvių tinklas, sudarytą iš
@@ -51,17 +50,25 @@
     tinkle skaičius, $M$ -- gatvių tinkle skaičius. Sankryžos numeruojamos nuo
     $1$ iki $N$.
 
-    Toliau kiekvienoje iš $M$ eilučių yra du sveikieji skaičiai $U$ ir $V$, reiškiantys, kad šios gatvių sankryžos yra sujungtos gatve.
-    %\todo{missing $V$ in english task}
+    Toliau kiekvienoje iš $M$ eilučių yra du sveikieji skaičiai $u$ ir $v$
+    ($1 \le u, v \le N, u \neq v$), reiškiantys, kad šios gatvių sankryžos yra
+    sujungtos gatve.
 
     Kiekvienai įvesčiai galioja:
     \begin{enumerate}
-        \item Iš bet kurios sankryžos galima nukeliauti į bet kurią kitą.
+        \item Bet kurios dvi sankryžos gali būti sujungtos ne daugiau nei viena
+            gatve.
+        \item Iš bet kurios sankryžos galima pasiekti bet kurią kitą keliaujant
+            viena arba daugiau gatvių).
         \item Sprendinys visada egzistuoja, t.~y. visada galima rasti garbiam
             amžiui tinkamų maršrutų aibę, kuri pilnai padengtų gatvių tinklą.
     \end{enumerate}
 
     \Output
+    
+    Kiekviena eilutė turėtų atitikti vieną garbiam amžiui tinkamą maršrutą ir
+    turėtų išvardinti maršrutą sudarančių sankryžas.
+    %\todo {fix the wording}
     Pirmoje eilutėje jūsų programa turi išvesti vieną sveikąjį skaičių $T$ --
     sudarytų maršrutų skaičių.
 
@@ -71,7 +78,7 @@
     Sankryžos turi būti surūšiuotos taip, kad pirmasis išvestas numeris būtų
     maršruto pradžia ir pabaiga (ir jis būtų išvestas tik vieną kartą).
 
-    Jeigu egzistuoja keletas sprendimų, jūsų programa gali išvesti bet kurų
+    Jeigu egzistuoja keletas sprendinių, jūsų programa gali išvesti bet kurų
     iš jų.
 
     \Example
@@ -79,7 +86,7 @@
     \example
     {
         10 15 \newline
-        1 2 \newline
+        1 3 \newline
         5 1\newline
         2 3 \newline
         9 2\newline
@@ -96,10 +103,9 @@
         10 9
     }
     {
-        3 \newline
-        7 2 3 4 5 8 10 9 \newline
-        3 4 7 8 \newline
-        5 1 5 7 6 3
+        2 3 4 5 8 10 9 \newline
+        7 8 4\newline
+        1 5 7 6 3
     }
     {
         Pateiktas paveiksliukas iliustruoja gatvių tinklą ir tris garbiam amžiui
@@ -114,18 +120,18 @@
     \Scoring
 
     \begin{description}
-        \item[Dalinė užduotis nr. 1 (40 taškų):]
-            $1 \le N \le 2\ 000$, $1 \le M \le 100\ 000$.
-        \item[Dalinė užduotis nr. 2 (20 taškų):]
-            $1 \le N \le 100\ 000$, $1 \le M \le 100\ 000$.
-        \item[Dalinė užduotis nr. 3 (40 taškų):]
-            $1 \le N \le 500\ 000$, $1 \le M \le 500\ 000$.
+        \item[Dalinė užduotis nr. 1 (? taškų):]
+            $3 \le N \le 2\ 000$, $3 \le M \le 100\ 000$.
+        \item[Dalinė užduotis nr. 2 (? taškų):]
+            $3 \le N \le 100\ 000$, $3 \le M \le 100\ 000$.
+        \item[Dalinė užduotis nr. 3 (? taškų):]
+            $3 \le N \le 500\ 000$, $3 \le M \le 500\ 000$.
     \end{description}
 
     \Constraints
 
     \begin{description}
-        \item[Laiko limitas:] 1 s.
+        \item[Laiko limitas:] 0,5 s.
         \item[Atminties limitas:] 256 MB.
     \end{description}
 

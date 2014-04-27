@@ -1,0 +1,135 @@
+\documentclass{boi2014-pl}
+
+\usepackage{enumitem}
+\usepackage{todonotes}
+\usepackage{wrapfig}
+
+\renewcommand{\DayNum}{2}
+\renewcommand{\TaskCode}{demarcation}
+\renewcommand{\TaskName}{Demarkacja}
+
+\newcommand{\constant}[1]{{\tt #1}}
+
+\begin{document}
+    \begin{wrapfigure}{r}{3cm}
+        \vspace{-24pt}
+		\includegraphics[width=3cm]{\TaskCode.jpeg}
+	\end{wrapfigure}
+
+    Przez długie lata Bajtocja była wyspą, na której w pokoju żyli poddani króla Bajtazara I.
+  Jednak po jego nagłej śmierci dwaj królewscy synowie -- bliźniacy Bitoni i Bajtoni -- nie
+  mogli dojść do porozumienia, który z~nich powinien objąć tron. Postanowili więc podzielić
+  wyspę na dwie prowincje, którymi będą rządzić niezależnie.
+
+  Na prostokątnej mapie Bajtocja ma kształt wielokąta o $N$ wierzchołkach, przy czym każdy bok jest równoległy
+  do jednego z~boków mapy, a każde dwa kolejne boki są do siebie prostopadłe.
+   Żadne dwa boki nie dotykają się ani nie przecinają, oprócz kolejnych boków, które mają wspólne końce.
+  
+  
+  Bitoni i Bajtoni chcą podzielić ten wielokąt na dwie figury przystające za pomocą
+  jednego odcinka równoległego do któregoś boku mapy i zawartego w wielokącie.
+  (Figury są przystające jeśli jedna z nich może być przekształcona w drugą za pomocą obrotów, przesunięć oraz symetrii.)
+  Zarówno współrzędne wierzchołków wielokąta, jak i odcinka dzielącego są całkowitoliczbowe.
+
+  Królewscy synowie poprosili Cię, abyś stwierdził, czy taki podział jest
+  w ogóle możliwy.
+
+    \Task
+
+    Mając dany kształt wyspy, odpowiedz, czy może być ona podzielona za pomocą poziomego lub pionowego
+    odcinka na dwa przystające kawałki.
+    Jeśli podział istnieje, znajdź dowolny odcinek, który go powoduje.
+
+    \Input
+	W pierwszym wierszu wejścia znajduje się jedna liczba całkowita $N$ -- liczba wierzchołków.
+        $i$-ty z kolejnych $N$ wierszy zawiera pary liczb całkowitych $X_i$ oraz $Y_i$ ($0 \le X_i, Y_i \le 10^9$), które są współrzędnymi $i$-tego wierzchołka.
+        Wierzchołki są podane w kolejności ich występowania na obwodzie wielokąta,
+        czyli odcinki $(X_1,Y_1) - (X_2,Y_2)$,
+    $(X_2,Y_2) - (X_3,Y_3)$, \ldots, $(X_{N-1},Y_{N-1}) - (X_N,Y_N)$ oraz
+    $(X_N,Y_N) - (X_1,Y_1)$ są wszystkimi bokami wielokąta.
+        Ponadto, każde dwa kolejne odcinki wypisane powyżej są do siebie prostopadłe.
+
+	\Output
+        Twój program powinien wypisać pojedynczy wiersz.
+        Jeśli jest możliwy podział wyspy na przystające części za pomocą poziomego lub pionowego odcinka o
+        końcach w punktach $(x_1,y_1)$ oraz $(x_2,y_2)$, wypisz cztery liczby całkowite $x_1$, $y_1$, $x_2$, $y_2$ oddzielne spacjami.
+        Musi zachodzić $x_1 = x_2$ lub $y_1 = y_2$.
+        Odcinek musi w całości zawierać się wewnątrz danego wielokąta i tylko jego końce powinny dotykać brzegu wielokąta.
+ 
+        Jeśli podział nie jest możliwy, wypisz pojedyncze słowo \constant{NO}.
+
+    \clearpage
+
+    \Examples
+	\example
+	{
+		10 \newline
+		0 0 \newline
+		1 0 \newline
+		1 1 \newline
+		3 1 \newline
+		3 5 \newline
+		2 5 \newline
+		2 3 \newline
+		1 3 \newline
+		1 2 \newline
+		0 2
+	}
+	{
+		1 2 3 2
+	}
+	{
+        W poniższym przykładzie {\tt 3 2 1 2} to również poprawne rozwiązanie.
+	
+        \begin{center}
+            \begin{tikzpicture}
+            \draw[help lines] (0,0) grid (3,5);
+            \draw[ultra thick] (0,0) -- (1,0) -- (1,1) -- (3,1) -- (3,5) --
+                         (2,5) -- (2,3) -- (1,3) -- (1,2) -- (0,2) -- (0,0);
+            \draw[ultra thick,dotted] (1,2) -- (3,2);
+            \end{tikzpicture}
+        \end{center}
+        }
+
+	\example
+	{
+		6 \newline
+		0 0 \newline
+		1 0 \newline
+		1 1 \newline
+		2 1 \newline
+		2 2 \newline
+		0 2
+	}
+	{
+		NO
+	}
+        {
+        W tym przypadku nie ma możliwości podziału wyspy na dwie przystające części.
+        \begin{center}
+            \begin{tikzpicture}
+            \draw[help lines] (0,0) grid (2,2);
+            \draw[ultra thick] (0,0) -- (1,0) -- (1,1) --
+                         (2,1) -- (2,2) -- (0,2) -- (0,0);
+            \end{tikzpicture}
+        \end{center}
+        }
+
+    \Scoring
+
+    \begin{description}
+        \item[Podzadanie 1 (? punktów).] $4 \le N \le 100\,000$.
+        Każda prosta, która dzieli wielokąt na części, dzieli go dokładnie na dwie części.
+        \item[Podzadanie 2 (? punktów).] $4 \le N \le 200$
+        \item[Podzadanie 3 (? punktów).] $4 \le N \le 4\, 000$
+        \item[Podzadanie 4 (? punktów).] $4 \le N \le 100\, 000$
+    \end{description}
+
+    \Constraints
+
+    \begin{description}
+        \item[Limit czasu:] 0,5 s.
+        \item[Dostępna pamięć:] 256 MB.
+    \end{description}
+
+\end{document}
