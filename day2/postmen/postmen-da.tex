@@ -13,19 +13,19 @@
 		\includegraphics[width=4cm]{\TaskCode.jpeg}
 	\end{wrapfigure}
 
-    Det er år 2036 og europa er fyldt af pensionister. For at holde dem sunde
+    Det er år 2036 og Europa er fyldt af pensionister. For at holde dem sunde
     har det europæiske ministerium for flertal (pensionister \emph{er} et
     flertal!) foreslået at få dem til at aflevere den lille mængde brevpost
-    der stadig sendes -- typisk til pensionister. Dette foreslag vil blive
+    der stadig sendes -- typisk til pensionister. Dette forslag vil blive
     implementeret i hele Europa.
 
     Ministeriet har udtænkt et "pensionist postbud system" på følgende måde:
-    Europa er indelt i postdistrikter. Et postdistrikt har et vejnetværk af
+    Europa er inddelt i postdistrikter. Et postdistrikt har et vejnetværk af
     gader og vejkryds. Man kan gå begge veje af hver gade i netværket. I hvert
     distrikt er der vilkårligt mange pensionister, der kan hyres som postbud.
     Hver morgen modtager hvert postbud en taske med post, der skal leveres på
     en tur, der dækker en del af vejnetværket. Hver tur skal være
-    pensionistvenlig, dvs. den skal opfylde følgende betingelser:
+    pensionistvenlig, dvs.~den skal opfylde følgende betingelser:
 
     \begin{itemize}
         \item Den starter og slutter ved samme vejkryds.
@@ -36,11 +36,11 @@
     \end{itemize}
 
     Tilsammen skal turene dække det givne vejnetværk: Hver gade i
-    vejnetværket skal være del af netop en tur.
+    vejnetværket skal være del af netop én tur.
 
     \Task
     Ministeriet har nu brug for software, der for et givet postdistrikts
-    vejnetværk, viludregne en mængde af pensionistvenlige ture, der
+    vejnetværk, vil udregne en mængde af pensionistvenlige ture, der
     dække netværket.
 
     \Input
@@ -54,7 +54,7 @@
     u,v\le N, u\ne v$), der betyder at der er en gade der forbinder vejkryds
     $u$ og $v$.
 
-    For ethver input holder det at:
+    For ethvert input holder følgende:
 
     \begin{enumerate}
         \item To vejkryds kan ikke være forbundet af mere end en gade.
@@ -67,11 +67,11 @@
     \Output
     Hver linje i outputtet skal indeholde numrene svarende til vejkrydsene i
     netop en af turene (en linje pr.~tur). Numrene skal skrives i rækkefølgen
-    som turen besøger vejkrydsene i, således at startkrydset (og slutkryset)
-    skrevet først (og kun én gang).
+    som turen besøger vejkrydsene i, således at startkrydset (og slutkrydset)
+    er skrevet først (og kun én gang).
 
     Hvis der er flere end en løsning, må dit program udskrive en vilkårlig
-    en af dem.
+    af dem.
 
     \Example
 
@@ -112,10 +112,10 @@
     \Scoring
 
     \begin{description}
-        \item[Delopgave 1 (? point):] $3 \le N \le 2\,000$, $3 \le M \le 100\,000$.
-        \item[Delopgave 2 (? point):] $3 \le N \le 100\,000$, $3 \le M \le
+        \item[Delopgave 1 (38 point):] $3 \le N \le 2\,000$, $3 \le M \le 100\,000$.
+        \item[Delopgave 2 (17 point):] $3 \le N \le 100\,000$, $3 \le M \le
             100\,000$.
-        \item[Delopgave 3 (? point):] $3 \le N \le 500\,000$, $3 \le M \le
+        \item[Delopgave 3 (45 point):] $3 \le N \le 500\,000$, $3 \le M \le
             500\,000$.
     \end{description}
 
