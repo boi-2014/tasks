@@ -62,16 +62,12 @@
     \end{enumerate}
 
     \Output
-    The first output line is to contain an integer $T$, the number of tours.
+    Output should contain as many lines as there are seniour--compatible tours.
 
-    The $T$ tours are described in the following $T$ lines. Each of these lines
-    is to contain at first the number $C$ of different junctions the mailman has
-    to pass on this tour. The following $C$ integers in the line are the numbers
-    of the junctions in this tour. They must be output in the order the
-    junctions are passed by the mailman, with the starting (and ending) junction
-    being output first (and only once).
+    Each line contains the numbers of the junctions in each tour. They must be output
+    in the order the junctions are passed by the mailman, with the starting (and 
+    ending) junction being output first (and only once).
 
-    If there are two or more solutions, your program may output any of them.
 
     \Example
 
@@ -95,10 +91,9 @@
         10 9
     }
     {
-        3 \newline
-        7 2 3 4 5 8 10 9 \newline
-        3 4 7 8 \newline
-        5 1 5 7 6 3
+        2 3 4 5 8 10 9 \newline
+        4 7 8 \newline
+        1 5 7 6 3
     }
     {
         The following picture illustrates the street network and the three
