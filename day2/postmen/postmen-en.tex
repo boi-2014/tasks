@@ -24,7 +24,7 @@
     in both directions. In each district, arbitrarily many senior citizens are
     available to be hired as mailman. Every morning, each mailman receives a bag
     with mail to be delivered on a tour that covers a part of the street
-    network. Every tour must be senior--compatible, i.~e. it must satisfy the
+    network. Every tour must be senior--compatible, i.e. it must satisfy the
     following conditions:
 
     \begin{itemize}
@@ -51,13 +51,14 @@
     junctions, and $M$ is the number of streets. Junctions are numbered from 1
     to $N$.
 
-    Each of the following $M$ lines contains two integers $U$, meaning that
-    there is a street connecting junctions $U$ and $V$.
+    Each of the following $M$ lines contains two integers $u$ and $v$
+    ($1 \le u, v \le N, u \neq v$), meaning that
+    there is a street connecting junctions $u$ and $v$.
 
     For any input holds:
     \begin{enumerate}
         \item For any two junctions, you can walk from one junction to the other.
-        \item There is a solution, i.e. a set of senior-compatible tours can be
+        \item There is a solution, i.e. a set of senior--compatible tours can be
         computed that cover the network.
     \end{enumerate}
 
@@ -74,7 +75,7 @@
     \example
     {
         10 15 \newline
-        1 2 \newline
+        1 3 \newline
         5 1\newline
         2 3 \newline
         9 2\newline
@@ -97,7 +98,7 @@
     }
     {
         The following picture illustrates the street network and the three
-        senior-compatible tours that may be used to cover it.
+        senior--compatible tours that may be used to cover it.
 
         \includegraphics[width=7cm]{senior-example}
 
