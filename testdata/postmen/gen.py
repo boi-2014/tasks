@@ -111,9 +111,8 @@ def dense_small_graph (N, M):
 	print "Dense small graph N = %d" % N
 	return (N, len(adj), adj)
 
-def tree_graph (M):
-	M = M - M%3
-	N = M/3+1
+def tree_graph (N):
+	M = 3*N - 3
 	ret = []
 	V = 1
 	for i in range (2, N + 1):
@@ -126,8 +125,8 @@ def tree_graph (M):
 		ret.append((e[1], V))
 	return (2*N-1, len(ret), ret)
 
-def click_graph (M):
-	M = M - M%4
+def click_graph (N1):
+	M = 4 * N1
 	N1 = M/4
 	ret = []
 	for i in range (1,N1):
@@ -149,7 +148,7 @@ def print_test (T, filename):
 
 
 def print_tests(T):
-	template = "postmen.%02d%s-%s.in"
+	template = "postmen_.%02d%s-%s.in"
 	ss = "123"
 	K = 1
 	for subtask, t in enumerate(T):
@@ -163,11 +162,12 @@ def print_tests(T):
 			file.close()
 			K += 1
 		ss = ss[1:]
-
+"""
 print rand_small_graph(10, 20)
 print tree_graph(6)
 print click_graph(12)
 exit()
+"""
 
 T = [[],[],[]]
 
@@ -195,6 +195,8 @@ T[0].append(rand_small_graph(100, 10000))
 T[0].append(rand_small_graph(MAX_N[0], 15000))
 T[0].append(ring(MAX_N[0]))
 T[0].append(full_graph(447))
+T[0].append(tree_graph(MAX_N[0]/2-1))
+T[0].append(click_graph( MAX_N[0]/3 ))
 
 #1->(2,3,..,K+1), 2->(3,4,..,K+2)
 T[0].append(dense_small_graph(MAX_N[0], MAX_M[0]))
@@ -204,14 +206,18 @@ print "\nGENERATING SUBTASK 2:"
 
 T[1].append(ring(MAX_N[1]))
 T[1].append(ring_of_rings(MAX_N[1]/4))
-T[1].append(paths_len3(MAX_M[1]*2/3 + 1))
+T[1].append(paths_len3(2*MAX_M[1]/3+1))
 T[1].append(dense_small_graph(MAX_N[1], MAX_M[1]))
+T[1].append(tree_graph( MAX_N[1]/3-1 ))
+T[1].append(click_graph( min(MAX_M[1]/4, MAX_N[1]) ))
 
 print "\nGENERATING SUBTASK 3:"
 
 T[2].append(ring(MAX_N[2]))
 T[2].append(ring_of_rings(MAX_N[2]/4))
-T[2].append(paths_len3(MAX_M[2]*2/3 +1))
+T[2].append(paths_len3(2*MAX_M[2]/3+1))
 T[2].append(dense_small_graph(MAX_N[2], MAX_M[2]))
+T[2].append(tree_graph( MAX_N[2]/2-1 ))
+T[2].append(click_graph( min(MAX_M[2]/4, MAX_N[2]) ))
 
 print_tests(T)

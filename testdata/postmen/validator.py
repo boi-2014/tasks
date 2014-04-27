@@ -23,7 +23,7 @@ class DisjointSets:
 	    self.p[pa] = pb
 
 
-FN_PATTERN = re.compile(r'^postmen\.(\d{2})p?-(.*)\.in$')
+FN_PATTERN = re.compile(r'^postmen_\.(\d{2})p?-(.*)\.in$')
 
 def check_file(fn, subtask):
     print 'SUBTASK', subtask, fn,
@@ -33,7 +33,7 @@ def check_file(fn, subtask):
         actual_subtask = 1
     elif 1 <= n <= 10**5 and 1 <= m <= 10**5:
         actual_subtask = 2
-    elif 1 <= n <= 10**6 and 1 <= m <= 10**6:
+    elif 1 <= n <= 5 * 10**5 and 1 <= m <= 5 * 10**5:
         actual_subtask = 3
     else:
         actual_subtask = None
@@ -62,7 +62,7 @@ def check_file(fn, subtask):
     f.close()
     print
 
-for fn in glob.glob('postmen.*.in'):
+for fn in glob.glob('postmen_.*.in'):
     matches = FN_PATTERN.match(fn)
     assert matches
     check_file(fn, int(matches.group(2)[0]))
