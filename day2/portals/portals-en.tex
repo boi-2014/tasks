@@ -42,8 +42,8 @@
     placed in the labyrinth, then one of them (selected by you) will be removed
     immediately upon using the portal gun again. Firing a portal at a wall where
     there is already a portal placed will replace that portal (there may be at
-    most one portal per side of wall).  Note that there may be multiple portals
-    placed on different sides of same wall.
+    most one portal per side of wall).  Note that there may be two portals
+    placed on different sides of the same wall.
 
     Once two portals are placed on the map you can use them to
     teleport yourself. When standing next to one of the portals,
@@ -51,9 +51,8 @@
     portal. Doing this takes as much time as moving between two
     adjacent squares.
 
-    You may assume that firing portals does not take time and moving
-    between two squares (or teleporting through portals) takes one unit
-    of time.
+    You may assume that firing portals does not take time and moving between two
+    adjacent squares or teleporting through portals takes one unit of time.
 
     \Task
     Given the map of the labyrinth together with your starting location
@@ -61,7 +60,7 @@
     for you to reach the cake.
 
     \Input
-    The first line of the input contains two integer numbers: the number of rows
+    The first line of the input contains two integers: the number of rows
     in the map $R$, and the number of columns $C$. The next $R$ lines describe
     the map. Each of these lines contain $C$ characters: \constant{\#},
     \constant{.}, \constant{S} or \constant{C} (whose meaning is described
@@ -71,7 +70,7 @@
     exactly once in the map.
 
     \Output
-    The output should contain a single integer number --- the minimum time that
+    The output should contain a single integer --- the minimum time that
     is needed to reach the cake from the starting position.
 
     You may assume that it is always possible to reach the cake from your
@@ -92,8 +91,7 @@
     {
         One quickest sequence of moves is as follows: 1) move right, 2) move
         right, shoot one portal up, and one portal down, 3) move through the
-        bottom portal --- you will appear at the location ($row = 0,
-        column = 2$), 4) move one square right and reach the cake.
+        bottom portal, 4) move one square right and reach the cake.
     }
 
     \Scoring
