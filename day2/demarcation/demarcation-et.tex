@@ -1,4 +1,4 @@
-\documentclass{boi2014-et}
+﻿\documentclass{boi2014-et}
 
 \renewcommand{\DayNum}{2}
 \renewcommand{\TaskCode}{demarcation}
@@ -19,7 +19,7 @@
     Seetõttu otsustati saar kaheks jagada ja neid sõltumatult valitseda.
 
     Kaardil on Byteotia $N$ tipuga hulknurga kujuline.
-    Hulknurga kõik küljed on paralleelsed kaardi külgedega ning
+    Hulknurga kõik küljed on paralleelsed ristkülikukujulise kaardi külgedega ning
     kõik järjestikused küljed paiknevad teineteise suhtes täisnurga all.
     Biteon ja Byteon tahavad hulknurga jagada kaheks kongruentseks kujundiks,
     kasutades poolitamiseks üht sirglõiku,
@@ -42,6 +42,9 @@
     Sisendi esimesel real on tippude arv $N$.
     Järgmisel $N$ real on igaühel tühikuga eraldatud täisarvude paar
     $X_i$ ja $Y_i$, $i$. tipu koordinaadid.
+    Tipud on antud järjekorras, s.t lõigud $(X_1,Y_1) - (X_2,Y_2)$,
+    $(X_2,Y_2) - (X_3,Y_3)$, \ldots, $(X_{N-1},Y_{N-1}) - (X_N,Y_N)$ ja
+    $(X_N,Y_N) - (X_1,Y_1)$ on parajasti hulknurga külgedeks.
 
     \Output
 
@@ -55,48 +58,66 @@
     ``\constant{Impossible}'' (ilma jutumärkideta).
 
     \Examples
-
     \example
     {
-        10
-        0 0
-        1 0
-        1 1
-        3 1
-        3 5
-        2 5
-        2 3
-        1 3
-        1 2
+        10 \newline
+        0 0 \newline
+        1 0 \newline
+        1 1 \newline
+        3 1 \newline
+        3 5 \newline
+        2 5 \newline
+        2 3 \newline
+        1 3 \newline
+        1 2 \newline
         0 2
     }
     {
         1 2 3 2
     }
     {
-        See pole ainus võimalik lahend.
+        Selles näites on mitu võimalikku õiget vastust.
+
+        \begin{center}
+            \begin{tikzpicture}
+            \draw[help lines] (0,0) grid (3,5);
+            \draw[thick] (0,0) -- (1,0) -- (1,1) -- (3,1) -- (3,5) --
+                         (2,5) -- (2,3) -- (1,3) -- (1,2) -- (0,2) -- (0,0);
+            \draw[ultra thick,dotted] (1,2) -- (3,2);
+            \end{tikzpicture}
+        \end{center}
     }
 
     \example
     {
-        6
-        0 0
-        1 0
-        1 1
-        2 1
-        2 2
+        6 \newline
+        0 0 \newline
+        1 0 \newline
+        1 1 \newline
+        2 1 \newline
+        2 2 \newline
         0 2
     }
     {
-        Impossible
+        NO
+    }
+    {
+        Selles näites ei saa saart jagada.
+        \begin{center}
+            \begin{tikzpicture}
+            \draw[help lines] (0,0) grid (2,2);
+            \draw[thick] (0,0) -- (1,0) -- (1,1) --
+                         (2,1) -- (2,2) -- (0,2) -- (0,0);
+            \end{tikzpicture}
+        \end{center}
     }
 
     \Scoring
 
     \begin{description}
         \item[Alamülesanne 1 (? punkti).] $4 \le N \le 200$.
-        \item[Alamülesanne 2 (? punkti).] $4 \le N \le 5\,000$.
-        \item[Alamülesanne 3 (? punkti).] $4 \le N \le 100\,000$.
+        \item[Alamülesanne 2 (? punkti).] $4 \le N \le 4 000$.
+        \item[Alamülesanne 3 (? punkti).] $4 \le N \le 100 000$.
     \end{description}
 
     \Constraints
