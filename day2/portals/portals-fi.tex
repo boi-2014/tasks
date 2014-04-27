@@ -5,6 +5,7 @@
 \renewcommand{\DayNum}{2}
 \renewcommand{\TaskCode}{portals}
 \renewcommand{\TaskName}{Portaalit}
+\renewcommand{\TaskVersion}{1.1}
 
 \newcommand{\constant}[1]{{\tt #1}}
 
@@ -30,7 +31,7 @@
 
     Voit kulkea vain tyhjiä ruutuja pitkin ja siirtyä ruudusta toiseen,
     jos niillä on yhteinen sivu. Lisäksi kartassa kuvattu suorakulmion
-    muotoinen alue on ympäröity seinäruuduilla ulkopuolelta.
+    muotoinen alue on kokonaan ympäröity seinäruuduilla.
 
     Saadaksesi kakun nopeammin sinulla on käytössä portaalipyssy
     (valmistaja Aperture Science\texttrademark{}), joka toimii seuraavasti.
@@ -38,7 +39,7 @@
     yhteen neljästä mahdollisesta suunnasta: \emph{ylös}, \emph{vasemmalle},
     \emph{alas} tai \emph{oikealle}. Kun portaali ammutaan johonkin suuntaan,
     se liikkuu kyseiseen suuntaan kunnes saavuttaa ensimmäisen seinän.
-    Kun täm tapahtuu, portaali kiinnittyy seinään sille puolelle,
+    Kun tämä tapahtuu, portaali kiinnittyy seinäruutuun sille puolelle,
     joka on sinun näkyvissäsi.
 
     Samaan aikaan voi olla olemassa enintään kaksi portaalia.
@@ -46,11 +47,11 @@
     toinen niistä (valintasi mukaan) poistuu välittömästi
     käyttäessäsi portaalipyssyä uudestaan.
     Jos ammut portaalin seinään kohtaan, jossa on valmiiksi portaali,
-    uusi portaali korvaa edellisen (jokaisella seinän sivulla voi
+    uusi portaali korvaa edellisen (jokaisella seinäruudun sivulla voi
     olla korkeintaan yksi portaali). Huomaa, että kaksi portaalia
-    voi olla saman seinän eri puolilla.
+    voi olla saman seinäruudun eri puolilla.
 
-    Kun olet sijoittanut kartalle kaksi portaalia,
+    Kun olet sijoittanut labyrinttiin kaksi portaalia,
     voit käyttää niitä teleportaatioon.
     Kun seisot jommankumman portaalin vieressä,
     voit kävellä sen sisään, minkä seurauksena päädyt
@@ -109,18 +110,18 @@
     \Scoring
 
     \begin{description}[leftmargin=0pt]
-        \item[Osatehtävä 1 (? pistettä):] $0 \le R \le 10, 0 \le C \le 10$.
-        \item[Osatehtävä 2 (? pistettä):] $0 \le R \le 50, 0 \le C \le 50$.
-        \item[Osatehtävä 3 (? pistettä):] $0 \le R \le 200, 0 \le C \le 200$.
+        \item[Osatehtävä 1 (11 pistettä):] $1 \le R \le 10, 1 \le C \le 10$.
+        \item[Osatehtävä 2 (20 pistettä):] $1 \le R \le 50, 1 \le C \le 50$.
+        \item[Osatehtävä 3 (20 pistettä):] $1 \le R \le 200, 1 \le C \le 200$.
         Jokaisessa tyhjässä ruudussa on vähintään yksi seinä sen vieressä.
-        \item[Osatehtävä 4 (? pistettä):] $0 \le R \le 200, 0 \le C \le 200$.
-        \item[Osatehtävä 5 (? pistettä):] $0 \le R \le 1000, 0 \le C \le 1000$.
+        \item[Osatehtävä 4 (19 pistettä):] $1 \le R \le 200, 1 \le C \le 200$.
+        \item[Osatehtävä 5 (30 pistettä):] $1 \le R \le 1000, 1 \le C \le 1000$.
     \end{description}
 
     \Constraints
 
     \begin{description}
-        \item[Aikaraja:] ? s.
-        \item[Muistiraja:] ? MB.
+        \item[Aikaraja:] 1 s.
+        \item[Muistiraja:] 256 MB.
     \end{description}
 \end{document}
