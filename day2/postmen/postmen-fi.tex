@@ -16,7 +16,7 @@
     heidät terveinä, Euroopan enemmistöministeri (eläkeläiset ovat
     enemmistö!) ehdottaa että eläkeläisten tulisi toimittaa se pieni määrä
     postia jota vielä lähetetään --- tyypillisesti eläkeläisille. Tämä ehdotus
-    toteutetaan kaikkialla Euroopassa, jopa Norjan ja Sveitsin Vapaissa Valtioissa.
+    toteutetaan kaikkialla Euroopassa.
     
     Ministeriö on laatinut "eläkeläisposteljoonijärjestelmän" seuraavasti:
     Eurooppa on jaettu postialueisin. Postialueella on katuverkko joka muodostuu
@@ -27,7 +27,7 @@
     kierroksen tulee olla eläkeläisyhteensopiva, eli sen on täytettävä seuraavat
     ehdot:
     \begin{itemize}
-        \item Se alkaa ja loppuu samaan risteykseen. (Sehän on kierros!)
+        \item Se alkaa ja loppuu samaan risteykseen.
         \item Se ei kulje saman risteyksen läpi useammin kuin kerran. (Tällä
             tavalla eläkeläisposteljoonit eivät mene sekaisin reitistä.)
         \item Se ei saa kulkea samaa katua jonkin toisen kierroksen kanssa;
@@ -56,19 +56,21 @@
 
     Kaikille syötteille pätee:
     \begin{enumerate}
-        \item Voit kulkea mistä tahansa risteyksestä mihin tahansa risteykseen.
+        \item Jokaisen kahden risteyksen välillä kulkee korkeintaan yksi katu.
+        \item Voit kulkea mistä tahansa risteyksestä mihin tahansa risteykseen
+            kulkemalla yhtä tai useampaa katua pitkin.
         \item Ratkaisu on olemassa, eli voidaan löytää joukko eläkeläisyhteensopivia
             kierroksia jotka täyttävät verkon.
     \end{enumerate}
     
     \Output
-    Tulosteen tulisi sisältää sama määrä rivejä kuin on eläkeläisyhteensopivia
-    kierroksia.
-    
-    Tulosteen jokainen rivi sisältää kierroksen risteysten tunnusnumerot. Ne
-    tulee antaa siinä järjestyksessä kuin missä posteljooni kulkee niiden
+    Jokaisen tuloksen rivin tulisi vastata eläkeläisyhteensopivaa kierrosta, ja
+    niiden tulisi listata kierroksen risteysten tunnusnumerot. Tunnusnumerot
+    tulee tulostaa siinä järjestyksessä kuin missä posteljooni kulkee niiden
     läpi siten, että ensimmäinen (ja samalla viimeinen) risteys tulostetaan ensin
     (ja vain kerran).
+
+    
 
     \Example
 
@@ -93,7 +95,7 @@
     }
     {
         2 3 4 5 8 10 9 \newline
-        4 7 8 \newline
+        7 8 4 \newline
         1 5 7 6 3
     }
     {
@@ -109,15 +111,15 @@
     \Scoring
 
     \begin{description}
-        \item[Osatehtävä 1 (40 points):] $1 \le N \le 2\ 000$, $1 \le M \le 100\ 000$.
-        \item[Osatehtävä 2 (20 points):] $1 \le N \le 100\ 000$, $1 \le M \le 100\ 000$.
-        \item[Osatehtävä 3 (40 points):] $1 \le N \le 500\ 000$, $1 \le M \le 500\ 000$.
+        \item[Osatehtävä 1 (38 pistettä):] $3 \le N \le 2\ 000$, $3 \le M \le 100\ 000$.
+        \item[Osatehtävä 2 (17 pistettä):] $3 \le N \le 100\ 000$, $3 \le M \le 100\ 000$.
+        \item[Osatehtävä 3 (45 pistettä):] $3 \le N \le 500\ 000$, $3 \le M \le 500\ 000$.
     \end{description}
 
     \Constraints
 
     \begin{description}
-        \item[Aikaraja:] 1 s.
+        \item[Aikaraja:] 0.5 s.
         \item[Muistiraja:] 256 MB.
     \end{description}
 
