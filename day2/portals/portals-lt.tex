@@ -18,7 +18,7 @@
     Šio labirinto žemėlapis yra lentelė sudaryta iš $R$ eilučių ir $C$ stulpelių.
     Kiekviename langelyje yra po vieną iš ženklų:
     \begin{description}[itemindent=1pt]
-    	\item[\constant{\#}] (grotelės) žymi labirinto sieną,
+    	\item[\constant{\#}] (grotelės) žymi labirinto sienos bloką,
         \item[\constant{.}] (taškas) žymi atvirą langelį,
         \item[\constant{S}] (didžioji raidė s) žymi atvirą langelį su jūsų
             dabartine pozicija,
@@ -28,22 +28,23 @@
 
     Jūs galite vaikščioti tiktai atvirais langeliais ir pereiti į gretimus
     atvirus langelius, jeigu jie liečiasi kraštinėmis. Papildomai, žemėlapyje
-    pavaizduota stačiakampė sritis yra atskirta nuo išorės sienomis be tarpų.
-    %\todo{kurios nėra pavaizduotos žemėlapyje}.
+    pavaizduota stačiakampė sritis yra visiškai atskirta nuo išorės sienų
+    blokais.
 
     Tam, kad greičiau pasiektumėte pyragą, jūs įsigijote portalsvaidį iš
     Aperture Science\texttrademark{}. Bet kuriuo laiko momentu juo galite sviesti
     portalą viena iš krypčių: \emph{aukštyn}, \emph{kairėn}, \emph{žemyn} ir
     \emph{dešinėn}. Kai portalas sviedžiamas kuria nors kryptimi, jis skrenda
-    tol, kol atsitrenkia į pirmą sutiktą sieną ir ant jos išsiskleidžia.
+    tol, kol atsitrenkia į pirmą sutiktą sienos bloką ir išsiskleidžia ant tos jo
+    pusės, kuri yra atsisukusi į jus.
 
     Vienu metu gali egzistuoti daugiausiai du portalai. Jeigu du portalai jau
     išskleisti labirinte, vienas iš jų (jūsų pasirinkimu) bus pašalintas iškart,
     kai tik portalsvydis bus panaudotas dar kartą. Portalas, sviedžiamas ant
-    sienos, kur jau yra išskleistas kitas portalas, pakeis ten išskleistą
+    sienos, kur jau yra išskleistas kitas portalas, pakeis ten išskleistą portalą
     (t.y. ant kiekvienos sienos pusės daugiausiai gali būti tik vienas portalas).
-    Atkreipkite dėmesį, kad keletas portalų gali būti išskleisti ant tos pačios
-    sienos, bet iš kelių skirtingų pusių.
+    Atkreipkite dėmesį, kad keletas portalų gali būti išskleisti ant to paties
+    sienos bloko, bet iš kelių skirtingų pusių.
 
     Kai labirinte išskleisti du portalai, juos galima naudoti teleportacijai:
     jeigu stovite langelyje šalia portalo, galite į jį įeiti ir atsidurti šalia
@@ -70,7 +71,7 @@
     Jūsų programa turi išvesti vieną sveikąjį skaičių -- kiek mažiausiai laiko
     vienetų užtrunka pasiekti pyragą iš pradinės pozicijos.
 
-    Laikykite, kad iš jūsų pradinės pozicijos visada galima pasiekti pyragą.
+    Laikykite, kad iš jūsų pradinės pozicijos galima pasiekti pyragą.
 
     \Example
     \example
@@ -99,16 +100,16 @@
 
     \begin{description}[leftmargin=0pt]
         \item[Dalinė užduotis nr. 1 (? taškų):]
-            $0 \le R \le 10, 0 \le C \le 10$.
+            $1 \le R \le 10, 1 \le C \le 10$.
         \item[Dalinė užduotis nr. 2 (? taškų):]
-            $0 \le R \le 50, 0 \le C \le 50$.
+            $1 \le R \le 50, 1 \le C \le 50$.
         \item[Dalinė užduotis nr. 3 (? taškų):]
-            $0 \le R \le 200, 0 \le C \le 200$.
+            $1 \le R \le 200, 1 \le C \le 200$.
             Kiekvienas atviras langelis turi bent vieną jam gretimą sieną.
         \item[Dalinė užduotis nr. 4 (? taškų):]
-            $0 \le R \le 200, 0 \le C \le 200$.
+            $1 \le R \le 200, 1 \le C \le 200$.
         \item[Dalinė užduotis nr. 5 (? taškų):]
-            $0 \le R \le 1\ 000, 0 \le C \le 1\ 000$.
+            $1 \le R \le 1\ 000, 1 \le C \le 1\ 000$.
     \end{description}
 
     \Constraints
