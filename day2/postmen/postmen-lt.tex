@@ -54,24 +54,25 @@
     Toliau kiekvienoje iš $M$ eilučių yra du sveikieji skaičiai $U$ ir $V$, reiškiantys, kad šios gatvių sankryžos yra sujungtos gatve.
     %\todo{missing $V$ in english task}
 
-    For any input holds:
+    Kiekvienai įvesčiai galioja:
     \begin{enumerate}
-        \item For any two junctions, you can walk from one junction to the other.
-        \item There is a solution, i.e. a set of senior-compatible tours can be
-        computed that cover the network.
+        \item Iš bet kurios sankryžos galima nukeliauti į bet kurią kitą.
+        \item Sprendinys visada egzistuoja, t.~y. visada galima rasti garbiam
+            amžiui tinkamų maršrutų aibę, kuri pilnai padengtų gatvių tinklą.
     \end{enumerate}
 
     \Output
-    The first output line is to contain an integer $T$, the number of tours.
+    Pirmoje eilutėje jūsų programa turi išvesti vieną sveikąjį skaičių $T$ --
+    sudarytų maršrutų skaičių.
 
-    The $T$ tours are described in the following $T$ lines. Each of these lines
-    is to contain at first the number $C$ of different junctions the mailman has
-    to pass on this tour. The following $C$ integers in the line are the numbers
-    of the junctions in this tour. They must be output in the order the
-    junctions are passed by the mailman, with the starting (and ending) junction
-    being output first (and only once).
+    Kitose $T$ eilučių įvardinkite $T$ maršrutų tokiu būdu: pirmasis skaičius
+    eilutėje $C$ reikš, kiek skirtingų sankryžų paštininkas turi aplankyti šiame
+    maršrute. Toliau išvardinti $C$ sveikųjų skaičių yra šių sankryžų numeriai.
+    Sankryžos turi būti surūšiuotos taip, kad pirmasis išvestas numeris būtų
+    maršruto pradžia ir pabaiga (ir jis būtų išvestas tik vieną kartą).
 
-    If there are two or more solutions, your program may output any of them.
+    Jeigu egzistuoja keletas sprendimų, jūsų programa gali išvesti bet kurų
+    iš jų.
 
     \Example
 
@@ -101,29 +102,31 @@
         5 1 5 7 6 3
     }
     {
-        The following picture illustrates the street network and the three
-        senior-compatible tours that may be used to cover it.
+        Pateiktas paveiksliukas iliustruoja gatvių tinklą ir tris garbiam amžiui
+        tinkamus maršrutus, kurie pilnai jį padengia.
 
         \includegraphics[width=7cm]{senior-example}
 
-        Note that there are several solutions to this example, among them some
-        with only two tours.
-    
+        Atkreipkite dėmesį, kad šiam pavyzdžiui egzistuoja keletas sprendimų,
+        tame tarpe ir toks, kurį sudaro tik du maršrutai.
     }
 
     \Scoring
 
     \begin{description}
-        \item[Subtask 1 (40 points):] $1 \le N \le 2\ 000$, $1 \le M \le 100\ 000$.
-        \item[Subtask 2 (20 points):] $1 \le N \le 100\ 000$, $1 \le M \le 100\ 000$.
-        \item[Subtask 3 (40 points):] $1 \le N \le 500\ 000$, $1 \le M \le 500\ 000$.
+        \item[Dalinė užduotis nr. 1 (40 taškų):]
+            $1 \le N \le 2\ 000$, $1 \le M \le 100\ 000$.
+        \item[Dalinė užduotis nr. 2 (20 taškų):]
+            $1 \le N \le 100\ 000$, $1 \le M \le 100\ 000$.
+        \item[Dalinė užduotis nr. 3 (40 taškų):]
+            $1 \le N \le 500\ 000$, $1 \le M \le 500\ 000$.
     \end{description}
 
     \Constraints
 
     \begin{description}
-        \item[Time limit:] 1 s.
-        \item[Memory limit:] 256 MB.
+        \item[Laiko limitas:] 1 s.
+        \item[Atminties limitas:] 256 MB.
     \end{description}
 
 \end{document}
