@@ -10,7 +10,7 @@ def check_file(fn, subtask_str):
     assert 4 <= N <= 100000
     if 4 <= N <= 200:
         actual_subtask = 2	
-    elif 4 <= N <= 4000:
+    elif 4 <= N <= 2000:
         actual_subtask = 3
     elif 4 <= N <= 100000:
         actual_subtask = 4
