@@ -1,5 +1,7 @@
 #include <cstdio>
 #include <cstdlib>
+#include <cstring>
+#include <cctype>
 #include <algorithm>
 using namespace std;
 #define MaxN 500010
@@ -10,12 +12,31 @@ int E[2*MaxM], C[MaxN], P[MaxN], t[MaxN];
 int a[MaxM], b[MaxM];
 bool used[2*MaxM];
 
+char S[30];
+
+void Parse(char lin[], int &a, int &b) {
+    int slen = strlen(lin);
+    int pnt = 0;
+    a = 0; b = 0;
+    while (isdigit(lin[pnt])) {
+        a = 10 * a + lin[pnt] - '0';
+        pnt++;
+    }
+    while (!isdigit(lin[pnt])) pnt++;
+    while (pnt < slen && isdigit(lin[pnt])) {
+        b = 10 * b + lin[pnt] - '0';
+        pnt++;
+    }
+}
+
 //Read
 void read_input (char * filename) {
     FILE * f = fopen(filename, "r");
-    fscanf(f, "%d%d", &N, &M);
+    fscanf(f, "%d%d\n", &N, &M);
 	for (int i = 0; i < M; i++) {
-        fscanf(f, "%d%d", &a[i], &b[i]);
+        fgets(S, 30, f);
+        Parse(S, a[i], b[i]);
+        //fscanf(f, "%d%d", &a[i], &b[i]);
         if (a[i] > N || b[i] > N)
 	    fprintf(stderr, "Bad input file\n");
 	C[a[i]]++; C[b[i]]++;
