@@ -22,7 +22,7 @@
   mogli dojść do porozumienia, który z~nich powinien objąć tron. Postanowili więc podzielić
   wyspę na dwie prowincje, którymi będą rządzić niezależnie.
 
-  Na prostokątnej mapie Bajtocja ma kształt wielokąta o $N$ wierzchołkach, przy czym każdy jego bok jest równoległy
+  Na prostokątnej mapie Bajtocja ma kształt wielokąta o $N$ wierzchołkach, przy czym każdy bok jest równoległy
   do jednego z~boków mapy, a każde dwa kolejne boki są prostopadłe.
   Żadne dwa boki nie dotykają się ani nie przecinają, oprócz kolejnych boków, które mają wspólny koniec.
   
@@ -47,11 +47,11 @@
         Wierzchołki są podane w kolejności ich występowania na obwodzie wielokąta,
         czyli odcinki $(X_1,Y_1) - (X_2,Y_2)$,
     $(X_2,Y_2) - (X_3,Y_3)$, \ldots, $(X_{N-1},Y_{N-1}) - (X_N,Y_N)$ oraz
-    $(X_N,Y_N) - (X_1,Y_1)$ są wszystkimi bokami wielokąta.
-        Ponadto, każde dwa kolejne odcinki na obwodzie są prostopadłe.
+    $(X_N,Y_N) - (X_1,Y_1)$ są kolejnymi bokami wielokąta.
+        Ponadto, każde dwa kolejne boki są prostopadłe.
 
 	\Output
-        Twój program powinien wypisać pojedynczy wiersz.
+        Twój program powinien wypisać jeden wiersz.
         Jeśli jest możliwy podział wyspy na dwa przystające wielokąty za pomocą poziomego lub pionowego odcinka o
         końcach w punktach $(x_1,y_1)$ oraz $(x_2,y_2)$, wypisz cztery liczby całkowite $x_1$, $y_1$, $x_2$, $y_2$ pooddzielane pojedynczymi odstępami.
         Musi zachodzić $x_1 = x_2$ lub $y_1 = y_2$.
@@ -120,7 +120,7 @@
 
     \begin{description}
         \item[Podzadanie 1 (12 punktów).] $4 \le N \le 100\,000$.
-        Każda prosta, która dzieli wielokąt na części, dzieli go dokładnie na dwie części.
+        Każda prosta, która dzieli wielokąt na części, dzieli go na dokładnie dwie części.
         \item[Podzadanie 2 (15 punktów).] $4 \le N \le 200$
         \item[Podzadanie 3 (23 punkty).] $4 \le N \le 2\, 000$
         \item[Podzadanie 4 (50 punktów).] $4 \le N \le 100\, 000$
