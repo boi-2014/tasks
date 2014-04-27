@@ -5,7 +5,7 @@
 \renewcommand{\DayNum}{2}
 \renewcommand{\TaskCode}{portals}
 \renewcommand{\TaskName}{Portals}
-\renewcommand{\TaskVersion}{1.1}
+\renewcommand{\TaskVersion}{1.0}
 
 \newcommand{\constant}[1]{{\tt #1}}
 
@@ -15,7 +15,7 @@
 		\includegraphics[width=4cm]{\TaskCode.jpeg}
 	\end{wrapfigure}
 
-    Der er en kage placeret i en labyrint, og du er desperat for at spise
+    Der er en kage placeret i en labyrint, og du er desperat efter at spise
     den. Du har et kort over labyrinten, som er et gitter med $R$ rækker og $C$
     kolonner. Hver celle i gitteret indeholder et af følgende tegn:
     \begin{description}[itemindent=1pt]
@@ -32,9 +32,9 @@
 
     For at kunne nå til kagen hurtigere har du anskaffet et portal-gevær
     fra Aperture Science\texttrademark{}, der fungerer som følger.
-    Til et hvert tidspunkt kan den skyde en portal i en af de fire rætninget
-    \em{op}, \em{venstre}, \em{ned} og \em{højre}. Når en portal bliver skudt i
-    en retning, vil den flyve i den rætning ind til den rammer den første
+    Til et hvert tidspunkt kan den skyde en portal i en af de fire retninger
+    \emph{op}, \emph{venstre}, \emph{ned} og \emph{højre}. Når en portal bliver
+    skudt i en retning, vil den flyve i den retning indtil den rammer den første
     murblok. Når det sker, vil der komme portal på den side af murblokken,
     der vender mod dig.
 
@@ -63,7 +63,7 @@
     Den første linje af input indeholder to heltal: Antallet af rækker på
     kortet, $R$, og antallet af kolonner $C$. De næste $R$ linjer beskriver
     kortet. Hver linje indeholder $C$ tegn: \constant{\#},
-    \constant{.}, \constant{S} or \constant{C} (hvis betydning er som beskrevet
+    \constant{.}, \constant{S} eller \constant{C} (hvis betydning er som beskrevet
     ovenfor).
 
     Det er garanteret, at \constant{S} og \constant{C} hver optræder præcis en
