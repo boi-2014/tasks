@@ -7,6 +7,7 @@
 \renewcommand{\DayNum}{2}
 \renewcommand{\TaskCode}{demarcation}
 \renewcommand{\TaskName}{Demarkacja}
+\renewcommand{\TaskVersion}{1.2}
 
 \newcommand{\constant}[1]{{\tt #1}}
 
@@ -21,38 +22,38 @@
   mogli dojść do porozumienia, który z~nich powinien objąć tron. Postanowili więc podzielić
   wyspę na dwie prowincje, którymi będą rządzić niezależnie.
 
-  Na prostokątnej mapie Bajtocja ma kształt wielokąta o $N$ wierzchołkach, przy czym każdy bok jest równoległy
-  do jednego z~boków mapy, a każde dwa kolejne boki są do siebie prostopadłe.
-   Żadne dwa boki nie dotykają się ani nie przecinają, oprócz kolejnych boków, które mają wspólne końce.
-  
+  Na prostokątnej mapie Bajtocja ma kształt wielokąta o $N$ wierzchołkach, przy czym każdy jego bok jest równoległy
+  do jednego z~boków mapy, a każde dwa kolejne boki są prostopadłe.
+  Żadne dwa boki nie dotykają się ani nie przecinają, oprócz kolejnych boków, które mają wspólny koniec.
   
   Bitoni i Bajtoni chcą podzielić ten wielokąt na dwie figury przystające za pomocą
-  jednego odcinka równoległego do któregoś boku mapy i zawartego w wielokącie.
-  (Figury są przystające jeśli jedna z nich może być przekształcona w drugą za pomocą obrotów, przesunięć oraz symetrii.)
-  Zarówno współrzędne wierzchołków wielokąta, jak i odcinka dzielącego są całkowitoliczbowe.
+  jednego odcinka równoległego do któregoś z boków mapy i zawartego w wielokącie.
+  (Mówimy, że dwie figury są przystające, jeśli jedną z nich można przekształcić w drugą za pomocą symetrii, obrotów oraz przesunięć.)
+  Zarówno współrzędne wierzchołków wielokąta, jak i końców odcinka dzielącego, są liczbami całkowitymi.
 
   Królewscy synowie poprosili Cię, abyś stwierdził, czy taki podział jest
   w ogóle możliwy.
 
     \Task
 
-    Mając dany kształt wyspy, odpowiedz, czy może być ona podzielona za pomocą poziomego lub pionowego
-    odcinka na dwa przystające kawałki.
-    Jeśli podział istnieje, znajdź dowolny odcinek, który go powoduje.
+    Mając dany kształt wyspy, sprawdź, czy można ją podzielić za pomocą poziomego lub pionowego
+    odcinka na dwa przystające wielokąty.
+    Jeśli taki podział istnieje, znajdź dowolny odcinek, który go powoduje.
 
     \Input
 	W pierwszym wierszu wejścia znajduje się jedna liczba całkowita $N$ -- liczba wierzchołków.
-        $i$-ty z kolejnych $N$ wierszy zawiera pary liczb całkowitych $X_i$ oraz $Y_i$ ($0 \le X_i, Y_i \le 10^9$), które są współrzędnymi $i$-tego wierzchołka.
+        $i$-ty z kolejnych $N$ wierszy zawiera parę liczb całkowitych $X_i$ oraz $Y_i$ ($0 \le X_i, Y_i \le 10^9$), oznaczających współrzędne $i$-tego wierzchołka.
+
         Wierzchołki są podane w kolejności ich występowania na obwodzie wielokąta,
         czyli odcinki $(X_1,Y_1) - (X_2,Y_2)$,
     $(X_2,Y_2) - (X_3,Y_3)$, \ldots, $(X_{N-1},Y_{N-1}) - (X_N,Y_N)$ oraz
     $(X_N,Y_N) - (X_1,Y_1)$ są wszystkimi bokami wielokąta.
-        Ponadto, każde dwa kolejne odcinki wypisane powyżej są do siebie prostopadłe.
+        Ponadto, każde dwa kolejne odcinki na obwodzie są prostopadłe.
 
 	\Output
         Twój program powinien wypisać pojedynczy wiersz.
-        Jeśli jest możliwy podział wyspy na przystające części za pomocą poziomego lub pionowego odcinka o
-        końcach w punktach $(x_1,y_1)$ oraz $(x_2,y_2)$, wypisz cztery liczby całkowite $x_1$, $y_1$, $x_2$, $y_2$ oddzielne spacjami.
+        Jeśli jest możliwy podział wyspy na dwa przystające wielokąty za pomocą poziomego lub pionowego odcinka o
+        końcach w punktach $(x_1,y_1)$ oraz $(x_2,y_2)$, wypisz cztery liczby całkowite $x_1$, $y_1$, $x_2$, $y_2$ pooddzielane pojedynczymi odstępami.
         Musi zachodzić $x_1 = x_2$ lub $y_1 = y_2$.
         Odcinek musi w całości zawierać się wewnątrz danego wielokąta i tylko jego końce powinny dotykać brzegu wielokąta.
  
@@ -79,7 +80,7 @@
 		1 2 3 2
 	}
 	{
-        W poniższym przykładzie {\tt 3 2 1 2} to również poprawne rozwiązanie.
+        Poprawnym rozwiązaniem jest także {\tt 3 2 1 2}.
 	
         \begin{center}
             \begin{tikzpicture}
@@ -105,7 +106,7 @@
 		NO
 	}
         {
-        W tym przypadku nie ma możliwości podziału wyspy na dwie przystające części.
+        W tym przypadku nie da się podzielić wyspy na dwa przystające wielokąty.
         \begin{center}
             \begin{tikzpicture}
             \draw[help lines] (0,0) grid (2,2);
@@ -118,11 +119,11 @@
     \Scoring
 
     \begin{description}
-        \item[Podzadanie 1 (? punktów).] $4 \le N \le 100\,000$.
+        \item[Podzadanie 1 (12 punktów).] $4 \le N \le 100\,000$.
         Każda prosta, która dzieli wielokąt na części, dzieli go dokładnie na dwie części.
-        \item[Podzadanie 2 (? punktów).] $4 \le N \le 200$
-        \item[Podzadanie 3 (? punktów).] $4 \le N \le 4\, 000$
-        \item[Podzadanie 4 (? punktów).] $4 \le N \le 100\, 000$
+        \item[Podzadanie 2 (15 punktów).] $4 \le N \le 200$
+        \item[Podzadanie 3 (23 punkty).] $4 \le N \le 2\, 000$
+        \item[Podzadanie 4 (50 punktów).] $4 \le N \le 100\, 000$
     \end{description}
 
     \Constraints
