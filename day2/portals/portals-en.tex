@@ -28,7 +28,7 @@
 
     You may only walk on the open squares and move from one open square to
     another if they share a side. Additionally, the rectangular area depicted on
-    the map is surrounded by walls from the outside with no open spaces.
+    the map is surrounded by walls from the outside with no open squares.
 
     In order to reach the cake faster you have acquired a portal gun from
     Aperture Science\texttrademark{}, which operates as follows.
@@ -36,7 +36,7 @@
     \emph{up}, \emph{left}, \emph{down} and \emph{right}.
     When a portal is fired in some direction, it will fly in that direction
     until it reaches the first wall. When this happens, a portal
-    will be spawned on the side of that wall that faces you.
+    will be spawned on the side of the wall that faces you.
 
     At most two portals can exist at any given time. If two portals are already
     placed in the labyrinth, then one of them (selected by you) will be removed
@@ -47,7 +47,7 @@
 
     Once two portals are placed on the map you can use them to
     teleport yourself. When standing next to one of the portals,
-    you can walk into it and end up at the square next to the other
+    you can walk into it and end up at the open square next to the other
     portal. Doing this takes as much time as moving between two
     adjacent squares.
 
@@ -71,7 +71,7 @@
     exactly once in the map.
 
     \Output
-    The output should contain a single integer numbers --- the minimum time that
+    The output should contain a single integer number --- the minimum time that
     is needed to reach the cake from the starting position.
 
     You may assume that it is always possible to reach the cake from your

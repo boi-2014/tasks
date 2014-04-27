@@ -18,7 +18,7 @@
 
     For a long time the island of Bytopia was ruled by the fair king
     Byteasar. But after the sudden death
-    of the king, his two sons -- twins Biteon and Byteon -- could
+    of the king, his two sons---twins Biteon and Byteon---could
     not come to an agreement which one of them should ascend the throne.
     Therefore they decided to divide the island into two provinces to
     rule them independently.  
@@ -44,7 +44,7 @@
 
     \Input
 	The first line of the input contains a single integer $N$, the number of
-	vertices. The $i$th of the next $N$ lines contains a pair of integer $X_i$
+	vertices. The $i$th of the next $N$ lines contains a pair of integers $X_i$
 	and $Y_i$, separated by space, which are the coordinates of the $i$th
 	vertex.
     %\todo{In what order are vertices given?}
@@ -54,10 +54,10 @@
 	island into congruent parts with a horizontal or vertical segment, which
 	endpoints are $(x_1, y_1)$ and $(x_2, y_2)$, print 4 integers $x_1$,
 	$y_1$, $x_2$ and $y_2$, separated by spaces.
-	Either $x_1 = y_1$ or $y_1 = y_2$ must hold.
+	Either $x_1 = x_2$ or $y_1 = y_2$ must hold.
 
 	If a suitable division cannot be found, output a single word
-	``\constant{Impossible}'' (without quotes).
+	``\constant{NO}'' (without quotes).
 
     \Examples
 	\example
@@ -78,7 +78,7 @@
 		1 2 3 2
 	}
 	{
-		This is not the only correct choices of parameters.
+		This is not the only correct choice of parameters.
 	}
 
 	\example
@@ -92,14 +92,14 @@
 		0 2
 	}
 	{
-		Impossible
+		NO
 	}
 
     \Scoring
 
     \begin{description}
         \item[Subtask 1 (? points).] $4 \le N \le 200$
-        \item[Subtask 2 (? points).] $4 \le N \le 4000$
+        \item[Subtask 2 (? points).] $4 \le N \le 4\ 000$
         \item[Subtask 3 (? points).] $4 \le N \le 100\ 000$
     \end{description}
 
