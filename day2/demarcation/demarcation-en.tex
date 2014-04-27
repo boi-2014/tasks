@@ -27,7 +27,7 @@
     side of the polygon is parallel to a side of the map, and every two
     consecutive sides are perpendicular to each other. No segment of the polygon
     crosses or touches any other segment, except for the consecutive segments
-    where sides join.
+    where sides meet.
     
     Biteon and Byteon want to divide the polygon into two congruent figures,
     using one line segment contained in the polygon and parallel to a side of
@@ -62,8 +62,8 @@
 	endpoints are $(x_1, y_1)$ and $(x_2, y_2)$, print 4 integers $x_1$,
 	$y_1$, $x_2$ and $y_2$, separated by spaces.
 	Either $x_1 = x_2$ or $y_1 = y_2$ must hold.
-    The segment should touch, but not cross or overlap with any side of the
-    polygon.
+    The segment should be contained within the polygon and only its endpoints
+    should touch the boundary.
 
 	If a suitable division cannot be found, output a single word
 	\constant{NO}.
