@@ -1,0 +1,111 @@
+\documentclass{boi2014-dk}
+
+\usepackage{enumitem}
+\usepackage{todonotes}
+\usepackage{wrapfig}
+
+\renewcommand{\DayNum}{2}
+\renewcommand{\TaskCode}{demarcation}
+\renewcommand{\TaskName}{Demarcation}
+\renewcommand{\TaskVersion}{0.1}
+
+\newcommand{\constant}[1]{{\tt #1}}
+
+\begin{document}
+    \begin{wrapfigure}{r}{3cm}
+        \vspace{-24pt}
+		\includegraphics[width=3cm]{\TaskCode.jpeg}
+	\end{wrapfigure}
+
+    I lang tid har øen, Bytopia, været styret af den retfærdige konge Byteasar,
+    men efter kongens pludselige død, har hans to sønner -- tvillingerne Biteon
+    og Byteon -- ikke kunnet blive enige om, hvem af dem, der skal sætte sig på
+    tronen. Derfor har de besluttet at dele øen i to provinser og herske dem
+    uafhængigt.
+
+    På et kort er Byteopia formet som en polygon bestående af $N$ hjørner. Hver
+    side af polygonen er parallel med en side af kortet, og alle to på hinanden
+    følgende sider står vinkelrette på hinanden. Biteon og Byteon vil dele
+    polygonen i to kongruente figurer ved at bruge et linjesegment indeholdt i
+    polygonen, som er parallel til en af kortets sider. (To figurer er
+    kongruente, hvis den ene kan transformeres til den anden ved en kombination
+    af spejlninger, rotationer og translateringer.) Koordinaterne for
+    polygonens hjørner og slutpunkterne af den skillende linje er heltal.
+
+    Kongens sønner har spurgt dig om at bekræfte hvorvidt sådan en deling er
+    mulig.
+
+    \Task
+
+    Givet øens form, afgør om den kan deles af et vertikal eller horisontal
+    linjesegment, således at den bliver delt i to kongruente stykker. Hvis det kan
+    lade sig gøre skal du finde sådan et linjesegment.
+
+    \Input
+    Den første linje i inputtet indeholder et enkelt heltal $N$, antallet af
+    hjørner. Den $i$'te linje af de næste $N$ linjer indeholder et par af
+    heltal, $X_i$ og $Y_i$, adskilt af mellemrum, som angiver koordinaterne af
+    det $i$'te hjørne.
+
+	\Output
+    Dit program skal outputte en enkelt linje. Hvis det er muligt at dele øen i
+    to kongruente stykker med en horisontal eller vertikal linje, hvis
+    endepunkter er $(x_1,y_1)$ og $(x_2,y_2)$, print 4 heltal $x_1$, $y_1$,
+    $x_2$ og $y_2$ adskilt af mellemrum. Enten $x_1 = y_1$ eller $y_1 = y_2$
+    skal holde.
+
+    Hvis en passende deling ikke kan findes, output ordet
+    ``\constant{Impossible}'' (uden citationstegn).
+
+    \Examples
+	\example
+	{
+		10
+		0 0
+		1 0
+		1 1
+		3 1
+		3 5
+		2 5
+		2 3
+		1 3
+		1 2
+		0 2
+	}
+	{
+		1 2 3 2
+	}
+	{
+        Dette er ikke det eneste korrekte valg af parametre.
+	}
+
+	\example
+	{
+		6
+		0 0
+		1 0
+		1 1
+		2 1
+		2 2
+		0 2
+	}
+	{
+		Impossible
+	}
+
+    \Scoring
+
+    \begin{description}
+        \item[Delopgave 1 (? point).] $4 \le N \le 200$
+        \item[Delopgave 2 (? point).] $4 \le N \le 4000$
+        \item[Delopgave 3 (? point).] $4 \le N \le 100\ 000$
+    \end{description}
+
+    \Constraints
+
+    \begin{description}
+        \item[Tidsbegrænsning:] ? s.
+        \item[Hukommelsesbegrænsning:] ? MB.
+    \end{description}
+
+\end{document}
