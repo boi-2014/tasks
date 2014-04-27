@@ -23,15 +23,14 @@
     Therefore they decided to divide the island into two provinces to
     rule them independently.  
  
-    On a map Byteotia is shaped as a polygon of $N$ vertices. Every
-    side of the polygon is parallel to a side of the map, and every
-    two consecutive sides are perpendicular to each other.  Biteon
-    and Byteon want to divide the polygon into two congruent figures,
-    using one line segment contained in the polygon and parallel to a
-    side of the map.  (Two figures are congruent if one can be transformed
-    into the other using a combination of reflections, rotations and
-    translations.) Coordinates of the polygon vertices and the end points
-    of the dividing segment are integers.  
+    On a rectangular map Byteotia is shaped as a polygon of $N$ vertices. Every
+    side of the polygon is parallel to a side of the map, and every two
+    consecutive sides are perpendicular to each other.  Biteon and Byteon want
+    to divide the polygon into two congruent figures, using one line segment
+    contained in the polygon and parallel to a side of the map.  (Two figures
+    are congruent if one can be transformed into the other using a combination
+    of reflections, rotations and translations.) Coordinates of the polygon
+    vertices and the endpoints of the dividing segment are integers.  
  
     The king's sons asked you to verify whether such a division is
     possible.
@@ -45,8 +44,7 @@
     \Input
 	The first line of the input contains a single integer $N$, the number of
 	vertices. The $i$th of the next $N$ lines contains a pair of integers $X_i$
-	and $Y_i$, separated by space, which are the coordinates of the $i$th
-	vertex.
+	and $Y_i$ which are the coordinates of the $i$th vertex.
     %\todo{In what order are vertices given?}
 
 	\Output
@@ -57,38 +55,40 @@
 	Either $x_1 = x_2$ or $y_1 = y_2$ must hold.
 
 	If a suitable division cannot be found, output a single word
-	``\constant{NO}'' (without quotes).
+	\constant{NO}.
+
+    \clearpage
 
     \Examples
 	\example
 	{
-		10
-		0 0
-		1 0
-		1 1
-		3 1
-		3 5
-		2 5
-		2 3
-		1 3
-		1 2
+		10 \newline
+		0 0 \newline
+		1 0 \newline
+		1 1 \newline
+		3 1 \newline
+		3 5 \newline
+		2 5 \newline
+		2 3 \newline
+		1 3 \newline
+		1 2 \newline
 		0 2
 	}
 	{
 		1 2 3 2
 	}
 	{
-		This is not the only correct choice of parameters.
+        Note that there is more than one correct answer in this example.
 	}
 
 	\example
 	{
-		6
-		0 0
-		1 0
-		1 1
-		2 1
-		2 2
+		6 \newline
+		0 0 \newline
+		1 0 \newline
+		1 1 \newline
+		2 1 \newline
+		2 2 \newline
 		0 2
 	}
 	{
