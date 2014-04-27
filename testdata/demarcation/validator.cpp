@@ -7,53 +7,80 @@
 #include <algorithm>
 using namespace std;
 
-const int Maxn = 100000;
-const int lim = 1000000000;
+const int MaxN = 100000;
+const int Max = 1000000000;
 
-typedef pair <int, int> ii;
+typedef pair <int, int> pii;
 typedef long long ll;
 
 FILE *f;
-int x[Maxn + 1], y[Maxn + 1];
+int x[MaxN+10], y[MaxN+10];
+int N;
 
 void Error(const char s[]) {
     fclose(f);
-    fprintf(stderr, "%s\n", s);
-    printf("0\n");
+    fprintf(stdout, "%s\n", s);
+    //printf("0\n");
     exit(0);
 }
 
-bool inLine(int a, int b, int c)
-{
+bool inLine(int a, int b, int c) {
     return x[a] == x[b] && x[b] == x[c] ||
            y[a] == y[b] && y[b] == y[c];
 }
 
-bool Check(const char fileName[]) 
-{
+bool shared (int i, int j) {
+    return (x[i] == x[j]) || (y[i] == y[j]);
+}
+
+void check_1() {
+
+
+}
+
+
+void check_intersect() {
+
+    for (int i = 0; i < N; i++) {
+	for (int 
+
+
+    }
+
+}
+
+
+void check(const char fileName[], string sub) {
     f = fopen(fileName, "r");
-    int cnt; fscanf(f, "%d", &cnt);
-    if (cnt > Maxn) Error("Too many points");
+    fscanf(f, "%d", &N);
+    if (N > Maxn || N < 0) Error("Too many points");
+    int sub1 = 0;
+    if (sub.find('1') != -1) sub1 = true;
+    
     int rcnt = 0;
-    while (rcnt <= cnt && fscanf(f, "%d %d", &x[rcnt], &y[rcnt]) == 2) {
+    while (rcnt <= N && fscanf(f, "%d %d", &x[rcnt], &y[rcnt]) == 2) {
         if (x[rcnt] < 0 || x[rcnt] > lim || y[rcnt] < 0 || y[rcnt] > lim)
             Error("Incorrect numbers");
         rcnt++;
     }
-    if (rcnt < cnt) Error("Not enough numbers");
-    if (rcnt > cnt) Error("Too many numbers");
-    for (int i = 0; i < cnt; i++)
-        if (inLine(i, (i + 1) % cnt, (i + 2) % cnt)) Error("3 points in line!");
-    fclose(f);
-    return true;
+    if (rcnt < N) Error("Not enough numbers");
+    if (rcnt > N) Error("Too many numbers");
+    for (int i = 0; i < N; i++) {
+        if (inLine(i, (i + 1) % N, (i + 2) % N)) Error("3 points in line!");
+    	if (!shared(i, (i + 1) % N)) Error ("Points do not form figure parallel to axis!");
+    }
+
+    if (sub1) check1();
+    check_intersect();
 }
 
 int main(int argc, char *argv[]) {
     
-    if (argc < 2) {
-        fprintf(stderr, "Usage: validator file.in\n");
+    if (argc < 3) {
+        fprintf(stderr, "Usage: validator file.in subtask_string\n");
         exit(1);
     }
-    printf("%d\n", Check(argv[1]));
+    check(argv[1], argv[2]);
+    printf("OK\n");
     return 0;    
 }
