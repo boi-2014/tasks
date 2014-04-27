@@ -27,7 +27,7 @@
     following conditions:
 
     \begin{itemize}
-        \item It starts and ends at the same junction. (Hey, it’s a tour!)
+        \item It starts and ends at the same junction.
         \item It never passes a junction more than once. (The seniors shall not
         be confused.)
         \item It must not have a street in common with any other tour; hence,
@@ -56,16 +56,17 @@
 
     For any input holds:
     \begin{enumerate}
-        \item For any two junctions, you can walk from one junction to the other.
+        \item Any two junctions can be connected by no more than one street.
+        \item You can reach any junction from any other by traveling along one or more streets.
         \item There is a solution, i.e. a set of senior--compatible tours can be
         computed that cover the network.
     \end{enumerate}
 
     \Output
-    Output should contain as many lines as there are senior--compatible tours.
-
-    Each line should list the numbers of the junctions in each tour. They must
-    be output in the order the junctions are passed by the mailman, with the
+    Each line of the output should correspond to one senior--compatible tour,
+    and should list the numbers of the junctions in that tour.
+    Junction numbers must be output in the order the junctions are passed by the mailman,
+    with the
     starting (and ending) junction being output first (and only once).
 
     If more than one solution exists, your program may output any one of them.
@@ -93,7 +94,7 @@
     }
     {
         2 3 4 5 8 10 9 \newline
-        4 7 8 \newline
+        7 8 4 \newline
         1 5 7 6 3
     }
     {
@@ -110,15 +111,15 @@
     \Scoring
 
     \begin{description}
-        \item[Subtask 1 (40 points):] $1 \le N \le 2\ 000$, $1 \le M \le 100\ 000$.
-        \item[Subtask 2 (20 points):] $1 \le N \le 100\ 000$, $1 \le M \le 100\ 000$.
-        \item[Subtask 3 (40 points):] $1 \le N \le 500\ 000$, $1 \le M \le 500\ 000$.
+        \item[Subtask 1 (? points):] $3 \le N \le 2\ 000$, $3 \le M \le 100\ 000$.
+        \item[Subtask 2 (? points):] $3 \le N \le 100\ 000$, $3 \le M \le 100\ 000$.
+        \item[Subtask 3 (? points):] $3 \le N \le 500\ 000$, $3 \le M \le 500\ 000$.
     \end{description}
 
     \Constraints
 
     \begin{description}
-        \item[Time limit:] 1 s.
+        \item[Time limit:] 0.5 s.
         \item[Memory limit:] 256 MB.
     \end{description}
 
