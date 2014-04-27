@@ -20,7 +20,7 @@
     %suggestion is going to be implemented all over Europe, even in the Free
     %States of Norway and Switzerland.
 
-		Ministrija ir izdomājusi "pensionāru pastnieku sistēmu" šādā veidā: Eiropa ir sadalīta pasta apgabalos. Pasta apgabals sastāv no ielu tīkla un krustojumiem. Pa katru no ielām var iet abos virzienos. Katrā apgabalā patvaļīgu skaitu pensionāru var nolīgt par pastniekiem. Katru rītu, katrs pastnieks saņem somu ar pastu, kas jānogādā pa maršrutu, kurš aptver daļu no ielu tīkla. Katram maršrutam jābūt pensonār-savietojamam, t.i. tam jābūt spēkā šādiem nosacījumiem:
+		Ministrija ir izdomājusi "pensionāru pastnieku sistēmu" šādā veidā: Eiropa ir sadalīta pasta apgabalos. Pasta apgabals sastāv no ielu tīkla un krustojumiem. Pa katru no ielām var iet abos virzienos. Katrā apgabalā patvaļīgu skaitu pensionāru var nolīgt par pastniekiem. Katru rītu, katrs pastnieks saņem somu ar pastu, kas jānogādā pa maršrutu, kurš aptver daļu no ielu tīkla. Katram maršrutam jābūt pensionār-savietojamam, t.i. tam jābūt spēkā šādiem nosacījumiem:
     %The ministry has devised a "senior postmen system" in the following way:
     %Europe has been divided into mail districts. A mail district has a street
     %network of streets and junctions. Every street in the network can be walked
@@ -45,7 +45,7 @@
 
     \Task
 		
-		Ministrijai tagad vajag programmatūru, kas dotam pasta apgabala ielu tīklam aprēķinās kopu ar pensionāru-savietojamiem maršrutiem, kas pārklās visu tīklu.
+		Ministrijai tagad vajag programmatūru, kas dotam pasta apgabala ielu tīklam aprēķinās kopu ar pensionār-savietojamiem maršrutiem, kas pārklās visu tīklu.
     %The ministry now needs a software that, for a given mail district’s street
     %network, will compute a set of senior--compatible tours that cover the
     %network.
@@ -60,7 +60,7 @@
     %junctions, and $M$ is the number of streets. Junctions are numbered from 1
     %to $N$.
 
-		Katra no nākamajām $M$ rindām satur divus veselus skaitļus $u$ un $v$ ($1 \le u, v \le N, u \neq v$), kas norāda ka krustojumus $v$ un $v$ savieno iela.
+		Katra no nākamajām $M$ rindām satur divus veselus skaitļus $u$ un $v$ ($1 \le u, v \le N, u \neq v$), kas norāda ka krustojumus $u$ un $v$ savieno iela.
     %Each of the following $M$ lines contains two integers $U$, meaning that
     %there is a street connecting junctions $U$ and $V$.
 
@@ -69,13 +69,13 @@
     \begin{enumerate}
         \item Divus krustojumus savieno ne vairāk kā viena iela.
 	\item Ir iespējams aiziet no jebkura krustojuma uz jebkuru citu, ejot pa vienu vai vairākām ielām. %For any two junctions, you can walk from one junction to the other.
-        \item Vienmēr eksistē atrisinājums, t.i. var atrast tādu pensionāru-savietojamu maršrutu kopu, kas nosedz visu tīklu. %There is a solution, i.e. a set of senior-compatible tours can be
+        \item Vienmēr eksistē atrisinājums, t.i. var atrast tādu pensionār-savietojamu maršrutu kopu, kas nosedz visu tīklu. %There is a solution, i.e. a set of senior-compatible tours can be
         %computed that cover the network.
 	
     \end{enumerate}
 
     \Output
-		Izvaddatos jābut cik rindām cik maršruti tiks lietoti.
+		Izvaddatos jābut tik rindām cik maršruti tiks lietoti.
 		
     %The first output line is to contain an integer $T$, the number of tours.
 
