@@ -41,7 +41,7 @@
     %until it reaches the first wall. When this happens, a portal
     %will be spawned on the side of that wall that faces you.
 
-		Katrā brīdī var darboties ne vairāk kā divi portāli. Ja divi portāli jau darbojas, tad tiklīdz portālu šaujamais tiks lietots nākamo reizi viens no portāliem (pēc Jūsu izvēles) tiks aizvērts. Portālu šaujamā izšaušana uz sienas uz kuras jau darbojas portāls aizstās iepriekšējo portālu ar jaunu (uz katras sienas puses var būt ne vairāk kā viens portāls). Ievērojiet, ka vairāki portāli var darboties uz vienas un tās pašas sienas dažādām pusēm.
+		Katrā brīdī var darboties ne vairāk kā divi portāli. Ja divi portāli jau darbojas, tad tiklīdz portālu šaujamais tiks lietots nākamo reizi viens no portāliem (pēc Jūsu izvēles) tiks aizvērts. Portālu šaujamā izšaušana uz sienas uz kuras jau darbojas portāls aizstās iepriekšējo portālu ar jaunu (uz katras sienas puses var būt ne vairāk kā viens portāls). Ievērojiet, ka abi portāli var darboties uz vienas un tās pašas sienas dažādām pusēm.
     %At most two portals can exist at any given time. If two portals are already
     %placed in the labyrinth, then one of them (selected by you) will be removed
     %immediately upon using the portal gun again. Firing a portal at a wall where
@@ -49,14 +49,14 @@
     %most one portal per side of wall).  Note that there may be multiple portals
     %placed on different sides of same wall.
 
-		Kad kartē darbojas divi portāli, tad Jūs varat tos lietot lai teleportētos. Teleportēšanās notiek, kad stāv pie viena no portāliem un ieiet tajā tad nonāk tajā lauciņā, kas ir blakus otram portālam. Teleportēšanās aizņem tik pat daudz laika kā pāriešana uz blakus lauciņu.
+		Kad kartē darbojas divi portāli, tad Jūs varat tos lietot lai teleportētos. Teleportēšanās notiek, kad stāv pie viena no portāliem un ieiet tajā tad nonāk tajā lauciņā, kas ir brīvs blakus otram portālam. Teleportēšanās aizņem tik pat daudz laika kā pāriešana uz blakus lauciņu.
     %Once two portals are placed on the map you can use them to
     %teleport yourself. When standing next to one of the portals,
     %you can walk into it and end up at the square next to the other
     %portal. Doing this takes as much time as moving between two
     %adjacent squares.
 
-		Jūs varat pieņemt, ka portālu izšaušana neaizņem laiku un pārvietošanās starp diviem lauciņiem (vai teleportēšanās) aizņem vienu laika vienību.
+		Jūs varat pieņemt, ka portālu izšaušana neaizņem laiku un pārvietošanās starp diviem blakus esošim lauciņiem vai teleportēšanās aizņem vienu laika vienību.
     %You may assume that firing portals does not take time and moving
     %between two squares (or teleporting through portals) takes one unit
     %of time.
@@ -106,11 +106,16 @@
         4
     }
     {
-        Ātrākā gājienu virkne ir šāda: 1) pārvietojas pa labi, 2) pa labi un izšauj vienu portālu uz augšu un otru uz leju, 3) pārvietojas caur apakšā esošo portālu --- Jūs parādīsieties šūnā ($rinda = 0, kolonna = 2$), 4) pārvietojas pa labi un sasniedz torti.
+        Ātrākā gājienu virkne ir šāda: 1) pārvietojas pa labi, 2) pa labi un izšauj vienu portālu uz augšu un otru uz leju, 3) pārvietojas caur apakšā esošo portālu 4) pārvietojas pa labi un sasniedz torti.
 				%One quickest sequence of moves is as follows: 1) move right, 2) move
         %right, shoot one portal up, and one portal down, 3) move through the
         %bottom portal --- you will appear at the location ($row = 0,
         %column = 2$), 4) move one square right and reach the cake.
+	
+	        \begin{center}
+	            \includegraphics[width=4cm]{portals-example}
+	        \end{center}
+
     }
 
     \Scoring
