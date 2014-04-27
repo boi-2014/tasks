@@ -23,8 +23,8 @@ begin
 end;
 
 begin
-  assign (fin, 'oprobber-i3hfiehflasil.in');
-  assign (fout, 'oprobber-i3hfiehflasil.out');
+  assign (fin, 'coprobber-i3hfiehflasil.in');
+  assign (fout, 'coprobber-i3hfiehflasil.out');
   rewrite (fout);
   close (fout);
   reset(fin);

@@ -1,0 +1,109 @@
+\documentclass{boi2014-lt}
+
+\usepackage{enumitem}
+\usepackage{todonotes}
+\usepackage{wrapfig}
+
+\renewcommand{\DayNum}{2}
+\renewcommand{\TaskCode}{demarcation}
+\renewcommand{\TaskName}{Demarkacija}
+
+\newcommand{\constant}[1]{{\tt #1}}
+
+\begin{document}
+    \begin{wrapfigure}{r}{3cm}
+        \vspace{-24pt}
+		\includegraphics[width=3cm]{\TaskCode.jpeg}
+	\end{wrapfigure}
+
+    Karalius Baitazaras ilgai ir teisingai valdė Baitopijos salą. Tačiau po
+    staigios mirties jo sūnūs dvyniai --- Baitonas ir Bitonas --- niekaip
+    negalėjo sutarti, kuris iš jų turėtų paveldėti sostą. Jie nusprendė
+    padalinti salą į dvi provincijas, kad galėtų jas valdyti nepriklausomai.
+ 
+    STAČIAKAMPYJE Žemėlapyje Baitopija yra $N$ kraštinių turintis daugiakampis.
+    Visos daugiakampio kraštinės yra lygiagrečios žemėlapio kraštinėms, o
+    kiekviena gretima daugiakampio kraštinė yra statmena viena kitai. Baitonas ir
+    Bitonas norėtų padalinti salą į dvi kongruenčias figūras viena atkarpa, kuri
+    būtų lygiagreti žemėlapio kraštinei. (Dvi figūros yra kongruenčios jeigu
+    viena iš jų gali būti transformuota į kitą kokia nors atspindžio, posūkio
+    arba poslinkio operacijų kombinacija.) Visų daugiakampio viršūnių ir
+    ieškomos dalinančios atkarpos galų koordinatės yra sveikieji skaičiai.
+ 
+    Karaliaus sūnūs prašo jūsų patikrinti, ar toks salos padalinimas yra
+    įmanomas.
+
+    \Task
+    Duotai salos formai nustatykite, ar ji gali būti padalinta horizontalia arba
+    vertikalia atkarpa į dvi kongruenčias figūras. Jeigu toks padalinimas
+    egzistuoja, raskite salą dalinančią atkarpą.
+
+    \Input
+    Pirmoje eilutėje įrašytas vienas sveikasis skaičius $N$ -- daugiakampio
+    viršūnių skaičius. Toliau kiekvienoje iš $N$ eilučių įrašyta tarpais atskirta sveikųjų skaičių pora $X_i$ ir $Y_i$ -- $i$-osios viršūnės koordinatės.
+    %\todo{In what order are vertices given?}
+    %\todo{Pavyzdyje neteisingai suformatuota.}
+
+	\Output
+    Jūsų programa turėtų išvesti vieną eilutę. Jeigu įmanoma padalinti salą į dvi
+    kongruenčias figūras horizontalia arba vertikalia atkarpa, kurios galų
+    koordinatės yra $(x_1, y_1)$ ir $(x_2, y_2)$, išspausdinkite $4$ tarpais
+    atskirtus sveikuosius skaičius $x_1$, $y_1$, $x_2$ ir $y_2$. Jiems turėtų
+    galioti bent viena iš lygybių $x_1 = y_1$ arba $y_1 = y_2$.
+
+	Jeigu neįmanoma rasti tinkamo salos padalinimo, išveskite vieną žodį
+	IMPOSSIBLE.
+	%\todo{Pagerinti išvedamą žodį. Ir pavyzdyje!}
+
+    \Examples
+	\example
+	{
+		10
+		0 0
+		1 0
+		1 1
+		3 1
+		3 5
+		2 5
+		2 3
+		1 3
+		1 2
+		0 2
+	}
+	{
+		1 2 3 2
+	}
+	{
+		Tai vienintelis galimas sprendinys.
+	}
+
+	\example
+	{
+		6
+		0 0
+		1 0
+		1 1
+		2 1
+		2 2
+		0 2
+	}
+	{
+		IMPOSSIBLE
+	}
+
+    \Scoring
+
+    \begin{description}
+        \item[Dalinė užduotis nr. 1 (? taškų).] $4 \le N \le 200$
+        \item[Dalinė užduotis nr. 2 (? taškų).] $4 \le N \le 4\ 000$
+        \item[Dalinė užduotis nr. 3 (? taškų).] $4 \le N \le 100\ 000$
+    \end{description}
+
+    \Constraints
+
+    \begin{description}
+        \item[Laiko limitas:] ? s.
+        \item[Atminties limitas:] ? MB.
+    \end{description}
+
+\end{document}

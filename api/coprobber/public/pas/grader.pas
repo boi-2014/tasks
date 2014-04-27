@@ -1,6 +1,6 @@
 program grader;
   uses coprobber;
-  { Is it safe to use types defined in coprobber unit? }
+
   var
     N: Integer;
     A: Matrix;
