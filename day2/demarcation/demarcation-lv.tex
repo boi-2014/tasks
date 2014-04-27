@@ -1,0 +1,123 @@
+\documentclass{boi2014-lv}
+
+\usepackage{enumitem}
+\usepackage{todonotes}
+\usepackage{wrapfig}
+
+\renewcommand{\DayNum}{2}
+\renewcommand{\TaskCode}{demarcation}
+\renewcommand{\TaskName}{Sadalīšana}
+
+\newcommand{\constant}[1]{{\tt #1}}
+
+\begin{document}
+    \begin{wrapfigure}{r}{3cm}
+        \vspace{-24pt}
+		\includegraphics[width=3cm]{\TaskCode.jpeg}
+	\end{wrapfigure}
+
+		Ilgu laiku Baitopijas salā valdīja godīgs karalis Baitezars, bet pēc viņa pēkšņās nāves viņa divi dēli Baitons un Bitons nevarēja vienoties kurš no tiem mantos troni. Viņi izlēma sadalīt salu divās provincēs un valdīt neatkarīgi.
+    %For a long time the island of Bytopia was ruled by the fair king
+    %Byteasar. But after the sudden death
+    %of the king, his two sons -- twins Biteon and Byteon -- could
+    %not come to an agreement which one of them should ascend the throne.
+    %Therefore they decided to divide the island into two provinces to
+    %rule them independently.  
+ 
+		Uz kartes Baitopijas kontūra ir daudzstūris ar $N$ virsotnēm. Katra daudzstūra mala ir paralēla kartes malai un katras divas secīgas malas ir perpendikulāras viena otrai. Bitons and Baitons grib sadalīt daudzstūri divās vienādās daļās ar vienu taisnes nogriezni, kas paralēls kartes malai (Divi daudztūri tiek uzskatīti par vienādiem, ja vienu rotējot, spoguļojot un pārbīdot var pārveidot par otru). Daudzstūra virsotņu un sadalošā nogriežņa virsotņu koordinātas ir veseli skaitļi. 
+    %On a map Byteotia is shaped as a polygon of $N$ vertices. Every
+    %side of the polygon is parallel to a side of the map, and every
+    %two consecutive sides are perpendicular to each other.  Biteon
+    %and Byteon want to divide the polygon into two congruent figures,
+    %using one line segment contained in the polygon and parallel to a
+    %side of the map.  (Two figures are congruent if one can be transformed
+    %into the other using a combination of reflections, rotations and
+    %translations.) Coordinates of the polygon vertices and the end points
+    %of the dividing segment are integers.  
+ 
+		Karaļa dēli Jums prasa noskaidrot vai šāda sadalīšana ir iespējama.
+    %The king's sons asked you to verify whether such a division is
+    %possible.
+
+    \Task
+		
+		Dotai salas kontūrai noteikt vai to ir iespējams sadalīt ar vertikālu vai horizontālu nogriezni divās vienādās daļās. Ja tas ir iespējams, tad jāatrod šis nogrieznis.
+		%Given the shape of the island, determine if it can be partitioned
+    %by a horizontal or vertical segment into two congruent pieces. If
+    %it can, find one such segment.
+
+    \Input
+		
+		Ievaddatu pirmajā rindā rakstīts viens vesels skaitlis $N$, kas norāda daudzstūra virsotņu skaitu. $i$-tajā no nākamajām $N$ rindām rakstīts veselu skaitļu pāris $X_i$ un $Y_i$, kas atdalīti ar tukšumu un kas norāda $i$-tās virsotnes koordinātas.
+	%The first line of the input contains a single integer $N$, the number of
+	%vertices. The $i$th of the next $N$ lines contains a pair of integer $X_i$
+	%and $Y_i$, separated by space, which are the coordinates of the $i$th
+	%vertex.
+    %\todo{In what order are vertices given?}
+
+	\Output
+	
+		Jūsu programmai jāizvada viena rinda. Ja ir iespējams sadalīt salu divās vienādās daļās ar horizontālu vai vertikālu segmentu, kura galapunkti ir $(x_1, y_1)$ un $(x_2, y_2)$, tad izvadien 4 veselus skaitļus $x_1$, $y_1$, $x_2$ un $y_2$, kas atdalīti ar tukšuma simbolu. Jābūt spēkā vai nu $x_1 = x_2$ vai arī $y_1 = y_2$.
+	%Your program should output a single line. If it is possible to divide the
+	%island into congruent parts with a horizontal or vertical segment, which
+	%endpoints are $(x_1, y_1)$ and $(x_2, y_2)$, print 4 integers $x_1$,
+	%$y_1$, $x_2$ and $y_2$, separated by spaces.
+	%Either $x_1 = y_1$ or $y_1 = y_2$ must hold.
+
+	%If a suitable division cannot be found, output a single word
+	%``\constant{Impossible}'' (without quotes).
+	Ja nav iespējams sadalīt izvadiet	``\constant{Impossible}'' (bez pēdiņām).
+
+    \Examples
+	\example
+	{
+		10
+		0 0
+		1 0
+		1 1
+		3 1
+		3 5
+		2 5
+		2 3
+		1 3
+		1 2
+		0 2
+	}
+	{
+		1 2 3 2
+	}
+	{
+		%This is not the only correct choices of parameters.
+		Šis nav vienīgais korektais risinājums.
+	}
+
+	\example
+	{
+		6
+		0 0
+		1 0
+		1 1
+		2 1
+		2 2
+		0 2
+	}
+	{
+		Impossible
+	}
+
+    \Scoring
+
+    \begin{description}
+        \item[Apakšuzdevums 1 (? points).] $4 \le N \le 200$
+        \item[Apakšuzdevums 2 (? points).] $4 \le N \le 5000$
+        \item[Apakšuzdevums 3 (? points).] $4 \le N \le 100\ 000$
+    \end{description}
+
+    \Constraints
+
+    \begin{description}
+        \item[Laika ierobežojums:] ? s.
+        \item[Atmiņas ierobežojums:] ? MB.
+    \end{description}
+
+\end{document}
