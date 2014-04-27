@@ -25,11 +25,11 @@
  
     On a rectangular map Byteotia is shaped as a polygon of $N$ vertices.  Every
     side of the polygon is parallel to a side of the map, and every two
-    consecutive sides are perpendicular to each other. No segment of the polygon
-    crosses or touches any other segment, except for the consecutive segments
-    where sides meet.
+    consecutive sides are perpendicular to each other. No side of the polygon
+    crosses or touches any other side, except for the common endpoints of
+    consecutive sides.
     
-    Biteon and Byteon want to divide the polygon into two congruent figures,
+    Biteon and Byteon want to divide the polygon into two congruent polygons,
     using one line segment contained in the polygon and parallel to a side of
     the map.  (Two figures are congruent if one can be transformed into the
     other using a combination of reflections, rotations and translations.)
@@ -53,13 +53,13 @@
     The vertices are given in order, i.e. line segments $(X_1,Y_1) - (X_2,Y_2)$,
     $(X_2,Y_2) - (X_3,Y_3)$, \ldots, $(X_{N-1},Y_{N-1}) - (X_N,Y_N)$ and
     $(X_N,Y_N) - (X_1,Y_1)$ are all sides of the polygon.
-    Furthermore, any two consecutive line segments in this list are
+    Furthermore, any two consecutive line segments are
     perpendicular to each other.
 
 	\Output
 	Your program should output a single line. If it is possible to divide the
-	island into congruent parts with a horizontal or vertical segment, which
-	endpoints are $(x_1, y_1)$ and $(x_2, y_2)$, print 4 integers $x_1$,
+	island into congruent parts with a horizontal or vertical segment with
+	endpoints $(x_1, y_1)$ and $(x_2, y_2)$, print 4 integers $x_1$,
 	$y_1$, $x_2$ and $y_2$, separated by spaces.
 	Either $x_1 = x_2$ or $y_1 = y_2$ must hold.
     The segment should be contained within the polygon and only its endpoints
@@ -89,12 +89,12 @@
 		1 2 3 2
 	}
 	{
-        Note that there is more than one correct answer in this example.
+        Note that {\tt 3 2 1 2} is also a valid solution.
 
         \begin{center}
             \begin{tikzpicture}
             \draw[help lines] (0,0) grid (3,5);
-            \draw[thick] (0,0) -- (1,0) -- (1,1) -- (3,1) -- (3,5) --
+            \draw[ultra thick] (0,0) -- (1,0) -- (1,1) -- (3,1) -- (3,5) --
                          (2,5) -- (2,3) -- (1,3) -- (1,2) -- (0,2) -- (0,0);
             \draw[ultra thick,dotted] (1,2) -- (3,2);
             \end{tikzpicture}
@@ -120,7 +120,7 @@
         \begin{center}
             \begin{tikzpicture}
             \draw[help lines] (0,0) grid (2,2);
-            \draw[thick] (0,0) -- (1,0) -- (1,1) --
+            \draw[ultra thick] (0,0) -- (1,0) -- (1,1) --
                          (2,1) -- (2,2) -- (0,2) -- (0,0);
             \end{tikzpicture}
         \end{center}
