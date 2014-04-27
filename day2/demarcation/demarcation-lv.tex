@@ -8,7 +8,7 @@
 \renewcommand{\DayNum}{2}
 \renewcommand{\TaskCode}{demarcation}
 \renewcommand{\TaskName}{Sadalīšana}
-\renewcommand{\TaskVersion}{1.1}
+\renewcommand{\TaskVersion}{1.2}
 
 \newcommand{\constant}[1]{{\tt #1}}
 
@@ -18,7 +18,7 @@
 		\includegraphics[width=3cm]{\TaskCode.jpeg}
 	\end{wrapfigure}
 
-		Ilgu laiku Baitopijas salā valdīja godīgs karalis Baitezars, bet pēc viņa pēkšņās nāves viņa divi dēli Baitons un Bitons nevarēja vienoties kurš no tiem mantos troni. Viņi izlēma sadalīt salu divās provincēs un valdīt neatkarīgi.
+		Ilgu laiku Baitopijas salā valdīja taisnīgais karalis Baitezars, bet pēc viņa pēkšņās nāves viņa divi dēli Baitons un Bitons nevarēja vienoties kurš no tiem mantos troni. Viņi izlēma sadalīt salu divās provincēs un valdīt neatkarīgi.
     %For a long time the island of Bytopia was ruled by the fair king
     %Byteasar. But after the sudden death
     %of the king, his two sons -- twins Biteon and Byteon -- could
@@ -26,7 +26,7 @@
     %Therefore they decided to divide the island into two provinces to
     %rule them independently.  
  
-		Uz tasnstūrveida kartes uzzīmēta Baitopijas kontūra ir daudzstūris ar $N$ virsotnēm. Katra daudzstūra mala ir paralēla kartes malai un katras divas secīgas malas ir perpendikulāras viena otrai. %Katrai daustūra malai vienīgie kopīgie punkti ir ar blakus malām.
+		Uz tasnstūrveida kartes uzzīmētā Baitopijas kontūra ir daudzstūris ar $N$ virsotnēm. Katra daudzstūra mala ir paralēla kartes malai un katras divas secīgas malas ir perpendikulāras viena otrai. %Katrai daustūra malai vienīgie kopīgie punkti ir ar blakus malām.
 Katra daudzstūra mala nekrusto un nepieskaras nevienai citai malai izņemot iepriekšējo un nākamo malu.
 
 Bitons and Baitons grib sadalīt daudzstūri divos vienādos daudzstūros ar vienu taisnes nogriezni, kas paralēls kartes malai (Divi daudztūri tiek uzskatīti par vienādiem, ja vienu rotējot, spoguļojot un pārbīdot var pārveidot par otru). Daudzstūra virsotņu un sadalošā nogriežņa virsotņu koordinātas ir veseli skaitļi. 
@@ -46,7 +46,7 @@ Bitons and Baitons grib sadalīt daudzstūri divos vienādos daudzstūros ar vie
 
     \Task
 		
-		Dotai salas kontūrai noteikt vai to ir iespējams sadalīt ar vertikālu vai horizontālu nogriezni divās vienādās daļās. Ja tas ir iespējams, tad jāatrod šis nogrieznis.
+		Dotai salas kontūrai noteikt vai to ir iespējams sadalīt ar vertikālu vai horizontālu nogriezni divos vienādos daudzstūros. Ja tas ir iespējams, tad jāatrod šis nogrieznis.
 		%Given the shape of the island, determine if it can be partitioned
     %by a horizontal or vertical segment into two congruent pieces. If
     %it can, find one such segment.
@@ -65,7 +65,7 @@ Bitons and Baitons grib sadalīt daudzstūri divos vienādos daudzstūros ar vie
 
 	\Output
 	
-		Jūsu programmai jāizvada viena rinda. Ja ir iespējams sadalīt salu divās vienādās daļās ar horizontālu vai vertikālu nogriezni, kura galapunkti ir $(x_1, y_1)$ un $(x_2, y_2)$, tad izvadien 4 veselus skaitļus $x_1$, $y_1$, $x_2$ un $y_2$, kas atdalīti ar tukšuma simbolu. Jābūt spēkā vai nu $x_1 = x_2$ vai arī $y_1 = y_2$. Sadalošajam nogrieznim jāatrodas daudzstūra iekšpusē un tikai tā galapunkti pieskaras daudzstūra malām.
+		Jūsu programmai jāizvada viena rinda. Ja ir iespējams sadalīt salu divās vienādās daļās ar horizontālu vai vertikālu nogriezni, kura galapunkti ir $(x_1, y_1)$ un $(x_2, y_2)$, tad izvadiet 4 veselus skaitļus $x_1$, $y_1$, $x_2$ un $y_2$, kas atdalīti ar tukšuma simbolu. Jābūt spēkā vai nu $x_1 = x_2$ vai arī $y_1 = y_2$. Sadalošajam nogrieznim jāatrodas daudzstūra iekšpusē un tikai tā galapunkti pieskaras daudzstūra malām.
 	%Your program should output a single line. If it is possible to divide the
 	%island into congruent parts with a horizontal or vertical segment, which
 	%endpoints are $(x_1, y_1)$ and $(x_2, y_2)$, print 4 integers $x_1$,
@@ -123,7 +123,8 @@ Bitons and Baitons grib sadalīt daudzstūri divos vienādos daudzstūros ar vie
 		NO
 	}
     {
-        There is no way to divide the island in this case.
+        Šajā gadījumā nav iespējams sadalīt divās vienādās daļās.
+%There is no way to divide the island in this case.
         \begin{center}
             \begin{tikzpicture}
             \draw[help lines] (0,0) grid (2,2);
@@ -143,7 +144,7 @@ Bitons and Baitons grib sadalīt daudzstūri divos vienādos daudzstūros ar vie
         %exactly two parts.
 
         \item[Apakšuzdevums 2 (15 points).] $4 \le N \le 200$
-        \item[Apakšuzdevums 3 (23 points).] $4 \le N \le 4\ 000$
+        \item[Apakšuzdevums 3 (23 points).] $4 \le N \le 2\ 000$
         \item[Apakšuzdevums 4 (50 points).] $4 \le N \le 100\ 000$
     \end{description}
 
