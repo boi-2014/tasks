@@ -1,0 +1,111 @@
+\documentclass{boi2014-et}
+
+\usepackage{enumitem}
+
+\renewcommand{\DayNum}{2}
+\renewcommand{\TaskCode}{portals}
+\renewcommand{\TaskName}{Portaalid}
+
+\newcommand{\constant}[1]{{\tt #1}}
+
+\begin{document}
+
+    \begin{wrapfigure}[4]{r}{4cm}
+        \vspace{-24pt}
+        \includegraphics[width=4cm]{\TaskCode.jpeg}
+    \end{wrapfigure}
+
+    Labürinti on peidetud kook, mida sa tahad ära süüa.
+    Sul on labürindi kaart, mis on ruudustik $R$ rea ja $C$ veeruga.
+    Ruudustiku iga element sisaldab üht järgmistest märkidest:
+    \begin{description}[itemindent=1pt]
+        \item[\constant{\#}] (ruut) tähistab seina,
+        \item[\constant{.}] (punkt) tähistab tühja ruutu,
+        \item[\constant{S}] (suur s) tähistab sinu asukohta,
+        \item[\constant{C}] (suur c) tähistab kooki.
+    \end{description}
+
+    Sa võid kõndida ainult mööda tühje ruute ning liikuda ühelt ruudult teisele,
+    kui neil on ühine külg. Lisaks on kaardil kujutatud ristkülikukujuline ala
+    väljastpoolt ümbritsetud samasuguse seinaga.
+
+    Et kiiremini koogini jõuda, on sul Aperture Science\texttrademark{}
+    portaaliheitepüss, mis töötab järgmiselt:
+    Igal hetkel saab sellega tulistada kas
+    \emph{üles}, \emph{vasakule}, \emph{alla} või \emph{paremale}.
+    Kui portaal mingis suunas tulistatakse, lendab see selles suunas, kuni tabab seina.
+    Kui see juhtub, tekib seina sinupoolsele küljele portaal.
+
+    Korraga saab eksisteerida kuni kaks portaali. Kui kaks portaali on juba olemas,
+    saab ühe neist (sina otsustad, kumma) eemaldada, kasutades portaalipüssi uuesti.
+    Tulistades portaalipüssist seina pihta, millel juba on portaal, asendatakse see portaal
+    (iga seina samal küljel saab korraga olla ainult üks portaal).
+    Seina erinevatel külgedel võivad portaalid korraga olla.
+
+    Kui kaardile on kaks portaali paigutatud, saab neid kasutada enda teleporteerimiseks.
+    Seistes ühe portaali kõrval, saab sellesse sisse kõndida ning väljuda ruudul,
+    mis on teise portaali kõrval. See võtab sama palju aega kui kõndimine ühelt naaberruudult teisele.
+
+    Võib eeldada, et portaalide tulistamine ei võta aega ning ühelt ruudult teisele liikumine
+    (või läbi portaalide teleporteerimine) võtab ühe ühiku aega.
+
+    \Task
+
+    Labürindi kaardi, oma esialgse asukoha ning koogi asukoha põhjal leida
+    minimaalne koogini jõudmiseks vajalik aeg.
+
+    \Input
+
+    Sisendi esimesel real on kaks täisarvu: kaardi ridade arv
+    $R$ ning veergude arvu $C$. Järgmised $R$ rida kirjeldavad
+    kaarti. Igal real on $C$ märki: \constant{\#},
+    \constant{.}, \constant{S} või \constant{C} (kirjeldatud eespool).
+
+    Märgid \constant{S} ja \constant{C} esinevad kaardil kumbki täpselt ühe korra.
+
+    \Output
+
+    Väljund peab koosnema ühest täisarvust --- minimaalne aeg,
+    mis on vajalik algpositsioonist koogini jõudmiseks.
+
+    Võib eeldada, et algpositsioonist saab alati koogini jõuda.
+
+    \Example
+
+    \example
+    {
+        4 4\newline
+        .\#.C\newline
+        .\#.\#\newline
+        ....\newline
+        S...
+    }
+    {
+        4
+    }
+    {
+        Üks võimalik käikude järjekord on: 1) liigu paremale, 2) liigu paremale,
+        tulista üks portaal üles ja teine alla, 3) liigu läbi
+        alumise portaali (jõuad asukohta $rida = 0,
+        veerg = 2$), 4) liigu paremale ja jõuad koogini.
+    }
+
+    \Scoring
+
+    \begin{description}[leftmargin=0pt]
+        \item[Alamülesanne 1 (? points):] $0 \le R \le 10, 0 \le C \le 10$.
+        \item[Alamülesanne 2 (? points):] $0 \le R \le 50, 0 \le C \le 50$.
+        \item[Alamülesanne 3 (? points):] $0 \le R \le 200, 0 \le C \le 200$.
+            Iga ruudu kõrval on vähemalt üks sein.
+        \item[Alamülesanne 4 (? points):] $0 \le R \le 200, 0 \le C \le 200$.
+        \item[Alamülesanne 5 (? points):] $0 \le R \le 1000, 0 \le C \le 1000$.
+    \end{description}
+
+    \Constraints
+
+    \begin{description}
+        \item[Ajapiirang:] ? s.
+        \item[Mälupiirang:] ? MB.
+    \end{description}
+
+\end{document}
