@@ -26,5 +26,5 @@
 \renewcommand{\TitleExamples}{Beispiele}
 \renewcommand{\TitleScoring}{Bewertung}
 \renewcommand{\TitleExplanation}{Anmerkungen}
-\renewcommand{\TitleConstraints}{Constraints}
+\renewcommand{\TitleConstraints}{Beschränkungen}
 \renewcommand{\TitleExperimentation}{Experimentieren}

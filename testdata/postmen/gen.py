@@ -158,7 +158,8 @@ def print_tests(T):
 			filename = template % (K, ("","p")[K==1], ss)
 			file = open(filename, "w")
 			file.write(str(test[0]) + " " + str(test[1]) + "\n")
-			random.shuffle(test[2])
+			if K > 1:
+				random.shuffle(test[2])
 			for edge in test[2]:
 				file.write(str(edge[0]) + " " + str(edge[1]) + "\n")
 			file.close()
@@ -179,8 +180,8 @@ MAX_M = [100000, 110000, 500000]
 print "GENERATING SUBTASK 1: (%6d, %6d)" % (MAX_N[0], MAX_M[0])
 
 #public test case
-T[0].append((10, 15, [[1,2],[1,3],[4,2],[5,2],[3,5],[6,2],[7,5],[3,8],[5,8],[3,7],
-					  [6,7],[8,7],[4,9],[9,10],[10,8]]))
+T[0].append((10, 15, [[1,3],[5,1],[2,3],[9,2],[3,4],[6,3],[4,5],[7,4],[4,8],[5,7],
+					  [8,5],[6,7],[7,8],[8,10],[10,9]]))
 #triangle
 T[0].append((3, 3, [[1,2],[2,3],[3,1]]))
 

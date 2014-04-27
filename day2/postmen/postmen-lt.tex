@@ -4,30 +4,29 @@
 
 \renewcommand{\DayNum}{2}
 \renewcommand{\TaskCode}{postmen}
-\renewcommand{\TaskName}{Senjorai paštininkai}
+\renewcommand{\TaskName}{Paštininkai senjorai}
 
 \begin{document}
     \begin{wrapfigure}[8]{r}{4cm}
         \vspace{-18pt}
-		\includegraphics[width=4cm]{\TaskCode.jpeg}
-	\end{wrapfigure}
+        \includegraphics[width=4cm]{\TaskCode.jpeg}
+    \end{wrapfigure}
     Dabar 2036-ieji metai ir Europa yra perpildyta garbaus amžiaus piliečiais.
-    Tam, kad jie išsaugotų sveikatą, Europos daugumų ministerija (garbaus amžiaus
+    Tam, kad jie išliktų sveiki, Europos daugumų ministerija (garbaus amžiaus
     piliečiai \emph{yra} dauguma!) siūlo įdarbinti juos popierinių laiškų,
-    kurie vis dar yra siunčiama (dažniausiai būtent garbaus amžiaus piliečiams),
+    kurie vis dar yra siunčiami (dažniausiai būtent garbaus amžiaus piliečiams),
     išnešiotojais. Šis pasiūlymas bus realizuotas visoje Europoje.
 
-    Ministerija sukūrė ``garbaus amžiaus piliečių sistemą'' padalindama visą
-    Europą į pašto rajonus. Pašto rajoną -- tai gatvių tinklas, sudarytą iš
+    Ministerija sukūrė „garbaus amžiaus paštininkų sistemą“ padalindama visą
+    Europą į pašto rajonus. Pašto rajonas -- tai gatvių tinklas, sudarytas iš
     gatvių ir sankryžų. Kiekviena gatve šiame tinkle galima eiti abejomis
     kryptimis. Kiekviename rajone paštininkais galima pasamdyti neribotą skaičių
     garbaus amžiaus piliečių. Kiekvieną rytą, kiekvienas paštininkas gauna krepšį
     su laiškais, kuriuos reikia pristatyti keliaujant maršrutu, dengiančiu dalį
     gatvių tinklo. Kiekvienas maršrutas turi būti tinkamas garbiam amžiui, t.~y.
     jis turi tenkinti šias sąlygas:
-	%\todo{graph theory terminology here?}
     \begin{itemize}
-        \item Prasidėti ir baigtis toje pačioje sankryžoje. (Hey, it’s a tour!)
+        \item Prasidėti ir baigtis toje pačioje sankryžoje.
         \item Nekirsti jokios sankryžos daugiau nei vieną kartą. (Nepainiokite
             garbaus amžiaus piliečių.)
         \item Neturėti bendrų gatvių su kitais maršrutais, t.~y. kiekvieną gatvę
@@ -46,39 +45,30 @@
     \Input
     Įvestis apibūdina gatvių tinklą.
     
-    Pirmoje eilutėje yra du sveikieji skaičiai $N$ ir $M$. $N$ -- sankryžų gatvių
-    tinkle skaičius, $M$ -- gatvių tinkle skaičius. Sankryžos numeruojamos nuo
-    $1$ iki $N$.
+    Pirmoje eilutėje yra du sveikieji skaičiai $N$ ir $M$ -- atitinkamai
+    sankryžų skaičius ir gatvių skaičius. Sankryžos numeruojamos nuo $1$ iki $N$.
 
     Toliau kiekvienoje iš $M$ eilučių yra du sveikieji skaičiai $u$ ir $v$
-    ($1 \le u, v \le N, u \neq v$), reiškiantys, kad šios gatvių sankryžos yra
-    sujungtos gatve.
+    ($1 \le u, v \le N, u \neq v$), reiškiantys, kad sankryžas Nr. $u$ ir Nr.
+    $v$ jungia gatvė.
 
     Kiekvienai įvesčiai galioja:
     \begin{enumerate}
-        \item Bet kurios dvi sankryžos gali būti sujungtos ne daugiau nei viena
-            gatve.
+        \item Kiekvieną sankryžų porą jungia ne daugiau nei viena gatvė.
         \item Iš bet kurios sankryžos galima pasiekti bet kurią kitą keliaujant
-            viena arba daugiau gatvių).
+            viena arba daugiau gatvių.
         \item Sprendinys visada egzistuoja, t.~y. visada galima rasti garbiam
-            amžiui tinkamų maršrutų aibę, kuri pilnai padengtų gatvių tinklą.
+            amžiui tinkamų maršrutų aibę, kuri pilnai padengia gatvių tinklą.
     \end{enumerate}
 
     \Output
     
-    Kiekviena eilutė turėtų atitikti vieną garbiam amžiui tinkamą maršrutą ir
-    turėtų išvardinti maršrutą sudarančių sankryžas.
-    %\todo {fix the wording}
-    Pirmoje eilutėje jūsų programa turi išvesti vieną sveikąjį skaičių $T$ --
-    sudarytų maršrutų skaičių.
+    Kiekviena eilutė turi atitikti vieną garbiam amžiui tinkamą maršrutą --
+    joje turi būti išvardytos maršrutą sudarančios sankryžos ta tvarka, kuria
+    jas aplanko paštininkas. Pradinę ir galinę sankryžą išveskite pirmą (ir ją
+    išveskite tik kartą).
 
-    Kitose $T$ eilučių įvardinkite $T$ maršrutų tokiu būdu: pirmasis skaičius
-    eilutėje $C$ reikš, kiek skirtingų sankryžų paštininkas turi aplankyti šiame
-    maršrute. Toliau išvardinti $C$ sveikųjų skaičių yra šių sankryžų numeriai.
-    Sankryžos turi būti surūšiuotos taip, kad pirmasis išvestas numeris būtų
-    maršruto pradžia ir pabaiga (ir jis būtų išvestas tik vieną kartą).
-
-    Jeigu egzistuoja keletas sprendinių, jūsų programa gali išvesti bet kurų
+    Jeigu egzistuoja keletas sprendinių, jūsų programa gali išvesti bet kurį
     iš jų.
 
     \Example
@@ -108,23 +98,23 @@
         1 5 7 6 3
     }
     {
-        Pateiktas paveiksliukas iliustruoja gatvių tinklą ir tris garbiam amžiui
+        Pateiktas paveikslėlis iliustruoja gatvių tinklą ir tris garbiam amžiui
         tinkamus maršrutus, kurie pilnai jį padengia.
 
         \includegraphics[width=7cm]{senior-example}
 
-        Atkreipkite dėmesį, kad šiam pavyzdžiui egzistuoja keletas sprendimų,
-        tame tarpe ir toks, kurį sudaro tik du maršrutai.
+        Atkreipkite dėmesį, kad šiam pavyzdžiui egzistuoja keletas sprendinių,
+        ir kai kuriuos iš jų sudaro tik du maršrutai.
     }
 
     \Scoring
 
     \begin{description}
-        \item[Dalinė užduotis nr. 1 (? taškų):]
+        \item[Dalinė užduotis Nr. 1 (38 taškai):]
             $3 \le N \le 2\ 000$, $3 \le M \le 100\ 000$.
-        \item[Dalinė užduotis nr. 2 (? taškų):]
+        \item[Dalinė užduotis Nr. 2 (17 taškų):]
             $3 \le N \le 100\ 000$, $3 \le M \le 100\ 000$.
-        \item[Dalinė užduotis nr. 3 (? taškų):]
+        \item[Dalinė užduotis Nr. 3 (45 taškai):]
             $3 \le N \le 500\ 000$, $3 \le M \le 500\ 000$.
     \end{description}
 
