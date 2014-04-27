@@ -36,16 +36,19 @@
     possible.
 
     \Task
-
     Given the shape of the island, determine if it can be partitioned
     by a horizontal or vertical segment into two congruent pieces. If
     it can, find one such segment.
-
+    
     \Input
-	The first line of the input contains a single integer $N$, the number of
-	vertices. The $i$th of the next $N$ lines contains a pair of integers $X_i$
-	and $Y_i$ which are the coordinates of the $i$th vertex.
-    %\todo{In what order are vertices given?}
+    The first line of the input contains a single integer $N$, the number of
+    vertices. The $i$th of the next $N$ lines contains a pair of integers $X_i$
+    and $Y_i$ which are the coordinates of the $i$th vertex.
+    The vertices are given in order, i.e. line segments $(X_1,Y_1) - (X_2,Y_2)$,
+    $(X_2,Y_2) - (X_3,Y_3)$, \ldots, $(X_{N-1},Y_{N-1}) - (X_N,Y_N)$ and
+    $(X_N,Y_N) - (X_1,Y_1)$ are all sides of the polygon.
+    Furthermore, no two consequtive line segments in this list are both vertical
+    or both horizontal.
 
 	\Output
 	Your program should output a single line. If it is possible to divide the
@@ -79,35 +82,59 @@
 	}
 	{
         Note that there is more than one correct answer in this example.
-	}
 
-	\example
-	{
-		6 \newline
-		0 0 \newline
-		1 0 \newline
-		1 1 \newline
-		2 1 \newline
-		2 2 \newline
-		0 2
-	}
-	{
-		NO
-	}
+        \begin{center}
+            \begin{tikzpicture}
+            \draw[help lines] (0,0) grid (3,5);
+            \draw[thick] (0,0) -- (1,0) -- (1,1) -- (3,1) -- (3,5) --
+                         (2,5) -- (2,3) -- (1,3) -- (1,2) -- (0,2) -- (0,0);
+            \draw[ultra thick,dotted] (1,2) -- (3,2);
+            \end{tikzpicture}
+        \end{center}
+    }
+
+    \example
+    {
+        6 \newline
+        0 0 \newline
+        1 0 \newline
+        1 1 \newline
+        2 1 \newline
+        2 2 \newline
+        0 2
+    }
+    {
+        NO
+    }
+    {
+        In this case there is no way to divide the island into two congruent
+        parts.
+        \begin{center}
+            \begin{tikzpicture}
+            \draw[help lines] (0,0) grid (2,2);
+            \draw[thick] (0,0) -- (1,0) -- (1,1) --
+                         (2,1) -- (2,2) -- (0,2) -- (0,0);
+            \end{tikzpicture}
+        \end{center}
+    }
 
     \Scoring
 
     \begin{description}
-        \item[Subtask 1 (? points).] $4 \le N \le 200$
-        \item[Subtask 2 (? points).] $4 \le N \le 4\ 000$
-        \item[Subtask 3 (? points).] $4 \le N \le 100\ 000$
+        \item[Subtask 1 (? points).] $4 \le N \le 100\ 000$.
+        Any horizontal or vertical line that divides the polygon divides it into
+        exactly two parts.
+        
+        \item[Subtask 2 (? points).] $4 \le N \le 200$.
+        \item[Subtask 3 (? points).] $4 \le N \le 4\ 000$.
+        \item[Subtask 4 (? points).] $4 \le N \le 100\ 000$.
     \end{description}
 
     \Constraints
 
     \begin{description}
-        \item[Time limit:] ? s.
-        \item[Memory limit:] ? MB.
+        \item[Time limit:] 0.5 s.
+        \item[Memory limit:] 256 MB.
     \end{description}
 
 \end{document}
