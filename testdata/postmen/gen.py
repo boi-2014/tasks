@@ -5,7 +5,7 @@ def full_graph (N):
 	for i in range (1, N+1):
 		for j in range (i + 1, N + 1):
 			adj.append((i, j))
-	print "Full graph N = %d generated" % N
+	print "full_graph N = %6d M = %6d" % (N, N*(N-1)/2)
 	return (N, (N*(N-1))/2, adj)
 
 
@@ -17,7 +17,7 @@ def paths_len3 (N):
 		adj.append((1,i))
 		adj.append((1,i + 1))
 		adj.append((i,i + 1))
-	print "Graph of cycles=3, N = %d" % N
+	print "paths_len3 N = %6d M = %6d" % (N, 3*(N-1)/2)
 	return (N, 3*(N-1)/2, adj)
 
 def ring (N):
@@ -25,7 +25,7 @@ def ring (N):
 	for i in range (1, N):
 		adj.append((i, i + 1))
 	adj.append((1, N))
-	print "Ring of N = %d" % N
+	print "ring_graph N = %6d M = %6d" % (N, N)
 	return (N, N, adj)
 
 def ring_of_rings(N_rings):
@@ -39,7 +39,7 @@ def ring_of_rings(N_rings):
 			adj.append((i+3, i+4))
 	adj.append((3*N_rings, 1))
 	adj.append((3*N_rings-1, 1))
-	print "Ring of rings N_rings = %d" % N_rings
+	print "ring_rings N = %6d M = %6d" % (N, len(adj))
 	return (N, len(adj), adj)
 
 def getU (v, p):
@@ -96,7 +96,7 @@ def rand_small_graph (N, M):
 			adj.append((b[0][i], b[0][(i+1)%len(b[0])]))
 		b = find_cycle(N, k)
 	
-	print "Rand graph small N = %d, M = %d" % (N, len(adj))
+	print "rand_graph N = %6d M = %6d" % (N, len(adj))
 	return (N, len(adj), adj)	
 
 def dense_small_graph (N, M):
@@ -108,7 +108,7 @@ def dense_small_graph (N, M):
 		for j in range (i + 1, i + K + 1):
 			t = (j, j-N)[j>N]
 			adj.append([i, t])
-	print "Dense small graph N = %d" % N
+	print "dens_graph N = %6d M = %6d" % (N, len(adj))
 	return (N, len(adj), adj)
 
 def tree_graph (N):
@@ -123,6 +123,7 @@ def tree_graph (N):
 		V += 1
 		ret.append((e[0], V))
 		ret.append((e[1], V))
+	print "tree_graph N = %6d M = %6d" % (2*N-1, len(ret))
 	return (2*N-1, len(ret), ret)
 
 def click_graph (N1):
@@ -136,6 +137,7 @@ def click_graph (N1):
 		ret.append( (i,i+N1) )
 		ret.append( (i,i+2*N1) )
 		ret.append( (i+N1, i+2*N1) )
+	print "clic_graph N = %6d M = %6d" % (3*N1, len(ret))
 	return (3*N1, len(ret), ret)
 
 
@@ -171,10 +173,10 @@ exit()
 
 T = [[],[],[]]
 
-MAX_N = [2000, 100000, 500000]
-MAX_M = [100000, 100000, 500000]
+MAX_N = [2000, 100000, 100000]
+MAX_M = [100000, 110000, 500000]
 
-print "GENERATING SUBTASK 1:"
+print "GENERATING SUBTASK 1: (%6d, %6d)" % (MAX_N[0], MAX_M[0])
 
 #public test case
 T[0].append((10, 15, [[1,2],[1,3],[4,2],[5,2],[3,5],[6,2],[7,5],[3,8],[5,8],[3,7],
@@ -192,7 +194,8 @@ T[0].append(paths_len3(MAX_N[0]))
 
 T[0].append(rand_small_graph(50, 10000))
 T[0].append(rand_small_graph(100, 10000))
-T[0].append(rand_small_graph(MAX_N[0], 15000))
+#T[0].append(rand_small_graph(MAX_N[0], 15000))
+T[0].append(rand_small_graph(10, 20))
 T[0].append(ring(MAX_N[0]))
 T[0].append(full_graph(447))
 T[0].append(tree_graph(MAX_N[0]/2-1))
@@ -202,22 +205,22 @@ T[0].append(click_graph( MAX_N[0]/3 ))
 T[0].append(dense_small_graph(MAX_N[0], MAX_M[0]))
 
 
-print "\nGENERATING SUBTASK 2:"
+print "\nGENERATING SUBTASK 2: (%6d, %6d)" % (MAX_N[1], MAX_M[1])
 
-T[1].append(ring(MAX_N[1]))
-T[1].append(ring_of_rings(MAX_N[1]/4))
-T[1].append(paths_len3(2*MAX_M[1]/3+1))
+T[1].append(ring( min(MAX_N[1], MAX_M[1]) ))
+T[1].append(ring_of_rings( min(MAX_N[1]/4, MAX_M[1]/4) ))
+T[1].append(paths_len3( min(MAX_N[1], 2*MAX_M[1]/3+1) ))
 T[1].append(dense_small_graph(MAX_N[1], MAX_M[1]))
-T[1].append(tree_graph( MAX_N[1]/3-1 ))
+T[1].append(tree_graph( min( (MAX_M[1]+3)/3, MAX_N[1]/2-1  ) ))
 T[1].append(click_graph( min(MAX_M[1]/4, MAX_N[1]) ))
 
-print "\nGENERATING SUBTASK 3:"
+print "\nGENERATING SUBTASK 3: (%6d, %6d)" % (MAX_N[2], MAX_M[2])
 
-T[2].append(ring(MAX_N[2]))
-T[2].append(ring_of_rings(MAX_N[2]/4))
-T[2].append(paths_len3(2*MAX_M[2]/3+1))
+T[2].append(ring( min(MAX_N[2], MAX_M[2]) ))
+T[2].append(ring_of_rings( min(MAX_N[2]/4, MAX_M[2]/4) ))
+T[2].append(paths_len3( min(MAX_N[2], 2*MAX_M[2]/3+1) ))
 T[2].append(dense_small_graph(MAX_N[2], MAX_M[2]))
-T[2].append(tree_graph( MAX_N[2]/2-1 ))
+T[2].append(tree_graph( min( (MAX_M[2]+3)/3, MAX_N[2]/2-1) ))
 T[2].append(click_graph( min(MAX_M[2]/4, MAX_N[2]) ))
 
 print_tests(T)

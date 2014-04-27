@@ -36,7 +36,7 @@ def check_file(fn, subtask):
     elif 1 <= n <= 5 * 10**5 and 1 <= m <= 5 * 10**5:
         actual_subtask = 3
     else:
-        actual_subtask = None
+        actual_subtask = -999
     if subtask != actual_subtask:
         print 'actual subtask: %d' % actual_subtask,
     edges = [map(int, f.readline().split()) for i in xrange(m)]
