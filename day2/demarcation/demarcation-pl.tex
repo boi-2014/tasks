@@ -1,0 +1,106 @@
+\documentclass{boi2014-pl}
+
+\usepackage{enumitem}
+\usepackage{todonotes}
+\usepackage{wrapfig}
+
+\renewcommand{\DayNum}{2}
+\renewcommand{\TaskCode}{demarcation}
+\renewcommand{\TaskName}{Demarkacja}
+
+\newcommand{\constant}[1]{{\tt #1}}
+
+\begin{document}
+    \begin{wrapfigure}{r}{3cm}
+        \vspace{-24pt}
+		\includegraphics[width=3cm]{\TaskCode.jpeg}
+	\end{wrapfigure}
+
+    Przez długie lata Bajtocja była wyspą, na której w pokoju żyli poddani króla Bajtazara I.
+  Jednak po jego nagłej śmierci dwaj królewscy synowie -- bliźniacy Bitoni i Bajtoni -- nie
+  mogli dojść do porozumienia, który z~nich powinien objąć tron. Postanowili więc podzielić
+  wyspę na dwie prowincje, którymi będą rządzić niezależnie.
+
+  Na prostokątnej mapie Bajtocja ma kształt wielokąta o $N$ wierzchołkach, przy czym każdy bok jest równoległy
+  do jednego z~boków mapy, a każde dwa kolejne boki są do siebie prostopadłe.
+  Bitoni i Bajtoni chcą podzielić ten wielokąt na dwie figury przystające za pomocą
+  jednego odcinka równoległego do któregoś boku mapy i zawartego w wielokącie.
+  (Figury są przystające jeśli jedna z nich może być przekształcona w drugą za pomocą obrotów, przesunięć oraz symetrii.)
+  Zarówno współrzędne wierzchołków wielokąta, jak i odcinka dzielącego są całkowitoliczbowe.
+
+  Królewscy synowie poprosili Cię, abyś stwierdził, czy taki podział jest
+  w ogóle możliwy.
+
+    \Task
+
+    Mając dany kształt wyspy, odpowiedz, czy może być ona podzielona za pomocą poziomego lub pionowego
+    odcinka na dwa przystające kawałki.
+    Jeśli podział istnieje, znajdź jeden odcinek, który go powoduje.
+
+    \Input
+	W pierwszym wierszu wejścia znajduje się jedna liczba całkowita $N$ -- liczba wierzchołków.
+        $i$-ty z kolejnych $N$ wierszy zawiera pary liczb całkowitych $X_i$ oraz $Y_i$, które są współrzędnymi $i$-tego wierzchołka.
+    %\todo{In what order are vertices given?}
+
+	\Output
+        Twój program powinien wypisać pojedynczy wiersz.
+        Jeśli jest możliwy podział wyspy na przystające części za pomocą poziomego lub pionowego odcinka o
+        końcach w punktach $(x_1,y_1)$ oraz $(x_2,y_2)$, wypisz cztery liczby całkowite $x_1$, $y_1$, $x_2$, $y_2$ oddzielne spacjami.
+        Musi zachodzić $x_1 = x_2$ lub $y_1 = y_2$.
+ 
+        Jeśli podział nie jest możliwy, wypisz pojedyncze słowo \constant{NO}.
+
+    \clearpage
+
+    \Examples
+	\example
+	{
+		10 \newline
+		0 0 \newline
+		1 0 \newline
+		1 1 \newline
+		3 1 \newline
+		3 5 \newline
+		2 5 \newline
+		2 3 \newline
+		1 3 \newline
+		1 2 \newline
+		0 2
+	}
+	{
+		1 2 3 2
+	}
+	{
+        Zauważ, że w poniższym przykładzie jest więcej niż jedna poprawna odpowiedź.
+	}
+
+	\example
+	{
+		6 \newline
+		0 0 \newline
+		1 0 \newline
+		1 1 \newline
+		2 1 \newline
+		2 2 \newline
+		0 2
+	}
+	{
+		NO
+	}
+
+    \Scoring
+
+    \begin{description}
+        \item[Podzadanie 1 (? punktów).] $4 \le N \le 200$
+        \item[Podzadanie 2 (? punktów).] $4 \le N \le 4\, 000$
+        \item[Podzadanie 3 (? punktów).] $4 \le N \le 100\, 000$
+    \end{description}
+
+    \Constraints
+
+    \begin{description}
+        \item[Limit czasu:] ? s.
+        \item[Dostępna pamięć:] ? MB.
+    \end{description}
+
+\end{document}
