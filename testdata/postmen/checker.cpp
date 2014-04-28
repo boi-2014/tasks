@@ -108,7 +108,7 @@ void read_output (char * filename) {
 				if (used[tmp]) error ("Junction twice in a tour");
 				TD[PT[T_] + TC[T_]] = tmp;
 				TC[T_]++;
-				used[tmp] = false;
+				used[tmp] = true;
 			}
 			if (PT[T_] + TC[T_] > M) error ("Too many junctions in answer");
 		}
