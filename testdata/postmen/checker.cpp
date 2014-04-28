@@ -37,8 +37,6 @@ void read_input (char * filename) {
         fgets(S, 30, f);
         Parse(S, a[i], b[i]);
         //fscanf(f, "%d%d", &a[i], &b[i]);
-        if (a[i] > N || b[i] > N)
-	    fprintf(stderr, "Bad input file\n");
 	C[a[i]]++; C[b[i]]++;
     }
     P[1] = 0;
@@ -52,7 +50,6 @@ void read_input (char * filename) {
 }
 
 void error (const char s[]) {
-    fprintf(stderr, "%s\n", s);
     printf("0\n");
     exit(0);
 }
