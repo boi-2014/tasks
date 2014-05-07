@@ -11,16 +11,16 @@ looking for cycles, while there are still edges left.
 This can be implemented in O(N + M) time with a modified Depth-first traversal algorithm:
 
 We spread from initial vertex, until we find a visited vertex, which means, we found a cycle. We
-traverse back, removing edges of the cycle. 
+traverse back, removing edges of the cycle and then we continue to look for cycles. 
 
 The only question we have left to answer is the following: how do we store edges?
 
 Solution 1 (38 points):
-We store a boolean adjenceny matrix.
+We store a boolean adjecency matrix.
 Time and memory complexity: O(N^2).
 
 Solution 2 (55 points):
-We store adjecency lists and a set of pairs of integers, denoting edges as used. 
+We store adjecency lists and a set of pairs of integers, where we store removed edges. 
 Time complexity O(M log M), Memory complexity O(N + M)
 
 Solution 3 (100 points):
